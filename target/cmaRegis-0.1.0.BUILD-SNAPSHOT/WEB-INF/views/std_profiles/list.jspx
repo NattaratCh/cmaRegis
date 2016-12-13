@@ -20,6 +20,29 @@
             classIdElement.value = classIdElement2.value;
         }
     </script>
+    <form action="./std_profiles/actionChangeClass" method="POST">
+        <div>
+            <div><label for="cmaClass">Class : </label></div>
+            <select id="cmaClass" name="cmaClass" onchange="this.form.submit()">
+                <c:forEach items="${classList}" var="item">
+                    <c:choose>
+                        <c:when test="${item.id==class_id}">
+                            <option value="${item.id}" selected="true">
+                                ${item.nameTh}/${item.nameEn}
+                            </option>
+                        </c:when>
+                        <c:otherwise>
+                            <option value="${item.id}">
+                                ${item.nameTh}/${item.nameEn}
+                            </option>
+                        </c:otherwise>
+                    </c:choose>
+                </c:forEach>
+            </select>
+            <input type="hidden" name="dataState" value="${dataState}"/>
+        </div>
+    </form>
+    <br/>
     <page:list id="pl_com_cma_Student" items="${std_profiles}" z="xaUvusHhDL+iwlRNOZj5UO6aiyg=">
         <c:if test="${(message!='')}">
             <p id="message">
@@ -31,28 +54,6 @@
                 ${warning_message}
             </p>
         </c:if>
-       <form action="./std_profiles/actionChangeClass" method="POST">
-            <div>
-                <div><label for="cmaClass">Class : </label></div>
-                <select id="cmaClass" name="cmaClass" onchange="this.form.submit()">
-                    <c:forEach items="${classList}" var="item">
-                        <c:choose>
-                            <c:when test="${item.id==class_id}">
-                                <option value="${item.id}" selected="true">
-                                    ${item.nameTh}/${item.nameEn}
-                                </option>
-                            </c:when>
-                            <c:otherwise>
-                                <option value="${item.id}">
-                                    ${item.nameTh}/${item.nameEn}
-                                </option>
-                            </c:otherwise>
-                        </c:choose>
-                    </c:forEach>
-                </select>
-            </div>
-        </form>
-        <br/>
         <form:form action="./std_profiles/send" method="POST">
             <input id="cmaClass_id" name="cmaClass_id" type="hidden" value=""/>
             <table>

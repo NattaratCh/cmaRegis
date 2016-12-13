@@ -4,6 +4,8 @@ import com.cma.Batch;
 import com.cma.Student;
 import com.cma.UserRegis;
 import com.cma.UserRegisRole;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.joda.time.format.DateTimeFormat;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -45,6 +47,8 @@ public class UserloginController {
     @Qualifier("authenticationManager")
     protected AuthenticationManager authenticationManager;
 
+    private static Log log = LogFactory.getLog(UserloginController.class);
+
     public static List<GrantedAuthority> getGrantedAuthorities(List<String> roles) {
         List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
         for (String role : roles) {
@@ -78,7 +82,7 @@ public class UserloginController {
         UserRegis userRegis = findUserRegisObject();
         String user_role = (userRegis ==null)?null : userRegis.getUserRole().getRole_name();
 
-        System.out.println("login By "+ userRegis.getUsername()+" user_id "+ userRegis.getId()+" role "+user_role);
+        log.info("checkRole() | login By "+ userRegis.getUsername()+" user_id "+ userRegis.getId()+" role "+user_role);
 
         //ROLE_ADMIN
         if(user_role.equals("ROLE_ADMIN")) {
@@ -103,7 +107,7 @@ public class UserloginController {
             }
         }
         else if(user_role.equals("ROLE_USER_UNCHANGE")){
-                uiModel.addAttribute("std_profile", userRegis.getStudentProfile());
+                uiModel.addAttribute("student", userRegis.getStudentProfile());
 
                 //set new role
                 List roleList = UserRegisRole.findAllUserRegisRoles();
@@ -121,7 +125,7 @@ public class UserloginController {
         }
         else if(user_role.equals("ROLE_USER")){
                 uiModel.addAttribute("std_class", userRegis.getStudentProfile().getStudentClass());
-                uiModel.addAttribute("std_profile", userRegis.getStudentProfile());
+                uiModel.addAttribute("student", userRegis.getStudentProfile());
                 return "userlogins/index";
         }
         //ROLE_ADMIN_EXPIRED
@@ -144,7 +148,7 @@ public class UserloginController {
     public String submitChangePwd(@PathVariable("id") Long id ,Model uiModel,HttpServletRequest request){
         String newPassword = request.getParameter("newPassword");
         UserRegis userRegis = UserRegis.findUserRegis(id);
-        uiModel.addAttribute("std_profile", userRegis.getStudentProfile());
+        uiModel.addAttribute("student", userRegis.getStudentProfile());
         uiModel.addAttribute("user_id", userRegis.getId());
         if(newPassword.equals("")){
             uiModel.addAttribute("error_message","กรุณากรอกรหัสผ่าน");
@@ -205,7 +209,7 @@ public class UserloginController {
 
         UserRegis currentUserRegis = findUserRegisObject();
         if(!currentUserRegis.getUserRole().getRole_name().equals("ROLE_ADMIN"))
-            uiModel.addAttribute("std_profile", currentUserRegis.getStudentProfile());
+            uiModel.addAttribute("student", currentUserRegis.getStudentProfile());
         uiModel.addAttribute("message","รหัสผ่านของคุณถูกเปลี่ยนเรียบร้อยแล้ว.");
         return "userlogins/changePwd";
     }

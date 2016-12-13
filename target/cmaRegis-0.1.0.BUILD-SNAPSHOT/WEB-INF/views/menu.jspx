@@ -13,37 +13,37 @@
             <spring:message code="menu_student_init" var="menu_student_init"/>
             <spring:message code="menu_profile_std_profile" var="menu_profile"/>
             <menu:category id="c_mediaupload" label="${menu_student_init}" z="user-managed">
-                <menu:item id="i_mediaupload_new" messageCode="import_file_label" subCategory="menu_student_export" url="/mediauploads?buildForm&amp;state=init" z="user-managed"/>
-                <menu:item id="i_mediaupload_list" messageCode="global_menu_list" render="false" url="/mediauploads?page=1&amp;size=${empty param.size ? 10 : param.size}&amp;state=init" z="user-managed"/>
-                <menu:item id="i_mediaupload_export" messageCode="export_file_label" render="true" url="/mediauploads?exportAllProfile&amp;state=init" z="user-managed"/>
-                <menu:item id="i_mediaupload_extend_export" messageCode="extend_export_file_label" render="true" url="/mediauploads?extendExport&amp;state=init" z="user-managed"/>
-                <menu:item id="i_mediaupload_report" messageCode="report_file_label" render="true" url="/mediauploads?exportReport&amp;state=init" z="user-managed"/>
-                <menu:item id="i_std_profile_list" messageCode="menu_std_profile_list" subCategory="menu_profile_std_profile" url="/std_profiles?state=init" z="user-managed"/>
-                <menu:item id="i_std_profile_listAttach" messageCode="menu_std_profile_listAttach" url="/std_profiles/attachfileListForm?state=init" z="user-managed"/>
+                <menu:item id="i_mediaupload_new" messageCode="import_file_label" subCategory="menu_student_export" url="/mediauploads?buildForm&amp;dataState=init" z="user-managed"/>
+                <menu:item id="i_mediaupload_list" messageCode="global_menu_list" render="false" url="/mediauploads?page=1&amp;size=${empty param.size ? 10 : param.size}&amp;dataState=init" z="user-managed"/>
+                <menu:item id="i_mediaupload_export" messageCode="export_file_label" render="true" url="/mediauploads?exportAllProfile&amp;dataState=init" z="user-managed"/>
+                <menu:item id="i_mediaupload_extend_export" messageCode="extend_export_file_label" render="true" url="/mediauploads?extendExport&amp;dataState=init" z="user-managed"/>
+                <menu:item id="i_mediaupload_report" messageCode="report_file_label" render="true" url="/mediauploads?exportReport&amp;dataState=init" z="user-managed"/>
+                <menu:item id="i_std_profile_list" messageCode="menu_std_profile_list" subCategory="menu_profile_std_profile" url="/std_profiles?dataState=init" z="user-managed"/>
+                <menu:item id="i_std_profile_listAttach" messageCode="menu_std_profile_listAttach" url="/std_profiles/attachfileListForm?dataState=init" z="user-managed"/>
             </menu:category>
             <!--student revised-->
             <spring:message code="menu_student_revised" var="menu_student_revised"/>
             <spring:message code="menu_profile_std_profile" var="menu_profile"/>
             <menu:category id="c_mediaupload" label="${menu_student_revised}" z="user-managed">
-                <menu:item id="i_mediaupload_new" messageCode="import_file_label" subCategory="menu_student_export" url="/mediauploads?buildForm&amp;state=revised" z="user-managed"/>
-                <menu:item id="i_mediaupload_list" messageCode="global_menu_list" render="false" url="/mediauploads?page=1&amp;size=${empty param.size ? 10 : param.size}&amp;state=revised" z="user-managed"/>
-                <menu:item id="i_mediaupload_export" messageCode="export_file_label" render="true" url="/mediauploads?exportAllProfile&amp;state=revised" z="user-managed"/>
-                <menu:item id="i_mediaupload_extend_export" messageCode="extend_export_file_label" render="true" url="/mediauploads?extendExport&amp;state=revised" z="user-managed"/>
-                <menu:item id="i_mediaupload_report" messageCode="report_file_label" render="true" url="/mediauploads?exportReport&amp;state=revised" z="user-managed"/>
-                <menu:item id="i_std_profile_list" messageCode="menu_std_profile_list" subCategory="menu_profile_std_profile" url="/std_profiles?state=revised" z="user-managed"/>
-                <menu:item id="i_std_profile_listAttach" messageCode="menu_std_profile_listAttach" url="/std_profiles/attachfileListForm?state=revised" z="user-managed"/>
+                <menu:item id="i_mediaupload_new" messageCode="import_file_label" subCategory="menu_student_export" url="/mediauploads?buildForm&amp;dataState=revised" z="user-managed"/>
+                <menu:item id="i_mediaupload_list" messageCode="global_menu_list" render="false" url="/mediauploads?page=1&amp;size=${empty param.size ? 10 : param.size}&amp;dataState=revised" z="user-managed"/>
+                <menu:item id="i_mediaupload_export" messageCode="export_file_label" render="true" url="/mediauploads?exportAllProfile&amp;dataState=revised" z="user-managed"/>
+                <menu:item id="i_mediaupload_extend_export" messageCode="extend_export_file_label" render="true" url="/mediauploads?extendExport&amp;dataState=revised" z="user-managed"/>
+                <menu:item id="i_mediaupload_report" messageCode="report_file_label" render="true" url="/mediauploads?exportReport&amp;dataState=revised" z="user-managed"/>
+                <menu:item id="i_std_profile_list" messageCode="menu_std_profile_list" subCategory="menu_profile_std_profile" url="/std_profiles?dataState=revised" z="user-managed"/>
+                <menu:item id="i_std_profile_listAttach" messageCode="menu_std_profile_listAttach" url="/std_profiles/attachfileListForm?dataState=revised" z="user-managed"/>
             </menu:category>
             <!--student up to date-->
             <spring:message code="menu_student_uptodate" var="menu_student_uptodate"/>
             <spring:message code="menu_profile_std_profile" var="menu_profile"/>
             <menu:category id="c_mediaupload" label="${menu_student_uptodate}" z="user-managed">
-                <menu:item id="i_mediaupload_new" messageCode="import_file_label" subCategory="menu_student_export" url="/mediauploads?buildForm&amp;state=uptodate" z="user-managed"/>
-                <menu:item id="i_mediaupload_list" messageCode="global_menu_list" render="false" url="/mediauploads?page=1&amp;size=${empty param.size ? 10 : param.size}&amp;state=uptodate" z="user-managed"/>
-                <menu:item id="i_mediaupload_export" messageCode="export_file_label" render="true" url="/mediauploads?exportAllProfile&amp;state=uptodate" z="user-managed"/>
-                <menu:item id="i_mediaupload_extend_export" messageCode="extend_export_file_label" render="true" url="/mediauploads?extendExport&amp;state=uptodate" z="user-managed"/>
-                <menu:item id="i_mediaupload_report" messageCode="report_file_label" render="true" url="/mediauploads?exportReport&amp;state=uptodate" z="user-managed"/>
-                <menu:item id="i_std_profile_list" messageCode="menu_std_profile_list" subCategory="menu_profile_std_profile" url="/std_profiles?state=uptodate" z="user-managed"/>
-                <menu:item id="i_std_profile_listAttach" messageCode="menu_std_profile_listAttach" url="/std_profiles/attachfileListForm?state=uptodate" z="user-managed"/>
+                <menu:item id="i_mediaupload_new" messageCode="import_file_label" subCategory="menu_student_export" url="/mediauploads?buildForm&amp;dataState=uptodate" z="user-managed"/>
+                <menu:item id="i_mediaupload_list" messageCode="global_menu_list" render="false" url="/mediauploads?page=1&amp;size=${empty param.size ? 10 : param.size}&amp;dataState=uptodate" z="user-managed"/>
+                <menu:item id="i_mediaupload_export" messageCode="export_file_label" render="true" url="/mediauploads?exportAllProfile&amp;dataState=uptodate" z="user-managed"/>
+                <menu:item id="i_mediaupload_extend_export" messageCode="extend_export_file_label" render="true" url="/mediauploads?extendExport&amp;dataState=uptodate" z="user-managed"/>
+                <menu:item id="i_mediaupload_report" messageCode="report_file_label" render="true" url="/mediauploads?exportReport&amp;dataState=uptodate" z="user-managed"/>
+                <menu:item id="i_std_profile_list" messageCode="menu_std_profile_list" subCategory="menu_profile_std_profile" url="/std_profiles?dataState=uptodate" z="user-managed"/>
+                <menu:item id="i_std_profile_listAttach" messageCode="menu_std_profile_listAttach" url="/std_profiles/attachfileListForm?dataState=uptodate" z="user-managed"/>
             </menu:category>
             <spring:message code="menu_userlogin" var="menu_userlogin"/>
             <menu:category id="c_userregis" label="${menu_userlogin}" z="user-managed">
@@ -59,9 +59,9 @@
         <sec:authorize ifAnyGranted="ROLE_USER_UNCHANGE,ROLE_USER">
             <spring:message code="menu_menu" var="menu"/>
             <menu:category id="c_std_profile" label="${menu}" z="user-managed">
-                <menu:item id="i_std_profile_new" messageCode="menu_edit_profile" url="/std_profiles/${std_profile.id}?form1" z="user-managed"/>
-                <menu:item id="i_attachfile_new" messageCode="menu_uploadFile" url="/attachfiles/${std_profile.id}?createForm" z="user-managed"/>
-                <menu:item id="i_std_profile_show" messageCode="menu_print" url="/std_profiles/${std_profile.id}?print" z="user-managed"/>
+                <menu:item id="i_std_profile_new" messageCode="menu_edit_profile" url="/std_profiles/${student.id}?form1" z="user-managed"/>
+                <menu:item id="i_attachfile_new" messageCode="menu_uploadFile" url="/attachfiles/${student.id}?createForm" z="user-managed"/>
+                <menu:item id="i_std_profile_show" messageCode="menu_print" url="/std_profiles/${student.id}?print" z="user-managed"/>
                 <menu:item id="c_std_newPwd" messageCode="menu_changepassword" url="/userlogins/changePwd" z="user-managed"/>
             </menu:category>
             <spring:message code="menu_logout" var="menu_logout"/>
@@ -88,7 +88,7 @@
             <menu:item id="i_training_profile_new" messageCode="global_menu_new" url="/training_profiles?form" z="FVdpRIapcuaCtqNByxeFK8DFGVQ="/>
             <menu:item id="i_training_profile_list" messageCode="global_menu_list" url="/training_profiles?page=1&amp;size=${empty param.size ? 10 : param.size}" z="pPAM+oMIdWNNAtGGACpXOQPlUCo="/>
         </menu:category>
-        <menu:category id="c_userregisrole" z="tFEQqwwoEh0vqFKm3LZ80vjUQFE=">
+        <menu:category id="c_userregisrole" render="false" z="tFEQqwwoEh0vqFKm3LZ80vjUQFE=">
             <menu:item id="i_userregisrole_new" messageCode="global_menu_new" url="/userroles?form" z="kqeoBYyku0VrlU/RaCP741TNTfQ="/>
             <menu:item id="i_userregisrole_list" messageCode="global_menu_list" url="/userroles?page=1&amp;size=${empty param.size ? 10 : param.size}" z="2q9Qk84VVKrct/P95DX9mzoAHxg="/>
         </menu:category>

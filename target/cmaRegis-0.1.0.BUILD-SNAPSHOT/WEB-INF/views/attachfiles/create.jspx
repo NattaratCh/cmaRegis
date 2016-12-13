@@ -239,7 +239,7 @@
         <br/>
         <br/>
         <br/>
-        <input name="std_profile_id" type="hidden" value="${std_profile.id}"/>
+        <input name="std_profile_id" type="hidden" value="${student.id}"/>
         <field:checkbox field="uploadPhoto" id="c_com_cma_AttachFile_uploadPhoto" render="false" z="user-managed"/>
         <field:checkbox field="uploadNamecard" id="c_com_cma_AttachFile_uploadNamecard" render="false" z="user-managed"/>
         <field:checkbox field="uploadIdcard" id="c_com_cma_AttachFile_uploadIdcard" render="false" z="user-managed"/>
@@ -261,7 +261,7 @@
         <field:select field="stdProfile" id="c_com_cma_AttachFile_stdProfile" itemValue="id" items="${std_profiles}" path="/std_profiles" render="false" z="user-managed"/>
         <field:input field="namecard" id="c_com_cma_AttachFile_namecard" render="false" z="user-managed"/>
         <c:if test="${editByAdmin=='yes'}">
-            <spring:url value="/std_profiles/attachfileListForm?cmaClass=${std_profile.studentClass.id}" var="backURL"/>
+            <spring:url value="/std_profiles/attachfileListForm?cmaClass=${student.studentClass.id}" var="backURL"/>
             <button class="buttonClass" type="button" onclick="JavaScript:window.location='${backURL}'">Back</button>
             <input type="hidden" name="admin" value="yes"/>
         </c:if>

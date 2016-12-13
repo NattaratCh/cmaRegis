@@ -34,7 +34,7 @@ public class AttachFileController {
         String name = getCode();
         String filename = "";
         Long id = Long.parseLong(httpServletRequest.getParameter("std_profile_id"));
-        uiModel.addAttribute("std_profile", Student.findStudent(id));
+        uiModel.addAttribute("student", Student.findStudent(id));
         AttachFile attachFile = Student.findStudent(id).getAttachFile();
 
         System.out.println(">>>>>>>>>>>>AttachFileController Start to upload file :id"+id);
@@ -282,8 +282,8 @@ public class AttachFileController {
     public String createForm(@PathVariable("id") Long id,Model uiModel,HttpServletRequest request) {
         AttachFile attachFile = Student.findStudent(id).getAttachFile();
         populateEditForm(uiModel, attachFile);
-        Student std_profile = Student.findStudent(id);
-        uiModel.addAttribute("std_profile",std_profile);
+        Student student = Student.findStudent(id);
+        uiModel.addAttribute("student",student);
         String admin = request.getParameter("admin");
         if(admin!=null&&admin.equals("yes")){
             uiModel.addAttribute("editByAdmin","yes");

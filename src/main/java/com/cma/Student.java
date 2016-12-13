@@ -445,6 +445,9 @@ public class Student {
     private UserWeb userWeb;
 
     public static List<Student> listStudent(String dataState, Batch batch){
+        if(batch == null){
+            return null;
+        }
         EntityManager entityManager = Student.entityManager();
         Query query = entityManager.createQuery(" select s from Student s where s.dataState= :dataState and s.studentClass= :batch order by s.id ");
         query.setParameter("dataState", dataState);

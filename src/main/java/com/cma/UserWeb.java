@@ -10,6 +10,18 @@ import java.util.Date;
 @RooToString
 @RooJpaActiveRecord
 public class UserWeb {
+    public UserWeb() {
+        super();
+        this.lastLogin = null;
+        this.lastUpdate = new Date();
+        this.enabled = Boolean.TRUE;
+        this.accountExpired = Boolean.FALSE;
+        this.accountLocked = Boolean.FALSE;
+        this.loginCount = 0;
+        this.oldPasswdList = "";
+        this.passwordExpired = Boolean.FALSE;
+    }
+
     private Boolean accountExpired;
     private Boolean accountLocked;
     private Boolean enabled;
@@ -18,7 +30,7 @@ public class UserWeb {
     private Integer loginCount;
 
     @Column(length=255)
-    private String oldPasswordList;
+    private String oldPasswdList;
 
     @Column(length=255)
     private String password;

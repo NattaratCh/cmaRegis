@@ -20,6 +20,7 @@
                 </select>
                 <script type="text/javascript">Spring.addDecoration(new Spring.ElementDecoration({elementId : 'cmaClass', widgetType: 'dijit.form.FilteringSelect', widgetAttrs : {hasDownArrow : true}})); </script>
             </div>
+            <input type="hidden" name="dataState" value="${dataState}"/>
             <spring:message code="label_com_cma_mediaupload_submit" var="submit"/>
             <input type="submit" value="${submit}"/>
         </form>

@@ -3,6 +3,8 @@ package com.cma.web;
 import com.cma.*;
 import com.cma.common.MailManager;
 import com.cma.common.Sexdropdown;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.joda.time.format.DateTimeFormat;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.i18n.LocaleContextHolder;
@@ -39,10 +41,12 @@ public class Std_profileController {
     protected EntityManager entityManager;
     private SimpleDateFormat df = new SimpleDateFormat("dd MMM yyyy",new Locale("th","TH"));
 
+    private static Log log = LogFactory.getLog(Std_profileController.class);
+
     @RequestMapping(value = "/attachfileListForm")
     public String attachfileListForm(@RequestParam(value = "cmaClass", required = false) Long cmaClass,Model uiModel, HttpServletRequest httpServletRequest){
         List cmaClassList = Batch.findAllBatches();
-        String dataState = httpServletRequest.getParameter("state");
+        String dataState = httpServletRequest.getParameter("dataState");
 
         if(dataState == null || dataState.equals("") || dataState.equalsIgnoreCase(StudentDataState.INIT)){
             dataState = StudentDataState.INIT;
@@ -72,6 +76,7 @@ public class Std_profileController {
         uiModel.addAttribute("class_id",cmaClass);
         uiModel.addAttribute("classList",cmaClassList);
         uiModel.addAttribute("std_profiles",std_profiles);
+        uiModel.addAttribute("dataState",dataState);
         return "std_profiles/attachList";
     }
 
@@ -932,7 +937,8 @@ public class Std_profileController {
     @RequestMapping(value = "/actionChangeClass",method = RequestMethod.POST,produces = "text/html")
     public String actionChangeClass(HttpServletRequest request){
         Long class_id = Long.parseLong(request.getParameter("cmaClass"));
-        return "redirect:/std_profiles?cmaClass="+class_id;
+        String dataState = request.getParameter("dataState");
+        return "redirect:/std_profiles?cmaClass="+class_id+"&dataState="+dataState;
     }
 
     //
@@ -958,7 +964,7 @@ public class Std_profileController {
     @RequestMapping(value = "/{id}", params = "print" , produces = "text/html")
     public String print(@PathVariable("id") Long id, Model uiModel) {
         addDateTimeFormatPatterns(uiModel);
-        uiModel.addAttribute("std_profile", Student.findStudent(id));
+        uiModel.addAttribute("student", Student.findStudent(id));
         uiModel.addAttribute("itemId", id);
         List childrenList = findChildrenProfileList(id);
         uiModel.addAttribute("children_profile",childrenList);
@@ -994,7 +1000,9 @@ public class Std_profileController {
     @RequestMapping(produces = "text/html")
     public String list(@ModelAttribute("warning_message")String warning_message,@ModelAttribute("message") String message,@RequestParam(value = "cmaClass", required = false) Long cmaClass, Model uiModel,HttpServletRequest httpServletRequest) {
         List cmaClassList = Batch.findAllBatches();
-        String dataState = httpServletRequest.getParameter("state");
+        String dataState = httpServletRequest.getParameter("dataState");
+
+        log.info("list() | dataState : "+dataState);
 
         if(dataState == null || dataState.equals("") || dataState.equalsIgnoreCase(StudentDataState.INIT)){
             dataState = StudentDataState.INIT;
@@ -1025,12 +1033,9 @@ public class Std_profileController {
             else uiModel.addAttribute("message",message);
         }
 
-        entityManager = Student.entityManager();
-        Query query = entityManager.createQuery("select o from Student o where student_class= :class_id and data_state= :dataState ");
-        query.setParameter("class_id",cmaClass);
-        query.setParameter("dataState",dataState);
-
-        List std_profiles = query.getResultList();
+        log.info("list() | batch id : "+cmaClass);
+        Batch batch = Batch.findBatch(cmaClass);
+        List std_profiles = Student.listStudent(dataState,batch);
 
         //System.out.println(std_profiles.get(0));
 
@@ -1038,6 +1043,7 @@ public class Std_profileController {
         uiModel.addAttribute("classList",cmaClassList);
         uiModel.addAttribute("std_profiles", std_profiles);
         uiModel.addAttribute("class_id",cmaClass);
+        uiModel.addAttribute("dataState",dataState);
         return "std_profiles/list";
     }
 

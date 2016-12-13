@@ -6,6 +6,7 @@ import org.apache.commons.logging.LogFactory;
 import org.apache.poi.hssf.usermodel.HSSFFormulaEvaluator;
 import org.apache.poi.ss.usermodel.*;
 import org.springframework.roo.addon.web.mvc.controller.scaffold.RooWebScaffold;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
@@ -42,7 +43,8 @@ public class MediaUploadController {
     //private String pathName = "/cma/http/report/"; //TODO change pathe name
     private String pathName = "c:/app/itn_tdi/dat/cma/report/";
     private DateFormat df = new SimpleDateFormat("dd/MM/yyyy", Locale.US);
-    DateFormat passwordFormat = new SimpleDateFormat("ddMMMyyyy",Locale.US);
+    private DateFormat dMyFormat = new SimpleDateFormat("dd MMM yyyy", new Locale("th","TH"));
+    private DateFormat passwordFormat = new SimpleDateFormat("ddMMMyyyy",Locale.US);
 
     private static Log log = LogFactory.getLog(MediaUploadController.class);
 
@@ -110,20 +112,21 @@ public class MediaUploadController {
         return  value;
     }
 
-    private String countByField(Batch batch,String fieldName){
+    private String countByField(Batch batch,String fieldName, String dataState){
         EntityManager stdProfilleEntityManager = Student.entityManager();
         EntityManager userloginEntityManager = UserRegis.entityManager();
         Query query;
         if(fieldName.equals("submit")){
-           query = stdProfilleEntityManager.createQuery("select count(x.id) from Student x where studentClass=:std_class and x.submitProfile=true");
+           query = stdProfilleEntityManager.createQuery("select count(x.id) from Student x where studentClass=:std_class and x.submitProfile=true and x.dataState= :dataState");
         }
         else if(fieldName.equals("role_user")){
-           query = userloginEntityManager.createQuery("select count(x.id) from UserRegis x where x.studentProfile.studentClass=:std_class and x.userRole.role_name='ROLE_USER'");
+           query = userloginEntityManager.createQuery("select count(x.id) from UserRegis x where x.studentProfile.studentClass=:std_class and x.userRole.role_name='ROLE_USER' and x.studentProfile.dataState= :dataState");
         }
         else {
-           query = userloginEntityManager.createQuery("select count(x.id) from UserRegis x where x.studentProfile.studentClass=:std_class and x.userRole.role_name='ROLE_USER_UNCHANGE'");
+           query = userloginEntityManager.createQuery("select count(x.id) from UserRegis x where x.studentProfile.studentClass=:std_class and x.userRole.role_name='ROLE_USER_UNCHANGE' and x.studentProfile.dataState= :dataState");
         }
         query.setParameter("std_class", batch);
+        query.setParameter("dataState", dataState);
         List resultList = query.getResultList();
         if(resultList.get(0)!=null)
             return resultList.get(0)+"";
@@ -134,7 +137,7 @@ public class MediaUploadController {
     @RequestMapping(value = "/submitReport")
     public void submitReport(HttpServletRequest request,Model uiModel, HttpServletResponse response){
         Long classId = Long.parseLong(request.getParameter("cmaClass"));
-        String dataState = request.getParameter("state");
+        String dataState = request.getParameter("dataState");
 
         if(dataState == null || dataState.equals("") || dataState.equalsIgnoreCase(StudentDataState.INIT)){
             dataState = StudentDataState.INIT;
@@ -181,9 +184,9 @@ public class MediaUploadController {
             data.put(rowIndex++, new Object[]{ "Summary","","","","","","","","",""});
             data.put(rowIndex++, new Object[]{ "CMA#", batch.getNameTh(),"","","","","","","",""});
             data.put(rowIndex++, new Object[]{ "Number of students", studentList != null ? studentList.size() : 0,"","","","","","","",""});
-            data.put(rowIndex++, new Object[]{ "Login", countByField(batch, "role_user"),"","","","","","","",""});
-            data.put(rowIndex++, new Object[]{ "Unlogin", countByField(batch, "role_user_unchange"),"","","","","","","",""});
-            data.put(rowIndex++, new Object[]{ "Submit Profile", countByField(batch,"submit"),"","","","","","","",""});
+            data.put(rowIndex++, new Object[]{ "Login", countByField(batch, "role_user",dataState),"","","","","","","",""});
+            data.put(rowIndex++, new Object[]{ "Unlogin", countByField(batch, "role_user_unchange",dataState),"","","","","","","",""});
+            data.put(rowIndex++, new Object[]{ "Submit Profile", countByField(batch,"submit",dataState),"","","","","","","",""});
 
             Set<Integer> keyset = data.keySet();
             int rownum = 0;
@@ -229,18 +232,10 @@ public class MediaUploadController {
     @RequestMapping(value = "/submitextendExport", produces = "text/html")
     public  void submitextendExport(HttpServletRequest request,Model uiModel, HttpServletResponse response){
         Long classId = Long.parseLong(request.getParameter("cmaClass"));
-        String dataState = request.getParameter("state");
+        String dataState = request.getParameter("dataState");
         String type = request.getParameter("type");
 
         Batch batch = Batch.findBatch(classId);
-        String fileName = null;
-        if(type.equals(Constant.REPORT_CHILDREN)){
-            fileName = batch.getNameEn()+"_childrenProfileExport_"+dataState+".xls";
-        }else if(type.equals(Constant.REPORT_EDUCATION)){
-            fileName = batch.getNameEn()+"_educationExport_"+dataState+".xls";
-        }else if(type.equals(Constant.REPORT_TRAINING)){
-            fileName = batch.getNameEn()+"_trainingExport_"+dataState+".xls";
-        }
 
         if(dataState == null || dataState.equals("") || dataState.equalsIgnoreCase(StudentDataState.INIT)){
             dataState = StudentDataState.INIT;
@@ -248,6 +243,15 @@ public class MediaUploadController {
             dataState = StudentDataState.REVISED;
         } else if(dataState.equalsIgnoreCase(StudentDataState.UPTODATE)){
             dataState = StudentDataState.UPTODATE;
+        }
+
+        String fileName = null;
+        if(type.equals(Constant.REPORT_CHILDREN)){
+            fileName = batch.getNameEn()+"_childrenProfileExport_"+dataState+".xls";
+        }else if(type.equals(Constant.REPORT_EDUCATION)){
+            fileName = batch.getNameEn()+"_educationExport_"+dataState+".xls";
+        }else if(type.equals(Constant.REPORT_TRAINING)){
+            fileName = batch.getNameEn()+"_trainingExport_"+dataState+".xls";
         }
 
         List<Student> studentList = Student.listStudent(dataState, batch);
@@ -285,11 +289,11 @@ public class MediaUploadController {
                             Children_profile children_profile = (Children_profile) childIt.next();
                             if(childIndex == 0){
                                 childInfo = new Object[]{student.getFirstnameTh(), student.getLastnameTh(), children_profile.getFirstName(),
-                                        children_profile.getLastName(), children_profile.getCareer(), children_profile.getBirthday(), children_profile.getRace(),
+                                        children_profile.getLastName(), children_profile.getCareer(), children_profile.getBirthday() != null ? df.format(children_profile.getBirthday()) : "", children_profile.getRace(),
                                         children_profile.getNationality(), children_profile.getReligion()};
                             }else{
                                 childInfo = new Object[]{"", "", children_profile.getFirstName(),
-                                        children_profile.getLastName(), children_profile.getCareer(), children_profile.getBirthday(), children_profile.getRace(),
+                                        children_profile.getLastName(), children_profile.getCareer(), children_profile.getBirthday() != null ? df.format(children_profile.getBirthday()) : "", children_profile.getRace(),
                                         children_profile.getNationality(), children_profile.getReligion()};
                             }
                             data.put(rowIndex, childInfo);
@@ -316,7 +320,7 @@ public class MediaUploadController {
                                 educationinfo = new Object[]{student.getFirstnameTh(), student.getLastnameTh(),education_profile.getDegree(),
                                 education_profile.getField(), education_profile.getUniversity(), education_profile.getGraduateYear()};
                             }else{
-                                educationinfo = new Object[]{"", "", student.getLastnameTh(),education_profile.getDegree(),
+                                educationinfo = new Object[]{"", "",education_profile.getDegree(),
                                         education_profile.getField(), education_profile.getUniversity(), education_profile.getGraduateYear()};
                             }
                             data.put(rowIndex, educationinfo);
@@ -392,16 +396,20 @@ public class MediaUploadController {
 
 
     @RequestMapping(params = "exportReport", produces = "text/html")
-    public  String reportForm(Model uiModel){
+    public  String reportForm(Model uiModel, HttpServletRequest httpServletRequest){
         List classList = Batch.findAllBatches();
+        String dataState = httpServletRequest.getParameter("dataState");
         uiModel.addAttribute("classList",classList);
+        uiModel.addAttribute("dataState",dataState);
         return "mediauploads/exportReport";
     }
 
     @RequestMapping(params = "extendExport", produces = "text/html")
-    public  String extendExportForm(Model uiModel){
+    public  String extendExportForm(Model uiModel,HttpServletRequest httpServletRequest){
         List classList = Batch.findAllBatches();
+        String dataState = httpServletRequest.getParameter("dataState");
         uiModel.addAttribute("classList",classList);
+        uiModel.addAttribute("dataState",dataState);
         List typeList = new ArrayList();
         typeList.add("ประวัติบุตร/ธิดา");
         typeList.add("การศึกษา");
@@ -413,7 +421,9 @@ public class MediaUploadController {
     @RequestMapping(value = "/submitExport")
     public void submitExport(HttpServletRequest request,Model uiModel, HttpServletResponse response){
         Long classId = Long.parseLong(request.getParameter("cmaClass"));
-        String dataState = request.getParameter("state");
+        String dataState = request.getParameter("dataState");
+
+        log.info("submitExport() | batch : "+classId +" | dataState : "+dataState);
 
         if(dataState == null || dataState.equals("") || dataState.equalsIgnoreCase(StudentDataState.INIT)){
             dataState = StudentDataState.INIT;
@@ -543,14 +553,14 @@ public class MediaUploadController {
     @RequestMapping(params = "exportAllProfile", produces = "text/html")
     public  String exportExcel(Model uiModel, HttpServletRequest httpServletRequest){
         List classList = Batch.findAllBatches();
-        String dataState = httpServletRequest.getParameter("state");
+        String dataState = httpServletRequest.getParameter("dataState");
         uiModel.addAttribute("classList",classList);
         uiModel.addAttribute("dataState",dataState);
         return "mediauploads/exportExcel";
     }
 
     @RequestMapping(params = "buildForm", produces = "text/html")
-    public String buildForm(Model uiModel , @RequestParam("state") String dataState) {
+    public String buildForm(Model uiModel , @RequestParam("dataState") String dataState) {
         populateEditForm(uiModel, new MediaUpload());
         List classList = Batch.findAllBatches();
         uiModel.addAttribute("classList",classList);
@@ -591,7 +601,6 @@ public class MediaUploadController {
                         objFormulaEvaluator.evaluate(cell); // This will evaluate the cell, And any type of cell will return string value
                         String cellValueStr = objDefaultFormat.formatCellValue(cell,objFormulaEvaluator);
                         studentData.add(cellValueStr);
-                        log.info("cell data : "+cell.getColumnIndex()+" | "+cellValueStr);
                     }
 
                     if(dataState.trim().equalsIgnoreCase(StudentDataState.INIT)){
@@ -599,7 +608,10 @@ public class MediaUploadController {
                     }else if(dataState.trim().equalsIgnoreCase(StudentDataState.REVISED)){
                         result = createRevisedData(studentData,batch);
                     } else if(dataState.trim().equalsIgnoreCase(StudentDataState.UPTODATE)){
+                        result = updateUptodateData(studentData, batch);
                     }
+
+                    log.info("create() | result : "+result);
 
                 }
 
@@ -680,134 +692,192 @@ public class MediaUploadController {
         if(studentData != null){
             try {
                 Long studentId = Long.valueOf(studentData.get(0));
-                log.info("createRevisedData() | studentId : "+studentId);
 
-                Student initStudent = Student.findStudent(studentId);
-                log.info("createRevisedData() | initStudent id : "+initStudent.getId());
+                Student student = Student.findStudent(studentId);
 
                 log.info("createRevisedData() | batch : "+batch.getId());
-                log.info("createRevisedData() | studentClass : "+initStudent.getStudentClass().getId());
 
-                if(initStudent != null && initStudent.getStudentClass().equals(batch)){
-                    MapStudent mapStudent = MapStudent.findMapStudent(initStudent,null,null);
-                    if(mapStudent != null){
-                        Student revisedStudent = setStudent(studentData);
-                        revisedStudent.setStudentClass(batch);
-                        revisedStudent.setDataState(StudentDataState.REVISED);
-                        revisedStudent.persist();
+                if(student != null && student.getStudentClass().equals(batch)){
+                    log.info("createRevisedData() | student id : "+student.getId());
+                    if(student.getDataState().equals(StudentDataState.INIT)){
+                        MapStudent mapStudent = MapStudent.findMapStudent(student,null,null);
+                        if(mapStudent != null){
+                            Student revisedStudent = mapStudent.getRevisedStudent();
+                            Student uptodateStudent = mapStudent.getUpToDateStudent();
+                            if(revisedStudent == null){
+                                revisedStudent = setStudent(studentData,revisedStudent);
+                                revisedStudent.setStudentClass(batch);
+                                revisedStudent.setDataState(StudentDataState.REVISED);
+                                revisedStudent.persist();
 
-                        Student uptodateStudent = setStudent(studentData);
-                        uptodateStudent.setStudentClass(batch);
-                        uptodateStudent.setDataState(StudentDataState.UPTODATE);
-                        uptodateStudent.persist();
+                                uptodateStudent = setStudent(studentData,uptodateStudent);
+                                uptodateStudent.setStudentClass(batch);
+                                uptodateStudent.setDataState(StudentDataState.UPTODATE);
+                                uptodateStudent.persist();
 
-                        log.info("createRevisedData() | create userweb");
-                        UserWeb userWeb = new UserWeb();
-                        String username = batch.getCourse().getCode()+batch.getNumber()+"_"+uptodateStudent.getFirstnameEn().toLowerCase();
-                        String password = batch.getCourse().getCode()+batch.getNumber();
-                        if(uptodateStudent.getBirthdate() != null){
-                            password = passwordFormat.format(uptodateStudent.getBirthdate());
-                        }
+                                log.info("createRevisedData() | create userweb");
+                                UserWeb userWeb = new UserWeb();
+                                String username = batch.getCourse().getCode()+(batch.getNumber() != null ? batch.getNumber() : "") +"_"+uptodateStudent.getFirstnameEn().toLowerCase();
+                                String password = batch.getCourse().getCode()+batch.getNumber();
+                                if(uptodateStudent.getBirthdate() != null){
+                                    password = passwordFormat.format(uptodateStudent.getBirthdate());
+                                }
 
-                        userWeb.setUsername(username);
-                        userWeb.setPassword(password); //TODO encode password
-                        userWeb.persist();
+                                userWeb.setUsername(username);
+                                userWeb.setPassword(bCryptEncode(password));
+                                userWeb.persist();
 
-                        uptodateStudent.setUserWeb(userWeb);
+                                uptodateStudent.setUserWeb(userWeb);
 
-                        WebRole webRole = WebRole.getWebRole("ROLE_USER");
-                        if(webRole != null){
-                            // map user_web with role
-                            log.info("createRevisedData() | create userWebRole");
-                            UserWebRole userWebRole = new UserWebRole();
-                            userWebRole.setUserWeb(userWeb);
-                            userWebRole.setWebRole(webRole);
-                            userWebRole.persist();
-                        }
+                                WebRole webRole = WebRole.getWebRole("ROLE_USER");
+                                if(webRole != null){
+                                    // map user_web with role
+                                    log.info("createRevisedData() | create userWebRole");
+                                    UserWebRole userWebRole = new UserWebRole();
+                                    userWebRole.setUserWeb(userWeb);
+                                    userWebRole.setWebRole(webRole);
+                                    userWebRole.persist();
+                                }
 
-                        if(initStudent.getAttachFile() != null){
-                            AttachFile attachFile = initStudent.getAttachFile();
-                            AttachFile revisedAttachFile = new AttachFile(attachFile);
-                            revisedAttachFile.setStdProfile(revisedStudent);
-                            revisedAttachFile.persist();
+                                if(student.getAttachFile() != null){
+                                    AttachFile attachFile = student.getAttachFile();
+                                    AttachFile revisedAttachFile = new AttachFile(attachFile);
+                                    revisedAttachFile.setStdProfile(revisedStudent);
+                                    revisedAttachFile.persist();
 
-                            AttachFile uptodateAttachFile = new AttachFile(attachFile);
-                            uptodateAttachFile.setStdProfile(uptodateStudent);
-                            uptodateAttachFile.persist();
+                                    AttachFile uptodateAttachFile = new AttachFile(attachFile);
+                                    uptodateAttachFile.setStdProfile(uptodateStudent);
+                                    uptodateAttachFile.persist();
 
-                        }
+                                }
 
-                        if(initStudent.getEducation_profileSet() != null){
-                            Set<Education_profile> educationSet = initStudent.getEducation_profileSet();
-                            for(Education_profile edu : educationSet){
-                                Education_profile revisedEducationProfile = new Education_profile(edu);
-                                revisedEducationProfile.setStudentProfile(revisedStudent);
-                                revisedEducationProfile.persist();
+                                if(student.getEducation_profileSet() != null){
+                                    Set<Education_profile> educationSet = student.getEducation_profileSet();
+                                    for(Education_profile edu : educationSet){
+                                        Education_profile revisedEducationProfile = new Education_profile(edu);
+                                        revisedEducationProfile.setStudentProfile(revisedStudent);
+                                        revisedEducationProfile.persist();
 
-                                Education_profile uptodateEducationProfile = new Education_profile(edu);
-                                uptodateEducationProfile.setStudentProfile(uptodateStudent);
-                                uptodateEducationProfile.persist();
+                                        Education_profile uptodateEducationProfile = new Education_profile(edu);
+                                        uptodateEducationProfile.setStudentProfile(uptodateStudent);
+                                        uptodateEducationProfile.persist();
+                                    }
+                                }
+
+                                if(student.getChildren_profileSet() != null){
+                                    Set<Children_profile> childrenSet = student.getChildren_profileSet();
+                                    for(Children_profile child : childrenSet){
+                                        Children_profile revisedChildrenProfile = new Children_profile(child);
+                                        revisedChildrenProfile.setStudentProfile(revisedStudent);
+                                        revisedChildrenProfile.persist();
+
+                                        Children_profile uptodateChildrenProfile = new Children_profile(child);
+                                        uptodateChildrenProfile.setStudentProfile(uptodateStudent);
+                                        uptodateChildrenProfile.persist();
+                                    }
+                                }
+
+                                if(student.getTraining_profileSet() != null){
+                                    Set<Training_profile> trainingSet = student.getTraining_profileSet();
+                                    for(Training_profile training : trainingSet){
+                                        Training_profile revisedTrainingProfile = new Training_profile(training);
+                                        revisedTrainingProfile.setStudentProfile(revisedStudent);
+                                        revisedTrainingProfile.persist();
+
+                                        Training_profile uptodateTrainingProfile = new Training_profile(training);
+                                        uptodateTrainingProfile.setStudentProfile(uptodateStudent);
+                                        uptodateTrainingProfile.persist();
+                                    }
+                                }
+
+                                log.info("createRevisedData() | update map student");
+                                mapStudent.setRevisedStudent(revisedStudent);
+                                mapStudent.setUpToDateStudent(uptodateStudent);
+                                mapStudent.merge();
+                                log.info("createRevisedData() | create revised student : "+revisedStudent.getId());
+                            }else{
+                                log.info("createRevisedData() | update revised student : "+revisedStudent.getId());
+                                revisedStudent = setStudent(studentData,revisedStudent);
+                                revisedStudent.merge();
+                                uptodateStudent = setStudent(studentData,uptodateStudent);
+                                uptodateStudent.merge();
                             }
+                            result = true;
+                        }else{
+                            log.info("createRevisedData() | map student at init student id : "+studentId+" is not found");
+                            result = false;
                         }
 
-                        if(initStudent.getChildren_profileSet() != null){
-                            Set<Children_profile> childrenSet = initStudent.getChildren_profileSet();
-                            for(Children_profile child : childrenSet){
-                                Children_profile revisedChildrenProfile = new Children_profile(child);
-                                revisedChildrenProfile.setStudentProfile(revisedStudent);
-                                revisedChildrenProfile.persist();
-
-                                Children_profile uptodateChildrenProfile = new Children_profile(child);
-                                uptodateChildrenProfile.setStudentProfile(uptodateStudent);
-                                uptodateChildrenProfile.persist();
-                            }
+                    }else if(student.getDataState().equals(StudentDataState.REVISED)){
+                        MapStudent mapStudent = MapStudent.findMapStudent(null,student,null);
+                        if(mapStudent != null){
+                            Student revisedStudent = mapStudent.getRevisedStudent();
+                            Student uptodateStudent = mapStudent.getUpToDateStudent();
+                            log.info("createRevisedData() | update revised student : "+revisedStudent.getId());
+                            revisedStudent = setStudent(studentData,revisedStudent);
+                            revisedStudent.merge();
+                            uptodateStudent = setStudent(studentData,uptodateStudent);
+                            uptodateStudent.merge();
+                        }else{
+                            log.info("createRevisedData() | map student at revised student id : "+studentId+" is not found");
+                            result = false;
                         }
-
-                        if(initStudent.getTraining_profileSet() != null){
-                            Set<Training_profile> trainingSet = initStudent.getTraining_profileSet();
-                            for(Training_profile training : trainingSet){
-                                Training_profile revisedTrainingProfile = new Training_profile(training);
-                                revisedTrainingProfile.setStudentProfile(revisedStudent);
-                                revisedTrainingProfile.persist();
-
-                                Training_profile uptodateTrainingProfile = new Training_profile(training);
-                                uptodateTrainingProfile.setStudentProfile(uptodateStudent);
-                                uptodateTrainingProfile.persist();
-                            }
-                        }
-
-                        log.info("createRevisedData() | update map student");
-                        mapStudent.setRevisedStudent(revisedStudent);
-                        mapStudent.setUpToDateStudent(uptodateStudent);
-                        mapStudent.merge();
-
-                        result = true;
-                        log.info("createRevisedData() | Successfully create student");
                     }else{
+                        log.info("createRevisedData() | student id : "+studentId+" is up to date data");
                         result = false;
-                        log.info("createRevisedData() | MapStudent not found");
                     }
                 }else{
-                   result = false;
-                    log.info("createRevisedData() | Student not found");
+                    log.info("createRevisedData() | student id : "+studentId+" is not found");
+                    result = false;
                 }
-
 
             }catch (Exception e){
                 e.printStackTrace();
             }
+        }else{
+            result = false;
         }
 
         return result;
     }
 
-    private Student setStudent(ArrayList<String> studentData) throws ParseException {
-        int col = 1;
-        Student student = null;
+    private boolean updateUptodateData(ArrayList<String> studentData, Batch batch){
+        boolean result = false;
         if(studentData != null){
-            log.info("setStudent() | studentData size : "+studentData.size());
-            log.info("setStudent() | add revised student");
-            student = new Student();
+            try {
+                Long studentId = Long.valueOf(studentData.get(0));
+                log.info("updateUptodateData() | studentId : " + studentId);
+                Student student = Student.findStudent(studentId);
+
+                if(student != null && student.getStudentClass().equals(batch)){
+                    log.info("updateUptodateData() | student id : " + student.getId()+" | dataState : "+student.getDataState());
+                    if(student.getDataState().equals(StudentDataState.UPTODATE)){
+                        student = setStudent(studentData,student);
+                        student.persist();
+                    }else{
+                        log.info("updateUptodateData() | student id : "+studentId+" is not up to date data");
+                        result = false;
+                    }
+                } else{
+                    log.info("updateUptodateData() | student id : "+studentId+" is not found");
+                    result = false;
+                }
+            }catch (Exception e){
+                log.info("updateUptodateData() | error : "+e.getMessage());
+                e.printStackTrace();
+            }
+        }else{
+            result = false;
+        }
+        return result;
+    }
+
+    private Student setStudent(ArrayList<String> studentData, Student student) throws ParseException {
+        int col = 1;
+        if(studentData != null){
+            if(student == null){
+                student = new Student();
+            }
             student.setTitleTh(studentData.get(col++));
             col++;
             student.setFirstnameTh(studentData.get(col++));
@@ -824,7 +894,9 @@ public class MediaUploadController {
             if(_birthDate != null && !_birthDate.equals("")){
                 try{
                     Date birthDate = df.parse(_birthDate);
+                    String bDateStr = dMyFormat.format(birthDate);
                     student.setBirthdate(birthDate);
+                    student.setBdateString(bDateStr);
                 }catch (Exception e){
 
                 }
@@ -888,7 +960,9 @@ public class MediaUploadController {
             if(_birthDate != null && !_birthDate.equals("")){
                 try{
                     Date birthDate = df.parse(_birthDate);
+                    String bDateStr = dMyFormat.format(birthDate);
                     student.setSpouseBirthDay(birthDate);
+                    student.setSpouseBdateString(bDateStr);
                 }catch (Exception e){
 
                 }
@@ -896,6 +970,7 @@ public class MediaUploadController {
             }
 
             student.setSpouseRace(studentData.get(col++));
+            student.setSpouseNationality(studentData.get(col++));
             student.setSpouseReligion(studentData.get(col++));
             student.setCollboratorFirstName(studentData.get(col++));
             student.setCollboratorLastName(studentData.get(col++));
@@ -903,7 +978,6 @@ public class MediaUploadController {
             student.setCollboratorTel(studentData.get(col++));
             student.setCollboratorMobile(studentData.get(col++));
             student.setCollboratorFax(studentData.get(col++));
-            student.setCollboratorMobile(studentData.get(col++));
             student.setCollboratorEmail(studentData.get(col++));
             student.setCollboratorLineId(studentData.get(col++));
 
@@ -1028,5 +1102,14 @@ public class MediaUploadController {
             return Integer.parseInt(lastUsername)+1;
         }
         else return 1;
+    }
+
+    private String bCryptEncode(String password){
+        if(password == null){
+            return null;
+        }
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String hashedPassword = passwordEncoder.encode(password);
+        return hashedPassword;
     }
 }
