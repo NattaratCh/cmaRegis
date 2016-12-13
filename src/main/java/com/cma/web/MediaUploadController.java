@@ -25,6 +25,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -563,6 +565,18 @@ public class MediaUploadController {
     public String buildForm(Model uiModel , @RequestParam("dataState") String dataState) {
         populateEditForm(uiModel, new MediaUpload());
         List classList = Batch.findAllBatches();
+        String templateLink = "./mediauploads/downloadFile?fileName=init_template.xls";
+        if(dataState.equalsIgnoreCase(StudentDataState.REVISED)){
+            if(classList != null){
+                templateLink = "./mediauploads/submitExport?cmaClass="+((Batch)classList.get(0)).getId()+"&dataState="+StudentDataState.INIT;
+            }
+        } else if(dataState.equalsIgnoreCase(StudentDataState.UPTODATE )){
+            if(classList != null){
+                templateLink = "./mediauploads/submitExport?cmaClass="+((Batch)classList.get(0)).getId()+"&dataState="+StudentDataState.UPTODATE;
+            }
+        }
+        log.info("templateLink : "+templateLink);
+        uiModel.addAttribute("templateLink",templateLink);
         uiModel.addAttribute("classList",classList);
         uiModel.addAttribute("dataState",dataState);
         return "mediauploads/create";
@@ -818,6 +832,7 @@ public class MediaUploadController {
                             revisedStudent.merge();
                             uptodateStudent = setStudent(studentData,uptodateStudent);
                             uptodateStudent.merge();
+                            result = true;
                         }else{
                             log.info("createRevisedData() | map student at revised student id : "+studentId+" is not found");
                             result = false;
@@ -854,6 +869,7 @@ public class MediaUploadController {
                     if(student.getDataState().equals(StudentDataState.UPTODATE)){
                         student = setStudent(studentData,student);
                         student.persist();
+                        result = true;
                     }else{
                         log.info("updateUptodateData() | student id : "+studentId+" is not up to date data");
                         result = false;
@@ -1111,5 +1127,27 @@ public class MediaUploadController {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String hashedPassword = passwordEncoder.encode(password);
         return hashedPassword;
+    }
+
+    @RequestMapping(value = "/downloadFile")
+    private void downloadFile(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse){
+        String fileName = httpServletRequest.getParameter("fileName");
+        if(fileName != null){
+            File file = new File(Constant.INIT_TEMPLATE_FILE,fileName);
+            if(file.exists()){
+                try {
+                    Path path = file.toPath();
+                    OutputStream out = httpServletResponse.getOutputStream();
+                    httpServletResponse.setContentType("application/vnd.ms-excel");
+                    httpServletResponse.setHeader("Content-Disposition", "Attachment;Filename=\""+fileName+"\"");
+                    Files.copy(path, out);
+                    out.flush();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }else{
+                log.info("downloadFile() : file name : "+fileName+" is not found");
+            }
+        }
     }
 }

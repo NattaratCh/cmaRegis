@@ -8,4 +8,7 @@ public class Constant {
     public static String REPORT_CHILDREN = "0";
     public static String REPORT_EDUCATION = "1";
     public static String REPORT_TRAINING = "2";
+
+    public static String INIT_TEMPLATE_FILE = "c:/app/itn_tdi/dat/cma/form/"; //TODO change path
+
 }
