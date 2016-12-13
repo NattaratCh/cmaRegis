@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+     xmlns:spring="http://www.springframework.org/tags" xmlns:fmt="http://java.sun.com/jsp/jstl/fmt" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show_print id="ps_com_cma_Std_profile" label=" " object="${std_profile}" path="/std_profiles" z="yCs22JIirRryuxWeXI0yZUYrqmw=">
+    <spring:message code="label_com_cma_std_profile_print_header1" var="header1"/>
+    <div id="fieldHeader">
+        ${header1}
+    </div>
+    <field:display field="titleTh" id="s_com_cma_Std_profile_titleTh" object="${std_profile}" z="zLn0BoX/nc/J7Rdp+K2he0w0XJg="/>
+    <field:display field="titleEn" id="s_com_cma_Std_profile_titleEn" object="${std_profile}" z="EhMiuAAwWTmQG1/2dYLTS/pTI10="/>
+    <field:display field="firstnameTh" id="s_com_cma_Std_profile_firstnameTh" object="${std_profile}" z="ZzOALlOX+l2moZbQbrDtzekXIe0="/>
+    <field:display field="firstnameEn" id="s_com_cma_Std_profile_firstnameEn" object="${std_profile}" z="WQeB8hrxzEqYVdHJdpkrDshe8Qw="/>
+    <field:display field="lastnameTh" id="s_com_cma_Std_profile_lastnameTh" object="${std_profile}" z="FBbimO27tLekE9uQR+4fmsSzBG8="/>
+    <field:display field="lastnameEn" id="s_com_cma_Std_profile_lastnameEn" object="${std_profile}" z="iQQR62c+9vNZZWPMZf89imXOey8="/>
+    <field:display field="nickname" id="s_com_cma_Std_profile_nickname" object="${std_profile}" z="hAzZ6LPNI4Q2ZmYvHlQbSEGqFRA="/>
+    <field:display field="sex" id="s_com_cma_Std_profile_sex" object="${std_profile}" z="aX9q+hg4I1kHQ93FIqBPVH0pNjI="/>
+    <field:display render="false" field="day" id="s_com_cma_Std_profile_day" object="${std_profile}" z="AGiebO4VZi0GWAZOncDNAFcWonc="/>
+    <field:display render="false" field="month" id="s_com_cma_Std_profile_month" object="${std_profile}" z="3nadsWqhFf4GcjSe1Rs393eWOTY="/>
+    <field:display render="false" field="year" id="s_com_cma_Std_profile_year" object="${std_profile}" z="EdazSP9gKNcL8KuzfF0AastGT4A="/>
+    <spring:message code="label_com_cma_std_profile_birthdate" var="text1"/>
+    <spring:message code="label_com_cma_std_profile_print_unselect" var="unselect"/>
+    <c:choose>
+        <c:when test="${std_profile.year==''||std_profile.month=='0'||std_profile.day=='0'}">
+            <div id="_s_com_cma_Std_profile_birthdate_id"><label for="_birthdate_id">${text1}
+                :
+            </label><div id="_s_com_cma_Std_profile_birthdate_birthdate_id" class="box">${unselect}</div></div>
+        </c:when>
+        <c:otherwise>
+            <field:display date="true" dateTimePattern="${std_profile_birthdate_date_format}" field="birthdate" id="s_com_cma_Std_profile_birthdate" object="${std_profile}" z="xlwcYX4sEWnixzJ1i/ON69EqV9o="/>
+        </c:otherwise>
+    </c:choose>
+    <field:display field="idcardNo" id="s_com_cma_Std_profile_idcardNo" object="${std_profile}" z="YUPCH8dWFGlR4RQzZEAoTxKF1nw="/>
+    <field:display field="passportNo" id="s_com_cma_Std_profile_passportNo" object="${std_profile}" z="LNmxcjOhgdiGi/tHt5uetcsqyls="/>
+    <field:display field="ropNo" id="s_com_cma_Std_profile_ropNo" object="${std_profile}" z="iF/VAzTYh3CzL8mmHAMJOZDG9bU="/>
+    <field:display field="positionTh" id="s_com_cma_Std_profile_positionTh" object="${std_profile}" z="x8UU28uDDc8TgkiBaBifaehhsJQ="/>
+    <field:display field="positionEn" id="s_com_cma_Std_profile_positionEn" object="${std_profile}" z="P5Arz4bRxvyhdynLuBKEbk+tMLU="/>
+    <field:display field="institutionTh" id="s_com_cma_Std_profile_institutionTh" object="${std_profile}" z="uPFtnP1fJBovo88kEts3k9rTn5M="/>
+    <field:display field="institutionEn" id="s_com_cma_Std_profile_institutionEn" object="${std_profile}" z="VedyE+h3dPD3BFN/DwKCJsEITHs="/>
+    <field:display field="enrollType" id="s_com_cma_Std_profile_enrollType" object="${std_profile}" z="5CETYMtx33ZFzjbwHVNafbItAY8="/>
+    <br/>
+    <spring:message code="label_com_cma_std_profile_print_header2" var="header2"/>
+    <div id="fieldHeader">
+        ${header2}
+    </div>
+    <field:display field="institutionNo" id="s_com_cma_Std_profile_institutionNo" object="${std_profile}" z="user-managed"/>
+    <field:display field="institutionMooNo" id="s_com_cma_Std_profile_institutionMooNo" object="${std_profile}" z="user-managed"/>
+    <field:display field="institutionBuilding" id="s_com_cma_Std_profile_institutionBuilding" object="${std_profile}" z="user-managed"/>
+    <field:display field="institutionFloor" id="s_com_cma_Std_profile_institutionFloor" object="${std_profile}" z="user-managed"/>
+    <field:display field="institutionSoi" id="s_com_cma_Std_profile_institutionSoi" object="${std_profile}" z="user-managed"/>
+    <field:display field="institutionStreet" id="s_com_cma_Std_profile_institutionStreet" object="${std_profile}" z="user-managed"/>
+    <field:display field="institutionSubdistrict" id="s_com_cma_Std_profile_institutionSubdistrict" object="${std_profile}" z="user-managed"/>
+    <field:display field="institutionDistrict" id="s_com_cma_Std_profile_institutionDistrict" object="${std_profile}" z="user-managed"/>
+    <field:display field="institutionProvince" id="s_com_cma_Std_profile_institutionProvince" object="${std_profile}" z="FH4CI7LI45GULcWiiCa22iIftHE="/>
+    <field:display field="institutionPostalCode" id="s_com_cma_Std_profile_institutionPostalCode" object="${std_profile}" z="HA1io99I+LilnND7CxqVkdzGFUQ="/>
+    <field:display field="worktel1" id="s_com_cma_Std_profile_worktel1" object="${std_profile}" z="cFeCiQIHicQAZR7JlT/3EtCi7AY="/>
+    <field:display field="worktel2" id="s_com_cma_Std_profile_worktel2" object="${std_profile}" z="QGY8H1NPRJPCDQZW5rTJ+paxRgQ="/>
+    <field:display field="workfax" id="s_com_cma_Std_profile_workfax" object="${std_profile}" z="P+5UhI76NNjLTJNIEbFzEHSlIbo="/>
+    <field:display field="mobile1" id="s_com_cma_Std_profile_mobile1" object="${std_profile}" z="4w/kK38SBqZ5hnQKgaazOYk4GNU="/>
+    <field:display field="mobile2" id="s_com_cma_Std_profile_mobile2" object="${std_profile}" z="8D29Tdf5cCMi61stOLNOzf8cnsQ="/>
+    <field:display field="email" id="s_com_cma_Std_profile_email" object="${std_profile}" z="3TdC74PfTURI/soyiMnQRZ5xi2s="/>
+    <field:display render="false" field="email2" id="s_com_cma_Std_profile_email2" object="${std_profile}" z="3TdC74PfTURI/soyiMnQRZ5xi2s="/>
+    <br/>
+    <spring:message code="label_com_cma_std_profile_print_header3" var="header3"/>
+    <div id="fieldHeader">
+        ${header3}
+    </div>
+    <field:display field="homeNo" id="s_com_cma_Std_profile_homeNo" object="${std_profile}" z="user-managed"/>
+    <field:display field="mooNo" id="s_com_cma_Std_profile_mooNo" object="${std_profile}" z="user-managed"/>
+    <field:display field="building" id="s_com_cma_Std_profile_building" object="${std_profile}" z="user-managed"/>
+    <field:display field="floor" id="s_com_cma_Std_profile_floor" object="${std_profile}" z="user-managed"/>
+    <field:display field="soi" id="s_com_cma_Std_profile_soi" object="${std_profile}" z="user-managed"/>
+    <field:display field="street" id="s_com_cma_Std_profile_street" object="${std_profile}" z="user-managed"/>
+    <field:display field="subdistrict" id="s_com_cma_Std_profile_subdistrict" object="${std_profile}" z="user-managed"/>
+    <field:display field="district" id="s_com_cma_Std_profile_district" object="${std_profile}" z="user-managed"/>
+    <field:display field="province" id="s_com_cma_Std_profile_province" object="${std_profile}" z="KXvgjt8NPDx44GDgN0HHRkfuiC0="/>
+    <field:display field="postalCode" id="s_com_cma_Std_profile_postalCode" object="${std_profile}" z="r4ISds/pg9ykqbBbyNHRdkcQSvY="/>
+    <field:display field="hometel1" id="s_com_cma_Std_profile_hometel1" object="${std_profile}" z="oRJ8p0w64/fEsvYNWVJcbUZiiXk="/>
+    <field:display field="hometel2" id="s_com_cma_Std_profile_hometel2" object="${std_profile}" z="9wGl3HVnfO3jua6r95+kyJ4WBSM="/>
+    <field:display field="homefax" id="s_com_cma_Std_profile_homefax" object="${std_profile}" z="QRuz3/GfrS/jms3Kl6xRFA/7Hcc="/>
+    <field:display field="sendingAddress" id="s_com_cma_Std_profile_sendingAddress" object="${std_profile}" z="+ijgJeYPGf8Z4/ZUBjFA8NiRECw="/>
+    <br/>
+    <spring:message code="label_com_cma_std_profile_print_header4" var="header4"/>
+    <div id="fieldHeader">
+        ${header4}
+    </div>
+    <field:display field="marriedStatus" id="s_com_cma_Std_profile_marriedStatus" object="${std_profile}" z="RvlKpScDJrWMJlJtn5sOMSaMuEs="/>
+    <field:display field="spouseFirstName" id="s_com_cma_Std_profile_spouseFirstName" object="${std_profile}" z="WX3aK7K8j9Kc3WcZxKJSdPjkPhQ="/>
+    <field:display field="spouseLastName" id="s_com_cma_Std_profile_spouseLastName" object="${std_profile}" z="b1EwaGLkg1cJorU6k9kNTyXm7f8="/>
+    <field:display field="spouseCareer" id="s_com_cma_Std_profile_spouseCareer" object="${std_profile}" z="kk9ftx9UbPIR7KFCUply20HI8NQ="/>
+    <field:display field="spouseInstitution" id="s_com_cma_Std_profile_spouseInstitution" object="${std_profile}" z="user-managed"/>
+    <field:display render="false" field="spouseDay" id="s_com_cma_Std_profile_spouseDay" object="${std_profile}" z="vwNTFi3Exo6Dti5qngBbJ9O+YNY="/>
+    <field:display render="false" field="spouseMonth" id="s_com_cma_Std_profile_spouseMonth" object="${std_profile}" z="KgbQc+aPg6XMzp4rOWFPJ0IOsh4="/>
+    <field:display render="false" field="spouseYear" id="s_com_cma_Std_profile_spouseYear" object="${std_profile}" z="nL3j5FElhopNoaqo1UQGSpB5ObY="/>
+    <c:choose>
+        <c:when test="${std_profile.spouseYear==''||std_profile.spouseMonth=='0'||std_profile.spouseDay=='0'}">
+            <div id="_s_com_cma_Std_profile_birthdate_id"><label for="_birthdate_id">${text1}
+                :
+            </label><div id="_s_com_cma_Std_profile_birthdate_birthdate_id" class="box">${unselect}</div></div>
+        </c:when>
+        <c:otherwise>
+            <field:display date="true" dateTimePattern="${std_profile_spousebirthday_date_format}" field="spouseBirthDay" id="s_com_cma_Std_profile_spouseBirthDay" object="${std_profile}" z="sQuR/tTsw94gXylV/kx+R8qlWb0="/>
+        </c:otherwise>
+    </c:choose>
+    <field:display field="spouseRace" id="s_com_cma_Std_profile_spouseRace" object="${std_profile}" z="heyFosSroFi9SjXzFuZSvSvGjOo="/>
+    <field:display field="spouseNationality" id="s_com_cma_Std_profile_spouseNationality" object="${std_profile}" z="MRUgvY5mJI7jL9Q/qXSdY5pX3/4="/>
+    <field:display field="spouseReligion" id="s_com_cma_Std_profile_spouseReligion" object="${std_profile}" z="Rc/Ft8ah4y1uv9jzWINFBDx8Hqs="/>
+    <br/>
+    <spring:message code="label_com_cma_std_profile_print_header5" var="header5"/>
+    <div id="fieldHeader">
+        ${header5}
+    </div>
+    <spring:message code="label_com_cma_std_profile_print_column1" var="column1"/>
+    <spring:message code="label_com_cma_std_profile_print_column2" var="column2"/>
+    <spring:message code="label_com_cma_std_profile_print_column3" var="column3"/>
+    <spring:message code="label_com_cma_std_profile_print_column4" var="column4"/>
+    <spring:message code="label_com_cma_std_profile_print_column5" var="column5"/>
+    <spring:message code="label_com_cma_std_profile_print_column6" var="column6"/>
+    <spring:message code="label_com_cma_std_profile_print_column7" var="column7"/>
+    <table>
+        <thead>
+        <tr>
+            <th>${column1}</th>
+            <th>${column2}</th>
+            <th>${column3}</th>
+            <th>${column4}</th>
+            <th>${column5}</th>
+            <th>${column6}</th>
+            <th>${column7}</th>
+        </tr>
+        </thead>
+        <c:forEach items="${children_profile}" var="item">
+            <tr>
+                <td>${item.firstName}</td>
+                <td>${item.lastName}</td>
+                <td>${item.career}</td>
+                <td>
+                    <c:set var="dateTimePattern" value="${std_profile_birthdate_date_format}"/>
+                    <spring:escapeBody>
+                        <fmt:formatDate value="${item.birthday}" pattern="${fn:escapeXml(dateTimePattern)}" />
+                    </spring:escapeBody>
+                </td>
+                <td>${item.race}</td>
+                <td>${item.nationality}</td>
+                <td>${item.religion}</td>
+            </tr>
+        </c:forEach>
+    </table>
+    <br/>
+    <spring:message code="label_com_cma_std_profile_print_header6" var="header6"/>
+    <div id="fieldHeader">
+        ${header6}
+    </div>
+    <spring:message code="label_com_cma_std_profile_print_header7" var="header7"/>
+    <div id="fieldHeader">
+        ${header7}
+    </div>
+    <spring:message code="label_com_cma_std_profile_print_education1" var="education1"/>
+    <spring:message code="label_com_cma_std_profile_print_education2" var="education2"/>
+    <spring:message code="label_com_cma_std_profile_print_education3" var="education3"/>
+    <table>
+        <thead>
+        <tr>
+            <th>${education1}</th>
+            <th>${education2}</th>
+            <th>${education3}</th>
+        </tr>
+        </thead>
+        <c:forEach items="${education_profile_bd}" var="item">
+            <tr>
+                <td>${item.field}</td>
+                <td>${item.university}</td>
+                <td>${item.graduateYear}</td>
+            </tr>
+        </c:forEach>
+    </table>
+    <br/>
+    <spring:message code="label_com_cma_std_profile_print_header8" var="header8"/>
+    <div id="fieldHeader">
+        ${header8}
+    </div>
+    <table>
+        <thead>
+        <tr>
+            <th>${education1}</th>
+            <th>${education2}</th>
+            <th>${education3}</th>
+        </tr>
+        </thead>
+        <c:forEach items="${education_profile_md}" var="item">
+            <tr>
+                <td>${item.field}</td>
+                <td>${item.university}</td>
+                <td>${item.graduateYear}</td>
+            </tr>
+        </c:forEach>
+    </table>
+    <br/>
+    <spring:message code="label_com_cma_std_profile_print_header9" var="header9"/>
+    <div id="fieldHeader">
+        ${header9}
+    </div>
+    <table>
+        <thead>
+        <tr>
+            <th>${education1}</th>
+            <th>${education2}</th>
+            <th>${education3}</th>
+        </tr>
+        </thead>
+        <c:forEach items="${education_profile_phd}" var="item">
+            <tr>
+                <td>${item.field}</td>
+                <td>${item.university}</td>
+                <td>${item.graduateYear}</td>
+            </tr>
+        </c:forEach>
+    </table>
+    <br/>
+    <spring:message code="label_com_cma_std_profile_print_header10" var="header10"/>
+    <div id="fieldHeader">
+        ${header10}
+    </div>
+    <spring:message code="label_com_cma_std_profile_print_training1" var="training1"/>
+    <spring:message code="label_com_cma_std_profile_print_training2" var="training2"/>
+    <spring:message code="label_com_cma_std_profile_print_training3" var="training3"/>
+    <spring:message code="label_com_cma_std_profile_print_training4" var="training4"/>
+    <table>
+        <thead>
+        <tr>
+            <th>${training1}</th>
+            <th>${training2}</th>
+            <th>${training3}</th>
+            <th>${training4}</th>
+        </tr>
+        </thead>
+        <c:forEach items="${training_profile}" var="item">
+            <tr>
+                <td>${item.trainingName}</td>
+                <td>${item.trainingInstitute}</td>
+                <td>${item.trainingClass}</td>
+                <td>${item.trainingYear}</td>
+            </tr>
+        </c:forEach>
+    </table>
+    <br/>
+    <spring:message code="label_com_cma_std_profile_print_header11" var="header11"/>
+    <div id="fieldHeader">
+        ${header11}
+    </div>
+    <field:display field="collboratorFirstName" id="s_com_cma_Std_profile_collboratorFirstName" object="${std_profile}" z="G5h1TtM+sW02FDzXXxecpup4SYw="/>
+    <field:display field="collboratorLastName" id="s_com_cma_Std_profile_collboratorLastName" object="${std_profile}" z="plx3Hb2hA2ofIYKF+W/ChLD3UyA="/>
+    <field:display field="collboratorTel" id="s_com_cma_Std_profile_collboratorTel" object="${std_profile}" z="1EOTqXlFPeX0xrhK931U3+oxPAw="/>
+    <field:display field="collboratorMobile" id="s_com_cma_Std_profile_collboratorMobile" object="${std_profile}" z="1mc1wfMRYF+Jwkn4kgkpiFmuhqg="/>
+    <field:display field="collboratorFax" id="s_com_cma_Std_profile_collboratorFax" object="${std_profile}" z="hnxySoXenaXpEPtcoYEAYC8/qj8="/>
+    <field:display field="collboratorEmail" id="s_com_cma_Std_profile_collboratorEmail" object="${std_profile}" z="78WoKBhEJEcpIHd+tZ8vhtN9+So="/>
+    <br/>
+    <spring:message code="label_com_cma_std_profile_print_header12" var="header12"/>
+    <div id="fieldHeader">
+        ${header12}
+    </div>
+    <field:display field="carNo" id="s_com_cma_Std_profile_carNo" object="${std_profile}" z="vjnSRb/733D51RQCwtnxCwbxeLM="/>
+    <field:display field="carBrand" id="s_com_cma_Std_profile_carBrand" object="${std_profile}" z="HUWyfKIsYcziAVtPjVpG4GgP7Y4="/>
+    <field:display field="carColor" id="s_com_cma_Std_profile_carColor" object="${std_profile}" z="MFZWICApLWE/mNsap+Q7Ke6rl7I="/>
+    <field:display field="playGolf" id="s_com_cma_Std_profile_playGolf" object="${std_profile}" z="O0IxTCQ2fh4zrTmPkn2tBIeHEQI="/>
+    <field:display field="handyCap" id="s_com_cma_Std_profile_handyCap" object="${std_profile}" z="LNNhI8g2GoUhAFegvCLeaWFTXpA="/>
+    <field:display field="smoking" booln="true" id="s_com_cma_Std_profile_smoking" object="${std_profile}" z="r+e8oJe+KxVORQDq3QvrblB6MS4="/>
+    <field:display field="generalFood" booln="true" id="s_com_cma_Std_profile_generalFood" object="${std_profile}" z="bfOX9JxlMTxsnAMpi/Q2O/s88Qg="/>
+    <field:display field="halalFood" booln="true" id="s_com_cma_Std_profile_halalFood" object="${std_profile}" z="Lrz2xeiBoAuq9LWlmpXPnmNwPDE="/>
+    <field:display field="JFood" booln="true" id="s_com_cma_Std_profile_jFood" object="${std_profile}" z="GZ26JTUh3eNRzWXNzZtnbE42DI0="/>
+    <field:display field="vegeterianFood" booln="true" id="s_com_cma_Std_profile_vegeterianFood" object="${std_profile}" z="qqM4TzYioFuWW79ro4uxG9trnKQ="/>
+    <field:display field="allergiesSeaFood" booln="true" id="s_com_cma_Std_profile_allergiesSeaFood" object="${std_profile}" z="HegrG22rJsdjkSssNjcoZjWQjbc="/>
+    <field:display field="beefFood" booln="true" id="s_com_cma_Std_profile_beefFood" object="${std_profile}" z="TZlrPt+rioMT0EsYJqJup9Sg+C4="/>
+    <field:display field="otherFood" id="s_com_cma_Std_profile_otherFood" object="${std_profile}" z="3pKZuoLN/Si9ggmOUVXHKPTjjNw="/>
+    <field:display field="waist" id="s_com_cma_Std_profile_waist" object="${std_profile}" z="qFFKC4YI5M+FguVrp0ieiJwvadQ="/>
+    <field:display field="tall" id="s_com_cma_Std_profile_tall" object="${std_profile}" z="ShWfi/ErcqA8lHm3ZK3FVo0aKVg="/>
+    <field:display field="jacketSize" id="s_com_cma_Std_profile_jacketSize" object="${std_profile}" z="8IodOxrOflAvc+6wxRiw3fJS78Y="/>
+    <field:display field="poloSize" id="s_com_cma_Std_profile_poloSize" object="${std_profile}" z="CH7/Q7gyfFpUoHvTdw1QiJsk1Eo="/>
+    <br/>
+    <spring:message code="label_com_cma_std_profile_print_header13" var="header13"/>
+    <div id="fieldHeader">
+        ${header13}
+    </div>
+    <field:display field="receiptDetailName" id="s_com_cma_Std_profile_receiptDetailName" object="${std_profile}" z="CfcsMkWSbig/nA+3rAxRrA9qNVw="/>
+    <field:display field="receiptDetailAddress" id="s_com_cma_Std_profile_receiptDetailAddress" object="${std_profile}" z="xVtkFMzYpbpSbE+48qyyYg9TAQE="/>
+    <spring:message code="label_com_cma_std_profile_print_header14" var="header14"/>
+    <div id="fieldHeader">
+        ${header14}
+    </div>
+    <br/>
+    <spring:message code="label_com_cma_std_profile_print_submit1" var="submit1"/>
+    <spring:message code="label_com_cma_std_profile_print_submit2" var="submit2"/>
+    <spring:message code="label_com_cma_std_profile_print_submit3" var="submit3"/>
+    <spring:message code="label_com_cma_std_profile_print_submit4" var="submit4"/>
+    <spring:message code="label_com_cma_std_profile_print_unsubmit" var="unsubmit"/>
+    <c:choose>
+        <c:when test="${std_profile.submitProfile}">
+            <div>
+                - ${submit1}
+            </div>
+            <br/>
+            <div>
+                - ${submit2}
+            </div>
+            <br/>
+            <div>
+                - ${submit3}
+            </div>
+            <br/>
+            <div>
+                - ${submit4}
+            </div>
+            <br/>
+        </c:when>
+        <c:otherwise>
+            <div>
+                ${unsubmit}
+            </div>
+        </c:otherwise>
+    </c:choose>
+    <br/>
+    <br/>
+    <spring:message code="label_com_cma_std_profile_print_header15" var="header15"/>
+    <div id="fieldHeader">
+        ${header15}
+    </div>
+    <br/>
+    <spring:message code="label_com_cma_std_profile_print_submit5" var="submit5"/>
+    <spring:message code="label_com_cma_std_profile_print_submit6" var="submit6"/>
+    <c:choose>
+        <c:when test="${std_profile.submitProfile}">
+            <div>
+                - ${submit5}
+            </div>
+            <br/>
+            <div>
+                - ${submit6}
+            </div>
+            <br/>
+        </c:when>
+        <c:otherwise>
+            <div>
+                ${unsubmit}
+            </div>
+        </c:otherwise>
+    </c:choose>
+    </page:show_print>
+</div>

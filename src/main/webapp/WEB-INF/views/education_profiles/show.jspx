@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_cma_Education_profile" object="${education_profile}" path="/education_profiles" z="gCXOkKYZ045sIVxNuFsoM7tRswo=">
+        <field:display field="degree" id="s_com_cma_Education_profile_degree" object="${education_profile}" z="AEWXOMU5kJyN21+yO1W6tsML6n8="/>
+        <field:display field="field" id="s_com_cma_Education_profile_field" object="${education_profile}" z="AcT0bmbD8uQrz49JOZiG8dPuJ3s="/>
+        <field:display field="university" id="s_com_cma_Education_profile_university" object="${education_profile}" z="rCGbq60VsdL/5N6BFrXBRv4ZNhg="/>
+        <field:display field="graduateYear" id="s_com_cma_Education_profile_graduateYear" object="${education_profile}" z="3vdiAeubw1gNhPTkBrT147jid6A="/>
+        <field:display field="studentProfile" id="s_com_cma_Education_profile_studentProfile" object="${education_profile}" z="rtKhEcbdg7gKx2jSVsJntt9+DBo="/>
+    </page:show>
+</div>

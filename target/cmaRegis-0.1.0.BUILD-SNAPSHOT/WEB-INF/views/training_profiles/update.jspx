@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_com_cma_Training_profile" modelAttribute="training_profile" path="/training_profiles" versionField="Version" z="ZhHg01e9yOzmvQ2n96K9t1kFiTY=">
+        <field:input field="trainingName" id="c_com_cma_Training_profile_trainingName" required="true" z="user-managed"/>
+        <field:input field="trainingInstitute" id="c_com_cma_Training_profile_trainingInstitute" required="true" z="user-managed"/>
+        <field:input field="trainingClass" id="c_com_cma_Training_profile_trainingClass" z="O57v/wXa3jMv1y2j0UPBiGwr4D0="/>
+        <field:input field="trainingYear" id="c_com_cma_Training_profile_trainingYear" z="user-managed"/>
+        <field:select field="studentProfile" id="c_com_cma_Training_profile_studentProfile" itemValue="id" items="${std_profiles}" path="/std_profiles" render="false" z="user-managed"/>
+    </form:update>
+</div>

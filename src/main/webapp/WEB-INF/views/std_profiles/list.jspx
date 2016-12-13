@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:form="http://www.springframework.org/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:spring="http://www.springframework.org/tags" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <script>
+        function toggle() {
+            var checkboxAll = document.getElementById('l_com_cma_Student_checkAll');
+            var checkboxes = document.getElementsByName('checkbox');
+
+            var checkbox ;
+            for (var x = 0 ; x &lt; checkboxes.length ; x++)
+                {
+                    checkbox = checkboxes[x];
+                    checkbox.checked = checkboxAll.checked;
+                }
+        }
+        function setClassId(){
+            var classIdElement = document.getElementById('cmaClass_id');
+            var classIdElement2 = document.getElementById('cmaClass');
+            classIdElement.value = classIdElement2.value;
+        }
+    </script>
+    <page:list id="pl_com_cma_Student" items="${std_profiles}" z="xaUvusHhDL+iwlRNOZj5UO6aiyg=">
+        <c:if test="${(message!='')}">
+            <p id="message">
+                ${message}
+            </p>
+        </c:if>
+        <c:if test="${(warning_message!='')}">
+            <p id="warning_message">
+                ${warning_message}
+            </p>
+        </c:if>
+       <form action="./std_profiles/actionChangeClass" method="POST">
+            <div>
+                <div><label for="cmaClass">Class : </label></div>
+                <select id="cmaClass" name="cmaClass" onchange="this.form.submit()">
+                    <c:forEach items="${classList}" var="item">
+                        <c:choose>
+                            <c:when test="${item.id==class_id}">
+                                <option value="${item.id}" selected="true">
+                                    ${item.nameTh}/${item.nameEn}
+                                </option>
+                            </c:when>
+                            <c:otherwise>
+                                <option value="${item.id}">
+                                    ${item.nameTh}/${item.nameEn}
+                                </option>
+                            </c:otherwise>
+                        </c:choose>
+                    </c:forEach>
+                </select>
+            </div>
+        </form>
+        <br/>
+        <form:form action="./std_profiles/send" method="POST">
+            <input id="cmaClass_id" name="cmaClass_id" type="hidden" value=""/>
+            <table>
+                <thead>
+                    <tr>
+                        <spring:message code="label_com_cma_student_table_column1" var="field1"/>
+                        <spring:message code="label_com_cma_student_table_column2" var="field2"/>
+                        <spring:message code="label_com_cma_student_table_column3" var="field3"/>
+                        <spring:message code="label_com_cma_student_table_column4" var="field4"/>
+                        <spring:message code="label_com_cma_student_table_column5" var="field5"/>
+                        <spring:message code="label_com_cma_student_table_column6" var="field6"/>
+                        <spring:message code="label_com_cma_student_table_column7" var="field7"/>
+                        <th width="5%" style="text-align: center;">
+                            <input id="l_com_cma_Student_checkAll" name="checkboxAll" type="checkbox" onclick="toggle()" value="-1"/>
+                            <br/>
+                            All
+                        </th>
+                        <th width="2%"/>
+                        <th width="2%"/>
+                        <th width="2%"/>
+                        <th width="10%">${field1}</th>
+                        <th width="10%">${field2}</th>
+                        <th width="15%">${field3}</th>
+                        <th width="15%">${field4}</th>
+                        <th width="13%">${field5}</th>
+                        <th width="16%">${field6}<br/>${field7}</th>
+                    </tr>
+                </thead>
+                <c:forEach items="${std_profiles}" varStatus="status" var="item">
+                    <tr>
+                        <td style="text-align: center;">
+                            <input id="l_com_cma_Student" name="checkbox" type="checkbox" value="${item.id}"/>
+                            <br/>
+                            <c:out value=" ${status.count}"/>
+                        </td>
+                        <td class="utilbox">
+                            <a alt="Show std_profile" href="./std_profiles/${item.id}" title="Show std_profile">
+                                <img alt="Show std_profile" class="image" src="./resources/images/show.png" title="Show std_profile"/>
+                            </a>
+                        </td>
+                        <td class="utilbox">
+                            <a alt="Update std_profile" href="./std_profiles/${item.id}?form1" title="Update std_profile">
+                                <img alt="Update std_profile" class="image" src="./resources/images/update.png" title="Update std_profile"/>
+                            </a>
+                        </td>
+                        <td class="utilbox">
+                            <c:set var="delete_confirm_msg">
+                                <spring:escapeBody javaScriptEscape="true">
+                                    <spring:message code="entity_delete_confirm"/>
+                                </spring:escapeBody>
+                            </c:set>
+                            <a alt="Delete std_profile" href="./std_profiles/${item.id}?delete" onclick="return confirm('${delete_confirm_msg}');" title="Deletee std_profile">
+                                <img alt="Delete std_profile" class="image" src="./resources/images/delete.png" title="Delete std_profile"/>
+                            </a>
+                        </td>
+                        <td>${item.titleTh}</td>
+                        <td>${item.firstnameTh}</td>
+                        <td>${item.lastnameTh}</td>
+                        <td>${item.positionTh}</td>
+                        <td>${item.institutionTh}</td>
+                        <td>${item.email}<br/>${item.email2}</td>
+                    </tr>
+                </c:forEach>
+            </table>
+            <div/>
+            <br/>
+            <div>
+                <input id="sentMail" type="submit" value="sendMail" onclick="setClassId()"/>
+            </div>
+        </form:form>
+    </page:list>
+</div>

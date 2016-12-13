@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:spring="http://www.springframework.org/tags" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_cma_Student_attach" items="${std_profiles}" z="xaUvusHhDL+iwlRNOZj5UO6aiyg=">
+        <form action="./attachfileListForm" method="POST">
+            <div>
+                <div><label for="cmaClass">Class : </label></div>
+                <select id="cmaClass" name="cmaClass" onchange="this.form.submit()">
+                    <c:forEach items="${classList}" var="item">
+                        <c:choose>
+                            <c:when test="${item.id==class_id}">
+                                <option value="${item.id}" selected="true">
+                                    ${item.nameTh}/${item.nameEn}
+                                </option>
+                            </c:when>
+                            <c:otherwise>
+                                <option value="${item.id}">
+                                    ${item.nameTh}/${item.nameEn}
+                                </option>
+                            </c:otherwise>
+                        </c:choose>
+                    </c:forEach>
+                </select>
+            </div>
+        </form>
+        <br/>
+            <form id="uploadForm" action="/cmaRegis/attachfiles/uploadByAdmin" encType="multipart/form-data" method="post">
+                <input id="cmaClass_id" name="cmaClass_id" type="hidden" value=""/>
+                <table>
+                    <thead>
+                    <tr>
+                        <spring:message code="label_com_cma_student_table_column1" var="field1"/>
+                        <spring:message code="label_com_cma_student_table_column2" var="field2"/>
+                        <spring:message code="label_com_cma_student_table_column3" var="field3"/>
+                        <th width="9%">${field1}</th>
+                        <th width="16%">${field2}</th>
+                        <th width="15%">${field3}</th>
+                        <th width="7%">Photo</th>
+                        <th width="7%">IDcard</th>
+                        <th width="7%">Passport</th>
+                        <th width="7%">Official passport</th>
+                        <th width="7%">ROP</th>
+                        <th width="7%">CMA Slip</th>
+                        <th width="7%">ACMA Slip</th>
+                        <th width="7%">Tax</th>
+                        <th width="4%"> </th>
+                    </tr>
+                    </thead>
+                    <c:forEach items="${std_profiles}" var="item">
+                        <tr class="cellTable">
+                            <td>${item.titleTh}</td>
+                            <td>${item.firstnameTh}</td>
+                            <td>${item.lastnameTh}</td>
+                            <td>
+                                <spring:url value="/img_resources/${item.attachFile.photoFileName}" var="photo"/>
+                                <c:if test="${item.attachFile.uploadPhoto}">
+                                    <a href="${photo}">Link</a>
+                                </c:if>
+                            </td>
+                            <td>
+                                <spring:url value="/img_resources/${item.attachFile.idcardFileName}" var="idcard"/>
+                                <c:if test="${item.attachFile.uploadIdcard}">
+                                    <a href="${idcard}">Link</a>
+                                </c:if>
+                            </td>
+                            <td>
+                                <spring:url value="/img_resources/${item.attachFile.passportFileName}" var="passport"/>
+                                <c:if test="${item.attachFile.uploadPassport}">
+                                    <a href="${passport}">Link</a>
+                                </c:if>
+                            </td>
+                            <td>
+                                <spring:url value="/img_resources/${item.attachFile.pfFileName}" var="pf"/>
+                                <c:if test="${item.attachFile.uploadPf}">
+                                    <a href="${pf}">Link</a>
+                                </c:if>
+                            </td>
+                            <td>
+                                <spring:url value="/img_resources/${item.attachFile.apecFileName}" var="apec"/>
+                                <c:if test="${item.attachFile.uploadApec}">
+                                    <a href="${apec}">Link</a>
+                                </c:if>
+                            </td>
+                            <td>
+                                <spring:url value="/img_resources/${item.attachFile.slip1FileName}" var="slip1"/>
+                                <c:if test="${item.attachFile.uploadSlip1}">
+                                    <a href="${slip1}">Link</a>
+                                </c:if>
+                            </td>
+                            <td>
+                                <spring:url value="/img_resources/${item.attachFile.slip2FileName}" var="slip2"/>
+                                <c:if test="${item.attachFile.uploadSlip2}">
+                                    <a href="${slip2}">Link</a>
+                                </c:if>
+                            </td>
+                            <td>
+                                <spring:url value="/img_resources/${item.attachFile.holdingTaxFileName}" var="holdingTax"/>
+                                <c:if test="${item.attachFile.uploadHoldingTax}">
+                                    <a href="${holdingTax}">Link</a>
+                                </c:if>
+                            </td>
+                            <td>
+                                <spring:url value="/attachfiles/${item.id}?createForm=&amp;admin=yes" var="editURL"/>
+                                <a href="${editURL}">Edit</a>
+                            </td>
+                        </tr>
+                    </c:forEach>
+                </table>
+            </form>
+            <br/>
+    </page:list>
+</div>

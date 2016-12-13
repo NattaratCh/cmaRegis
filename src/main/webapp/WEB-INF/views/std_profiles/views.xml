@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+    <definition extends="default" name="std_profiles/list">
+        <put-attribute name="body" value="/WEB-INF/views/std_profiles/list.jspx"/>
+    </definition>
+<definition extends="default" name="std_profiles/show">
+        <put-attribute name="body" value="/WEB-INF/views/std_profiles/show.jspx"/>
+    </definition>
+<definition extends="default" name="std_profiles/create">
+        <put-attribute name="body" value="/WEB-INF/views/std_profiles/create.jspx"/>
+    </definition>
+<definition extends="default" name="std_profiles/update">
+        <put-attribute name="body" value="/WEB-INF/views/std_profiles/update.jspx"/>
+    </definition>
+<definition extends="default" name="std_profiles/update1">
+        <put-attribute name="body" value="/WEB-INF/views/std_profiles/update1.jspx"/>
+    </definition>
+<definition extends="default" name="std_profiles/update2">
+        <put-attribute name="body" value="/WEB-INF/views/std_profiles/update2.jspx"/>
+    </definition>
+<definition extends="default" name="std_profiles/update3">
+        <put-attribute name="body" value="/WEB-INF/views/std_profiles/update3.jspx"/>
+    </definition>
+<definition extends="default" name="std_profiles/update4">
+        <put-attribute name="body" value="/WEB-INF/views/std_profiles/update4.jspx"/>
+    </definition>
+<definition extends="default" name="std_profiles/update5">
+        <put-attribute name="body" value="/WEB-INF/views/std_profiles/update5.jspx"/>
+    </definition>
+<definition extends="default" name="std_profiles/print">
+        <put-attribute name="body" value="/WEB-INF/views/std_profiles/print.jspx"/>
+    </definition>
+<definition extends="default" name="std_profiles/success">
+        <put-attribute name="body" value="/WEB-INF/views/succesSubmitPage.jspx"/>
+    </definition>
+<definition extends="default" name="std_profiles/attachList">
+        <put-attribute name="body" value="/WEB-INF/views/std_profiles/attachList.jspx"/>
+    </definition>
+</tiles-definitions>

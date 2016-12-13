@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_cma_Children_profile" object="${children_profile}" path="/children_profiles" z="85NlEjZAI7k4Kgg3N/p6N2Ja/l4=">
+        <field:display field="firstName" id="s_com_cma_Children_profile_firstName" object="${children_profile}" z="5I6yPFIRK5Pf8cGNihVsybyRF/s="/>
+        <field:display field="lastName" id="s_com_cma_Children_profile_lastName" object="${children_profile}" z="44EjYjCsbJQO+VB34jWpQWFj24U="/>
+        <field:display field="career" id="s_com_cma_Children_profile_career" object="${children_profile}" z="UAuscjnBw48qYtG5NYWE++12YGc="/>
+        <field:display date="true" dateTimePattern="${children_profile_birthday_date_format}" field="birthday" id="s_com_cma_Children_profile_birthday" object="${children_profile}" z="6NKqOvZ/Gv4V3TJLOF20r+IFYOM="/>
+        <field:display field="race" id="s_com_cma_Children_profile_race" object="${children_profile}" z="Mt/HlDH4DJmSDce6JwwqSlIwvn4="/>
+        <field:display field="nationality" id="s_com_cma_Children_profile_nationality" object="${children_profile}" z="mFvA6c8aDNE3Bf33WoZ/DLDSD3w="/>
+        <field:display field="religion" id="s_com_cma_Children_profile_religion" object="${children_profile}" z="MUoKPiGa4yqHo0s/tIGJf2EWpYk="/>
+        <field:display field="studentProfile" id="s_com_cma_Children_profile_studentProfile" object="${children_profile}" z="3h7gdzlIKJXG4I/OI62aWONBmAc="/>
+        <field:display field="childrenBdateString" id="s_com_cma_Children_profile_childrenBdateString" object="${children_profile}" z="aPWmuap3uAmtEQhkYPYw2zftj6U="/>
+    </page:show>
+</div>

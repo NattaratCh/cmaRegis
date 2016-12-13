@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_cma_UserRegis" object="${userregis}" path="/userlogins" z="user-managed">
+        <field:display field="username" id="s_com_cma_UserRegis_username" object="${userregis}" z="user-managed"/>
+        <field:display field="password" id="s_com_cma_UserRegis_password" object="${userregis}" z="user-managed"/>
+        <field:display field="enabled" id="s_com_cma_UserRegis_enabled" object="${userregis}" z="user-managed"/>
+        <div id="_s_com_cma_UserRegis__studentProfile_id_id">
+            <label for="_studentProfile_id">Student Profile :</label>
+            <div class="box" id="_s_com_cma_UserRegis_studentClass_studentClass_id">${userregis.studentProfile.firstnameTh} ${userregis.studentProfile.lastnameTh}</div>
+        </div>
+        <br/>
+        <field:display field="userRole" id="s_com_cma_UserRegis_userRole" object="${userregis}" z="user-managed"/>
+        <field:display field="studentProfile" id="s_com_cma_UserRegis_studentProfile" object="${userregis}" render="false" z="user-managed"/>
+        <field:display field="password1" id="s_com_cma_UserRegis_password1" object="${userregis}" render="false" z="user-managed"/>
+        <field:display field="password2" id="s_com_cma_UserRegis_password2" object="${userregis}" render="false" z="user-managed"/>
+        <field:display field="password3" id="s_com_cma_UserRegis_password3" object="${userregis}" render="false" z="user-managed"/>
+        <field:display field="password4" id="s_com_cma_UserRegis_password4" object="${userregis}" render="false" z="user-managed"/>
+        <field:display field="password5" id="s_com_cma_UserRegis_password5" object="${userregis}" render="false" z="user-managed"/>
+        <field:display field="pointer" id="s_com_cma_UserRegis_pointer" object="${userregis}" render="false" z="user-managed"/>
+        <field:display field="loginTimes" id="s_com_cma_UserRegis_loginTimes" object="${userregis}" render="false" z="user-managed"/>
+        <field:display date="true" dateTimePattern="${userRegis_lastchangepwd_date_format}" field="lastChangePwd" id="s_com_cma_UserRegis_lastChangePwd" object="${userregis}" z="user-managed"/>
+    </page:show>
+</div>

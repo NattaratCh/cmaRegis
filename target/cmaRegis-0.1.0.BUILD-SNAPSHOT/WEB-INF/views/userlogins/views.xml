@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+    <definition extends="default" name="userlogins/list">
+        <put-attribute name="body" value="/WEB-INF/views/userlogins/list.jspx"/>
+    </definition>
+<definition extends="default" name="userlogins/show">
+        <put-attribute name="body" value="/WEB-INF/views/userlogins/show.jspx"/>
+    </definition>
+<definition extends="default" name="userlogins/create">
+        <put-attribute name="body" value="/WEB-INF/views/userlogins/create.jspx"/>
+    </definition>
+<definition extends="default" name="userlogins/update">
+        <put-attribute name="body" value="/WEB-INF/views/userlogins/update.jspx"/>
+    </definition>
+<definition extends="default" name="userlogins/index">
+        <put-attribute name="body" value="/WEB-INF/views/index.jspx"/>
+    </definition>
+<definition extends="default" name="userlogins/firstLogin">
+        <put-attribute name="body" value="/WEB-INF/views/userlogins/firstLogin.jspx"/>
+    </definition>
+<definition extends="default" name="userlogins/changePwd">
+        <put-attribute name="body" value="/WEB-INF/views/userlogins/changePwd.jspx"/>
+    </definition>
+</tiles-definitions>

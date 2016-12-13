@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_cma_Children_profile" items="${children_profiles}" z="QigFpvRHmY7bdmNuMOiyGEjZLHg=">
+        <table:table data="${children_profiles}" id="l_com_cma_Children_profile" path="/children_profiles" z="xUmFELV/ozQcXmlC+A8JnUfoeIo=">
+            <table:column id="c_com_cma_Children_profile_firstName" property="firstName" z="8VhYanSI+Shefpvng5uDq11IxPY="/>
+            <table:column id="c_com_cma_Children_profile_lastName" property="lastName" z="qSMqHFy+UZ6fFnwJ4xbM6MuubN8="/>
+            <table:column id="c_com_cma_Children_profile_career" property="career" z="qJRvoTN6QBdmZtFVsq8lIxUswZ4="/>
+            <table:column id="c_com_cma_Children_profile_childrenBdateString" property="childrenBdateString" z="yjDpxYnQ3oymLVG/jF2xjTE8alo="/>
+            <table:column date="true" dateTimePattern="${children_profile_birthday_date_format}" id="c_com_cma_Children_profile_birthday" property="birthday" z="KRH/izRJLLKmUFdPj3NHb/fXr8Y="/>
+            <table:column id="c_com_cma_Children_profile_race" property="race" z="lmOrdEjosNL4FOJN+6QPjBOVnJM="/>
+        </table:table>
+    </page:list>
+</div>

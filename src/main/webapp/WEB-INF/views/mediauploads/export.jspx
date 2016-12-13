@@ -1,0 +1,28 @@
+<div xmlns:spring="http://www.springframework.org/tags" xmlns:util="urn:jsptagdir:/WEB-INF/tags/util"
+     xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0" xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <jsp:directive.page contentType="text/html;charset=UTF-8" />
+    <jsp:output omit-xml-declaration="yes" />
+    <c:if test="${message!=null}">
+        <p id="message">
+            ${message}
+        </p>
+    </c:if>
+    <util:panel id="title" title="Export รายชื่อนักเรียน">
+        <form action="./mediauploads/submitExport">
+            <div>
+            <div><label for="cmaClass">Class : </label></div>
+                <select id="cmaClass" name="cmaClass">
+                <c:forEach items="${classList}" var="item">
+                    <option value="${item.id}">
+                        ${item.nameEn}/${item.nameTh}
+                    </option>
+                </c:forEach>
+                </select>
+                <script type="text/javascript">Spring.addDecoration(new Spring.ElementDecoration({elementId : 'cmaClass', widgetType: 'dijit.form.FilteringSelect', widgetAttrs : {hasDownArrow : true}})); </script>
+            </div>
+            <input type="hidden" name="dataState" value="${dataState}"/>
+        <spring:message code="label_com_cma_mediaupload_submit" var="submit"/>
+        <input type="submit" value="${submit}"/>
+        </form>
+    </util:panel>
+</div>

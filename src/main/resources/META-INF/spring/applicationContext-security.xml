@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security" 
+    xmlns:beans="http://www.springframework.org/schema/beans" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+        http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd">
+    <!-- HTTP security configurations -->
+
+    <http auto-config="true" use-expressions="true">
+        <form-login login-processing-url="/resources/j_spring_security_check" default-target-url="/userlogins/checkRole" login-page="/login" authentication-failure-url="/login?login_error=t" />
+        <logout invalidate-session="true" logout-url="/resources/j_spring_security_logout" />
+        <session-management invalid-session-url="/login"/>
+        <!-- Configure these elements to secure URIs in your application -->
+
+        <intercept-url pattern="/attachfiles**" access="hasAnyRole('ROLE_ADMIN','ROLE_USER_UNCHANGE','ROLE_USER')"/>
+        <intercept-url pattern="/education_profiles**" access="hasAnyRole('ROLE_ADMIN','ROLE_USER_UNCHANGE','ROLE_USER')"/>
+        <intercept-url pattern="/training_profiles**" access="hasAnyRole('ROLE_ADMIN','ROLE_USER_UNCHANGE','ROLE_USER')"/>
+        <intercept-url pattern="/children_profiles**" access="hasAnyRole('ROLE_ADMIN','ROLE_USER_UNCHANGE','ROLE_USER')"/>
+        <intercept-url pattern="/userroles**" access="hasRole('ROLE_ADMIN')"/>
+        <intercept-url pattern="/mediauploads**" access="hasRole('ROLE_ADMIN')"/>
+        <intercept-url pattern="/std_profiles**" access="hasAnyRole('ROLE_ADMIN','ROLE_USER_UNCHANGE','ROLE_USER')"/>
+        <intercept-url pattern="/std_classes**" access="hasRole('ROLE_ADMIN')"/>
+        <intercept-url pattern="/userlogins**" access="hasAnyRole('ROLE_ADMIN','ROLE_USER_UNCHANGE','ROLE_USER')"/>
+        <intercept-url pattern="/choices/**" access="hasRole('ROLE_ADMIN')" />
+        <intercept-url pattern="/img_resources/**" access="isAuthenticated()" />
+        <intercept-url pattern="/resources/**" access="permitAll" />
+        <intercept-url pattern="/**" access="permitAll" />
+    </http>
+
+    <beans:bean id="authenticationListener" class="com.cma.common.AuthenticationListener" />
+
+    <beans:bean id='cmaUserDetailsService' class='com.cma.common.cmaUserDetailsService'/>
+    <!-- Configure Authentication mechanism -->
+    <authentication-manager alias="authenticationManager">
+        <!-- SHA-256 values can be produced using 'echo -n your_desired_password | sha256sum' (using normal *nix environments) -->
+        <authentication-provider user-service-ref="cmaUserDetailsService">
+            <password-encoder hash="sha-256" />
+            <!--<jdbc-user-service data-source-ref="dataSource"
+                users-by-username-query="
+                    SELECT username,password,enabled
+                    FROM userlogin
+                    WHERE username = ?"
+
+                authorities-by-username-query="
+                    SELECT u.`username`,r.`role_name`
+                    FROM userlogin u, userrole r, assigned_role a
+                    WHERE u.id = a.`user_id`
+                    AND r.id = a.`role_id`
+                    AND u.username = ?"
+            />-->
+            <!-- <password-encoder hash="sha-256" />
+            <user-service>
+                <user name="admin" password="8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918" authorities="ROLE_ADMIN" />
+                <user name="user" password="04f8996da763b7a969b1028ee3007569eaf3a635486ddab211d512c85b9df8fb" authorities="ROLE_USER" />
+            </user-service> -->
+        </authentication-provider>
+    </authentication-manager>
+</beans:beans>

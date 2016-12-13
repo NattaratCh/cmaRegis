@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:form="http://www.springframework.org/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:spring="http://www.springframework.org/tags" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:util="urn:jsptagdir:/WEB-INF/tags/util" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <util:panel id="pl_com_cma_UserRegis" openPane="true" title="รายการผู้ใช้">
+        <table>
+            <thead>
+                <tr>
+                    <th width="15%">ชื่อบัญชีผู้ใช้</th>
+                    <th width="10%">Enabled</th>
+                    <th width="20%">รุ่น วตท.</th>
+                    <th width="25%">ประวัตินักเรียน</th>
+                    <th width="20%">สิทธิ</th>
+                    <th/>
+                    <th/>
+                    <th/>
+                </tr>
+            </thead>
+            <c:forEach items="${userregises}" var="item">
+                <tr>
+                    <td>${item.username}</td>
+                    <td>${item.enabled}</td>
+                    <td>${item.studentProfile.studentClass.nameTh}/${item.studentProfile.studentClass.nameEn}</td>
+                    <td>${item.studentProfile.firstnameTh} ${item.studentProfile.lastnameTh}</td>
+                    <td>${item.userRole.role_name}</td>
+                    <td class="utilbox">
+                        <a alt="Show userlogins" href="./userlogins/${item.id}" title="Show userlogins">
+                            <img alt="Show userlogins" class="image" src="./resources/images/show.png" title="Show userlogins"/>
+                        </a>
+                    </td>
+                    <td class="utilbox">
+                        <a alt="Update userlogins" href="./userlogins/${item.id}?form" title="Update std_profile">
+                            <img alt="Update userlogins" class="image" src="./resources/images/update.png" title="Update userlogins"/>
+                        </a>
+                    </td>
+                    <td class="utilbox">
+                        <form:form action="./userlogins/${item.id}" method="DELETE">
+                            <c:set var="delete_confirm_msg">
+                                <spring:escapeBody javaScriptEscape="true">
+                                    <spring:message code="entity_delete_confirm"/>
+                                </spring:escapeBody>
+                            </c:set>
+                            <input alt="Delete userlogins" class="image" onclick="return confirm('${delete_confirm_msg}');" src="./resources/images/delete.png" title="Delete userlogins" type="image" value="Delete userlogins"/>
+                        </form:form>
+                    </td>
+                </tr>
+            </c:forEach>
+        </table>
+        <table:table data="${userregises}" id="l_com_cma_UserRegis" path="/userlogins" render="false" z="user-managed">
+            <table:column id="c_com_cma_UserRegis_username" property="username" z="user-managed"/>
+            <table:column id="c_com_cma_UserRegis_password" property="password" z="user-managed"/>
+            <table:column id="c_com_cma_UserRegis_enabled" property="enabled" z="user-managed"/>
+            <table:column id="c_com_cma_UserRegis_password1" property="password1" z="user-managed"/>
+            <table:column id="c_com_cma_UserRegis_password2" property="password2" z="user-managed"/>
+            <table:column id="c_com_cma_UserRegis_password3" property="password3" z="user-managed"/>
+        </table:table>
+    </util:panel>
+</div>

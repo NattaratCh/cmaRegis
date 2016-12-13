@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_cma_AttachFile" object="${attachfile}" path="/attachfiles" z="vTBv5kWbSTMUHk6XoqhNZuTrCx8=">
+        <field:display field="photo" id="s_com_cma_AttachFile_photo" object="${attachfile}" z="5Q5rXfMQheBkQPCfDftC+ilQAcc="/>
+        <field:display field="namecard" id="s_com_cma_AttachFile_namecard" object="${attachfile}" z="omLmtZCho8cH+M6gMtHbQmzLuWQ="/>
+        <field:display field="idcard" id="s_com_cma_AttachFile_idcard" object="${attachfile}" z="Rxli9j40lr7UTY4rk6mACneJu28="/>
+        <field:display field="passport" id="s_com_cma_AttachFile_passport" object="${attachfile}" z="tsKvhbaC8RprS3tKjceIULqp3GU="/>
+        <field:display field="apec" id="s_com_cma_AttachFile_apec" object="${attachfile}" z="7dLGuDcv0y3Fll+fjB99N5wQ1Hw="/>
+        <field:display field="pf" id="s_com_cma_AttachFile_pf" object="${attachfile}" z="Mg11T6eFxnSt636FsdlmtqV+eqI="/>
+        <field:display field="slip1" id="s_com_cma_AttachFile_slip1" object="${attachfile}" z="cIZz1iF4BTFlRq3g+utTutigS4k="/>
+        <field:display field="uploadPhoto" id="s_com_cma_AttachFile_uploadPhoto" object="${attachfile}" z="vRx0dp99dcM9v0rTHoTfuLNF0is="/>
+        <field:display field="uploadNamecard" id="s_com_cma_AttachFile_uploadNamecard" object="${attachfile}" z="6n0CJJ9VRV7xGAq5ioOYIn5Srzs="/>
+        <field:display field="uploadIdcard" id="s_com_cma_AttachFile_uploadIdcard" object="${attachfile}" z="8lbiv5qUj+CPbjo9lU+VHXQ0Ghw="/>
+        <field:display field="uploadPassport" id="s_com_cma_AttachFile_uploadPassport" object="${attachfile}" z="uRiV1Sz6ea9URQmzit43mLLrf2E="/>
+        <field:display field="uploadApec" id="s_com_cma_AttachFile_uploadApec" object="${attachfile}" z="fwXFPpo4LVcktMEJquhcD5c0lAo="/>
+        <field:display field="uploadPf" id="s_com_cma_AttachFile_uploadPf" object="${attachfile}" z="A5vGRKS48JM1UOzCrVUu635+Dok="/>
+        <field:display field="uploadSlip1" id="s_com_cma_AttachFile_uploadSlip1" object="${attachfile}" z="/vp2ToaUQlWNIsmoYU9UJwaKDLY="/>
+        <field:display field="photoFileName" id="s_com_cma_AttachFile_photoFileName" object="${attachfile}" z="i5uU4m0Vs3jRLhAq+dRm2fB0pFA="/>
+        <field:display field="namecardFileName" id="s_com_cma_AttachFile_namecardFileName" object="${attachfile}" z="1aEB7Qz7JFKQR3qp5r5+Ef2oM2E="/>
+        <field:display field="idcardFileName" id="s_com_cma_AttachFile_idcardFileName" object="${attachfile}" z="A/MyLHlJFOUOheEFOJi4n7MUGjk="/>
+        <field:display field="passportFileName" id="s_com_cma_AttachFile_passportFileName" object="${attachfile}" z="pTJDjuXewOMV9kstIt1V7RaWkk4="/>
+        <field:display field="apecFileName" id="s_com_cma_AttachFile_apecFileName" object="${attachfile}" z="W726WzLBnbF/zDderISrdo5nSCU="/>
+        <field:display field="pfFileName" id="s_com_cma_AttachFile_pfFileName" object="${attachfile}" z="nGaxiPCID86Ng5vPHd0RBjzL/sY="/>
+        <field:display field="slip1FileName" id="s_com_cma_AttachFile_slip1FileName" object="${attachfile}" z="vCjmo4+9jSrdSqvp9HwWPtfYunU="/>
+        <field:display field="slip2" id="s_com_cma_AttachFile_slip2" object="${attachfile}" z="FlfGeoGZluQDf3qHogDZvAHy/+I="/>
+        <field:display field="uploadSlip2" id="s_com_cma_AttachFile_uploadSlip2" object="${attachfile}" z="VqLLb1mIut4AnpWQ0qFVvu47QYU="/>
+        <field:display field="slip2FileName" id="s_com_cma_AttachFile_slip2FileName" object="${attachfile}" z="yPEc7LJawVlmP3KDtcqs1sfAhEg="/>
+        <field:display field="stdProfile" id="s_com_cma_AttachFile_stdProfile" object="${attachfile}" z="g76BM8oKSA5ddKGCyaT5Wp2UkL0="/>
+        <field:display field="holdingTaxFileName" id="s_com_cma_AttachFile_holdingTaxFileName" object="${attachfile}" z="n9dJ6XDF0oXlIwWH5Ri34eACyiI="/>
+        <field:display field="uploadHoldingTax" id="s_com_cma_AttachFile_uploadHoldingTax" object="${attachfile}" z="jRTP+DdjOnLi3wQhwGEOLimJUek="/>
+        <field:display field="holdingTax" id="s_com_cma_AttachFile_holdingTax" object="${attachfile}" z="FmUaLF48F3g/fU8OsMtKe60Pa/k="/>
+    </page:show>
+</div>

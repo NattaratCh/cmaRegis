@@ -1,0 +1,119 @@
+// Spring Roo 1.3.2.RELEASE [rev 8387857] log opened at 2016-12-07 14:00:01
+perform package
+perform package
+perform package
+// Spring Roo 1.3.2.RELEASE [rev 8387857] log opened at 2016-12-07 14:25:58
+perform package
+perform package
+entity jpa --class ~.MapStudent --testAutomatically  
+// Spring Roo 1.3.2.RELEASE [rev 8387857] log opened at 2016-12-07 14:35:44
+// Spring Roo 1.3.2.RELEASE [rev 8387857] log opened at 2016-12-07 14:36:23
+perform package
+perform package
+perform package
+perform package
+perform package
+perform package
+perform package
+perform package
+// [failed] entity jpa --class ~.Student --testAutomatically
+perform package
+perform package
+perform package
+perform package
+perform package
+// Spring Roo 1.3.2.RELEASE [rev 8387857] log opened at 2016-12-07 16:24:43
+perform package
+perform package
+perform package
+perform package
+perform package
+perform package
+perform package
+perform package
+perform package
+perform package
+perform package
+perform package
+perform package
+perform package
+perform package
+perform package
+perform package
+perform package
+perform package
+perform package
+perform package
+perform package
+perform package
+perform package
+perform package
+perform package
+perform package
+perform package
+perform package
+perform package
+perform package
+perform package
+perform package
+perform package
+perform package
+perform package
+perform package
+perform package
+perform package
+perform package
+entity jpa --class ~.UserWeb --testAutomatically  
+entity jpa --class ~.UserWebRole --testAutomatically  
+// Spring Roo 1.3.2.RELEASE [rev 8387857] log opened at 2016-12-09 16:41:02
+perform package
+perform package
+perform package
+perform package
+perform package
+perform package
+perform package
+perform package
+perform package
+perform package
+perform package
+perform package
+// Spring Roo 1.3.2.RELEASE [rev 8387857] log opened at 2016-12-12 13:58:54
+// Spring Roo 1.3.2.RELEASE [rev 8387857] log opened at 2016-12-12 13:59:10
+// [failed] entity jpa --class ~.Role --testAutomatically 
+// [failed] entity jpa --class ~.UserWebRole --versionField "" --testAutomatically 
+// Spring Roo 1.3.2.RELEASE [rev 8387857] log opened at 2016-12-12 14:07:28
+entity jpa --class ~.UserWebRole --versionField "" --testAutomatically 
+// Spring Roo 1.3.2.RELEASE [rev 8387857] log opened at 2016-12-12 14:10:38
+entity jpa --class ~.domain.Topping --testAutomatically 
+// Spring Roo 1.3.2.RELEASE [rev 8387857] log opened at 2016-12-12 14:11:41
+// [failed] entity jpa --class ~.Role --testAutomatically 
+entity jpa --class ~.WebRole --testAutomatically 
+perform package
+perform package
+perform package
+perform package
+perform package
+perform package
+perform package
+// Spring Roo 1.3.2.RELEASE [rev 8387857] log opened at 2016-12-12 14:53:27
+entity jpa --class ~.Course --testAutomatically 
+// Spring Roo 1.3.2.RELEASE [rev 8387857] log opened at 2016-12-12 15:26:30
+perform package
+perform package
+perform package
+perform package
+perform package
+perform package
+perform package
+perform package
+perform package
+perform package
+perform package
+// Spring Roo 1.3.2.RELEASE [rev 8387857] log opened at 2016-12-12 21:30:46
+perform package
+perform package
+perform package
+perform package
+perform package
+perform package

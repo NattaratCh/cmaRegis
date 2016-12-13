@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form"
+     xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt" version="2.0"
+     xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:spring="http://www.springframework.org/tags">
+    <script>
+        var jq=jQuery.noConflict();
+        jq(function() {
+            jq("#_spouseBdateString_id").datepicker({
+                changeMonth: true,
+                changeYear: true,
+                dateFormat: 'dd M yy',
+                yearRange: "${minyearSpouse}}:${maxyearSpouse}",
+                isBuddhist: true,
+                dayNames: ['อาทิตย์','จันทร์','อังคาร','พุธ','พฤหัสบดี','ศุกร์','เสาร์'],
+                dayNamesMin: ['อา.','จ.','อ.','พ.','พฤ.','ศ.','ส.'],
+                monthNames: ['มกราคม','กุมภาพันธ์','มีนาคม','เมษายน','พฤษภาคม','มิถุนายน','กรกฎาคม','สิงหาคม','กันยายน','ตุลาคม','พฤศจิกายน','ธันวาคม'],
+                monthNamesShort: ['ม.ค.','ก.พ.','มี.ค.','เม.ย.','พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.','พ.ย.','ธ.ค.'],
+                defaultDate: "-20y"
+            });
+        });
+    </script>
+    <script>
+        var jq=jQuery.noConflict();
+        jq(function() {
+            jq("#_childrenBdateString_id").datepicker({
+                changeMonth: true,
+                changeYear: true,
+                dateFormat: 'dd M yy',
+                yearRange: "${minyear}:${maxyear}",
+                isBuddhist: true,
+                dayNames: ['อาทิตย์','จันทร์','อังคาร','พุธ','พฤหัสบดี','ศุกร์','เสาร์'],
+                dayNamesMin: ['อา.','จ.','อ.','พ.','พฤ.','ศ.','ส.'],
+                monthNames: ['มกราคม','กุมภาพันธ์','มีนาคม','เมษายน','พฤษภาคม','มิถุนายน','กรกฎาคม','สิงหาคม','กันยายน','ตุลาคม','พฤศจิกายน','ธันวาคม'],
+                monthNamesShort: ['ม.ค.','ก.พ.','มี.ค.','เม.ย.','พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.','พ.ย.','ธ.ค.'],
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        var butSubmit = null;
+        function checkBeforeSubmit()
+        {
+            var firstName = document.getElementById('_childrenFirstName_id');
+            var lastName = document.getElementById('_childrenLastName_id');
+            var career = document.getElementById('_childrenCareer_id');
+            var bdate = document.getElementById('_childrenBdateString_id');
+            var race = document.getElementById('_childrenRace_id');
+            var nationality= document.getElementById('_childrenNationality_id');
+            var religion = document.getElementById('_childrenReligion_id');
+
+            //add child
+            if(butSubmit=="Submit"){
+                if(firstName.value==''||lastName.value==''||career.value==''||bdate.value==''){
+                    alert('ไม่สามารถบันทึกได้ กรุณากรอกข้อมูลบุตร/ธิดาให้ครบถ้วน');
+                    butSubmit=null;
+                    return false;
+                }
+            }
+
+            return true;
+        }
+        function setButSubmit(){
+            butSubmit="Submit";
+        }
+    </script>
+
+    <script type="text/javascript">
+        dojo.addOnLoad(function() {
+            dojo.connect(dijit.byId("_marriedStatus_id"), "onChange", function(){
+                var _tmp = dijit.byId("_marriedStatus_id").attr('value');
+                if(_tmp=='สมรส') {
+                    document.getElementById("allSpouse").style.display = '';
+
+                }
+                else {
+                    document.getElementById("allSpouse").style.display = 'none';
+                }
+            });
+        });
+    </script>
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update_cma id="fu_com_cma_Student_familyinfo" modelAttribute="${modelAttribute}" submitbutton="2" path="/std_profiles/update2" versionField="Version" z="iT44dcHKAOb28t9B/alY/GWqeW0=">
+        <spring:message code="label_com_cma_std_profile_update_compare" var="compare"/>
+        <field:select id="c_com_cma_Student_marriedStatus" field="marriedStatus" items="${marriagedStatusItems}"/>
+        <c:choose>
+            <c:when test="${std_profile.marriedStatus==compare}">
+                <div id="allSpouse" style="display:block;">
+                    <field:input field="spouseFirstName" id="c_com_cma_Student_spouseFirstName" z="MC3esAcjOnMn7t9RoPpPqe00KZY="/>
+                    <field:input field="spouseLastName" id="c_com_cma_Student_spouseLastName" z="Uu5Af3Gh2WE+RpFWY5EdJjKQHtE="/>
+                    <field:input field="spouseCareer" id="c_com_cma_Student_spouseCareer" z="5JMboyOdsD4effdDqdsTq69gv5Q="/>
+                    <field:input field="spouseInstitution" id="c_com_cma_Student_spouseInstitution" z="user-managed"/>
+                    <field:inputNonDec field="spouseBdateString" readonly="true" id="c_com_cma_Student_spousebdateString" required="false" z="user-managed"/>
+                    <field:input field="spouseRace" id="c_com_cma_Student_spouseRace" z="x64b5ij4A6+CGU5Sba7u/P38tlE="/>
+                    <field:input field="spouseNationality" id="c_com_cma_Student_spouseNationality" z="wpNUdkxNgUolfZ5oS1/ipKP3xLQ="/>
+                    <field:input field="spouseReligion" id="c_com_cma_Student_spouseReligion" z="qzDqTXny1pmjSaVRYXStPqeH/LE="/>
+                </div>
+            </c:when>
+            <c:otherwise>
+                <div id="allSpouse" style="display:none;">
+                    <field:input field="spouseFirstName" id="c_com_cma_Student_spouseFirstName" z="MC3esAcjOnMn7t9RoPpPqe00KZY="/>
+                    <field:input field="spouseLastName" id="c_com_cma_Student_spouseLastName" z="Uu5Af3Gh2WE+RpFWY5EdJjKQHtE="/>
+                    <field:input field="spouseCareer" id="c_com_cma_Student_spouseCareer" z="5JMboyOdsD4effdDqdsTq69gv5Q="/>
+                    <field:input field="spouseInstitution" id="c_com_cma_Student_spouseInstitution" z="user-managed"/>
+                    <field:inputNonDec field="spouseBdateString" readonly="true" id="c_com_cma_Student_spousebdateString" required="false" z="user-managed"/>
+                    <field:input field="spouseRace" id="c_com_cma_Student_spouseRace" z="x64b5ij4A6+CGU5Sba7u/P38tlE="/>
+                    <field:input field="spouseNationality" id="c_com_cma_Student_spouseNationality" z="wpNUdkxNgUolfZ5oS1/ipKP3xLQ="/>
+                    <field:input field="spouseReligion" id="c_com_cma_Student_spouseReligion" z="qzDqTXny1pmjSaVRYXStPqeH/LE="/>
+                </div>
+            </c:otherwise>
+        </c:choose>
+        <spring:message code="label_com_cma_std_profile_print_header5" var="header5"/>
+        <div id="fieldHeader">
+            ${header5}
+        </div>
+        <spring:message code="label_com_cma_std_profile_print_column1" var="column1"/>
+        <spring:message code="label_com_cma_std_profile_print_column2" var="column2"/>
+        <spring:message code="label_com_cma_std_profile_print_column3" var="column3"/>
+        <spring:message code="label_com_cma_std_profile_print_column4" var="column4"/>
+        <spring:message code="label_com_cma_std_profile_print_column5" var="column5"/>
+        <spring:message code="label_com_cma_std_profile_print_column6" var="column6"/>
+        <spring:message code="label_com_cma_std_profile_print_column7" var="column7"/>
+        <table>
+            <thead>
+            <tr>
+                <th>${column1}</th>
+                <th>${column2}</th>
+                <th>${column3}</th>
+                <th>${column4}</th>
+                <th>${column5}</th>
+                <th>${column6}</th>
+                <th>${column7}</th>
+                <th></th>
+                <th></th>
+            </tr>
+            </thead>
+            <c:forEach items="${children_profile}" var="item">
+                <tr>
+                    <td>${item.firstName}</td>
+                    <td>${item.lastName}</td>
+                    <td>${item.career}</td>
+                    <td>
+                        ${item.childrenBdateString}
+                        <!--<c:set var="dateTimePattern" value="${std_profile_birthdate_date_format}"/>
+                        <spring:escapeBody>
+                            <fmt:formatDate  value="${item.birthday}" pattern="${fn:escapeXml(dateTimePattern)}" />
+                        </spring:escapeBody>-->
+                    </td>
+                    <td>${item.race}</td>
+                    <td>${item.nationality}</td>
+                    <td>${item.religion}</td>
+                    <td class="utilbox">
+                        <spring:url value="/resources/images/update.png" var="update_image_url" />
+                        <a href="../children_profiles/${item.id}?form" alt="Edit children" title="Edit children">
+                            <img alt="Edit children" class="image" src="${update_image_url}" title="Edit children" />
+                        </a>
+                    </td>
+                    <td class="utilbox">
+                        <c:set var="delete_confirm_msg">
+                            <spring:escapeBody javaScriptEscape="true">
+                                <spring:message code="entity_delete_confirm"/>
+                            </spring:escapeBody>
+                        </c:set>
+                        <a alt="Delete children" href="./${item.id}?deleteChildren" onclick="return confirm('${delete_confirm_msg}');" title="Delete children">
+                            <img alt="Delete children" class="image" src="../resources/images/delete.png" title="Delete children"/>
+                        </a>
+                    </td>
+                </tr>
+            </c:forEach>
+        </table>
+        <br/>
+        <field:input field="childrenFirstName" id="c_com_cma_Student_childrenFirstName" z="2l8qOscHFNWySuvdBtOd7bsGOAw="/>
+        <field:input field="childrenLastName" id="c_com_cma_Student_childrenLastName" z="vLv0CbpKf/toaNxMlDSIIICEgGk="/>
+        <field:input field="childrenCareer" id="c_com_cma_Student_childrenCareer" z="ZOdPk8AHqnTmKMCrqkZEN/Z0g/w="/>
+        <field:inputNonDec field="childrenBdateString" readonly="true" id="c_com_cma_Student_childrenbdateString" required="false" z="user-managed"/>
+        <!--<field:datetime dateTimePattern="${std_profile_children1birthday_date_format}" field="childrenBirthday" id="c_com_cma_Student_children1Birthday" z="fYh2JDBcu95M2pNaYGl0dsmeKGY="/>-->
+        <field:input field="childrenRace" id="c_com_cma_Student_childrenRace" z="q6+ZAatq4akH+iR24WBMpdCuZxw="/>
+        <field:input field="childrenNationality" id="c_com_cma_Student_childrenNationality" z="5Sf3Q9/HhqvUjwFtnSYMriQh9ws="/>
+        <field:input field="childrenReligion" id="c_com_cma_Student_childrenReligion" z="5E7U109wDeHzbi7h9+ID753okf8="/>
+        <spring:message code="label_com_cma_std_profile_update_button1" var="button1"/>
+        <input id="addButton" name="submitButton" type="submit" value="${button1}" onclick="setButSubmit()"/>
+        <br/>
+        <br/>
+    </form:update_cma>
+</div>

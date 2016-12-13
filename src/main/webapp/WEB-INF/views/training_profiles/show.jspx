@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_cma_Training_profile" object="${training_profile}" path="/training_profiles" z="EKyQsBaOOZQOVWkXwnO7Vzldvv8=">
+        <field:display field="trainingName" id="s_com_cma_Training_profile_trainingName" object="${training_profile}" z="COCEXzucWEpU4pcz+6rt+TL8IO0="/>
+        <field:display field="trainingInstitute" id="s_com_cma_Training_profile_trainingInstitute" object="${training_profile}" z="eE4M7EPcWA23/ZtmpAfnGfR9/JY="/>
+        <field:display field="trainingClass" id="s_com_cma_Training_profile_trainingClass" object="${training_profile}" z="UyNBf5G3sZ0Blf+vfl3gZztCSc4="/>
+        <field:display field="trainingYear" id="s_com_cma_Training_profile_trainingYear" object="${training_profile}" z="PFoeAOgVaQVVCcPKa/Uwh1598+I="/>
+        <field:display field="studentProfile" id="s_com_cma_Training_profile_studentProfile" object="${training_profile}" z="Q2hcnvkafAKdVuJqnq+PqzlIqCs="/>
+    </page:show>
+</div>

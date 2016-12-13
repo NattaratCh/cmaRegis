@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:fn="http://java.sun.com/jsp/jstl/functions" xmlns:c="http://java.sun.com/jsp/jstl/core"  xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <c:choose>
+        <c:when test="${fn:length(classList) gt 0}">
+        <form:create label="Import รายชื่อนักเรียน" id="fc_com_cma_MediaUpload" modelAttribute="mediaUpload" multipart="true" path="/mediauploads" render="${empty dependencies}" z="user-managed">
+            <c:if test="${message!=null}">
+                <p id="message">
+                    ${message}
+                </p>
+            </c:if>
+                <div>
+                    <div><label for="cmaClass">รุ่นวตท. : </label></div>
+                    <select id="cmaClass" name="cmaClass">
+                        <c:forEach items="${classList}" var="item">
+                            <option value="${item.id}">
+                                ${item.nameTh}/${item.nameEn}
+                            </option>
+                        </c:forEach>
+                    </select>
+                    <script type="text/javascript">Spring.addDecoration(new Spring.ElementDecoration({elementId : 'cmaClass', widgetType: 'dijit.form.FilteringSelect', widgetAttrs : {hasDownArrow : true}})); </script>
+                </div>
+                <p></p>
+                <input type="hidden" name="dataState" value="${dataState}"/>
+                <field:input field="content" label="File" id="c_com_cma_MediaUpload_content" required="true" type="file" z="user-managed"/>
+            <a href="./mediauploads/submitExport?cmaClass">Download excel template</a>
+        </form:create>
+        </c:when>
+        <c:otherwise>
+            <div>
+                No class Found
+            </div>
+        </c:otherwise>
+    </c:choose>
+    <form:dependency dependencies="${dependencies}" id="d_com_cma_MediaUpload" render="${not empty dependencies}" z="iOyU+Mx2rij6exsgvbAJelz0reE="/>
+</div>

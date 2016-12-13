@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:create id="fc_com_cma_Children_profile" modelAttribute="children_profile" path="/children_profiles" render="${empty dependencies}" z="s7tP+0HadG38uU2rgNGBIVvqloY=">
+        <field:input field="firstName" id="c_com_cma_Children_profile_firstName" z="1g1QXlUGnKEu0gKPWQBTsZQfbOE="/>
+        <field:input field="lastName" id="c_com_cma_Children_profile_lastName" z="+gc2j4YQnPpbvyBRjJUzxjKjzBE="/>
+        <field:input field="career" id="c_com_cma_Children_profile_career" z="lVMJkPtsnokb+5qs+GHgKdJCMIA="/>
+        <field:datetime dateTimePattern="${children_profile_birthday_date_format}" field="birthday" id="c_com_cma_Children_profile_birthday" z="Q4kfS4axyTdVUIt3eLpoYtlggHo="/>
+        <field:input field="race" id="c_com_cma_Children_profile_race" z="y/XLS+PKCweQRjWWe4Pq8/WOK1M="/>
+        <field:input field="nationality" id="c_com_cma_Children_profile_nationality" z="hfLCLhnLPHjQWelL8JjI7fm9ykQ="/>
+        <field:input field="religion" id="c_com_cma_Children_profile_religion" z="FLFRdhuV3Cqv8QsfzdeBqO3e+60="/>
+        <field:select field="studentProfile" id="c_com_cma_Children_profile_studentProfile" itemValue="id" items="${students}" path="/students" z="3Si0yL/g+DqmHtEZMEbmNlGEq3U="/>
+        <field:input field="childrenBdateString" id="c_com_cma_Children_profile_childrenBdateString" z="3V57/5qw4ze5/CPijODU7+O5Kto="/>
+    </form:create>
+    <form:dependency dependencies="${dependencies}" id="d_com_cma_Children_profile" render="${not empty dependencies}" z="lL1WDe/hPDdWa024gQzC7PnWndU="/>
+</div>

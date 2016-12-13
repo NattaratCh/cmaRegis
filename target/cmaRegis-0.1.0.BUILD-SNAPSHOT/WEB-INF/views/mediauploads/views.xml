@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+    <definition extends="default" name="mediauploads/list">
+        <put-attribute name="body" value="/WEB-INF/views/mediauploads/list.jspx"/>
+    </definition>
+<definition extends="default" name="mediauploads/show">
+        <put-attribute name="body" value="/WEB-INF/views/mediauploads/show.jspx"/>
+    </definition>
+<definition extends="default" name="mediauploads/create">
+        <put-attribute name="body" value="/WEB-INF/views/mediauploads/create.jspx"/>
+    </definition>
+<definition extends="default" name="mediauploads/update">
+        <put-attribute name="body" value="/WEB-INF/views/mediauploads/update.jspx"/>
+    </definition>
+<definition extends="default" name="mediauploads/exportExcel">
+        <put-attribute name="body" value="/WEB-INF/views/mediauploads/export.jspx"/>
+    </definition>
+<definition extends="default" name="mediauploads/extendExport">
+        <put-attribute name="body" value="/WEB-INF/views/mediauploads/extend_export.jspx"/>
+    </definition>
+<definition extends="default" name="mediauploads/exportReport">
+        <put-attribute name="body" value="/WEB-INF/views/mediauploads/report.jspx"/>
+    </definition>
+</tiles-definitions>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:menu="urn:jsptagdir:/WEB-INF/tags/menu" xmlns:sec="http://www.springframework.org/security/tags" xmlns:spring="http://www.springframework.org/tags" id="menu" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <menu:menu id="_menu" z="nZaf43BjUg1iM0v70HJVEsXDopc=">
+        <sec:authorize ifAllGranted="ROLE_ADMIN">
+            <spring:message code="menu_batch" var="menu_batch"/>
+            <menu:category id="c_batch" label="${menu_batch}" z="user-managed">
+                <menu:item id="i_batch_new" messageCode="menu_batch_create" url="/std_classes?form" z="user-managed"/>
+                <menu:item id="i_batch_list" messageCode="menu_batch_list" url="/std_classes" z="user-managed"/>
+            </menu:category>
+            <!--student init-->
+            <spring:message code="menu_student_init" var="menu_student_init"/>
+            <spring:message code="menu_profile_std_profile" var="menu_profile"/>
+            <menu:category id="c_mediaupload" label="${menu_student_init}" z="user-managed">
+                <menu:item id="i_mediaupload_new" messageCode="import_file_label" subCategory="menu_student_export" url="/mediauploads?buildForm&amp;state=init" z="user-managed"/>
+                <menu:item id="i_mediaupload_list" messageCode="global_menu_list" render="false" url="/mediauploads?page=1&amp;size=${empty param.size ? 10 : param.size}&amp;state=init" z="user-managed"/>
+                <menu:item id="i_mediaupload_export" messageCode="export_file_label" render="true" url="/mediauploads?exportAllProfile&amp;state=init" z="user-managed"/>
+                <menu:item id="i_mediaupload_extend_export" messageCode="extend_export_file_label" render="true" url="/mediauploads?extendExport&amp;state=init" z="user-managed"/>
+                <menu:item id="i_mediaupload_report" messageCode="report_file_label" render="true" url="/mediauploads?exportReport&amp;state=init" z="user-managed"/>
+                <menu:item id="i_std_profile_list" messageCode="menu_std_profile_list" subCategory="menu_profile_std_profile" url="/std_profiles?state=init" z="user-managed"/>
+                <menu:item id="i_std_profile_listAttach" messageCode="menu_std_profile_listAttach" url="/std_profiles/attachfileListForm?state=init" z="user-managed"/>
+            </menu:category>
+            <!--student revised-->
+            <spring:message code="menu_student_revised" var="menu_student_revised"/>
+            <spring:message code="menu_profile_std_profile" var="menu_profile"/>
+            <menu:category id="c_mediaupload" label="${menu_student_revised}" z="user-managed">
+                <menu:item id="i_mediaupload_new" messageCode="import_file_label" subCategory="menu_student_export" url="/mediauploads?buildForm&amp;state=revised" z="user-managed"/>
+                <menu:item id="i_mediaupload_list" messageCode="global_menu_list" render="false" url="/mediauploads?page=1&amp;size=${empty param.size ? 10 : param.size}&amp;state=revised" z="user-managed"/>
+                <menu:item id="i_mediaupload_export" messageCode="export_file_label" render="true" url="/mediauploads?exportAllProfile&amp;state=revised" z="user-managed"/>
+                <menu:item id="i_mediaupload_extend_export" messageCode="extend_export_file_label" render="true" url="/mediauploads?extendExport&amp;state=revised" z="user-managed"/>
+                <menu:item id="i_mediaupload_report" messageCode="report_file_label" render="true" url="/mediauploads?exportReport&amp;state=revised" z="user-managed"/>
+                <menu:item id="i_std_profile_list" messageCode="menu_std_profile_list" subCategory="menu_profile_std_profile" url="/std_profiles?state=revised" z="user-managed"/>
+                <menu:item id="i_std_profile_listAttach" messageCode="menu_std_profile_listAttach" url="/std_profiles/attachfileListForm?state=revised" z="user-managed"/>
+            </menu:category>
+            <!--student up to date-->
+            <spring:message code="menu_student_uptodate" var="menu_student_uptodate"/>
+            <spring:message code="menu_profile_std_profile" var="menu_profile"/>
+            <menu:category id="c_mediaupload" label="${menu_student_uptodate}" z="user-managed">
+                <menu:item id="i_mediaupload_new" messageCode="import_file_label" subCategory="menu_student_export" url="/mediauploads?buildForm&amp;state=uptodate" z="user-managed"/>
+                <menu:item id="i_mediaupload_list" messageCode="global_menu_list" render="false" url="/mediauploads?page=1&amp;size=${empty param.size ? 10 : param.size}&amp;state=uptodate" z="user-managed"/>
+                <menu:item id="i_mediaupload_export" messageCode="export_file_label" render="true" url="/mediauploads?exportAllProfile&amp;state=uptodate" z="user-managed"/>
+                <menu:item id="i_mediaupload_extend_export" messageCode="extend_export_file_label" render="true" url="/mediauploads?extendExport&amp;state=uptodate" z="user-managed"/>
+                <menu:item id="i_mediaupload_report" messageCode="report_file_label" render="true" url="/mediauploads?exportReport&amp;state=uptodate" z="user-managed"/>
+                <menu:item id="i_std_profile_list" messageCode="menu_std_profile_list" subCategory="menu_profile_std_profile" url="/std_profiles?state=uptodate" z="user-managed"/>
+                <menu:item id="i_std_profile_listAttach" messageCode="menu_std_profile_listAttach" url="/std_profiles/attachfileListForm?state=uptodate" z="user-managed"/>
+            </menu:category>
+            <spring:message code="menu_userlogin" var="menu_userlogin"/>
+            <menu:category id="c_userregis" label="${menu_userlogin}" z="user-managed">
+                <menu:item id="i_userregis_new" messageCode="menu_create_userlogin" url="/userlogins?form" z="user-managed"/>
+                <menu:item id="i_userregis_list" messageCode="menu_list_all_userlogin" url="/userlogins" z="user-managed"/>
+                <menu:item id="c_std_newPwd" messageCode="menu_changepassword" url="/userlogins/changePwd" z="user-managed"/>
+            </menu:category>
+            <spring:message code="menu_logout" var="menu_logout"/>
+            <menu:category id="c_std_Logout" label="${menu_logout}" z="user-managed">
+                <menu:item id="c_std_logout" messageCode="menu_logout" url="/resources/j_spring_security_logout" z="user-managed"/>
+            </menu:category>
+        </sec:authorize>
+        <sec:authorize ifAnyGranted="ROLE_USER_UNCHANGE,ROLE_USER">
+            <spring:message code="menu_menu" var="menu"/>
+            <menu:category id="c_std_profile" label="${menu}" z="user-managed">
+                <menu:item id="i_std_profile_new" messageCode="menu_edit_profile" url="/std_profiles/${std_profile.id}?form1" z="user-managed"/>
+                <menu:item id="i_attachfile_new" messageCode="menu_uploadFile" url="/attachfiles/${std_profile.id}?createForm" z="user-managed"/>
+                <menu:item id="i_std_profile_show" messageCode="menu_print" url="/std_profiles/${std_profile.id}?print" z="user-managed"/>
+                <menu:item id="c_std_newPwd" messageCode="menu_changepassword" url="/userlogins/changePwd" z="user-managed"/>
+            </menu:category>
+            <spring:message code="menu_logout" var="menu_logout"/>
+            <menu:category id="c_std_Logout" label="${menu_logout}" z="user-managed">
+                <menu:item id="c_std_logout" label="${menu_logout}" url="/resources/j_spring_security_logout" z="user-managed"/>
+            </menu:category>
+        </sec:authorize>
+        <menu:category id="c_attachfile" render="false" z="user-managed">
+            <menu:item id="i_attachfile_list" messageCode="global_menu_list" render="false" url="/attachfiles?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+        </menu:category>
+        <menu:category id="c_userrole" render="false" z="user-managed">
+            <menu:item id="i_userrole_new" messageCode="global_menu_new" url="/userroles?form" z="qYpuuJuPupoYjD8LM0ISnxylj4o="/>
+            <menu:item id="i_userrole_list" messageCode="global_menu_list" url="/userroles?page=1&amp;size=${empty param.size ? 10 : param.size}" z="fTjcT4INZTypLgu+ZHmwzE55ORs="/>
+        </menu:category>
+        <menu:category id="c_children_profile" render="false" z="user-managed">
+            <menu:item id="i_children_profile_new" messageCode="global_menu_new" url="/children_profiles?form" z="o3SVo7kCp7RE11fiCVfLu7SJ4zE="/>
+            <menu:item id="i_children_profile_list" messageCode="global_menu_list" url="/children_profiles?page=1&amp;size=${empty param.size ? 10 : param.size}" z="nYXl0UoubMoU9hxWS6wrjJkpw9M="/>
+        </menu:category>
+        <menu:category id="c_education_profile" render="false" z="user-managed">
+            <menu:item id="i_education_profile_new" messageCode="global_menu_new" url="/education_profiles?form" z="CzcIX2+4uu7KSyK3zDw4QhBORdI="/>
+            <menu:item id="i_education_profile_list" messageCode="global_menu_list" url="/education_profiles?page=1&amp;size=${empty param.size ? 10 : param.size}" z="8SoG5g247P8dheYOGs6KKgqK4Pk="/>
+        </menu:category>
+        <menu:category id="c_training_profile" render="false" z="user-managed">
+            <menu:item id="i_training_profile_new" messageCode="global_menu_new" url="/training_profiles?form" z="FVdpRIapcuaCtqNByxeFK8DFGVQ="/>
+            <menu:item id="i_training_profile_list" messageCode="global_menu_list" url="/training_profiles?page=1&amp;size=${empty param.size ? 10 : param.size}" z="pPAM+oMIdWNNAtGGACpXOQPlUCo="/>
+        </menu:category>
+        <menu:category id="c_userregisrole" z="tFEQqwwoEh0vqFKm3LZ80vjUQFE=">
+            <menu:item id="i_userregisrole_new" messageCode="global_menu_new" url="/userroles?form" z="kqeoBYyku0VrlU/RaCP741TNTfQ="/>
+            <menu:item id="i_userregisrole_list" messageCode="global_menu_list" url="/userroles?page=1&amp;size=${empty param.size ? 10 : param.size}" z="2q9Qk84VVKrct/P95DX9mzoAHxg="/>
+        </menu:category>
+    </menu:menu>
+</div>

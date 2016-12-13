@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:form="http://www.springframework.org/tags/form"
+     xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags"
+     xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <c:if test="${message!=null}">
+        <p id="message">
+            ${message}
+        </p>
+    </c:if>
+    <c:if test="${warning_message!=null}">
+        <p id="warning_message">
+            ${warning_message}
+        </p>
+    </c:if>
+    <spring:message code="label_com_cma_userlogin_changedpwd_text1" var="text1"/>
+    <p>
+    ${text1}
+    </p>
+    <form:form action="./${user_id}?submitChangePwd" method="POST">
+        <spring:message code="label_com_cma_userlogin_changedpwd_text2" var="text2"/>
+        <div>
+            ${text2}
+            <input name = "newPassword" type="text"/>
+            <c:if test="${error_message!=null}">
+                <p style="margin-left: 100px; color: red;">${error_message}</p>
+            </c:if>
+        </div>
+        <br/>
+        <input id="submitChangePwd" type="submit" value="ยืนยัน"/>
+        <br/>
+    </form:form>
+
+</div>

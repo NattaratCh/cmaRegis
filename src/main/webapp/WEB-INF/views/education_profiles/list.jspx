@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_cma_Education_profile" items="${education_profiles}" z="7N2MfC7cqtBZgFK9g/p/kKUqwlw=">
+        <table:table data="${education_profiles}" id="l_com_cma_Education_profile" path="/education_profiles" z="2nT919FBGYmcxdeUk4vFk1m3gQc=">
+            <table:column id="c_com_cma_Education_profile_degree" property="degree" render="false" z="user-managed"/>
+            <table:column id="c_com_cma_Education_profile_field" property="field" z="N7FGUwqScQCVJFwG5/vPm1GOUME="/>
+            <table:column id="c_com_cma_Education_profile_university" property="university" z="/w4wrX9gEplBBy4DtszmYiVkR78="/>
+            <table:column id="c_com_cma_Education_profile_graduateYear" property="graduateYear" z="AcgNh3GBBWUh2tqTPUFnVcZs8Io="/>
+            <table:column id="c_com_cma_Education_profile_studentProfile" property="studentProfile" render="false" z="user-managed"/>
+        </table:table>
+    </page:list>
+</div>

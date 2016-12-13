@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_cma_AttachFile" items="${attachfiles}" z="TGLa8LDMESQ3VJ/azphURT+ooyo=">
+        <table:table data="${attachfiles}" id="l_com_cma_AttachFile" path="/attachfiles" z="R80j1qFAk2JO2zhkHvw1fwf5TjA=">
+            <table:column id="c_com_cma_AttachFile_photo" property="photo" z="+0F/Qn7QwbrFXNd7rqqYyhWJoU4="/>
+            <table:column id="c_com_cma_AttachFile_namecard" property="namecard" z="SMcWcgaoPyS3qqQrtv09cwPaKEk="/>
+            <table:column id="c_com_cma_AttachFile_idcard" property="idcard" z="AstHIvnAXQBUq+jRQgk7WRxma4Y="/>
+            <table:column id="c_com_cma_AttachFile_passport" property="passport" z="yR4tPQ1egnldY13GJXYVImmfWKI="/>
+            <table:column id="c_com_cma_AttachFile_apec" property="apec" z="i5JqkR0hVCD2mEmlSLy/ZK9jimQ="/>
+            <table:column id="c_com_cma_AttachFile_pf" property="pf" z="kUkk+gjRggv4ZoTA597F7gLQPUg="/>
+        </table:table>
+    </page:list>
+</div>

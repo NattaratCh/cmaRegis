@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:fmt="http://java.sun.com/jsp/jstl/fmt" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:spring="http://www.springframework.org/tags" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_cma_Batch" items="${batches}" z="3L/snAMyObWu4fZ0SnCkkZplbWM=">
+        <table>
+            <thead>
+                <tr>
+                    <th>Name Th</th>
+                    <th>Name En</th>
+                    <th>Start_date</th>
+                    <th>End_date</th>
+                    <th>File1</th>
+                    <th>File2</th>
+                    <th>File3</th>
+                    <th>File4</th>
+                    <th>File5</th>
+                    <th>Remark</th>
+                    <th/>
+                    <th/>
+                    <th/>
+                </tr>
+            </thead>
+            <c:forEach items="${batches}" var="item">
+                <tr>
+                    <td>${item.nameTh}</td>
+                    <td>${item.nameEn}</td>
+                    <td>
+                        <fmt:formatDate pattern="${batch_start_date_date_format}" value="${item.start_date}"/>
+                    </td>
+                    <td>
+                        <fmt:formatDate pattern="${batch_end_date_date_format}" value="${item.end_date}"/>
+                    </td>
+                    <td>
+                        <c:if test="${item.uploadfile1}">
+                            <a href="./attach_resources/${item.filename1}" target="_blank">Link</a>
+                        </c:if>
+                    </td>
+                    <td>
+                        <c:if test="${item.uploadfile2}">
+                            <a href="./attach_resources/${item.filename2}" target="_blank">Link</a>
+                        </c:if>
+                    </td>
+                    <td>
+                        <c:if test="${item.uploadfile3}">
+                            <a href="./attach_resources/${item.filename3}" target="_blank">Link</a>
+                        </c:if>
+                    </td>
+                    <td>
+                        <c:if test="${item.uploadfile4}">
+                            <a href="./attach_resources/${item.filename4}" target="_blank">Link</a>
+                        </c:if>
+                    </td>
+                    <td>
+                        <c:if test="${item.uploadfile5}">
+                            <a href="./attach_resources/${item.filename5}" target="_blank">Link</a>
+                        </c:if>
+                    </td>
+                    <td>${item.remark}</td>
+                    <td class="utilbox">
+                        <a alt="Show std_class" href="./std_classes/${item.id}" title="Show std_class">
+                            <img alt="Show std_class" class="image" src="./resources/images/show.png" title="Show std_class"/>
+                        </a>
+                    </td>
+                    <td class="utilbox">
+                        <a alt="Update std_class" href="./std_classes/${item.id}?form" title="Update std_class">
+                            <img alt="Update std_class" class="image" src="./resources/images/update.png" title="Update std_class"/>
+                        </a>
+                    </td>
+                    <td class="utilbox">
+                        <c:set var="delete_confirm_msg">
+                            <spring:escapeBody javaScriptEscape="true">
+                                <spring:message code="entity_delete_confirm"/>
+                            </spring:escapeBody>
+                        </c:set>
+                        <a alt="Delete std_class" href="./std_classes/${item.id}?delete" onclick="return confirm('${delete_confirm_msg}');" title="Deletee std_class">
+                            <img alt="Delete std_class" class="image" src="./resources/images/delete.png" title="Delete std_class"/>
+                        </a>
+                    </td>
+                </tr>
+            </c:forEach>
+        </table>
+        <table:table data="${batches}" id="l_com_cma_Batch" path="/std_classes" render="false" z="user-managed">
+            <table:column id="c_com_cma_Batch_nameTh" property="nameTh" z="np7to+OPfEs7eOj3yqsBTEqQJig="/>
+            <table:column id="c_com_cma_Batch_nameEn" property="nameEn" z="wvg2nMnAlaCvaCrARB941AsbH9w="/>
+            <table:column date="true" dateTimePattern="${batch_start_date_date_format}" id="c_com_cma_Batch_start_date" property="start_date" z="xuFGhTtF0PITTAEzCGTP6ir8rvM="/>
+            <table:column date="true" dateTimePattern="${batch_end_date_date_format}" id="c_com_cma_Batch_end_date" property="end_date" z="HUFhYq+aNwUA4QHjta4HjfiABcA="/>
+            <table:column id="c_com_cma_Batch_std_profileSet" property="std_profileSet" z="sFLBmlrhzdWlZOG0DSXISkMy92E="/>
+            <table:column id="c_com_cma_Batch_file1" property="file1" z="jM4Ali6YhSeXO30V+4+JpUBQQ1o="/>
+        </table:table>
+    </page:list>
+</div>

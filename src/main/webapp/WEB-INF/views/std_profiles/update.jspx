@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_com_cma_Std_profile" modelAttribute="std_profile" path="/std_profiles" versionField="Version" z="iT44dcHKAOb28t9B/alY/GWqeW0=">
+        <field:input field="titleTh" id="c_com_cma_Std_profile_titleTh" z="DApysTjkj5dtsudbER7PtTz2BOc="/>
+        <field:input field="titleEn" id="c_com_cma_Std_profile_titleEn" z="mGxkBViZd/R6Dc1rjr19f+rcepc="/>
+        <field:input field="firstnameTh" id="c_com_cma_Std_profile_firstnameTh" z="T+VuJWdCha56YERu+1fA2lZtEHY="/>
+        <field:input field="firstnameEn" id="c_com_cma_Std_profile_firstnameEn" z="R2AbTqVlTZGOHugPgdu6hG9LWrw="/>
+        <field:input field="lastnameTh" id="c_com_cma_Std_profile_lastnameTh" z="UHGbhez2L9CuNMFJ0w5a/s1KK+c="/>
+        <field:input field="lastnameEn" id="c_com_cma_Std_profile_lastnameEn" z="lvzHtOXQna/38iaP+ySFQQYOgo8="/>
+        <field:input field="nickname" id="c_com_cma_Std_profile_nickname" z="avRvE4q5bhTsYjwA1npts/3gQpA="/>
+        <field:input field="sex" id="c_com_cma_Std_profile_sex" z="n4LM3e8pyf7pvM5JLGSk0nqWw5Q="/>
+        <field:input field="day" id="c_com_cma_Std_profile_day" z="wctSGH/DazPL4xm4Y5Xa7La6B3g="/>
+        <field:input field="month" id="c_com_cma_Std_profile_month" z="07eUb7cLs+2uu5wisa7wwxlVKvY="/>
+        <field:input field="year" id="c_com_cma_Std_profile_year" z="j0C2F//8T3mdwNZFXqow1IBd4uk="/>
+        <field:datetime dateTimePattern="${std_profile_birthdate_date_format}" field="birthdate" id="c_com_cma_Std_profile_birthdate" z="iKXCRVAjYFeNfK35+0dPHfosNn0="/>
+        <field:input field="idcardNo" id="c_com_cma_Std_profile_idcardNo" z="8jSMrBgvJOkfm+7piFaqXUn7hz0="/>
+        <field:input field="passportNo" id="c_com_cma_Std_profile_passportNo" z="mVIMkPr9Eagpar/uxcMsZzm1/2w="/>
+        <field:input field="ropNo" id="c_com_cma_Std_profile_ropNo" z="4dCA6TqKvhRGwg3dGq5sgsCgOyE="/>
+        <field:input field="positionTh" id="c_com_cma_Std_profile_positionTh" z="j2ZIq3T4As4WX9yz3ymBjaQWXww="/>
+        <field:input field="positionEn" id="c_com_cma_Std_profile_positionEn" z="vY8IsEI75Q3wkewtFZuHZP5hlfE="/>
+        <field:input field="institutionTh" id="c_com_cma_Std_profile_institutionTh" z="cYQbD0he8FnyilExn1Hj7JoGJaQ="/>
+        <field:input field="institutionEn" id="c_com_cma_Std_profile_institutionEn" z="XqXypBDGLpvbAJABv6XYQgm76mk="/>
+        <field:input field="enrollType" id="c_com_cma_Std_profile_enrollType" z="ubes5fsGJe2ao6UwsdSl/IMgQG4="/>
+        <field:input field="institutionAddress" id="c_com_cma_Std_profile_institutionAddress" z="mph+vVdcaahiU1A2nEfcXiyAsTs="/>
+        <field:input field="worktel1" id="c_com_cma_Std_profile_worktel1" z="d+4tn8Ketpc9xHesJRIneHUqqEo="/>
+        <field:input field="worktel2" id="c_com_cma_Std_profile_worktel2" z="0ucPinaFOiQjmpODNtgyQNYQ9yQ="/>
+        <field:input field="workfax" id="c_com_cma_Std_profile_workfax" z="sudUCVS9HugXtk1/grcJpkD+qqA="/>
+        <field:input field="mobile1" id="c_com_cma_Std_profile_mobile1" z="V01HoOfXsbb13CxbI0O+D4Bpz9s="/>
+        <field:input field="mobile2" id="c_com_cma_Std_profile_mobile2" z="5d4wCe540io6zLjV0QpM7JEtx+I="/>
+        <field:input field="email" id="c_com_cma_Std_profile_email" validationMessageCode="field_invalid_email" z="Ppf2VcJExj44gtf+lrL7zd3T/1k="/>
+        <field:input field="address" id="c_com_cma_Std_profile_address" z="hyHBrTfyExAz3YAVIUdjVDq+g7k="/>
+        <field:input field="hometel1" id="c_com_cma_Std_profile_hometel1" z="2ps2N4uY+pFdVgDVa5X/dIWIMF8="/>
+        <field:input field="hometel2" id="c_com_cma_Std_profile_hometel2" z="jtZNt5wMBOuhZEKi9p0Mpi5MiNc="/>
+        <field:input field="homefax" id="c_com_cma_Std_profile_homefax" z="4M58bJBthU9TmmEwY66eelpkWf8="/>
+        <field:input field="sendingAddress" id="c_com_cma_Std_profile_sendingAddress" z="7FRopOOFwK6G2AM11GwkquNNjNc="/>
+        <!--********************************************************************-->
+        <field:input field="marriedStatus" id="c_com_cma_Std_profile_marriedStatus" z="PfYLpEZUeKNmWoKd18H/7Wjipxk="/>
+        <field:input field="spouseFirstName" id="c_com_cma_Std_profile_spouseFirstName" z="MC3esAcjOnMn7t9RoPpPqe00KZY="/>
+        <field:input field="spouseLastName" id="c_com_cma_Std_profile_spouseLastName" z="Uu5Af3Gh2WE+RpFWY5EdJjKQHtE="/>
+        <field:input field="spouseCareer" id="c_com_cma_Std_profile_spouseCareer" z="5JMboyOdsD4effdDqdsTq69gv5Q="/>
+        <field:input field="spouseDay" id="c_com_cma_Std_profile_spouseDay" z="Umi9QVL0NtoIFI9alFkh4GZNlKY="/>
+        <field:input field="spouseMonth" id="c_com_cma_Std_profile_spouseMonth" z="WaNBXLIFUklrPKG2+D5K5H5PDFg="/>
+        <field:input field="spouseYear" id="c_com_cma_Std_profile_spouseYear" z="9TOjeirgKZ4bWD/UQsJrgbsdFBQ="/>
+        <field:datetime dateTimePattern="${std_profile_spousebirthday_date_format}" field="spouseBirthDay" id="c_com_cma_Std_profile_spouseBirthDay" z="a0isQ6ZmcRnWqxwFXFo1bHlnPus="/>
+        <field:input field="spouseRace" id="c_com_cma_Std_profile_spouseRace" z="x64b5ij4A6+CGU5Sba7u/P38tlE="/>
+        <field:input field="spouseNationality" id="c_com_cma_Std_profile_spouseNationality" z="wpNUdkxNgUolfZ5oS1/ipKP3xLQ="/>
+        <field:input field="spouseReligion" id="c_com_cma_Std_profile_spouseReligion" z="qzDqTXny1pmjSaVRYXStPqeH/LE="/>
+        <!--*************************************************************************-->
+        <field:input field="bdField" id="c_com_cma_Std_profile_bdField" z="rV99okcJWLeyGFra0r+1p3CGx8A="/>
+        <field:input field="bdUniversity" id="c_com_cma_Std_profile_bdUniversity" z="NsWW65CWcBqMv5wnIvTUAAbtWrw="/>
+        <field:input field="bdYear" id="c_com_cma_Std_profile_bdYear" z="bN4O0XhLJHu0WWw7Op6gll4S5p8="/>
+        <field:input field="mdField" id="c_com_cma_Std_profile_mdField" z="Kr8kv1TSVdOOpH97Cf2Tnz/pSR0="/>
+        <field:input field="mdUniversity" id="c_com_cma_Std_profile_mdUniversity" z="2kFLJWhd1S4m3Q3/+N3gKSNTXrY="/>
+        <field:input field="mdYear" id="c_com_cma_Std_profile_mdYear" z="PlNNUdfwl4vspJFsF58040CClCk="/>
+        <field:input field="phdField" id="c_com_cma_Std_profile_phdField" z="CS0LnBTb00Fn75q5M70xUaS4/QM="/>
+        <field:input field="phdUniversity" id="c_com_cma_Std_profile_phdUniversity" z="tn0FNDQZ44hBURwGYRZZGmKgAWQ="/>
+        <field:input field="phdYear" id="c_com_cma_Std_profile_phdYear" z="GHYore6xG2/0JtCplf+79Nal1hE="/>
+        <field:input field="trainingName" id="c_com_cma_Std_profile_trainingName" z="OZ8e80bR2EK96kv/LO3bG8RFZnM="/>
+        <field:input field="trainingInstitute" id="c_com_cma_Std_profile_trainingInstitute" z="4XqYVTWl7mS1lqSI0gV74yqsLGk="/>
+        <field:input field="trainingClass" id="c_com_cma_Std_profile_trainingClass" z="ztPS9xkRRKDP4zf3LhPsFo55Inc="/>
+        <field:input field="traingYear" id="c_com_cma_Std_profile_traingYear" z="ha7XHxhFoeELn5WzVOj0km1/dJ8="/>
+        <!--**************************************************************************-->
+        <field:input field="collboratorFirstName" id="c_com_cma_Std_profile_collboratorFirstName" z="jcyBuE0TRKt+qiHMtpjcT5Hz+r8="/>
+        <field:input field="collboratorTel" id="c_com_cma_Std_profile_collboratorTel" z="dwhC9QLHOatkqWkECbZgnTFmBmg="/>
+        <field:input field="collboratorMobile" id="c_com_cma_Std_profile_collboratorMobile" z="YbIq5wQH5lxC0+aJgtDOL0PQWiU="/>
+        <field:input field="collboratorFax" id="c_com_cma_Std_profile_collboratorFax" z="Dv+qO0hiAuF7mQQPDvPEiDuZ63A="/>
+        <field:input field="collboratorEmail" id="c_com_cma_Std_profile_collboratorEmail" z="67SEzCUWJ87s58sBV296FrKLVn0="/>
+        <!--**************************************************************************-->
+        <field:input field="carNo" id="c_com_cma_Std_profile_carNo" z="/P4JUnB3TglEGnC5T6brf6vM+Sw="/>
+        <field:input field="carBrand" id="c_com_cma_Std_profile_carBrand" z="jsbHCLhUttEfap1mhKq/F3TlZ+M="/>
+        <field:input field="carColor" id="c_com_cma_Std_profile_carColor" z="p+c6GupdDvd/KrkFZkCTzI3NkHw="/>
+        <field:input field="playGolf" id="c_com_cma_Std_profile_playGolf" z="Dsw0HZrteLmTtoIY/iLsWUF99wQ="/>
+        <field:input field="handyCap" id="c_com_cma_Std_profile_handyCap" z="Kpw6INpzWy1cCiARD9J45kNwNBs="/>
+        <field:checkbox field="smoking" id="c_com_cma_Std_profile_smoking" z="Z+xlG5+YHy62TFqs84/rf7cyYFA="/>
+        <field:input field="jacketSize" id="c_com_cma_Std_profile_jacketSize" z="yYe8gPqHopX6iRfqM7Ga2cDAFlw="/>
+        <field:input field="poloSize" id="c_com_cma_Std_profile_poloSize" z="wDTjBOwYTqUInqkzdWHf50i7Zqs="/>
+        <field:input field="waist" id="c_com_cma_Std_profile_waist" z="fAR0V2gbDMauYbtjS5KR6EGbPYU="/>
+        <field:input field="tall" id="c_com_cma_Std_profile_tall" z="f3lOSOZMxy83y4Mm26EtDRY6rXI="/>
+        <field:input field="collboratorLastName" id="c_com_cma_Std_profile_collboratorLastName" z="27gWJMXzbNjpcCe+tPB3J2bYAaA="/>
+        <field:input field="province" id="c_com_cma_Std_profile_province" z="oHa1l7qaCmg6ZJXM4WmPOC1Fdj8="/>
+        <field:input field="postalCode" id="c_com_cma_Std_profile_postalCode" z="HgUcuoA7liuS+mWmXsdSoFvVecY="/>
+        <field:input field="institutionProvince" id="c_com_cma_Std_profile_institutionProvince" z="50YgOwoSAD/wVAFV96XuCgDX9/4="/>
+        <field:input field="institutionPostalCode" id="c_com_cma_Std_profile_institutionPostalCode" z="MwVNk2zduoM+itCLoP7rTRBWnZY="/>
+        <field:checkbox field="generalFood" id="c_com_cma_Std_profile_generalFood" z="F5PqbJu7V5BTh9obdf/6Pu3MRsY="/>
+        <field:checkbox field="halalFood" id="c_com_cma_Std_profile_halalFood" z="NAm0ryNDjx8pu+IJcHsPzIOaBMY="/>
+        <field:checkbox field="jFood" id="c_com_cma_Std_profile_jFood" z="mhuxQMIeQmSPTTu/y7Q2ku8EO8w="/>
+        <field:checkbox field="vegeterianFood" id="c_com_cma_Std_profile_vegeterianFood" z="/9u4hP9D6HK9SpDKtcQvJCLa+NY="/>
+        <field:checkbox field="beefFood" id="c_com_cma_Std_profile_beefFood" z="jTaytkI8EWKRjoq/TV2VfC0+HPA="/>
+        <field:checkbox field="otherFood" id="c_com_cma_Std_profile_otherFood" z="cQdZtJRgmuklYM+MQ8AUhicEUVs="/>
+        <field:checkbox field="allergiesSeaFood" id="c_com_cma_Std_profile_allergiesSeaFood" z="P8+ghvSWmYZpB5kI96ep4L+GoKc="/>
+        <field:input field="receiptDetailName" id="c_com_cma_Std_profile_receiptDetailName" z="+Y3dInoBRViPTyrSXprnA/h+Yx0="/>
+        <field:input field="receiptDetailAddress" id="c_com_cma_Std_profile_receiptDetailAddress" z="/N7m+kAHltAZuzZFyOaED6Q6X/A="/>
+        <field:input field="childrenFirstName" id="c_com_cma_Std_profile_childrenFirstName" z="ONViS0Ql2xvxDEbQtA8jvoXhoSo="/>
+        <field:input field="childrenLastName" id="c_com_cma_Std_profile_childrenLastName" z="ZiBXY0qFAeZNv0b3Iwe5caMfHY0="/>
+        <field:input field="childrenCareer" id="c_com_cma_Std_profile_childrenCareer" z="xcKGd7BMotYfsDJxPGJYAeZI5SM="/>
+        <field:input field="childrenDay" id="c_com_cma_Std_profile_childrenDay" z="J8P5IGbZiPmSWWygROI5x9ZNVJU="/>
+        <field:input field="childrenMonth" id="c_com_cma_Std_profile_childrenMonth" z="2IYcujaVdG3WARK+3VaHWLvYY6E="/>
+        <field:input field="childrenYear" id="c_com_cma_Std_profile_childrenYear" z="5trvVCpfAfD/DSATM93ogRx2xsw="/>
+        <field:datetime dateTimePattern="${std_profile_childrenbirthday_date_format}" field="childrenBirthday" id="c_com_cma_Std_profile_childrenBirthday" z="tRuSjOteGBAi62fGvoHzNtSLydY="/>
+        <field:input field="childrenRace" id="c_com_cma_Std_profile_childrenRace" z="Avj/wb7IvqeKoMN1tkUuq8AB3lE="/>
+        <field:input field="childrenNationality" id="c_com_cma_Std_profile_childrenNationality" z="KSz8K/gGotECQhqakE73QJarypM="/>
+        <field:input field="childrenReligion" id="c_com_cma_Std_profile_childrenReligion" z="Gk6Vuemva085kBQDhq4VPATplvI="/>
+    </form:update>
+</div>

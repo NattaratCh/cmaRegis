@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <script>
+        var jq=jQuery.noConflict();
+        jq(function() {
+            jq("#_childrenBdateString_id").datepicker({
+                changeMonth: true,
+                changeYear: true,
+                dateFormat: 'dd M yy',
+                yearRange: "${minyear}}:${maxyear}",
+                isBuddhist: true,
+                dayNames: ['อาทิตย์','จันทร์','อังคาร','พุธ','พฤหัสบดี','ศุกร์','เสาร์'],
+                dayNamesMin: ['อา.','จ.','อ.','พ.','พฤ.','ศ.','ส.'],
+                monthNames: ['มกราคม','กุมภาพันธ์','มีนาคม','เมษายน','พฤษภาคม','มิถุนายน','กรกฎาคม','สิงหาคม','กันยายน','ตุลาคม','พฤศจิกายน','ธันวาคม'],
+                monthNamesShort: ['ม.ค.','ก.พ.','มี.ค.','เม.ย.','พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.','พ.ย.','ธ.ค.']
+            });
+        });
+    </script>
+    <script>
+        function checkBeforeSubmit()
+        {
+            var childbdate = document.getElementById('_childrenBdateString_id');
+            if(childbdate.value==''){
+                alert("กรุณาเลือกวันเกิดบุคร/ธิดา");
+                return false;
+            }
+            return true;
+        }
+        function isValidDate(s) {
+            var bits = s.split('/');
+            var d = new Date(bits[2], bits[1] - 1, bits[0]);
+            return d &amp;&amp; (d.getMonth() + 1) == bits[1] &amp;&amp; d.getDate() == Number(bits[0]);
+        }
+    </script>
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_com_cma_Children_profile" modelAttribute="children_profile" path="/children_profiles" versionField="Version" z="2TtBoHMRj58cg7ifH0vIjQbOicw=">
+        <field:input field="firstName" id="c_com_cma_Children_profile_firstName" required="true" z="user-managed"/>
+        <field:input field="lastName" id="c_com_cma_Children_profile_lastName" required="true" z="user-managed"/>
+        <field:input field="career" id="c_com_cma_Children_profile_career" required="true" z="user-managed"/>
+        <field:inputNonDec field="childrenBdateString" id="c_com_cma_Std_profile_childrenbdateString" required="true" z="user-managed"/>
+        <field:datetime dateTimePattern="${children_profile_birthday_date_format}" field="birthday" id="c_com_cma_Children_profile_birthday" render="false" z="user-managed"/>
+        <field:input field="race" id="c_com_cma_Children_profile_race" z="y/XLS+PKCweQRjWWe4Pq8/WOK1M="/>
+        <field:input field="nationality" id="c_com_cma_Children_profile_nationality" z="hfLCLhnLPHjQWelL8JjI7fm9ykQ="/>
+        <field:input field="religion" id="c_com_cma_Children_profile_religion" z="FLFRdhuV3Cqv8QsfzdeBqO3e+60="/>
+        <field:select field="studentProfile" id="c_com_cma_Children_profile_studentProfile" itemValue="id" items="${std_profiles}" path="/std_profiles" render="false" z="user-managed"/>
+        <!--<field:input field="childrenBdateString" id="c_com_cma_Children_profile_childrenBdateString" z="3V57/5qw4ze5/CPijODU7+O5Kto="/>-->
+        <field:input field="childrenBdateString" id="c_com_cma_Children_profile_childrenBdateString" render="false" z="user-managed"/>
+    </form:update>
+</div>

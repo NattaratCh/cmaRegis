@@ -1,0 +1,207 @@
+<jsp:root xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:fn="http://java.sun.com/jsp/jstl/functions" xmlns:spring="http://www.springframework.org/tags" xmlns:form="http://www.springframework.org/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:output omit-xml-declaration="yes" />
+
+    <jsp:directive.attribute name="field" type="java.lang.String" required="true" rtexprvalue="true" description="The identifier for this tag (do not change!)" />
+    <jsp:directive.attribute name="render" type="java.lang.Boolean" required="false" rtexprvalue="true" description="Indicate if the contents of this tag and all enclosed tags should be rendered (default 'true')" />
+    <jsp:directive.attribute name="type" type="java.lang.String" required="true" description="type of phones ('mobile' or 'phone')"/>
+    <jsp:directive.attribute name="required" type="java.lang.Boolean" required="true" description="Does this field require?"/>
+
+    <c:set value="front${field}" var="front" />
+    <c:set value="middle${field}" var="middle" />
+    <c:set value="last${field}" var="last" />
+    <c:set value="${field}_2" var="num2" />
+    <c:set value="ext${field}" var="exTel" />
+
+    <c:if test="${empty render or render}">
+        <c:choose>
+            <c:when test="${type=='phone'}">
+                <div>
+                    <script>
+                        dojo.addOnLoad(function() {
+                            var node = dojo.byId("${front}_id");
+                            dojo.connect(node, "onkeyup", function(event) {
+                                var maxlength = dojo.attr(node,"maxlength");
+                                if(node.value.length==maxlength){
+                                    dojo.byId("${middle}_id").focus();
+                                }
+                            });
+                        });
+
+                        dojo.addOnLoad(function() {
+                            var node = dojo.byId("${middle}_id");
+                            dojo.connect(node, "onkeyup", function(event) {
+                                var maxlength = dojo.attr(node,"maxlength");
+                                if(node.value.length==maxlength){
+                                    dojo.byId("${last}_id").focus();
+                                }
+                            });
+                        });
+                        dojo.addOnLoad(function() {
+                            var node = dojo.byId("${last}_id");
+                            dojo.connect(node, "onkeyup", function(event) {
+                                var maxlength = dojo.attr(node,"maxlength");
+                                if(node.value.length==maxlength){
+                                    dojo.byId("${num2}_id").focus();
+                                }
+                            });
+                        });
+                        dojo.addOnLoad(function() {
+                            var node = dojo.byId("${num2}_id");
+                            dojo.connect(node, "onkeyup", function(event) {
+                                var maxlength = dojo.attr(node,"maxlength");
+                                if(node.value.length==maxlength){
+                                    dojo.byId("${exTel}_id").focus();
+                                }
+                            });
+                        });
+                    </script>
+                    <spring:message code="label_com_cma_student_${fn:toLowerCase(field)}" var="label" htmlEscape="false"/>
+                    <c:choose>
+                        <c:when test="${required}">
+                            <label for="${front}_id" class="requiredcss">${label} : </label>
+                        </c:when>
+                        <c:otherwise>
+                            <label for="${front}_id">${label} : </label>
+                        </c:otherwise>
+                    </c:choose>
+                    <form:input id="${front}_id" path="${front}" disabled="false" cssStyle="width: 20px" maxlength="1"/>
+                    <script type="text/javascript">
+                        Spring.addDecoration(new Spring.ElementDecoration({elementId : '${front}_id', widgetType : 'dijit.form.ValidationTextBox', widgetAttrs : {promptMessage: 'Enter โทรศัพท์', invalidMessage: '', required : ${required},  missingMessage : '' }}));
+                    </script>
+                    -
+                    <form:input id="${middle}_id" path="${middle}" disabled="false" cssStyle="width: 50px" maxlength="4"/>
+                    <script type="text/javascript">
+                        Spring.addDecoration(new Spring.ElementDecoration({elementId : '${middle}_id', widgetType : 'dijit.form.ValidationTextBox', widgetAttrs : {promptMessage: 'Enter โทรศัพท์', invalidMessage: '', required : ${required},  missingMessage : '' }}));
+                    </script>
+                    -
+                    <form:input id="${last}_id" path="${last}" disabled="false" cssStyle="width: 50px" maxlength="4"/>
+                    <script type="text/javascript">
+                        Spring.addDecoration(new Spring.ElementDecoration({elementId : '${last}_id', widgetType : 'dijit.form.ValidationTextBox', widgetAttrs : {promptMessage: 'Enter โทรศัพท์', invalidMessage: '', required : ${required},  missingMessage : '' }}));
+                    </script>
+                    <spring:message code="label_com_cma_student_phoneno2" var="label"/>
+                    <span> ${label} </span>
+                    <form:input id="${num2}_id" path="${num2}" disabled="false" cssStyle="width: 50px" maxlength="4"/>
+                    <script type="text/javascript">
+                        Spring.addDecoration(new Spring.ElementDecoration({elementId : '${num2}_id', widgetType : 'dijit.form.ValidationTextBox', widgetAttrs : {promptMessage: 'Enter โทรศัพท์', invalidMessage: '', required : ${required},  missingMessage : '' }}));
+                    </script>
+                    <spring:message code="label_com_cma_student_extno" var="label"/>
+                    <span> ${label} </span>
+                    <form:input id="${exTel}_id" path="${exTel}" disabled="false" cssStyle="width: 200px" />
+                    <script type="text/javascript">
+                        Spring.addDecoration(new Spring.ElementDecoration({elementId : '${exTel}_id', widgetType : 'dijit.form.ValidationTextBox', widgetAttrs : {promptMessage: 'Enter โทรศัพท์', invalidMessage: '', required : ${required},  missingMessage : '' }}));
+                    </script>
+                    <form:errors cssClass="errorsTel" id="_${front}_error_id" path="${front}" />
+                    <form:errors cssClass="errorsTel" id="_${middle}_error_id" path="${middle}" />
+                    <form:errors cssClass="errorsTel" id="_${last}_error_id" path="${last}"/>
+                    <form:errors cssClass="errorsTel" id="_${num2}_error_id" path="${num2}"/>
+                </div>
+                <br/>
+            </c:when>
+            <c:when test="${type=='mobile'}">
+                <div>
+                    <script>
+                        dojo.addOnLoad(function() {
+                            var node = dojo.byId("${front}_id");
+                            dojo.connect(node, "onkeyup", function(event) {
+                                var maxlength = dojo.attr(node,"maxlength");
+                                if(node.value.length==maxlength){
+                                    dojo.byId("${middle}_id").focus();
+                                }
+                            });
+                        });
+
+                        dojo.addOnLoad(function() {
+                            var node = dojo.byId("${middle}_id");
+                            dojo.connect(node, "onkeyup", function(event) {
+                                var maxlength = dojo.attr(node,"maxlength");
+                                if(node.value.length==maxlength){
+                                    dojo.byId("${last}_id").focus();
+                                }
+                            });
+                        });
+                    </script>
+                    <spring:message code="label_com_cma_student_${fn:toLowerCase(field)}" var="label" htmlEscape="false"/>
+
+                    <c:choose>
+                        <c:when test="${required}">
+                            <label for="${front}_id" class="requiredcss">${label} : </label>
+                        </c:when>
+                        <c:otherwise>
+                            <label for="${front}_id">${label} : </label>
+                        </c:otherwise>
+                    </c:choose>
+                    <form:input id="${front}_id" path="${front}" disabled="false" cssStyle="width: 30px" maxlength="2"/>
+                    <script type="text/javascript">
+                        Spring.addDecoration(new Spring.ElementDecoration({elementId : '${front}_id', widgetType : 'dijit.form.ValidationTextBox', widgetAttrs : {promptMessage: 'Enter โทรศัพท์', invalidMessage: '', required : ${required},  missingMessage : '' }}));
+                    </script>
+                    -
+                    <form:input id="${middle}_id" path="${middle}" disabled="false" cssStyle="width: 50px" maxlength="4"/>
+                    <script type="text/javascript">
+                        Spring.addDecoration(new Spring.ElementDecoration({elementId : '${middle}_id', widgetType : 'dijit.form.ValidationTextBox', widgetAttrs : {promptMessage: 'Enter โทรศัพท์', invalidMessage: '', required : ${required},  missingMessage : '' }}));
+                    </script>
+                    -
+                    <form:input id="${last}_id" path="${last}" disabled="false" cssStyle="width: 50px" maxlength="4"/>
+                    <script type="text/javascript">
+                        Spring.addDecoration(new Spring.ElementDecoration({elementId : '${last}_id', widgetType : 'dijit.form.ValidationTextBox', widgetAttrs : {promptMessage: 'Enter โทรศัพท์', invalidMessage: '', required : ${required},  missingMessage : '' }}));
+                    </script>
+                    <form:errors cssClass="errorsTel" id="_${front}_error_id" path="${front}" />
+                    <form:errors cssClass="errorsTel" id="_${middle}_error_id" path="${middle}" />
+                    <form:errors cssClass="errorsTel" id="_${last}_error_id" path="${last}"/>
+                </div>
+                <br/>
+            </c:when>
+            <c:when test="${type=='other'}">
+                <div>
+                    <script>
+                        dojo.addOnLoad(function() {
+                            var node = dojo.byId("${front}_id");
+                            dojo.connect(node, "onkeyup", function(event) {
+                                var maxlength = dojo.attr(node,"maxlength");
+                                if(node.value.length==maxlength){
+                                    dojo.byId("${middle}_id").focus();
+                                }
+                            });
+                        });
+
+                        dojo.addOnLoad(function() {
+                            var node = dojo.byId("${middle}_id");
+                            dojo.connect(node, "onkeyup", function(event) {
+                                var maxlength = dojo.attr(node,"maxlength");
+                                if(node.value.length==maxlength){
+                                    dojo.byId("${last}_id").focus();
+                                }
+                            });
+                        });
+                    </script>
+                    <spring:message code="label_com_cma_student_${fn:toLowerCase(field)}" var="label" htmlEscape="false"/>
+                    <c:choose>
+                        <c:when test="${required}">
+                            <label for="${front}_id" class="requiredcss">${label} : </label>
+                        </c:when>
+                        <c:otherwise>
+                            <label for="${front}_id">${label} : </label>
+                        </c:otherwise>
+                    </c:choose>
+                    <form:input id="${front}_id" path="${front}" disabled="false" cssStyle="width: 20px" maxlength="1"/>
+                    <script type="text/javascript">
+                        Spring.addDecoration(new Spring.ElementDecoration({elementId : '${front}_id', widgetType : 'dijit.form.ValidationTextBox', widgetAttrs : {promptMessage: 'Enter โทรศัพท์', invalidMessage: '', required : ${required},  missingMessage : '' }}));
+                    </script>
+                    -
+                    <form:input id="${middle}_id" path="${middle}" disabled="false" cssStyle="width: 50px" maxlength="4"/>
+                    <script type="text/javascript">
+                        Spring.addDecoration(new Spring.ElementDecoration({elementId : '${middle}_id', widgetType : 'dijit.form.ValidationTextBox', widgetAttrs : {promptMessage: 'Enter โทรศัพท์', invalidMessage: '', required : ${required},  missingMessage : '' }}));
+                    </script>
+                    -
+                    <form:input id="${last}_id" path="${last}" disabled="false" cssStyle="width: 50px" maxlength="4"/>
+                    <script type="text/javascript">
+                        Spring.addDecoration(new Spring.ElementDecoration({elementId : '${last}_id', widgetType : 'dijit.form.ValidationTextBox', widgetAttrs : {promptMessage: 'Enter โทรศัพท์', invalidMessage: '', required : ${required},  missingMessage : '' }}));
+                    </script>
+                    <form:errors cssClass="errorsTel" id="_${front}_error_id" path="${front}" />
+                    <form:errors cssClass="errorsTel" id="_${middle}_error_id" path="${middle}" />
+                    <form:errors cssClass="errorsTel" id="_${last}_error_id" path="${last}"/>
+                </div>
+                <br/>
+            </c:when>
+        </c:choose>
+    </c:if>
+</jsp:root>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_com_cma_AttachFile" modelAttribute="attachFile" path="/attachfiles" versionField="Version" z="i6KFkvVAUegsLwu71gWAULWuWD8=">
+        <field:input field="photo" id="c_com_cma_AttachFile_photo" z="isWLw+pqc253B82PTIiW6fsSbDo="/>
+        <field:input field="namecard" id="c_com_cma_AttachFile_namecard" z="qvFXLeqcyae9IbtWWo3QcphVmc8="/>
+        <field:input field="idcard" id="c_com_cma_AttachFile_idcard" z="2E8jZeb/tQuWr160+FOHAwaO8eY="/>
+        <field:input field="passport" id="c_com_cma_AttachFile_passport" z="qoZjl0ct74G+uE1dGg+k9GxEX/w="/>
+        <field:input field="apec" id="c_com_cma_AttachFile_apec" z="T6Lu6VN6OcRo6VtzwWWdc/M1GnM="/>
+        <field:textarea field="pf" id="c_com_cma_AttachFile_pf" z="TF70CA55LBCvhVv7K4iGezzpK64="/>
+        <field:textarea field="slip1" id="c_com_cma_AttachFile_slip1" z="SEAZBfRRxYpYdCJhgSlth8NeXZY="/>
+        <field:checkbox field="uploadPhoto" id="c_com_cma_AttachFile_uploadPhoto" z="nQkFFWhlzEfaOQ+FPE70C2QizSQ="/>
+        <field:checkbox field="uploadNamecard" id="c_com_cma_AttachFile_uploadNamecard" z="DpsX4URqzr2QrYalp5Pv2JAzggc="/>
+        <field:checkbox field="uploadIdcard" id="c_com_cma_AttachFile_uploadIdcard" z="15S9fF8Lg9Ydr3MKhRaKjBU4uO4="/>
+        <field:checkbox field="uploadPassport" id="c_com_cma_AttachFile_uploadPassport" z="KxvBFyRz/VRQzJXSz3qEvg6PtVQ="/>
+        <field:checkbox field="uploadApec" id="c_com_cma_AttachFile_uploadApec" z="ogxTC2G8+oMJnyuT2VPiJ5AejOQ="/>
+        <field:checkbox field="uploadPf" id="c_com_cma_AttachFile_uploadPf" z="1XLwtCGW13JK6goO+mTAyb+tUsM="/>
+        <field:checkbox field="uploadSlip1" id="c_com_cma_AttachFile_uploadSlip1" z="DsVmQIsVLelqbNXz/zULPrlR9OQ="/>
+        <field:input field="photoFileName" id="c_com_cma_AttachFile_photoFileName" z="1sZjwpCcJATE5Y2HyjS+7+NyO4w="/>
+        <field:input field="namecardFileName" id="c_com_cma_AttachFile_namecardFileName" z="r/NEIcRFJvhR3fabpRCQ0FpqYfQ="/>
+        <field:input field="idcardFileName" id="c_com_cma_AttachFile_idcardFileName" z="CvxnzgeeNbVtin8palDHjp+ZzJc="/>
+        <field:input field="passportFileName" id="c_com_cma_AttachFile_passportFileName" z="EoDVapi2SzYfG93EvlAHSmagZM4="/>
+        <field:input field="apecFileName" id="c_com_cma_AttachFile_apecFileName" z="vBPJUwAFCEgMxo2Rvrg0WPNp3v4="/>
+        <field:input field="pfFileName" id="c_com_cma_AttachFile_pfFileName" z="Piqqx5pNvprR4A6k9tujO4N8AqY="/>
+        <field:input field="slip1FileName" id="c_com_cma_AttachFile_slip1FileName" z="R2cQKo8x6evlOwgi2/ue+QN4cjM="/>
+        <field:textarea field="slip2" id="c_com_cma_AttachFile_slip2" z="mjubRvqkVyfO59SAzpozqdbve5Q="/>
+        <field:checkbox field="uploadSlip2" id="c_com_cma_AttachFile_uploadSlip2" z="y1E2QBP1mg4Hj2KVAEKJZkP/wXw="/>
+        <field:input field="slip2FileName" id="c_com_cma_AttachFile_slip2FileName" z="5U0reqUCdEOnMuS/SXBCosJkDAc="/>
+        <field:select field="stdProfile" id="c_com_cma_AttachFile_stdProfile" itemValue="id" items="${students}" path="/students" z="2aok9a7TOcbEoe/04ZbFXnOnTnY="/>
+        <field:input field="holdingTaxFileName" id="c_com_cma_AttachFile_holdingTaxFileName" z="Dl14l3Jo2sNJu7kZEmjFE1K6oic="/>
+        <field:checkbox field="uploadHoldingTax" id="c_com_cma_AttachFile_uploadHoldingTax" z="toTxkkKTS7bMnbWRmjDD12Cl1CU="/>
+        <field:textarea field="holdingTax" id="c_com_cma_AttachFile_holdingTax" z="czODukvtpImZcTeM89HDSZUI+vc="/>
+    </form:update>
+</div>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form"
+     xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:util="urn:jsptagdir:/WEB-INF/tags/util" version="2.0">
+    <script>
+        function checkBeforeSubmit()
+        {
+
+            var collboratorLineId = document.getElementsByName('collboratorLineId')[0];
+
+            if(!Spring.validateAll()){
+                alert("กรุณากรอกข้อมูลที่จำเป็นให้ครบถ้วน");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update_cma id="fu_com_cma_Student_collaborator" modelAttribute="${modelAttribute}" submitbutton="2" path="/std_profiles/update4" versionField="Version" z="iT44dcHKAOb28t9B/alY/GWqeW0=">
+        <field:input field="collboratorFirstName" id="c_com_cma_Student_collboratorFirstName" z="jcyBuE0TRKt+qiHMtpjcT5Hz+r8="/>
+        <field:input field="collboratorLastName" id="c_com_cma_Student_collboratorLastName" z="mXmSAZqg0+OnDoWFWnxxRwzqN80="/>
+        <field:inputTel field="collboratorMobile" type="mobile" required="false"/>
+        <field:inputTel field="collboratorTel" type="phone" required="false"/>
+        <field:inputTel field="collboratorFax" type="other" required="false"/>
+        <!--<field:input field="collboratorMobile" id="c_com_cma_Student_collboratorMobile" z="YbIq5wQH5lxC0+aJgtDOL0PQWiU="/>
+        <field:input field="collboratorTel" id="c_com_cma_Student_collboratorTel" z="dwhC9QLHOatkqWkECbZgnTFmBmg="/>
+        <field:input field="collboratorFax" id="c_com_cma_Student_collboratorFax" z="Dv+qO0hiAuF7mQQPDvPEiDuZ63A="/>-->
+        <field:input field="collboratorEmail" id="c_com_cma_Student_collboratorEmail" z="67SEzCUWJ87s58sBV296FrKLVn0="/>
+        <field:input field="collboratorLineId" required="true" id="c_com_cma_Student_collboratorLineId" z="user-managed"/>
+        <field:inputTel field="driverTel" type="mobile" required="false"/>
+    </form:update_cma>
+</div>

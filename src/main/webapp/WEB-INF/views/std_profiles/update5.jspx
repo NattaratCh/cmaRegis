@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form"
+     xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+    <script>
+        var butSubmit = null;
+        function checkBeforeSubmit()
+        {
+            var smoking = document.getElementsByName('smoking')[0];
+            var poloSize = document.getElementsByName('poloSize')[0];
+            var jacketSize = document.getElementsByName('jacketSize')[0];
+            var playGolf = document.getElementsByName('playGolf')[0];
+            var textarea = document.getElementById('_receiptDetailAddress_id');
+            var edGuarantee1 = document.getElementById('_educationGuarantee1_id');
+            var edGuarantee2 = document.getElementById('_educationGuarantee2_id');
+            var edGuarantee3 = document.getElementById('_educationGuarantee3_id');
+            var edGuarantee4 = document.getElementById('_educationGuarantee4_id');
+            var cmaRegis1 = document.getElementById('_cmaRegis1_id');
+            var cmaRegis2 = document.getElementById('_cmaRegis2_id');
+
+            if(butSubmit=="Submit"){
+                var radios = document.getElementsByTagName('input');
+                var valueCheck;
+                for (var i = 0; i &lt; radios.length; i++) {
+                    if (radios[i].type === 'radio' &amp;&amp; radios[i].checked) {
+                        valueCheck = radios[i].value;
+                    }
+                }
+                if(textarea.value==''){
+                    alert("กรุณากรอกที่อยู่");
+                    return false;
+                }
+                else if(playGolf.value=="--โปรดเลือก--"){
+                    alert("กรุณาเลือกว่าเป็นนักกอล์ฟหรือไม่");
+                    return false;
+                }
+                else if(smoking.value=="--โปรดเลือก--"){
+                    alert('กรุณาเลือกสูบบุหรี่หรือไม่');
+                    return false;
+                }
+                else if(jacketSize.value=="--โปรดเลือก--"){
+                    alert("กรุณาเลือกขนาดJacket");
+                    return false;
+                }
+                else if(poloSize.value=="--โปรดเลือก--"){
+                    alert("กรุณาเลือกขนาดPolo");
+                    return false;
+                }
+                else if(edGuarantee1.checked == false || edGuarantee2.checked == false || edGuarantee3.checked == false || edGuarantee4.checked == false){
+                    alert('กรุณากดยืนยันการรับรองการเข้าศึกษาให้ครบ');
+                    return false;
+                }
+                else if( cmaRegis1.checked == false || cmaRegis2.checked == false){
+                    alert('กรุณากดยืนยันการสมัครสมาชิกสมาคมนักศึกษาสถาบันวิทยาการตลาดทุน');
+                    return false;
+                }
+            }
+            return true;
+        }
+        function setButSubmit(){
+            butSubmit="Submit";
+        }
+        function setButSubmit2(){
+            butSubmit="Back";
+        }
+
+    </script>
+
+    <script type="text/javascript">
+        dojo.addOnLoad(function() {
+            dojo.connect(dijit.byId("_playGolf_id"), "onChange", function(){
+                var _tmp = dijit.byId("_playGolf_id").attr('value');
+                if(_tmp=='นักกอล์ฟ') {
+                    document.getElementById("_handyCapbox").style.display = '';
+
+                }
+                else {
+                    document.getElementById("_handyCapbox").style.display = 'none';
+                }
+            });
+        });
+        dojo.addOnLoad(function() {
+            dojo.connect(dijit.byId("etc"), "onClick", function(){
+                document.getElementById("_receiptbox").style.display = '';
+            });
+        });
+        dojo.addOnLoad(function() {
+            dojo.connect(dijit.byId("home"), "onClick", function(){
+                document.getElementById("_receiptbox").style.display = 'none';
+            });
+        });
+        dojo.addOnLoad(function() {
+            dojo.connect(dijit.byId("office"), "onClick", function(){
+                document.getElementById("_receiptbox").style.display = 'none';
+            });
+        });
+    </script>
+
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update_cma id="fu_com_cma_student_moreinfo" modelAttribute="${modelAttribute}" submitbutton="3" path="/std_profiles/update5" versionField="Version" z="iT44dcHKAOb28t9B/alY/GWqeW0=">
+        <field:input field="carNo" id="c_com_cma_student_carNo" z="/P4JUnB3TglEGnC5T6brf6vM+Sw="/>
+        <field:input field="carBrand" id="c_com_cma_student_carBrand" z="jsbHCLhUttEfap1mhKq/F3TlZ+M="/>
+        <field:input field="carColor" id="c_com_cma_student_carColor" z="p+c6GupdDvd/KrkFZkCTzI3NkHw="/>
+        <spring:message code="label_com_cma_std_profile_update_compare2" var="compare2"/>
+        <field:select field="playGolf" id="c_com_cma_student_playGolf" items="${golferItems}"/>
+        <c:choose>
+            <c:when test="${std_profile.playGolf==compare2}">
+                <div id="_handyCapbox" style="display: '';">
+                    <field:input field="handyCap" id="c_com_cma_student_handyCap" z="Kpw6INpzWy1cCiARD9J45kNwNBs="/>
+                </div>
+            </c:when>
+            <c:otherwise>
+                <div id="_handyCapbox" style="display: none;">
+                    <field:input field="handyCap" id="c_com_cma_student_handyCap" z="Kpw6INpzWy1cCiARD9J45kNwNBs="/>
+                </div>
+            </c:otherwise>
+        </c:choose>
+        <spring:message code="label_com_cma_std_profile_update_header1" var="header1"/>
+        <div id="fieldHeader">
+            ${header1}
+        </div>
+        <br/>
+        <field:checkbox field="generalFood" id="c_com_cma_student_generalFood" z="F5PqbJu7V5BTh9obdf/6Pu3MRsY="/>
+        <field:checkbox field="halalFood" id="c_com_cma_student_halalFood" z="NAm0ryNDjx8pu+IJcHsPzIOaBMY="/>
+        <field:checkbox field="jFood" id="c_com_cma_student_jFood" z="mhuxQMIeQmSPTTu/y7Q2ku8EO8w="/>
+        <field:checkbox field="vegeterianFood" id="c_com_cma_student_vegeterianFood" z="/9u4hP9D6HK9SpDKtcQvJCLa+NY="/>
+        <field:checkbox field="allergiesSeaFood" id="c_com_cma_student_allergiesSeaFood" z="P8+ghvSWmYZpB5kI96ep4L+GoKc="/>
+        <field:checkbox field="beefFood" id="c_com_cma_student_beefFood" z="jTaytkI8EWKRjoq/TV2VfC0+HPA="/>
+        <field:input field="otherFood" id="c_com_cma_student_otherFood" z="cQdZtJRgmuklYM+MQ8AUhicEUVs="/>
+        <br/>
+
+        <!--<spring:message code="label_com_cma_std_profile_smoking" var="fieldName"/>
+        <div id="_c_com_cma_student_smoking_id"><label for="_smoking_id" id="_smoking_id_label">
+            ${fieldName}
+            :
+        </label>
+            <select id="selector" name="smoking">
+                <c:forEach items="${smokingItems}" var="item" varStatus="loopStatus">
+                    <c:choose>
+                        <c:when test="${std_profile.tall==null and  loopStatus.index==0}">
+                            <option selected="true"><c:out value="${item}"/></option>
+                        </c:when>
+                        <c:when test="${std_profile.smoking==true and  loopStatus.index==1}">
+                            <option selected="true"><c:out value="${item}"/></option>
+                        </c:when>
+                        <c:when test="${std_profile.smoking==false and  loopStatus.index==2}">
+                            <option selected="true"><c:out value="${item}"/></option>
+                        </c:when>
+                        <c:otherwise>
+                            <option><c:out value="${item}"/></option>
+                        </c:otherwise>
+                    </c:choose>
+                </c:forEach>
+            </select>
+        </div>
+        <br/>-->
+        <field:select render="true" field="smoking" id="c_com_cma_student_smoking" items="${smokingItems}"/>
+        <!--&lt;!&ndash;<field:input field="jacketSize" id="c_com_cma_student_jacketSize" z="yYe8gPqHopX6iRfqM7Ga2cDAFlw="/>-->
+        <field:select field="jacketSize" id="c_com_cma_student_jacketSize" items="${jacketSizeItems}"/>
+        <!--<field:input field="poloSize" id="c_com_cma_student_poloSize" z="wDTjBOwYTqUInqkzdWHf50i7Zqs="/>-->
+        <field:select field="poloSize" id="c_com_cma_student_poloSize" items="${jacketPoloItems}"/>
+        <field:input field="waist" id="c_com_cma_student_waist" z="fAR0V2gbDMauYbtjS5KR6EGbPYU="/>
+        <field:input field="tall" id="c_com_cma_student_tall" z="f3lOSOZMxy83y4Mm26EtDRY6rXI="/>
+        <!--<field:checkbox field="educationGuarantee" disableFormBinding="false" id="c_com_cma_student_educationGuarantee" z="user-managed"/>-->
+        <br/>
+        <spring:message code="label_com_cma_std_profile_update_header2" var="header2"/>
+        <div id="fieldHeader">
+            ${header2}
+        </div>
+        <br/>
+        <div id="_receiptbox" style="display: '';">
+            <field:input required="false" field="receiptDetailName" id="c_com_cma_student_receiptDetailName" z="+Y3dInoBRViPTyrSXprnA/h+Yx0="/>
+            <field:input required="false" field="taxId" id="c_com_cma_student_taxId" z="user-managed"/>
+            <field:textarea required="false" field="receiptDetailAddress" id="c_com_cma_student_receiptDetailAddress" z="/N7m+kAHltAZuzZFyOaED6Q6X/A="/>
+        </div>
+        <br/>
+        <spring:message code="label_com_cma_std_profile_update_header3" var="header3"/>
+        <div id="fieldHeader">
+            ${header3}
+        </div>
+        <br/>
+        <spring:message code="label_com_cma_std_profile_print_submit1" var="submit1"/>
+        <spring:message code="label_com_cma_std_profile_print_submit2" var="submit2"/>
+        <spring:message code="label_com_cma_std_profile_print_submit3" var="submit3"/>
+        <spring:message code="label_com_cma_std_profile_print_submit4" var="submit4"/>
+        <div>
+            <input id="_educationGuarantee1_id"  name="_educationGuarantee1_id" type="checkbox" /> ${submit1}
+        </div>
+        <br/>
+        <div>
+            <input id="_educationGuarantee2_id" name="_educationGuarantee2_id" type="checkbox" /> ${submit2}
+        </div>
+        <br/>
+        <div>
+            <input id="_educationGuarantee3_id" name="_educationGuarantee3_id" type="checkbox" /> ${submit3}
+        </div>
+        <br/>
+        <div>
+            <input id="_educationGuarantee4_id" name="_educationGuarantee4_id" type="checkbox" /> ${submit4}
+        </div>
+        <br/>
+        <br/>
+        <spring:message code="label_com_cma_std_profile_update_header4" var="header4"/>
+        <div id="fieldHeader">
+            ${header4}
+        </div>
+        <br/>
+        <spring:message code="label_com_cma_std_profile_print_submit5" var="submit5"/>
+        <spring:message code="label_com_cma_std_profile_print_submit6" var="submit6"/>
+        <div>
+            <input id="_cmaRegis1_id" name="_educationGuarantee5_id" type="checkbox" /> ${submit5}
+        </div>
+        <br/>
+        <div>
+            <input id="_cmaRegis2_id" name="_educationGuarantee6_id" type="checkbox" /> ${submit6}
+        </div>
+        <br/>
+        <p>
+            <u>ข้อสงวนสิทธิ์</u> สถาบัน วตท. ขอสงวนสิทธิ์ในการเปลี่ยนแปลงเงื่อนไขการสมัคร รวมถึงค่าธรรมเนียมต่างๆ ที่เรียกเก็บได้ตามความเหมาะสม โดยไม่ต้องแจ้งให้ทราบล่วงหน้าและไม่ต้อง
+            ชี้แจงเหตุผลแก่ผู้สมัคร กรณีมีข้อโต้แย้งใดๆ ผู้สมัครยินยอมให้ถือคำวินิจฉัยของสถาบัน วตท. เป็นที่สิ้นสุด
+        </p>
+        <script type="text/javascript">
+            Spring.addDecoration(new Spring.ElementDecoration({elementId : '_educationGuarantee1_id', widgetType : 'dijit.form.CheckBox', widgetAttrs : {}}));
+            Spring.addDecoration(new Spring.ElementDecoration({elementId : '_educationGuarantee2_id', widgetType : 'dijit.form.CheckBox', widgetAttrs : {}}));
+            Spring.addDecoration(new Spring.ElementDecoration({elementId : '_educationGuarantee3_id', widgetType : 'dijit.form.CheckBox', widgetAttrs : {}}));
+            Spring.addDecoration(new Spring.ElementDecoration({elementId : '_educationGuarantee4_id', widgetType : 'dijit.form.CheckBox', widgetAttrs : {}}));
+            Spring.addDecoration(new Spring.ElementDecoration({elementId : '_cmaRegis1_id', widgetType : 'dijit.form.CheckBox', widgetAttrs : {}}));
+            Spring.addDecoration(new Spring.ElementDecoration({elementId : '_cmaRegis2_id', widgetType : 'dijit.form.CheckBox', widgetAttrs : {}}));
+        </script>
+
+    </form:update_cma>
+</div>
