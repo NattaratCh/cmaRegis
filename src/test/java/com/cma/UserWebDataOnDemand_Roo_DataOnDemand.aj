@@ -33,7 +33,7 @@ privileged aspect UserWebDataOnDemand_Roo_DataOnDemand {
         setLastLogin(obj, index);
         setLastUpdate(obj, index);
         setLoginCount(obj, index);
-        setOldPasswordList(obj, index);
+        setOldPasswdList(obj, index);
         setPassword(obj, index);
         setPasswordExpired(obj, index);
         setUsername(obj, index);
@@ -70,12 +70,12 @@ privileged aspect UserWebDataOnDemand_Roo_DataOnDemand {
         obj.setLoginCount(loginCount);
     }
     
-    public void UserWebDataOnDemand.setOldPasswordList(UserWeb obj, int index) {
-        String oldPasswordList = "oldPasswordList_" + index;
-        if (oldPasswordList.length() > 255) {
-            oldPasswordList = oldPasswordList.substring(0, 255);
+    public void UserWebDataOnDemand.setOldPasswdList(UserWeb obj, int index) {
+        String oldPasswdList = "oldPasswdList_" + index;
+        if (oldPasswdList.length() > 255) {
+            oldPasswdList = oldPasswdList.substring(0, 255);
         }
-        obj.setOldPasswordList(oldPasswordList);
+        obj.setOldPasswdList(oldPasswdList);
     }
     
     public void UserWebDataOnDemand.setPassword(UserWeb obj, int index) {

@@ -73,7 +73,10 @@
                         </th>
                         <th width="2%"/>
                         <th width="2%"/>
-                        <th width="2%"/>
+                        <c:if test="${dataState != 'uptodate' or dataState != 'UPTODATE'}">
+                            <th width="2%"/>
+                        </c:if>
+
                         <th width="10%">${field1}</th>
                         <th width="10%">${field2}</th>
                         <th width="15%">${field3}</th>
@@ -99,16 +102,19 @@
                                 <img alt="Update std_profile" class="image" src="./resources/images/update.png" title="Update std_profile"/>
                             </a>
                         </td>
-                        <td class="utilbox">
-                            <c:set var="delete_confirm_msg">
-                                <spring:escapeBody javaScriptEscape="true">
-                                    <spring:message code="entity_delete_confirm"/>
-                                </spring:escapeBody>
-                            </c:set>
-                            <a alt="Delete std_profile" href="./std_profiles/${item.id}?delete" onclick="return confirm('${delete_confirm_msg}');" title="Deletee std_profile">
-                                <img alt="Delete std_profile" class="image" src="./resources/images/delete.png" title="Delete std_profile"/>
-                            </a>
-                        </td>
+                        <c:if test="${dataState != 'uptodate' or dataState != 'UPTODATE'}">
+                            <td class="utilbox">
+                                <c:set var="delete_confirm_msg">
+                                    <spring:escapeBody javaScriptEscape="true">
+                                        <spring:message code="entity_delete_confirm"/>
+                                    </spring:escapeBody>
+                                </c:set>
+                                <a alt="Delete std_profile" href="./std_profiles/${item.id}?delete" onclick="return confirm('${delete_confirm_msg}');" title="Deletee std_profile">
+                                    <img alt="Delete std_profile" class="image" src="./resources/images/delete.png" title="Delete std_profile"/>
+                                </a>
+                            </td>
+                        </c:if>
+
                         <td>${item.titleTh}</td>
                         <td>${item.firstnameTh}</td>
                         <td>${item.lastnameTh}</td>

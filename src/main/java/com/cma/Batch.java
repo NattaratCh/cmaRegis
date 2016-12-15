@@ -66,11 +66,15 @@ public class Batch {
     private Boolean uploadfile5;
 
     private String remark;
-
     private String type;
     private String activityCalendar;
-
     private String directory;
+
+    @Transient
+    private CommonsMultipartFile activityCalendarFile;
+
+    @Transient
+    private CommonsMultipartFile directoryFile;
 
     private Integer number;
 

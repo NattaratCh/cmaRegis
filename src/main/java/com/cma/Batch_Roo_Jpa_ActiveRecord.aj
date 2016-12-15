@@ -14,7 +14,7 @@ privileged aspect Batch_Roo_Jpa_ActiveRecord {
     @PersistenceContext
     transient EntityManager Batch.entityManager;
     
-    public static final List<String> Batch.fieldNames4OrderClauseFilter = java.util.Arrays.asList("nameTh", "nameEn", "start_date", "end_date", "std_profileSet", "file1", "file2", "file3", "file4", "file5", "filename1", "filename2", "filename3", "filename4", "filename5", "uploadfile1", "uploadfile2", "uploadfile3", "uploadfile4", "uploadfile5", "remark", "type", "activityCalendar", "directory", "number", "course");
+    public static final List<String> Batch.fieldNames4OrderClauseFilter = java.util.Arrays.asList("nameTh", "nameEn", "start_date", "end_date", "std_profileSet", "file1", "file2", "file3", "file4", "file5", "filename1", "filename2", "filename3", "filename4", "filename5", "uploadfile1", "uploadfile2", "uploadfile3", "uploadfile4", "uploadfile5", "remark", "type", "activityCalendar", "directory", "activityCalendarFile", "directoryFile", "number", "course");
     
     public static final EntityManager Batch.entityManager() {
         EntityManager em = new Batch().entityManager;

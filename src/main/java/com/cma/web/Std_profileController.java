@@ -1,6 +1,7 @@
 package com.cma.web;
 
 import com.cma.*;
+import com.cma.common.EducationDegree;
 import com.cma.common.MailManager;
 import com.cma.common.Sexdropdown;
 import org.apache.commons.logging.Log;
@@ -892,6 +893,15 @@ public class Std_profileController {
 
     }
 
+    private void addEducationDegreeList(Model uiModel){
+        List educationDegree = new ArrayList();
+        educationDegree.add(new EducationDegree("Bachelor","ปริญญาตรี"));
+        educationDegree.add(new EducationDegree("Master","ปริญญาโท"));
+        educationDegree.add(new EducationDegree("PhD","ปริญญาเอก"));
+
+        uiModel.addAttribute("educationDegree",educationDegree);
+    }
+
 
     private List findEducationProfileList(String degree,Long id){
         List educationList = new ArrayList();
@@ -958,6 +968,10 @@ public class Std_profileController {
     @RequestMapping(params = "form", produces = "text/html")
     public String createForm(Model uiModel) {
         populateEditForm(uiModel, new Student());
+        addEducationDegreeList(uiModel);
+        addSelectedItem1(uiModel);
+        addSelectedItem2(uiModel);
+        addSelectedItem5(uiModel);
         return "std_profiles/create";
     }
 
@@ -1066,10 +1080,71 @@ public class Std_profileController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "text/html")
     public String delete(@PathVariable("id") Long id, @RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
-        Student std_profile = Student.findStudent(id);
-        std_profile.remove();
+        Student student = Student.findStudent(id);
+        if(student.getDataState().equals(StudentDataState.INIT)){
+            MapStudent mapStudent = MapStudent.findMapStudent(student, null, null);
+            mapStudent.setInitStudent(null);
+            mapStudent.merge();
+
+            boolean result = deleteRelatedProfiledeleteRelatedProfile(student);
+
+            UserRegis userRegis = UserRegis.getUserRegis(student);
+            if(userRegis != null){
+                userRegis.remove();
+            }
+            log.info("delete() | delete init student id : "+student.getId());
+            student.remove();
+        }else if(student.getDataState().equals(StudentDataState.REVISED)){
+            MapStudent mapStudent = MapStudent.findMapStudent(null, student, null);
+            Student uptodateStudent = mapStudent.getUpToDateStudent();
+            mapStudent.setRevisedStudent(null);
+            mapStudent.setUpToDateStudent(null);
+            mapStudent.merge();
+
+            boolean result = deleteRelatedProfiledeleteRelatedProfile(student);
+            result = deleteRelatedProfiledeleteRelatedProfile(uptodateStudent);
+
+            student.getUserWeb().remove();
+            uptodateStudent.getUserWeb().remove();
+
+            log.info("delete() | delete revised student id : "+student.getId());
+            student.remove();
+            log.info("delete() | delete uptodate student id : "+uptodateStudent.getId());
+            uptodateStudent.remove();
+        }else if(student.getDataState().equals(StudentDataState.UPTODATE)){
+            log.info("delete() | cannot delete uptodate student id : "+student.getId());
+        }
         uiModel.asMap().clear();
         return "redirect:/std_profiles";
+    }
+
+    private boolean deleteRelatedProfiledeleteRelatedProfile(Student student){
+        boolean result = true;
+        if(student != null){
+            AttachFile attachFile = AttachFile.getAttachFile(student);
+            if(attachFile!=null){
+                attachFile.remove();
+            }
+
+            List educationProfileList = Education_profile.listEducationProfile(student);
+            if(educationProfileList != null){
+                result = result && Education_profile.deleteEducationProfile(educationProfileList);
+
+            }
+
+            List trainingProfileList = Training_profile.listTrainingProfile(student);
+            if(trainingProfileList != null){
+                result = result && Training_profile.deleteTrainingProfile(trainingProfileList);
+            }
+
+            List childrenProfileList = Children_profile.listChildrenProfile((student));
+            if(childrenProfileList != null){
+                result = result && Children_profile.deleteChildrenProfile(childrenProfileList);
+            }
+        }else{
+            result = false;
+        }
+        return result;
     }
 
     void addDateTimeFormatPatterns(Model uiModel) {

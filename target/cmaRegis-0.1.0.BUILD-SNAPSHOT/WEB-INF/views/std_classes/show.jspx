@@ -1,53 +1,41 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:c="http://java.sun.com/jsp/jstl/core" version="2.0">
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <page:show id="ps_com_cma_Batch" object="${batch}" path="/std_classes" z="fX+eCCyDAroAxfHWNlE9BvodpzU=">
+        <div id="_com_cma_Batch_course">
+            <label for="course">Course :</label>
+            <div>
+                <c:out value="${batch.course.code}"/>
+            </div>
+        </div>
+        <br/>
+        <field:display field="course" id="s_com_cma_Batch_course" render="false" object="${batch}" z="NGzgmt/fujI0LOOMY6Khs2mRHbA="/>
         <field:display field="nameTh" id="s_com_cma_Batch_nameTh" object="${batch}" z="U5xKhSzsqK7RYdo2ax0TrT96YHA="/>
         <field:display field="nameEn" id="s_com_cma_Batch_nameEn" object="${batch}" z="/nLyxYiRffxQ8vEF6VKCCt6Edbs="/>
-        <!--<field:display date="true" dateTimePattern="${batch_start_date_date_format}" field="start_date" id="s_com_cma_Batch_start_date" object="${batch}" z="nDgrVeLyLb2+g9OkrOnDHrSLl6A="/>
-        <field:display date="true" dateTimePattern="${batch_end_date_date_format}" field="end_date" id="s_com_cma_Batch_end_date" object="${batch}" z="putGnIi4hNtzj28IRs+wIoLf9AM="/>
-        <field:display field="std_profileSet" id="s_com_cma_Batch_std_profileSet" object="${batch}" z="uf3UojIl138pHNkbBFW+ji4vhU4="/>
-        <field:display field="file1" id="s_com_cma_Batch_file1" object="${batch}" z="USNLdpFZSBuYjzuq+f8zrPxcgzU="/>
-        <field:display field="file2" id="s_com_cma_Batch_file2" object="${batch}" z="NDZ7zYE2+Q4cDTuZdb7GsleJgpk="/>
-        <field:display field="file3" id="s_com_cma_Batch_file3" object="${batch}" z="060oOCyXQYC9qASiSssmHFtE6Z0="/>
-        <field:display field="file4" id="s_com_cma_Batch_file4" object="${batch}" z="rjkX4F53FxKcBB5FQXkUUaHFqrU="/>
-        <field:display field="file5" id="s_com_cma_Batch_file5" object="${batch}" z="HkaeB7+XSogCig5c9LuWRut+AcY="/>
-        <field:display field="filename1" id="s_com_cma_Batch_filename1" object="${batch}" z="p5M8eBFwV05JUosuJcyqWSnQA1I="/>
-        <field:display field="filename2" id="s_com_cma_Batch_filename2" object="${batch}" z="d2jsS0OfI+/XZKgSC/uJcDj/2OY="/>
-        <field:display field="filename3" id="s_com_cma_Batch_filename3" object="${batch}" z="EE2S8niEz/Gx8UPp7XP8RJ+j9B0="/>
-        <field:display field="filename4" id="s_com_cma_Batch_filename4" object="${batch}" z="ekSf96ZBSzw3jgxooLckAqk+4Bo="/>
-        <field:display field="filename5" id="s_com_cma_Batch_filename5" object="${batch}" z="U097eXInZwdEwH5VhUxqyy/Mu8o="/>
-        <field:display field="uploadfile1" id="s_com_cma_Batch_uploadfile1" object="${batch}" z="SNU7Fe3xWmrO1SBJYSgW2ux631k="/>
-        <field:display field="uploadfile2" id="s_com_cma_Batch_uploadfile2" object="${batch}" z="vHyo2IXbo3thlhVygKrXuMZn14Y="/>
-        <field:display field="uploadfile3" id="s_com_cma_Batch_uploadfile3" object="${batch}" z="gHADw+isD2mUiRg55V+B3HZU7rM="/>
-        <field:display field="uploadfile4" id="s_com_cma_Batch_uploadfile4" object="${batch}" z="b5HgLod2Bum5SlSo/EcNvNqZ2ic="/>
-        <field:display field="uploadfile5" id="s_com_cma_Batch_uploadfile5" object="${batch}" z="fXqxnQBJIqB8uNnVtLWsw2rDTxI="/>
-        <field:display field="remark" id="s_com_cma_Batch_remark" object="${batch}" z="TZf754I0MSRQ02qRjsVi+zycz+I="/>
-        <field:display field="type" id="s_com_cma_Batch_type" object="${batch}" z="XuEg8TNOAEO9Mlg8E8vj+OCsiaM="/>-->
+        <field:display field="number" id="s_com_cma_Batch_number" object="${batch}" z="k6pMEVUPMRTvzn2cI25eXkOfZMg="/>
         <field:display date="true" dateTimePattern="${batch_start_date_date_format}" field="start_date" id="s_com_cma_Batch_start_date" object="${batch}" z="nDgrVeLyLb2+g9OkrOnDHrSLl6A="/>
         <field:display date="true" dateTimePattern="${batch_end_date_date_format}" field="end_date" id="s_com_cma_Batch_end_date" object="${batch}" z="putGnIi4hNtzj28IRs+wIoLf9AM="/>
-        <field:display field="std_profileSet" id="s_com_cma_Batch_std_profileSet" object="${batch}" z="uf3UojIl138pHNkbBFW+ji4vhU4="/>
+        <field:display field="std_profileSet" id="s_com_cma_Batch_std_profileSet" render="false" object="${batch}" z="user-managed"/>
         <field:display field="file1" id="s_com_cma_Batch_file1" object="${batch}" z="USNLdpFZSBuYjzuq+f8zrPxcgzU="/>
         <field:display field="file2" id="s_com_cma_Batch_file2" object="${batch}" z="NDZ7zYE2+Q4cDTuZdb7GsleJgpk="/>
         <field:display field="file3" id="s_com_cma_Batch_file3" object="${batch}" z="060oOCyXQYC9qASiSssmHFtE6Z0="/>
         <field:display field="file4" id="s_com_cma_Batch_file4" object="${batch}" z="rjkX4F53FxKcBB5FQXkUUaHFqrU="/>
         <field:display field="file5" id="s_com_cma_Batch_file5" object="${batch}" z="HkaeB7+XSogCig5c9LuWRut+AcY="/>
+        <field:display field="activityCalendar" id="s_com_cma_Batch_activityCalendar" object="${batch}" z="SfcO+YC6+KqVMuhurM6v2rCco18="/>
+        <field:display field="directory" id="s_com_cma_Batch_directory" object="${batch}" z="LH0XI31miKh7AvkrJSMg3ntJg54="/>
         <field:display field="filename1" id="s_com_cma_Batch_filename1" object="${batch}" z="p5M8eBFwV05JUosuJcyqWSnQA1I="/>
         <field:display field="filename2" id="s_com_cma_Batch_filename2" object="${batch}" z="d2jsS0OfI+/XZKgSC/uJcDj/2OY="/>
         <field:display field="filename3" id="s_com_cma_Batch_filename3" object="${batch}" z="EE2S8niEz/Gx8UPp7XP8RJ+j9B0="/>
         <field:display field="filename4" id="s_com_cma_Batch_filename4" object="${batch}" z="ekSf96ZBSzw3jgxooLckAqk+4Bo="/>
         <field:display field="filename5" id="s_com_cma_Batch_filename5" object="${batch}" z="U097eXInZwdEwH5VhUxqyy/Mu8o="/>
-        <field:display field="uploadfile1" id="s_com_cma_Batch_uploadfile1" object="${batch}" z="SNU7Fe3xWmrO1SBJYSgW2ux631k="/>
-        <field:display field="uploadfile2" id="s_com_cma_Batch_uploadfile2" object="${batch}" z="vHyo2IXbo3thlhVygKrXuMZn14Y="/>
-        <field:display field="uploadfile3" id="s_com_cma_Batch_uploadfile3" object="${batch}" z="gHADw+isD2mUiRg55V+B3HZU7rM="/>
-        <field:display field="uploadfile4" id="s_com_cma_Batch_uploadfile4" object="${batch}" z="b5HgLod2Bum5SlSo/EcNvNqZ2ic="/>
-        <field:display field="uploadfile5" id="s_com_cma_Batch_uploadfile5" object="${batch}" z="fXqxnQBJIqB8uNnVtLWsw2rDTxI="/>
+        <field:display field="uploadfile1" id="s_com_cma_Batch_uploadfile1" object="${batch}" render="false" z="user-managed"/>
+        <field:display field="uploadfile2" id="s_com_cma_Batch_uploadfile2" object="${batch}" render="false" z="user-managed"/>
+        <field:display field="uploadfile3" id="s_com_cma_Batch_uploadfile3" object="${batch}" render="false" z="user-managed"/>
+        <field:display field="uploadfile4" id="s_com_cma_Batch_uploadfile4" object="${batch}" render="false" z="user-managed"/>
+        <field:display field="uploadfile5" id="s_com_cma_Batch_uploadfile5" object="${batch}" render="false" z="user-managed"/>
         <field:display field="remark" id="s_com_cma_Batch_remark" object="${batch}" z="TZf754I0MSRQ02qRjsVi+zycz+I="/>
         <field:display field="type" id="s_com_cma_Batch_type" object="${batch}" z="XuEg8TNOAEO9Mlg8E8vj+OCsiaM="/>
-        <field:display field="activityCalendar" id="s_com_cma_Batch_activityCalendar" object="${batch}" z="SfcO+YC6+KqVMuhurM6v2rCco18="/>
-        <field:display field="directory" id="s_com_cma_Batch_directory" object="${batch}" z="LH0XI31miKh7AvkrJSMg3ntJg54="/>
-        <field:display field="number" id="s_com_cma_Batch_number" object="${batch}" z="k6pMEVUPMRTvzn2cI25eXkOfZMg="/>
-        <field:display field="course" id="s_com_cma_Batch_course" object="${batch}" z="NGzgmt/fujI0LOOMY6Khs2mRHbA="/>
     </page:show>
 </div>

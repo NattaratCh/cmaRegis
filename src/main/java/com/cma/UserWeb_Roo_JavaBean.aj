@@ -56,12 +56,12 @@ privileged aspect UserWeb_Roo_JavaBean {
         this.loginCount = loginCount;
     }
     
-    public String UserWeb.getOldPasswordList() {
+    public String UserWeb.getOldPasswdList() {
         return this.oldPasswdList;
     }
     
-    public void UserWeb.setOldPasswordList(String oldPasswordList) {
-        this.oldPasswdList = oldPasswordList;
+    public void UserWeb.setOldPasswdList(String oldPasswdList) {
+        this.oldPasswdList = oldPasswdList;
     }
     
     public String UserWeb.getPassword() {

@@ -88,7 +88,7 @@
             <menu:item id="i_training_profile_new" messageCode="global_menu_new" url="/training_profiles?form" z="FVdpRIapcuaCtqNByxeFK8DFGVQ="/>
             <menu:item id="i_training_profile_list" messageCode="global_menu_list" url="/training_profiles?page=1&amp;size=${empty param.size ? 10 : param.size}" z="pPAM+oMIdWNNAtGGACpXOQPlUCo="/>
         </menu:category>
-        <menu:category id="c_userregisrole" render="false" z="tFEQqwwoEh0vqFKm3LZ80vjUQFE=">
+        <menu:category id="c_userregisrole" render="false" z="user-managed">
             <menu:item id="i_userregisrole_new" messageCode="global_menu_new" url="/userroles?form" z="kqeoBYyku0VrlU/RaCP741TNTfQ="/>
             <menu:item id="i_userregisrole_list" messageCode="global_menu_list" url="/userroles?page=1&amp;size=${empty param.size ? 10 : param.size}" z="2q9Qk84VVKrct/P95DX9mzoAHxg="/>
         </menu:category>

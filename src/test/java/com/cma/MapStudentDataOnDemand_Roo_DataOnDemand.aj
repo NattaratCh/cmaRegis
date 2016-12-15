@@ -5,7 +5,6 @@ package com.cma;
 
 import com.cma.MapStudent;
 import com.cma.MapStudentDataOnDemand;
-import com.cma.Student;
 import com.cma.StudentDataOnDemand;
 import java.security.SecureRandom;
 import java.util.ArrayList;
@@ -30,13 +29,7 @@ privileged aspect MapStudentDataOnDemand_Roo_DataOnDemand {
     
     public MapStudent MapStudentDataOnDemand.getNewTransientMapStudent(int index) {
         MapStudent obj = new MapStudent();
-        setInitStudent(obj, index);
         return obj;
-    }
-    
-    public void MapStudentDataOnDemand.setInitStudent(MapStudent obj, int index) {
-        Student initStudent = studentDataOnDemand.getSpecificStudent(index);
-        obj.setInitStudent(initStudent);
     }
     
     public MapStudent MapStudentDataOnDemand.getSpecificMapStudent(int index) {

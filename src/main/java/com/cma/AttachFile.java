@@ -4,9 +4,12 @@ import org.springframework.roo.addon.javabean.RooJavaBean;
 import org.springframework.roo.addon.jpa.activerecord.RooJpaActiveRecord;
 import org.springframework.roo.addon.tostring.RooToString;
 
+import javax.persistence.EntityManager;
 import javax.persistence.ManyToOne;
+import javax.persistence.Query;
 import javax.persistence.Transient;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 @RooJavaBean
 @RooToString
@@ -84,4 +87,17 @@ public class AttachFile {
 
     @ManyToOne
     private Student stdProfile;
+
+    public static AttachFile getAttachFile(Student student){
+        EntityManager entityManager = MapStudent.entityManager();
+        String sql = "";
+        Query query = null;
+        if(student != null){
+            query = entityManager.createQuery("select e from AttachFile e where e.stdProfile= :student");
+            query.setParameter("student", student);
+        }
+
+        AttachFile attachFile = (AttachFile) query.getSingleResult();
+        return attachFile;
+    }
 }

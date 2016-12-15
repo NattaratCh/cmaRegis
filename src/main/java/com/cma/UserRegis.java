@@ -47,4 +47,17 @@ public class UserRegis {
 
     @OneToOne
     private UserRegisRole userRole;
+
+    public static UserRegis getUserRegis(Student student){
+        EntityManager entityManager = MapStudent.entityManager();
+        String sql = "";
+        Query query = null;
+        if(student != null){
+            query = entityManager.createQuery("select e from UserRegis e where e.studentProfile= :student");
+            query.setParameter("student", student);
+        }
+
+        UserRegis userRegis = (UserRegis) query.getSingleResult();
+        return userRegis;
+    }
 }

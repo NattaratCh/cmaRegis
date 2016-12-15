@@ -5,8 +5,11 @@ import org.springframework.roo.addon.javabean.RooJavaBean;
 import org.springframework.roo.addon.jpa.activerecord.RooJpaActiveRecord;
 import org.springframework.roo.addon.tostring.RooToString;
 
+import javax.persistence.EntityManager;
 import javax.persistence.ManyToOne;
+import javax.persistence.Query;
 import java.util.Date;
+import java.util.List;
 
 @RooJavaBean
 @RooToString
@@ -48,4 +51,30 @@ public class Children_profile {
 
     @ManyToOne
     private Student studentProfile;
+
+    public static List listChildrenProfile(Student student){
+        EntityManager entityManager = MapStudent.entityManager();
+        String sql = "";
+        Query query = null;
+        if(student != null){
+            query = entityManager.createQuery("select e from Children_profile e where e.studentProfile= :student");
+            query.setParameter("student", student);
+        }
+
+        List childrenProfileList = (List) query.getResultList();
+        return childrenProfileList;
+    }
+
+    public static boolean deleteChildrenProfile(List<Children_profile> children_profiles){
+        boolean result = false;
+        if(children_profiles != null){
+            for(int i=0; i < children_profiles.size(); i++){
+                Children_profile children_profile = (Children_profile) children_profiles.get(i);
+                children_profile.remove();
+            }
+            result = true;
+        }
+
+        return result;
+    }
 }

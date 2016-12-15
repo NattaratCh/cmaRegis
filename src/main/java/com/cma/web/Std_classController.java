@@ -1,6 +1,7 @@
 package com.cma.web;
 
 import com.cma.Batch;
+import com.cma.Course;
 import com.cma.Student;
 import org.joda.time.format.DateTimeFormat;
 import org.springframework.roo.addon.web.mvc.controller.scaffold.RooWebScaffold;
@@ -28,11 +29,14 @@ import java.util.Locale;
 @Controller
 @RooWebScaffold(path = "std_classes", formBackingObject = Batch.class)
 public class Std_classController {
-    /*private String filePath = "d:/tmp/attachfile/";*/
-    private String filePath = "/cma/http/attachMail/";
 
     @RequestMapping(method = RequestMethod.POST, produces = "text/html")
-    public String create(@Valid Batch batch,BindingResult bindingResult,@RequestParam("file1") CommonsMultipartFile file1,@RequestParam("file2") CommonsMultipartFile file2,@RequestParam("file3") CommonsMultipartFile file3,@RequestParam("file4") CommonsMultipartFile file4,@RequestParam("file5") CommonsMultipartFile file5, Model uiModel, HttpServletRequest httpServletRequest) {
+    public String create(@Valid Batch batch,BindingResult bindingResult,@RequestParam("file1") CommonsMultipartFile file1,
+                         @RequestParam("file2") CommonsMultipartFile file2,@RequestParam("file3") CommonsMultipartFile file3,
+                         @RequestParam("file4") CommonsMultipartFile file4,@RequestParam("file5") CommonsMultipartFile file5,
+                         @RequestParam("directoryFile") CommonsMultipartFile directoryFile,
+                         @RequestParam("activityCalendarFile") CommonsMultipartFile activityCalendarFile, Model uiModel,
+                         HttpServletRequest httpServletRequest) {
         System.out.println(">>>>>>>>>>STD_CLASS Create");
         if (bindingResult.hasErrors()) {
             System.out.println("create batch error");
@@ -44,7 +48,7 @@ public class Std_classController {
             if(!file1.isEmpty()){
 
                 String originalFilename = file1.getOriginalFilename();
-                File dest = new File(filePath + name + "_" + originalFilename);
+                File dest = new File(Constant.BATCH_FILE_PATH + name + "_" + originalFilename);
                 file1.transferTo(dest);
                 batch.setFilename1(name + "_" + originalFilename);
                 batch.setUploadfile1(true);
@@ -55,7 +59,7 @@ public class Std_classController {
 
             if(!file2.isEmpty()){
                 String originalFilename = file2.getOriginalFilename();
-                File dest = new File(filePath + name + "_" + originalFilename);
+                File dest = new File(Constant.BATCH_FILE_PATH + name + "_" + originalFilename);
                 file2.transferTo(dest);
                 batch.setFilename2(name + "_" + originalFilename);
                 batch.setUploadfile2(true);
@@ -66,7 +70,7 @@ public class Std_classController {
 
             if(!file3.isEmpty()){
                 String originalFilename = file3.getOriginalFilename();
-                File dest = new File(filePath + name + "_" + originalFilename);
+                File dest = new File(Constant.BATCH_FILE_PATH + name + "_" + originalFilename);
                 file3.transferTo(dest);
                 batch.setFilename3(name + "_" + originalFilename);
                 batch.setUploadfile3(true);
@@ -77,7 +81,7 @@ public class Std_classController {
 
             if(!file4.isEmpty()){
                 String originalFilename = file4.getOriginalFilename();
-                File dest = new File(filePath + name + "_" + originalFilename);
+                File dest = new File(Constant.BATCH_FILE_PATH + name + "_" + originalFilename);
                 file4.transferTo(dest);
                 batch.setFilename4(name + "_" + originalFilename);
                 batch.setUploadfile4(true);
@@ -88,13 +92,27 @@ public class Std_classController {
 
             if(!file5.isEmpty()){
                 String originalFilename = file5.getOriginalFilename();
-                File dest = new File(filePath + name + "_" + originalFilename);
+                File dest = new File(Constant.BATCH_FILE_PATH + name + "_" + originalFilename);
                 file5.transferTo(dest);
                 batch.setFilename5(name + "_" + originalFilename);
                 batch.setUploadfile5(true);
             }
             else {
                 batch.setUploadfile5(false);
+            }
+
+            if(!directoryFile.isEmpty()){
+                String originalFilename = directoryFile.getOriginalFilename();
+                File dest = new File(Constant.BATCH_DIRECTORY_PATH + name + "_" + originalFilename);
+                directoryFile.transferTo(dest);
+                batch.setDirectory(name + "_" + originalFilename);
+            }
+
+            if(!activityCalendarFile.isEmpty()){
+                String originalFilename = activityCalendarFile.getOriginalFilename();
+                File dest = new File(Constant.BATCH_ACTIVITYCALENDAR_PATH + name + "_" + originalFilename);
+                activityCalendarFile.transferTo(dest);
+                batch.setActivityCalendar(name + "_" + originalFilename);
             }
         } catch (IOException e) {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
@@ -135,7 +153,12 @@ public class Std_classController {
     }
 
     @RequestMapping(value = "/update",method = RequestMethod.POST, produces = "text/html")
-    public String update(@Valid Batch batch, BindingResult bindingResult,@RequestParam("file1") CommonsMultipartFile file1,@RequestParam("file2") CommonsMultipartFile file2,@RequestParam("file3") CommonsMultipartFile file3,@RequestParam("file4") CommonsMultipartFile file4,@RequestParam("file5") CommonsMultipartFile file5, Model uiModel, HttpServletRequest httpServletRequest) {
+    public String update(@Valid Batch batch, BindingResult bindingResult,@RequestParam("file1") CommonsMultipartFile file1,
+                         @RequestParam("file2") CommonsMultipartFile file2,@RequestParam("file3") CommonsMultipartFile file3,
+                         @RequestParam("file4") CommonsMultipartFile file4,@RequestParam("file5") CommonsMultipartFile file5,
+                         @RequestParam("directoryFile") CommonsMultipartFile directoryFile,
+                         @RequestParam("activityCalendarFile") CommonsMultipartFile activityCalendarFile, Model uiModel,
+                         HttpServletRequest httpServletRequest) {
         Long classId = Long.parseLong(httpServletRequest.getParameter("std_class_id"));
         Batch oldClass = Batch.findBatch(classId);
 
@@ -151,13 +174,13 @@ public class Std_classController {
         try {
             if(!file1.isEmpty()){
                 String originalFilename = file1.getOriginalFilename();
-                //System.out.println(">>>>>>update attachmail"+filePath+oldClass.getFilename1());
+                //System.out.println(">>>>>>update attachmail"+Constant.BATCH_FILE_PATH+oldClass.getFilename1());
                 if(oldClass.getFilename1()!=null&&!oldClass.getFilename1().equals("")){
-                    //System.out.println(">>>>>>update attachmail"+filePath+oldClass.getFilename1());
-                    File oldFile = new File(filePath+oldClass.getFilename1());
+                    //System.out.println(">>>>>>update attachmail"+Constant.BATCH_FILE_PATH+oldClass.getFilename1());
+                    File oldFile = new File(Constant.BATCH_FILE_PATH+oldClass.getFilename1());
                     oldFile.delete();
                 }
-                File dest = new File(filePath + name + "_" + originalFilename);
+                File dest = new File(Constant.BATCH_FILE_PATH + name + "_" + originalFilename);
                 file1.transferTo(dest);
                 batch.setFilename1(name + "_" + originalFilename);
                 batch.setUploadfile1(true);
@@ -170,10 +193,10 @@ public class Std_classController {
             if(!file2.isEmpty()){
                 String originalFilename = file2.getOriginalFilename();
                 if(oldClass.getFilename2()!=null&&!oldClass.getFilename2().equals("")){
-                    File oldFile = new File(filePath+oldClass.getFilename2());
+                    File oldFile = new File(Constant.BATCH_FILE_PATH+oldClass.getFilename2());
                     oldFile.delete();
                 }
-                File dest = new File(filePath + name + "_" + originalFilename);
+                File dest = new File(Constant.BATCH_FILE_PATH + name + "_" + originalFilename);
                 file2.transferTo(dest);
                 batch.setFilename2(name + "_" + originalFilename);
                 batch.setUploadfile2(true);
@@ -186,10 +209,10 @@ public class Std_classController {
             if(!file3.isEmpty()){
                 String originalFilename = file3.getOriginalFilename();
                 if(oldClass.getFilename3()!=null&&!oldClass.getFilename3().equals("")){
-                    File oldFile = new File(filePath+oldClass.getFilename3());
+                    File oldFile = new File(Constant.BATCH_FILE_PATH+oldClass.getFilename3());
                     oldFile.delete();
                 }
-                File dest = new File(filePath + name + "_" + originalFilename);
+                File dest = new File(Constant.BATCH_FILE_PATH + name + "_" + originalFilename);
                 file3.transferTo(dest);
                 batch.setFilename3(name + "_" + originalFilename);
                 batch.setUploadfile3(true);
@@ -202,10 +225,10 @@ public class Std_classController {
             if(!file4.isEmpty()){
                 String originalFilename = file4.getOriginalFilename();
                 if(oldClass.getFilename4()!=null&&!oldClass.getFilename4().equals("")){
-                    File oldFile = new File(filePath+oldClass.getFilename4());
+                    File oldFile = new File(Constant.BATCH_FILE_PATH+oldClass.getFilename4());
                     oldFile.delete();
                 }
-                File dest = new File(filePath + name + "_" + originalFilename);
+                File dest = new File(Constant.BATCH_FILE_PATH + name + "_" + originalFilename);
                 file4.transferTo(dest);
                 batch.setFilename4(name + "_" + originalFilename);
                 batch.setUploadfile4(true);
@@ -218,10 +241,10 @@ public class Std_classController {
             if(!file5.isEmpty()){
                 String originalFilename = file5.getOriginalFilename();
                 if(oldClass.getFilename5()!=null&&!oldClass.getFilename5().equals("")){
-                    File oldFile = new File(filePath+oldClass.getFilename5());
+                    File oldFile = new File(Constant.BATCH_FILE_PATH+oldClass.getFilename5());
                     oldFile.delete();
                 }
-                File dest = new File(filePath + name + "_" + originalFilename);
+                File dest = new File(Constant.BATCH_FILE_PATH + name + "_" + originalFilename);
                 file5.transferTo(dest);
                 batch.setFilename5(name + "_" + originalFilename);
                 batch.setUploadfile5(true);
@@ -229,6 +252,32 @@ public class Std_classController {
             else {
                 batch.setFilename5(oldClass.getFilename5());
                 batch.setUploadfile5(oldClass.getUploadfile5());
+            }
+
+            if(!directoryFile.isEmpty()){
+                String originalFilename = directoryFile.getOriginalFilename();
+                if(oldClass.getDirectory()!=null&&!oldClass.getDirectory().equals("")){
+                    File oldFile = new File(Constant.BATCH_FILE_PATH+oldClass.getDirectory());
+                    oldFile.delete();
+                }
+                File dest = new File(Constant.BATCH_DIRECTORY_PATH + name + "_" + originalFilename);
+                directoryFile.transferTo(dest);
+                batch.setDirectory(name + "_" + originalFilename);
+            }else{
+                batch.setDirectory(oldClass.getDirectory());
+            }
+
+            if(!activityCalendarFile.isEmpty()){
+                String originalFilename = activityCalendarFile.getOriginalFilename();
+                if(oldClass.getActivityCalendar()!=null&&!oldClass.getActivityCalendar().equals("")){
+                    File oldFile = new File(Constant.BATCH_FILE_PATH+oldClass.getActivityCalendar());
+                    oldFile.delete();
+                }
+                File dest = new File(Constant.BATCH_ACTIVITYCALENDAR_PATH + name + "_" + originalFilename);
+                activityCalendarFile.transferTo(dest);
+                batch.setActivityCalendar(name + "_" + originalFilename);
+            }else{
+                batch.setActivityCalendar(oldClass.getActivityCalendar());
             }
         } catch (IOException e) {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
@@ -271,6 +320,9 @@ public class Std_classController {
         uiModel.addAttribute("batch", batch);
         addDateTimeFormatPatterns(uiModel);
         uiModel.addAttribute("student", Student.findAllStudents());
+
+        List courseList = Course.findAllCourses();
+        uiModel.addAttribute("courseList",courseList);
 
         List typeList = new ArrayList();
         typeList.add("Senior");

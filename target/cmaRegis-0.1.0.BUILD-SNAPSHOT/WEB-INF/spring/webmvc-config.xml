@@ -18,14 +18,14 @@
 
     <!-- begin of file path -->
     <!-- for production -->
-    <!--<mvc:resources location="file:/cma/http/report/" mapping="/report_resources/**"/>
+    <mvc:resources location="file:/cma/http/report/" mapping="/report_resources/**"/>
     <mvc:resources location="file:/cma/http/uploadfile/" mapping="/img_resources/**"/>
-    <mvc:resources location="file:/cma/http/attachMail/" mapping="/attach_resources/**"/>-->
+    <mvc:resources location="file:/cma/http/attachMail/" mapping="/attach_resources/**"/>
 
     <!-- for dev -->
-    <mvc:resources location="file:////C:/app/itn_tdi/dat/cma/report" mapping="/report_resources/**"/>
+    <!--<mvc:resources location="file:////C:/app/itn_tdi/dat/cma/report" mapping="/report_resources/**"/>
     <mvc:resources location="file:////C:/app/itn_tdi/dat/cma/uploadfile/" mapping="/img_resources/**"/>
-    <mvc:resources location="file:////C:/app/itn_tdi/dat/cma/attachMail/" mapping="/attach_resources/**"/>
+    <mvc:resources location="file:////C:/app/itn_tdi/dat/cma/attachMail/" mapping="/attach_resources/**"/>-->
 
     <!-- end of file path -->
 

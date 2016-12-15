@@ -4,6 +4,8 @@ import org.springframework.roo.addon.jpa.activerecord.RooJpaActiveRecord;
 import org.springframework.roo.addon.tostring.RooToString;
 
 import javax.persistence.Column;
+import javax.persistence.EntityManager;
+import javax.persistence.Query;
 import java.util.Date;
 
 @RooJavaBean
@@ -39,4 +41,5 @@ public class UserWeb {
 
     @Column(length=255)
     private String username;
+
 }

@@ -204,6 +204,22 @@ privileged aspect Batch_Roo_JavaBean {
         this.directory = directory;
     }
     
+    public CommonsMultipartFile Batch.getActivityCalendarFile() {
+        return this.activityCalendarFile;
+    }
+    
+    public void Batch.setActivityCalendarFile(CommonsMultipartFile activityCalendarFile) {
+        this.activityCalendarFile = activityCalendarFile;
+    }
+    
+    public CommonsMultipartFile Batch.getDirectoryFile() {
+        return this.directoryFile;
+    }
+    
+    public void Batch.setDirectoryFile(CommonsMultipartFile directoryFile) {
+        this.directoryFile = directoryFile;
+    }
+    
     public Integer Batch.getNumber() {
         return this.number;
     }

@@ -4,6 +4,8 @@
 
   <spring:theme code="styleSheet" var="roo_css" />
   <spring:url value="/${roo_css}" var="roo_css_url" />
+  <spring:url value="/resources/styles/jquery-ui.css" var="jqueryui_css_url" />
+  <spring:url value="/resources/scripts/jquery-ui.js" var="jqueryui_js_url" />
   <spring:url value="/resources/styles/print.css" var="roo_css_print_url" />
   <spring:url value="/resources/dojo/dojo.js" var="dojo_url" />
   <spring:url value="/resources/dijit/themes/tundra/tundra.css" var="tundra_url" />
@@ -16,11 +18,13 @@
   <link rel="SHORTCUT ICON" href="${favicon}" />
   <spring:url value="/resources/styles/css/ui-lightness/jquery-ui-1.8.10.custom.css" var="calendar_style"/>
   <link rel="stylesheet" type="text/css" href="${calendar_style}" />
+  <link rel="stylesheet" type="text/css" href="${jqueryui_css_url}" />
 
   <spring:url value="/resources/scripts/jquery-1.8.1.min.js" var="jquery_url" />
   <spring:url value="/resources/scripts/jquery-ui-1.8.10.offset.datepicker.min.js" var="jquery_ui_url" />
   <script type="text/javascript" src="${jquery_url}"><!--Jquery--></script>
   <script type="text/javascript" src="${jquery_ui_url}"><!--Jquery_UI--></script>
+  <script type="text/javascript" src="${jqueryui_js_url}"/>
 
   <!-- Get the user local from the page context (it was set by Spring MVC's locale resolver) -->
   <c:set var="userLocale">

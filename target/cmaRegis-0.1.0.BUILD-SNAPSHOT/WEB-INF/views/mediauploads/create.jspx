@@ -9,13 +9,7 @@
             if(dataState == 'init' || dataState == 'INIT'){
                 //nothing
             }else{
-                var templateState = "";
-                if(dataState == "revised" || dataState == 'REVISED'){
-                    templateState = "INIT";
-                }else{
-                    templateState = dataState;
-                }
-                var link = "./mediauploads/submitExport?cmaClass="+batchid+"&amp;dataState="+templateState;
+                var link = "./mediauploads/submitExport?cmaClass="+batchid+"&amp;dataState="+dataState;
                 $("a[name='templatelink']").attr("href", link);
             }
 
@@ -45,6 +39,8 @@
                 <div>
                     <div><label for="templateLink">Download Template. : </label></div>
                     <span id="templatelink"><a href="${templateLink}" name="templatelink">Download excel template</a></span>
+                    <spring:message code="remark.file.version.${dataState}" var="data_version_remark" htmlEscape="false" />
+                    <span id="remark"><c:out value="${data_version_remark}"/></span>
                 </div>
                 <p></p>
                 <input type="hidden" id="dataState" name="dataState" value="${dataState}"/>

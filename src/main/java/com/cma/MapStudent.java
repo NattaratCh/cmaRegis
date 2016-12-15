@@ -13,7 +13,6 @@ import javax.validation.constraints.NotNull;
 @RooJpaActiveRecord
 public class MapStudent {
     @OneToOne
-    @NotNull
     private Student initStudent;
 
     @OneToOne

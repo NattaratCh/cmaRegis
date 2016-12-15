@@ -42,8 +42,6 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 @Controller
 @RooWebScaffold(path = "mediauploads", formBackingObject = MediaUpload.class)
 public class MediaUploadController {
-    //private String pathName = "/cma/http/report/"; //TODO change pathe name
-    private String pathName = "c:/app/itn_tdi/dat/cma/report/";
     private DateFormat df = new SimpleDateFormat("dd/MM/yyyy", Locale.US);
     private DateFormat dMyFormat = new SimpleDateFormat("dd MMM yyyy", new Locale("th","TH"));
     private DateFormat passwordFormat = new SimpleDateFormat("ddMMMyyyy",Locale.US);
@@ -566,19 +564,15 @@ public class MediaUploadController {
         populateEditForm(uiModel, new MediaUpload());
         List classList = Batch.findAllBatches();
         String templateLink = "./mediauploads/downloadFile?fileName=init_template.xls";
-        if(dataState.equalsIgnoreCase(StudentDataState.REVISED)){
+        if(dataState.equalsIgnoreCase(StudentDataState.REVISED) ||dataState.equalsIgnoreCase(StudentDataState.UPTODATE )){
             if(classList != null){
-                templateLink = "./mediauploads/submitExport?cmaClass="+((Batch)classList.get(0)).getId()+"&dataState="+StudentDataState.INIT;
-            }
-        } else if(dataState.equalsIgnoreCase(StudentDataState.UPTODATE )){
-            if(classList != null){
-                templateLink = "./mediauploads/submitExport?cmaClass="+((Batch)classList.get(0)).getId()+"&dataState="+StudentDataState.UPTODATE;
+                templateLink = "./mediauploads/submitExport?cmaClass="+((Batch)classList.get(0)).getId()+"&dataState="+dataState.toLowerCase();
             }
         }
         log.info("templateLink : "+templateLink);
         uiModel.addAttribute("templateLink",templateLink);
         uiModel.addAttribute("classList",classList);
-        uiModel.addAttribute("dataState",dataState);
+        uiModel.addAttribute("dataState",dataState.toLowerCase());
         return "mediauploads/create";
     }
 
@@ -586,9 +580,9 @@ public class MediaUploadController {
     public String create(@Valid MediaUpload mediaUpload, BindingResult bindingResult, Model uiModel, @RequestParam("content") CommonsMultipartFile content, HttpServletRequest httpServletRequest) {
 
         boolean result = false;
+        String dataState = httpServletRequest.getParameter("dataState");
         try {
             Long class_id = Long.parseLong(httpServletRequest.getParameter("cmaClass"));
-            String dataState = httpServletRequest.getParameter("dataState");
             log.info("create() | dataState : " + dataState);
             Batch batch = Batch.findBatch(class_id);
 
@@ -610,8 +604,9 @@ public class MediaUploadController {
                     //For each row, iterate through each columns
                     Iterator<Cell> cellIterator = row.cellIterator();
                     studentData = new ArrayList<String>();
-                    while(cellIterator.hasNext()) {
-                        Cell cell = cellIterator.next();
+
+                    for(int r=0; r< row.getLastCellNum() ; r++){
+                        Cell cell = row.getCell(r, Row.RETURN_NULL_AND_BLANK); // including null cell
                         objFormulaEvaluator.evaluate(cell); // This will evaluate the cell, And any type of cell will return string value
                         String cellValueStr = objDefaultFormat.formatCellValue(cell,objFormulaEvaluator);
                         studentData.add(cellValueStr);
@@ -637,6 +632,7 @@ public class MediaUploadController {
 
         populateEditForm(uiModel, new MediaUpload());
         List classList = Batch.findAllBatches();
+        uiModel.addAttribute("dataState",dataState);
         uiModel.addAttribute("classList",classList);
         uiModel.addAttribute("message","Import รายชื่อนักเรียนเรียบร้อยแล้ว");
         return "mediauploads/create";
@@ -705,146 +701,118 @@ public class MediaUploadController {
         boolean result = false;
         if(studentData != null){
             try {
-                Long studentId = Long.valueOf(studentData.get(0));
+                String studentIdStr = studentData.get(0);
+                log.info("createRevisedData() | studentId : "+studentIdStr);
+                if(studentIdStr == null || studentIdStr.trim().equals("")){
+                    log.info("createRevisedData() | studentIdStr is blank => create new student");
+                    Student revisedStudent = createRevisedStudentAndUpToDateStudent(batch, studentData, null);
+                    log.info("createRevisedData() | Successfully create new student");
+                    result = true;
+                }else{
+                    Long studentId = Long.valueOf(studentIdStr);
+                    Student student = Student.findStudent(studentId);
 
-                Student student = Student.findStudent(studentId);
+                    log.info("createRevisedData() | batch : "+batch.getId());
+                    log.info("createRevisedData() | batch id : "+student.getStudentClass().getId());
 
-                log.info("createRevisedData() | batch : "+batch.getId());
+                    if(student != null && student.getStudentClass().equals(batch)){
+                        log.info("createRevisedData() | student id : "+student.getId()+" | dataState : "+student.getDataState());
+                        if(student.getDataState().equals(StudentDataState.INIT)){
+                            MapStudent mapStudent = MapStudent.findMapStudent(student,null,null);
+                            if(mapStudent != null){
+                                Student revisedStudent = mapStudent.getRevisedStudent();
+                                Student uptodateStudent = mapStudent.getUpToDateStudent();
+                                if(revisedStudent == null){
+                                    revisedStudent = createRevisedStudentAndUpToDateStudent(batch, studentData, student);
+                                    mapStudent = MapStudent.findMapStudent(null,revisedStudent,null);
+                                    uptodateStudent = mapStudent.getUpToDateStudent();
 
-                if(student != null && student.getStudentClass().equals(batch)){
-                    log.info("createRevisedData() | student id : "+student.getId());
-                    if(student.getDataState().equals(StudentDataState.INIT)){
-                        MapStudent mapStudent = MapStudent.findMapStudent(student,null,null);
-                        if(mapStudent != null){
-                            Student revisedStudent = mapStudent.getRevisedStudent();
-                            Student uptodateStudent = mapStudent.getUpToDateStudent();
-                            if(revisedStudent == null){
-                                revisedStudent = setStudent(studentData,revisedStudent);
-                                revisedStudent.setStudentClass(batch);
-                                revisedStudent.setDataState(StudentDataState.REVISED);
-                                revisedStudent.persist();
+                                    if(student.getAttachFile() != null){
+                                        AttachFile attachFile = student.getAttachFile();
+                                        AttachFile revisedAttachFile = new AttachFile(attachFile);
+                                        revisedAttachFile.setStdProfile(revisedStudent);
+                                        revisedAttachFile.persist();
 
-                                uptodateStudent = setStudent(studentData,uptodateStudent);
-                                uptodateStudent.setStudentClass(batch);
-                                uptodateStudent.setDataState(StudentDataState.UPTODATE);
-                                uptodateStudent.persist();
+                                        AttachFile uptodateAttachFile = new AttachFile(attachFile);
+                                        uptodateAttachFile.setStdProfile(uptodateStudent);
+                                        uptodateAttachFile.persist();
 
-                                log.info("createRevisedData() | create userweb");
-                                UserWeb userWeb = new UserWeb();
-                                String username = batch.getCourse().getCode()+(batch.getNumber() != null ? batch.getNumber() : "") +"_"+uptodateStudent.getFirstnameEn().toLowerCase();
-                                String password = batch.getCourse().getCode()+batch.getNumber();
-                                if(uptodateStudent.getBirthdate() != null){
-                                    password = passwordFormat.format(uptodateStudent.getBirthdate());
-                                }
-
-                                userWeb.setUsername(username);
-                                userWeb.setPassword(bCryptEncode(password));
-                                userWeb.persist();
-
-                                uptodateStudent.setUserWeb(userWeb);
-
-                                WebRole webRole = WebRole.getWebRole("ROLE_USER");
-                                if(webRole != null){
-                                    // map user_web with role
-                                    log.info("createRevisedData() | create userWebRole");
-                                    UserWebRole userWebRole = new UserWebRole();
-                                    userWebRole.setUserWeb(userWeb);
-                                    userWebRole.setWebRole(webRole);
-                                    userWebRole.persist();
-                                }
-
-                                if(student.getAttachFile() != null){
-                                    AttachFile attachFile = student.getAttachFile();
-                                    AttachFile revisedAttachFile = new AttachFile(attachFile);
-                                    revisedAttachFile.setStdProfile(revisedStudent);
-                                    revisedAttachFile.persist();
-
-                                    AttachFile uptodateAttachFile = new AttachFile(attachFile);
-                                    uptodateAttachFile.setStdProfile(uptodateStudent);
-                                    uptodateAttachFile.persist();
-
-                                }
-
-                                if(student.getEducation_profileSet() != null){
-                                    Set<Education_profile> educationSet = student.getEducation_profileSet();
-                                    for(Education_profile edu : educationSet){
-                                        Education_profile revisedEducationProfile = new Education_profile(edu);
-                                        revisedEducationProfile.setStudentProfile(revisedStudent);
-                                        revisedEducationProfile.persist();
-
-                                        Education_profile uptodateEducationProfile = new Education_profile(edu);
-                                        uptodateEducationProfile.setStudentProfile(uptodateStudent);
-                                        uptodateEducationProfile.persist();
                                     }
-                                }
 
-                                if(student.getChildren_profileSet() != null){
-                                    Set<Children_profile> childrenSet = student.getChildren_profileSet();
-                                    for(Children_profile child : childrenSet){
-                                        Children_profile revisedChildrenProfile = new Children_profile(child);
-                                        revisedChildrenProfile.setStudentProfile(revisedStudent);
-                                        revisedChildrenProfile.persist();
+                                    if(student.getEducation_profileSet() != null){
+                                        Set<Education_profile> educationSet = student.getEducation_profileSet();
+                                        for(Education_profile edu : educationSet){
+                                            Education_profile revisedEducationProfile = new Education_profile(edu);
+                                            revisedEducationProfile.setStudentProfile(revisedStudent);
+                                            revisedEducationProfile.persist();
 
-                                        Children_profile uptodateChildrenProfile = new Children_profile(child);
-                                        uptodateChildrenProfile.setStudentProfile(uptodateStudent);
-                                        uptodateChildrenProfile.persist();
+                                            Education_profile uptodateEducationProfile = new Education_profile(edu);
+                                            uptodateEducationProfile.setStudentProfile(uptodateStudent);
+                                            uptodateEducationProfile.persist();
+                                        }
                                     }
-                                }
 
-                                if(student.getTraining_profileSet() != null){
-                                    Set<Training_profile> trainingSet = student.getTraining_profileSet();
-                                    for(Training_profile training : trainingSet){
-                                        Training_profile revisedTrainingProfile = new Training_profile(training);
-                                        revisedTrainingProfile.setStudentProfile(revisedStudent);
-                                        revisedTrainingProfile.persist();
+                                    if(student.getChildren_profileSet() != null){
+                                        Set<Children_profile> childrenSet = student.getChildren_profileSet();
+                                        for(Children_profile child : childrenSet){
+                                            Children_profile revisedChildrenProfile = new Children_profile(child);
+                                            revisedChildrenProfile.setStudentProfile(revisedStudent);
+                                            revisedChildrenProfile.persist();
 
-                                        Training_profile uptodateTrainingProfile = new Training_profile(training);
-                                        uptodateTrainingProfile.setStudentProfile(uptodateStudent);
-                                        uptodateTrainingProfile.persist();
+                                            Children_profile uptodateChildrenProfile = new Children_profile(child);
+                                            uptodateChildrenProfile.setStudentProfile(uptodateStudent);
+                                            uptodateChildrenProfile.persist();
+                                        }
                                     }
-                                }
 
-                                log.info("createRevisedData() | update map student");
-                                mapStudent.setRevisedStudent(revisedStudent);
-                                mapStudent.setUpToDateStudent(uptodateStudent);
-                                mapStudent.merge();
-                                log.info("createRevisedData() | create revised student : "+revisedStudent.getId());
+                                    if(student.getTraining_profileSet() != null){
+                                        Set<Training_profile> trainingSet = student.getTraining_profileSet();
+                                        for(Training_profile training : trainingSet){
+                                            Training_profile revisedTrainingProfile = new Training_profile(training);
+                                            revisedTrainingProfile.setStudentProfile(revisedStudent);
+                                            revisedTrainingProfile.persist();
+
+                                            Training_profile uptodateTrainingProfile = new Training_profile(training);
+                                            uptodateTrainingProfile.setStudentProfile(uptodateStudent);
+                                            uptodateTrainingProfile.persist();
+                                        }
+                                    }
+
+                                    log.info("createRevisedData() | create revised student : "+revisedStudent.getId());
+                                } else {
+                                    log.info("createRevisedData() | update revised student : "+revisedStudent.getId());
+                                    revisedStudent = setStudent(studentData,revisedStudent);
+                                    revisedStudent.merge();
+                                }
+                                result = true;
                             }else{
+                                log.info("createRevisedData() | map student at init student id : "+studentId+" is not found");
+                                result = false;
+                            }
+
+                        }else if(student.getDataState().equals(StudentDataState.REVISED)){
+                            MapStudent mapStudent = MapStudent.findMapStudent(null,student,null);
+                            if(mapStudent != null){
+                                Student revisedStudent = mapStudent.getRevisedStudent();
+                                Student uptodateStudent = mapStudent.getUpToDateStudent();
                                 log.info("createRevisedData() | update revised student : "+revisedStudent.getId());
                                 revisedStudent = setStudent(studentData,revisedStudent);
                                 revisedStudent.merge();
-                                uptodateStudent = setStudent(studentData,uptodateStudent);
-                                uptodateStudent.merge();
+                                result = true;
+                            }else{
+                                log.info("createRevisedData() | map student at revised student id : "+studentId+" is not found");
+                                result = false;
                             }
-                            result = true;
                         }else{
-                            log.info("createRevisedData() | map student at init student id : "+studentId+" is not found");
-                            result = false;
-                        }
-
-                    }else if(student.getDataState().equals(StudentDataState.REVISED)){
-                        MapStudent mapStudent = MapStudent.findMapStudent(null,student,null);
-                        if(mapStudent != null){
-                            Student revisedStudent = mapStudent.getRevisedStudent();
-                            Student uptodateStudent = mapStudent.getUpToDateStudent();
-                            log.info("createRevisedData() | update revised student : "+revisedStudent.getId());
-                            revisedStudent = setStudent(studentData,revisedStudent);
-                            revisedStudent.merge();
-                            uptodateStudent = setStudent(studentData,uptodateStudent);
-                            uptodateStudent.merge();
-                            result = true;
-                        }else{
-                            log.info("createRevisedData() | map student at revised student id : "+studentId+" is not found");
+                            log.info("createRevisedData() | student id : "+studentId+" is up to date data");
                             result = false;
                         }
                     }else{
-                        log.info("createRevisedData() | student id : "+studentId+" is up to date data");
+                        log.info("createRevisedData() | student id : "+studentId+" is not found");
                         result = false;
                     }
-                }else{
-                    log.info("createRevisedData() | student id : "+studentId+" is not found");
-                    result = false;
                 }
+
 
             }catch (Exception e){
                 e.printStackTrace();
@@ -854,6 +822,72 @@ public class MediaUploadController {
         }
 
         return result;
+    }
+
+    private Student createRevisedStudentAndUpToDateStudent(Batch batch, ArrayList<String> studentData, Student initStudent) throws ParseException {
+        Student revisedStudent = null;
+        try{
+            revisedStudent = new Student();
+            revisedStudent = setStudent(studentData,revisedStudent);
+            revisedStudent.setStudentClass(batch);
+            revisedStudent.setDataState(StudentDataState.REVISED);
+            revisedStudent.persist();
+
+            Student uptodateStudent =new Student();
+            uptodateStudent = setStudent(studentData,uptodateStudent);
+            uptodateStudent.setStudentClass(batch);
+            uptodateStudent.setDataState(StudentDataState.UPTODATE);
+            uptodateStudent.persist();
+
+            log.info("createRevisedStudentAndUpToDateStudent() | create userweb");
+            UserWeb userWeb = new UserWeb();
+            String username = batch.getCourse().getCode()+(batch.getNumber() != null ? batch.getNumber() : "") +"_"+uptodateStudent.getFirstnameEn().toLowerCase();
+            String password = batch.getCourse().getCode()+batch.getNumber();
+            if(uptodateStudent.getBirthdate() != null){
+                password = passwordFormat.format(uptodateStudent.getBirthdate());
+            }
+
+            userWeb.setUsername(username);
+            userWeb.setPassword(bCryptEncode(password));
+            userWeb.persist();
+
+            uptodateStudent.setUserWeb(userWeb);
+
+            WebRole webRole = WebRole.getWebRole("ROLE_USER");
+            if(webRole != null){
+                // map user_web with role
+                log.info("createRevisedStudentAndUpToDateStudent() | create userWebRole");
+                UserWebRole userWebRole = new UserWebRole();
+                userWebRole.setUserWeb(userWeb);
+                userWebRole.setWebRole(webRole);
+                userWebRole.persist();
+            }
+
+            log.info("createRevisedData() | update map student");
+            MapStudent mapStudent = null;
+            if(initStudent ==null){
+                mapStudent = new MapStudent();
+                mapStudent.setRevisedStudent(revisedStudent);
+                mapStudent.setUpToDateStudent(uptodateStudent);
+                mapStudent.persist();
+            }else{
+                mapStudent = MapStudent.findMapStudent(initStudent,null,null);
+                if(mapStudent != null){
+                    mapStudent.setRevisedStudent(revisedStudent);
+                    mapStudent.setUpToDateStudent(uptodateStudent);
+                    mapStudent.merge();
+                }else{
+                    mapStudent = new MapStudent();
+                    mapStudent.setRevisedStudent(revisedStudent);
+                    mapStudent.setUpToDateStudent(uptodateStudent);
+                    mapStudent.persist();
+                }
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return  revisedStudent;
     }
 
     private boolean updateUptodateData(ArrayList<String> studentData, Batch batch){

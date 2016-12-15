@@ -30,8 +30,10 @@ privileged aspect BatchDataOnDemand_Roo_DataOnDemand {
     public Batch BatchDataOnDemand.getNewTransientBatch(int index) {
         Batch obj = new Batch();
         setActivityCalendar(obj, index);
+        setActivityCalendarFile(obj, index);
         setCourse(obj, index);
         setDirectory(obj, index);
+        setDirectoryFile(obj, index);
         setEnd_date(obj, index);
         setFile1(obj, index);
         setFile2(obj, index);
@@ -62,6 +64,11 @@ privileged aspect BatchDataOnDemand_Roo_DataOnDemand {
         obj.setActivityCalendar(activityCalendar);
     }
     
+    public void BatchDataOnDemand.setActivityCalendarFile(Batch obj, int index) {
+        CommonsMultipartFile activityCalendarFile = null;
+        obj.setActivityCalendarFile(activityCalendarFile);
+    }
+    
     public void BatchDataOnDemand.setCourse(Batch obj, int index) {
         Course course = null;
         obj.setCourse(course);
@@ -70,6 +77,11 @@ privileged aspect BatchDataOnDemand_Roo_DataOnDemand {
     public void BatchDataOnDemand.setDirectory(Batch obj, int index) {
         String directory = "directory_" + index;
         obj.setDirectory(directory);
+    }
+    
+    public void BatchDataOnDemand.setDirectoryFile(Batch obj, int index) {
+        CommonsMultipartFile directoryFile = null;
+        obj.setDirectoryFile(directoryFile);
     }
     
     public void BatchDataOnDemand.setEnd_date(Batch obj, int index) {
