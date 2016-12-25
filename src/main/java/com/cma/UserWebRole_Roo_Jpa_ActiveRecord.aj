@@ -3,7 +3,6 @@
 
 package com.cma;
 
-import com.cma.UserWeb;
 import com.cma.UserWebRole;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -67,7 +66,7 @@ privileged aspect UserWebRole_Roo_Jpa_ActiveRecord {
         if (this.entityManager == null) this.entityManager = entityManager();
         this.entityManager.persist(this);
     }
-    
+
     @Transactional
     public void UserWebRole.remove() {
         if (this.entityManager == null) this.entityManager = entityManager();

@@ -12,6 +12,7 @@ import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.roo.addon.web.mvc.controller.scaffold.RooWebScaffold;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.interceptor.TransactionAspectSupport;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
@@ -22,14 +23,11 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-import java.io.UnsupportedEncodingException;
+import java.io.*;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Locale;
+import java.util.*;
 
 import static com.cma.common.authenManager.genPassword;
 import static com.cma.common.authenManager.sha256;
@@ -41,6 +39,7 @@ public class Std_profileController {
 
     protected EntityManager entityManager;
     private SimpleDateFormat df = new SimpleDateFormat("dd MMM yyyy",new Locale("th","TH"));
+    private DateFormat passwordFormat = new SimpleDateFormat("ddMMMyyyy",Locale.US);
 
     private static Log log = LogFactory.getLog(Std_profileController.class);
 
@@ -142,6 +141,7 @@ public class Std_profileController {
         }
 
         Long id = Long.parseLong(httpServletRequest.getParameter("id"));
+        Integer permission = Integer.parseInt(httpServletRequest.getParameter("permission"));
         Student std_profile = Student.findStudent(id);
         std_profile.setCarNo(std_profile_part5.getCarNo());
         std_profile.setCarBrand(std_profile_part5.getCarBrand());
@@ -163,6 +163,7 @@ public class Std_profileController {
         std_profile.setReceiptDetailName(std_profile_part5.getReceiptDetailName());
         std_profile.setTaxId(std_profile_part5.getTaxId());
         std_profile.setReceiptDetailAddress(std_profile_part5.getReceiptDetailAddress());
+        std_profile.setPermission(permission);
 
         String submitButton = httpServletRequest.getParameter("submitButton");
        /* System.out.println(">>>>>>>>>Update5 is submited. "+id);*/
@@ -212,6 +213,9 @@ public class Std_profileController {
         std_profile.setMiddledriverTel(std_profile_part4.getMiddledriverTel());
         std_profile.setLastdriverTel(std_profile_part4.getLastdriverTel());
         std_profile.setDriverTel(std_profile_part4.getFrontdriverTel()+std_profile_part4.getMiddledriverTel()+std_profile_part4.getLastdriverTel());
+
+        std_profile.setCollboratorTitle(std_profile_part4.getCollboratorTitle());
+        std_profile.setCollboratorPosition(std_profile_part4.getCollboratorPosition());
         std_profile.merge();
 
         String submitButton = httpServletRequest.getParameter("submitButton");
@@ -364,6 +368,7 @@ public class Std_profileController {
         Long id = Long.parseLong(httpServletRequest.getParameter("id"));
         Student std_profile = Student.findStudent(id);
         if (bindingResult.hasErrors()) {
+            log.info("error : "+bindingResult.getFieldError().getField());
             uiModel.addAttribute("std_profile", std_profile_part1);
             std_profile_part1.setFirstnameTh(std_profile.getFirstnameTh());
             std_profile_part1.setLastnameTh(std_profile.getLastnameTh());
@@ -481,8 +486,15 @@ public class Std_profileController {
         std_profile.setFronthomefax(std_profile_part1.getFronthomefax());
         std_profile.setMiddlehomefax(std_profile_part1.getMiddlehomefax());
         std_profile.setLasthomefax(std_profile_part1.getLasthomefax());
-        std_profile.setHomefax(std_profile_part1.getFronthomefax()+std_profile_part1.getMiddlehomefax()+std_profile_part1.getLasthomefax());
+        std_profile.setHomefax(std_profile_part1.getFronthomefax() + std_profile_part1.getMiddlehomefax() + std_profile_part1.getLasthomefax());
         std_profile.setSendingAddress(std_profile_part1.getSendingAddress());
+
+        std_profile.setFacebook(std_profile_part1.getFacebook());
+        std_profile.setHomeFullAddress(std_profile_part1.getHomeFullAddress());
+        std_profile.setWorkFullAddress(std_profile_part1.getWorkFullAddress());
+        std_profile.setWorkEmail(std_profile_part1.getWorkEmail());
+        std_profile.setRetireFlag(std_profile_part1.getRetireFlag());
+        std_profile.setGroupName(std_profile_part1.getGroupName());
         std_profile.merge();
 
         /*System.out.println(">>>>>>>>>Update1 is submited. "+id);*/
@@ -540,13 +552,70 @@ public class Std_profileController {
     }
 
     @RequestMapping(value = "/{id}", params = "delete", produces = "text/html")
-    public String delete2(@PathVariable("id") Long id, @RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
-        Student std_profile = Student.findStudent(id);
-        Long class_id = std_profile.getStudentClass().getId();
+    public String deleteStudent(@PathVariable("id") Long id, @RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
+        Student student = Student.findStudent(id);
+        String dataState = student.getDataState();
+        if(student.getDataState().equals(StudentDataState.INIT)){
+            try{
+                MapStudent mapStudent = MapStudent.findMapStudent(student, null, null);
+                if(mapStudent!=null){
+                    mapStudent.setInitStudent(null);
+                    mapStudent.merge();
 
-        std_profile.remove();
+                    if(mapStudent.getInitStudent()==null && mapStudent.getRevisedStudent() ==null && mapStudent.getUpToDateStudent()==null){
+                        mapStudent.remove();
+                    }
+                }
+
+                boolean result = deleteRelatedProfile(student);
+
+                log.info("delete() | delete init student id : "+student.getId());
+                student.remove();
+
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }else if(student.getDataState().equals(StudentDataState.REVISED)){
+            try{
+                log.info("delete revised student");
+                MapStudent mapStudent = MapStudent.findMapStudent(null, student, null);
+                Student uptodateStudent = mapStudent.getUpToDateStudent();
+                if(mapStudent!=null) {
+                    log.info("delete() | update map student : "+mapStudent.getId());
+                    mapStudent.setRevisedStudent(null);
+                    mapStudent.setUpToDateStudent(null);
+                    mapStudent.merge();
+
+                    if(mapStudent.getInitStudent()==null && mapStudent.getRevisedStudent() ==null && mapStudent.getUpToDateStudent()==null){
+                        mapStudent.remove();
+                    }
+                }
+
+                boolean result = deleteRelatedProfile(student);
+                result = deleteRelatedProfile(uptodateStudent);
+
+                UserWeb userWeb = uptodateStudent.getUserWeb();
+                if(userWeb != null){
+                    UserWebRole userWebRole = UserWebRole.getUserWebRole(userWeb);
+                    if(userWebRole!=null){
+                        userWebRole.remove();
+                    }
+                    log.info("delete() | delete user web id : "+userWeb.getId());
+                }
+
+                log.info("delete() | delete revised student id : " + student.getId());
+                student.remove();
+                log.info("delete() | delete uptodate student id : "+uptodateStudent.getId());
+                uptodateStudent.remove();
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+
+        }else if(student.getDataState().equals(StudentDataState.UPTODATE)){
+            log.info("delete() | cannot delete uptodate student id : "+student.getId());
+        }
         uiModel.asMap().clear();
-        return "redirect:/std_profiles?cmaClass="+class_id;
+        return "redirect:/std_profiles?cmaClass="+student.getStudentClass().getId()+"&dataState="+dataState;
     }
 
     @RequestMapping(value = "send" ,method = RequestMethod.POST, produces = "text/html")
@@ -955,24 +1024,204 @@ public class Std_profileController {
     //  Copy from roo controller for solve the auto delete roo controller problem
     //
     @RequestMapping(method = RequestMethod.POST, produces = "text/html")
-    public String create(@Valid Student std_profile, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
+    public String create(@Valid Student student, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
+        String dataState = httpServletRequest.getParameter("dataState");
+        String batchId = httpServletRequest.getParameter("batchId");
+        Integer permission = Integer.parseInt(httpServletRequest.getParameter("permission"));
+
+        log.info("create() | dataState : "+dataState+" | batchId : "+batchId);
+
+        Batch batch = Batch.findBatch(Long.parseLong(batchId));
         if (bindingResult.hasErrors()) {
-            populateEditForm(uiModel, std_profile);
+            List batchList = Batch.findAllBatches();
+            uiModel.addAttribute("batchList",batchList);
+
+            populateEditForm(uiModel, student);
+            addEducationDegreeList(uiModel);
+            addSelectedItem1(uiModel);
+            addSelectedItem2(uiModel);
+            addSelectedItem5(uiModel);
+            uiModel.addAttribute("dataState",dataState);
             return "std_profiles/create";
         }
-        uiModel.asMap().clear();
-        std_profile.persist();
-        return "redirect:/std_profiles/" + encodeUrlPathSegment(std_profile.getId().toString(), httpServletRequest);
+
+        if(dataState.equalsIgnoreCase(StudentDataState.INIT)){
+            Date bday=null;
+            try {
+                bday = df.parse(student.getBdateString());
+                student.setBirthdate(bday);
+                log.info("create() | birthdate : "+bday);
+            } catch (ParseException e) {
+                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            }
+
+            try{
+                log.info("create() | add student");
+                student.setWorktel1(student.getFrontworktel1() + student.getMiddleworktel1() + student.getLastworktel1());
+                student.setWorktel2(student.getFrontworktel2() + student.getMiddleworktel2() + student.getLastworktel2());
+                student.setWorkfax(student.getFrontworkfax() + student.getMiddleworkfax() + student.getLastworkfax());
+                student.setMobile1(student.getFrontmobile1() + student.getMiddlemobile1() + student.getLastmobile1());
+                student.setMobile2(student.getFrontmobile2() + student.getMiddlemobile2() + student.getLastmobile2());
+                student.setHometel1(student.getFronthometel1() + student.getMiddlehometel1() + student.getLasthometel1());
+                student.setHometel2(student.getFronthometel2() + student.getMiddlehometel2() + student.getLasthometel2());
+                student.setHomefax(student.getFronthomefax() + student.getMiddlehomefax() + student.getLasthomefax());
+                student.setDataState(dataState);
+                student.setStudentClass(batch);
+                student.setPermission(permission);
+
+                uiModel.asMap().clear();
+                student.persist();
+
+                log.info("create() | add userRegis");
+                int maxUserId=getLastRecord(batch.getId());
+                maxUserId ++;
+
+                UserRegis userRegis = new UserRegis();
+                userRegis.setEnabled(true);
+                userRegis.setUsername(batch.getNameEn() + "_" + (String.format("%03d", maxUserId)));
+                String password = genPassword(8);
+                userRegis.setPassword(sha256(password));
+                userRegis.setStudentProfile(student);
+
+                AttachFile attachFile = new AttachFile();
+                attachFile.setUploadSlip2(false);
+                attachFile.setUploadSlip1(false);
+                attachFile.setUploadPf(false);
+                attachFile.setUploadPassport(false);
+                attachFile.setUploadPhoto(false);
+                attachFile.setUploadApec(false);
+                attachFile.setUploadNamecard(false);
+                attachFile.setUploadIdcard(false);
+                attachFile.setStdProfile(student);
+                attachFile.persist();
+
+                UserRegisRole role_unchange = UserRegisRole.findUserRegisRoleByRoleName("ROLE_USER_UNCHANGE");
+                userRegis.setUserRole(role_unchange);
+                userRegis.persist();
+
+                log.info("create() | create map student");
+                MapStudent mapStudent = new MapStudent();
+                mapStudent.setInitStudent(student);
+                mapStudent.persist();
+            }catch (Exception e){
+                log.info("create() | error");
+                e.printStackTrace();
+            }
+
+        } else if(dataState.equalsIgnoreCase(StudentDataState.REVISED)){
+            try{
+                log.info("create() | add revised student");
+                student.setWorktel1(student.getFrontworktel1() + student.getMiddleworktel1() + student.getLastworktel1());
+                student.setWorktel2(student.getFrontworktel2() + student.getMiddleworktel2() + student.getLastworktel2());
+                student.setWorkfax(student.getFrontworkfax() + student.getMiddleworkfax() + student.getLastworkfax());
+                student.setMobile1(student.getFrontmobile1() + student.getMiddlemobile1() + student.getLastmobile1());
+                student.setMobile2(student.getFrontmobile2() + student.getMiddlemobile2() + student.getLastmobile2());
+                student.setHometel1(student.getFronthometel1() + student.getMiddlehometel1() + student.getLasthometel1());
+                student.setHometel2(student.getFronthometel2() + student.getMiddlehometel2() + student.getLasthometel2());
+                student.setHomefax(student.getFronthomefax() + student.getMiddlehomefax() + student.getLasthomefax());
+                student.setDataState(dataState);
+                student.setStudentClass(batch);
+                student.setPermission(permission);
+
+                uiModel.asMap().clear();
+                student.persist();
+
+                log.info("add uptodate student");
+                Student uptodateStudent = StudentUtils.copyStudent(student);
+                uptodateStudent.persist();
+
+                AttachFile attachFile = new AttachFile();
+                attachFile.setUploadSlip2(false);
+                attachFile.setUploadSlip1(false);
+                attachFile.setUploadPf(false);
+                attachFile.setUploadPassport(false);
+                attachFile.setUploadPhoto(false);
+                attachFile.setUploadApec(false);
+                attachFile.setUploadNamecard(false);
+                attachFile.setUploadIdcard(false);
+                attachFile.setStdProfile(student);
+                attachFile.persist();
+
+                log.info("create() | create userweb");
+                UserWeb userWeb = new UserWeb();
+                String username = batch.getCourse().getCode()+(batch.getNumber() != null ? batch.getNumber() : "") +"_"+student.getFirstnameEn().toLowerCase();
+                String password = batch.getCourse().getCode()+batch.getNumber();
+                if(student.getBirthdate() != null){
+                    password = passwordFormat.format(student.getBirthdate());
+                }
+
+                userWeb.setUsername(StudentUtils.generateUsername(student, batch));
+                userWeb.setPassword(StudentUtils.bCryptEncode(password));
+                userWeb.persist();
+
+                uptodateStudent.setUserWeb(userWeb);
+
+                WebRole webRole = WebRole.getWebRole("ROLE_USER");
+                if(webRole != null){
+                    // map user_web with role
+                    log.info("create() | create userWebRole");
+                    UserWebRole userWebRole = new UserWebRole();
+                    userWebRole.setUserWeb(userWeb);
+                    userWebRole.setWebRole(webRole);
+                    userWebRole.persist();
+                }
+
+                log.info("create() | create map student");
+                MapStudent mapStudent = new MapStudent();
+                mapStudent.setRevisedStudent(student);
+                mapStudent.setUpToDateStudent(uptodateStudent);
+                mapStudent.persist();
+
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+
+
+        }
+
+       // return "redirect:/std_profiles/" + encodeUrlPathSegment(student.getId().toString(), httpServletRequest);
+        return "redirect:/std_profiles/"+student.getId()+"?createEducationForm";
     }
 
+
     @RequestMapping(params = "form", produces = "text/html")
-    public String createForm(Model uiModel) {
-        populateEditForm(uiModel, new Student());
+    public String createForm(Model uiModel, HttpServletRequest httpServletRequest) {
+        Student student = new Student();
+        String dataState = null;
+        try{
+            dataState = httpServletRequest.getParameter("dataState");
+        }catch (Exception e){
+        }
+
+        if(dataState == null){
+            dataState = StudentDataState.INIT;
+        }
+
+        List batchList = Batch.findAllBatches();
+        uiModel.addAttribute("batchList",batchList);
+
+        populateEditForm(uiModel, student);
         addEducationDegreeList(uiModel);
         addSelectedItem1(uiModel);
         addSelectedItem2(uiModel);
         addSelectedItem5(uiModel);
+        uiModel.addAttribute("dataState",dataState);
         return "std_profiles/create";
+    }
+
+    @RequestMapping(method = RequestMethod.POST, params = "createEducationForm", produces = "text/html")
+    public String createEducation(@Valid EducationProfileList educationProfileList, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest){
+        return null;
+    }
+
+    @RequestMapping(value = "/{id}", params = "createEducationForm", produces = "text/html")
+    public String createEducationForm(@PathVariable("id") Long id, Model uiModel, HttpServletRequest httpServletRequest){
+        EducationProfileList educationProfileList = new EducationProfileList();
+        Student student = Student.findStudent(id);
+
+        uiModel.addAttribute("educationProfileList", educationProfileList);
+        uiModel.addAttribute("student", student);
+        return "std_profiles/createEducation";
     }
 
     @RequestMapping(value = "/{id}", params = "print" , produces = "text/html")
@@ -1083,10 +1332,7 @@ public class Std_profileController {
         Student student = Student.findStudent(id);
         if(student.getDataState().equals(StudentDataState.INIT)){
             MapStudent mapStudent = MapStudent.findMapStudent(student, null, null);
-            mapStudent.setInitStudent(null);
-            mapStudent.merge();
-
-            boolean result = deleteRelatedProfiledeleteRelatedProfile(student);
+            boolean result = deleteRelatedProfile(student);
 
             UserRegis userRegis = UserRegis.getUserRegis(student);
             if(userRegis != null){
@@ -1094,15 +1340,26 @@ public class Std_profileController {
             }
             log.info("delete() | delete init student id : "+student.getId());
             student.remove();
+
+            if(mapStudent!=null){
+                mapStudent.setInitStudent(null);
+                mapStudent.merge();
+            }
+
+
         }else if(student.getDataState().equals(StudentDataState.REVISED)){
+            log.info("delete revised student");
             MapStudent mapStudent = MapStudent.findMapStudent(null, student, null);
             Student uptodateStudent = mapStudent.getUpToDateStudent();
-            mapStudent.setRevisedStudent(null);
-            mapStudent.setUpToDateStudent(null);
-            mapStudent.merge();
+            if(mapStudent!=null) {
+                log.info("delete() | update map student : "+mapStudent.getId());
+                mapStudent.setRevisedStudent(null);
+                mapStudent.setUpToDateStudent(null);
+                mapStudent.merge();
+            }
 
-            boolean result = deleteRelatedProfiledeleteRelatedProfile(student);
-            result = deleteRelatedProfiledeleteRelatedProfile(uptodateStudent);
+            boolean result = deleteRelatedProfile(student);
+            result = deleteRelatedProfile(uptodateStudent);
 
             student.getUserWeb().remove();
             uptodateStudent.getUserWeb().remove();
@@ -1118,27 +1375,31 @@ public class Std_profileController {
         return "redirect:/std_profiles";
     }
 
-    private boolean deleteRelatedProfiledeleteRelatedProfile(Student student){
+    private boolean deleteRelatedProfile(Student student){
         boolean result = true;
         if(student != null){
-            AttachFile attachFile = AttachFile.getAttachFile(student);
+            /*AttachFile attachFile = AttachFile.getAttachFile(student);
             if(attachFile!=null){
+                log.info("deleteRelatedProfile() | delete attach file id :"+attachFile.getId());
                 attachFile.remove();
-            }
+            }*/
 
             List educationProfileList = Education_profile.listEducationProfile(student);
             if(educationProfileList != null){
+                log.info("deleteRelatedProfile() | delete educationProfileList");
                 result = result && Education_profile.deleteEducationProfile(educationProfileList);
 
             }
 
             List trainingProfileList = Training_profile.listTrainingProfile(student);
             if(trainingProfileList != null){
+                log.info("deleteRelatedProfile() | delete trainingProfileList");
                 result = result && Training_profile.deleteTrainingProfile(trainingProfileList);
             }
 
             List childrenProfileList = Children_profile.listChildrenProfile((student));
             if(childrenProfileList != null){
+                log.info("deleteRelatedProfile() | delete childrenProfileList");
                 result = result && Children_profile.deleteChildrenProfile(childrenProfileList);
             }
         }else{
@@ -1168,6 +1429,27 @@ public class Std_profileController {
             pathSegment = UriUtils.encodePathSegment(pathSegment, enc);
         } catch (UnsupportedEncodingException uee) {}
         return pathSegment;
+    }
+
+    int getLastRecord(Long classId){
+        EntityManager entityManager = UserRegis.entityManager();
+        Query query = entityManager.createQuery("select max(x.id) from UserRegis x WHERE x.studentProfile.studentClass.id = :class_id");
+        /*System.out.println(">>lastUsername : classid = "+classId);*/
+        query.setParameter("class_id", classId);
+        List resultList = query.getResultList();
+        /*if(resultList!=null)
+            System.out.println(">>lastUsername : resultList size = "+resultList.size());
+        else System.out.println(">>lastUsername : resultList is null");
+        System.out.println(">>lastUsername : "+resultList.size()+" "+resultList.get(0));*/
+        if(resultList.get(0)!=null){
+            Long lastId = (Long)resultList.get(0);
+            UserRegis lastUserRegis = UserRegis.findUserRegis(lastId);
+            String lastUsername = lastUserRegis.getUsername();
+            lastUsername = lastUsername.substring(lastUsername.length()-3);
+            /*System.out.println(">>lastUsername"+lastUsername+" "+Integer.parseInt(lastUsername));*/
+            return Integer.parseInt(lastUsername)+1;
+        }
+        else return 1;
     }
 
 }

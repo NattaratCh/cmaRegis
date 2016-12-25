@@ -42,4 +42,17 @@ public class UserWeb {
     @Column(length=255)
     private String username;
 
+    public static UserWeb getUserWeb(String username){
+        try{
+            EntityManager entityManager = UserWeb.entityManager();
+            Query query = entityManager.createQuery("select x from UserWeb x WHERE x.username= :username");
+            query.setParameter("username", username);
+            UserWeb userWeb = (UserWeb) query.getSingleResult();
+            return userWeb;
+        }catch (Exception e){
+            return null;
+        }
+
+    }
+
 }

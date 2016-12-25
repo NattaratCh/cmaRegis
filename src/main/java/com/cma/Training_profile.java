@@ -38,16 +38,21 @@ public class Training_profile {
     private Student studentProfile;
 
     public static List listTrainingProfile(Student student){
-        EntityManager entityManager = MapStudent.entityManager();
-        String sql = "";
-        Query query = null;
-        if(student != null){
-            query = entityManager.createQuery("select e from Training_profile e where e.studentProfile= :student");
-            query.setParameter("student", student);
+        try{
+            EntityManager entityManager = MapStudent.entityManager();
+            String sql = "";
+            Query query = null;
+            if(student != null){
+                query = entityManager.createQuery("select e from Training_profile e where e.studentProfile= :student");
+                query.setParameter("student", student);
+            }
+
+            List trainingProfileList = (List) query.getResultList();
+            return trainingProfileList;
+        }catch (Exception e){
+            return null;
         }
 
-        List trainingProfileList = (List) query.getResultList();
-        return trainingProfileList;
     }
 
     public static boolean deleteTrainingProfile(List<Training_profile> training_profiles){

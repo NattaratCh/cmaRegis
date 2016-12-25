@@ -20,6 +20,7 @@
                 <menu:item id="i_mediaupload_report" messageCode="report_file_label" render="true" url="/mediauploads?exportReport&amp;dataState=init" z="user-managed"/>
                 <menu:item id="i_std_profile_list" messageCode="menu_std_profile_list" subCategory="menu_profile_std_profile" url="/std_profiles?dataState=init" z="user-managed"/>
                 <menu:item id="i_std_profile_listAttach" messageCode="menu_std_profile_listAttach" url="/std_profiles/attachfileListForm?dataState=init" z="user-managed"/>
+                <menu:item id="i_std_profile_new" messageCode="menu_std_profile_new" url="/std_profiles?form&amp;dataState=init" z="user-managed"/>
             </menu:category>
             <!--student revised-->
             <spring:message code="menu_student_revised" var="menu_student_revised"/>
@@ -32,6 +33,7 @@
                 <menu:item id="i_mediaupload_report" messageCode="report_file_label" render="true" url="/mediauploads?exportReport&amp;dataState=revised" z="user-managed"/>
                 <menu:item id="i_std_profile_list" messageCode="menu_std_profile_list" subCategory="menu_profile_std_profile" url="/std_profiles?dataState=revised" z="user-managed"/>
                 <menu:item id="i_std_profile_listAttach" messageCode="menu_std_profile_listAttach" url="/std_profiles/attachfileListForm?dataState=revised" z="user-managed"/>
+                <menu:item id="i_std_profile_new" messageCode="menu_std_profile_new" url="/std_profiles?form&amp;dataState=revised" z="user-managed"/>
             </menu:category>
             <!--student up to date-->
             <spring:message code="menu_student_uptodate" var="menu_student_uptodate"/>
@@ -44,6 +46,7 @@
                 <menu:item id="i_mediaupload_report" messageCode="report_file_label" render="true" url="/mediauploads?exportReport&amp;dataState=uptodate" z="user-managed"/>
                 <menu:item id="i_std_profile_list" messageCode="menu_std_profile_list" subCategory="menu_profile_std_profile" url="/std_profiles?dataState=uptodate" z="user-managed"/>
                 <menu:item id="i_std_profile_listAttach" messageCode="menu_std_profile_listAttach" url="/std_profiles/attachfileListForm?dataState=uptodate" z="user-managed"/>
+                <menu:item id="i_std_profile_new" messageCode="menu_std_profile_new" url="/std_profiles?form&amp;dataState=uptodate" z="user-managed"/>
             </menu:category>
             <spring:message code="menu_userlogin" var="menu_userlogin"/>
             <menu:category id="c_userregis" label="${menu_userlogin}" z="user-managed">

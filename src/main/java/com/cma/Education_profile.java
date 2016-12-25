@@ -39,16 +39,21 @@ public class Education_profile {
     private Student studentProfile;
 
     public static List listEducationProfile(Student student){
-        EntityManager entityManager = MapStudent.entityManager();
-        String sql = "";
-        Query query = null;
-        if(student != null){
-            query = entityManager.createQuery("select e from Education_profile e where e.studentProfile= :student");
-            query.setParameter("student", student);
+        try{
+            EntityManager entityManager = MapStudent.entityManager();
+            String sql = "";
+            Query query = null;
+            if(student != null){
+                query = entityManager.createQuery("select e from Education_profile e where e.studentProfile= :student");
+                query.setParameter("student", student);
+            }
+
+            List educationProfileList = (List) query.getResultList();
+            return educationProfileList;
+        }catch (Exception e){
+            return null;
         }
 
-        List educationProfileList = (List) query.getResultList();
-        return educationProfileList;
     }
 
     public static boolean deleteEducationProfile(List<Education_profile> education_profiles){

@@ -6,7 +6,7 @@ package com.cma;
 import com.cma.UserWeb;
 import com.cma.UserWebRole;
 import com.cma.UserWebRoleDataOnDemand;
-import com.cma.WebRoleDataOnDemand;
+import com.cma.WebRole;
 import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -14,7 +14,6 @@ import java.util.List;
 import java.util.Random;
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 privileged aspect UserWebRoleDataOnDemand_Roo_DataOnDemand {
@@ -25,12 +24,21 @@ privileged aspect UserWebRoleDataOnDemand_Roo_DataOnDemand {
     
     private List<UserWebRole> UserWebRoleDataOnDemand.data;
     
-    @Autowired
-    WebRoleDataOnDemand UserWebRoleDataOnDemand.webRoleDataOnDemand;
-    
     public UserWebRole UserWebRoleDataOnDemand.getNewTransientUserWebRole(int index) {
         UserWebRole obj = new UserWebRole();
+        setUserWeb(obj, index);
+        setWebRole(obj, index);
         return obj;
+    }
+    
+    public void UserWebRoleDataOnDemand.setUserWeb(UserWebRole obj, int index) {
+        UserWeb userWeb = null;
+        obj.setUserWeb(userWeb);
+    }
+    
+    public void UserWebRoleDataOnDemand.setWebRole(UserWebRole obj, int index) {
+        WebRole webRole = null;
+        obj.setWebRole(webRole);
     }
     
     public UserWebRole UserWebRoleDataOnDemand.getSpecificUserWebRole(int index) {
@@ -42,14 +50,14 @@ privileged aspect UserWebRoleDataOnDemand_Roo_DataOnDemand {
             index = data.size() - 1;
         }
         UserWebRole obj = data.get(index);
-        UserWeb id = obj.getUserWeb();
+        Long id = obj.getId();
         return UserWebRole.findUserWebRole(id);
     }
     
     public UserWebRole UserWebRoleDataOnDemand.getRandomUserWebRole() {
         init();
         UserWebRole obj = data.get(rnd.nextInt(data.size()));
-        UserWeb id = obj.getUserWeb();
+        Long id = obj.getId();
         return UserWebRole.findUserWebRole(id);
     }
     

@@ -94,12 +94,12 @@ public class Student {
     @Column(length=50)
     private String institutionEn;
 
-    private Boolean retireFlag;
+    private boolean retireFlag;
 
     @Column(length=50)
     private String enrollType;
 
-    @Column(length=255)
+    @Column(length=300)
     private String workFullAddress;
 
     @Column(length=50)
@@ -240,7 +240,7 @@ public class Student {
     @Column(length=5)
     private String postalCode;
 
-    @Column(length=255)
+    @Column(length=300)
     private String homeFullAddress;
 
     @Column(length=1)
@@ -439,8 +439,9 @@ public class Student {
     private String dataState; //INIT,REVISED,UP-TO-DATE
 
     private String groupName;
+    private String photoFileName;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.REMOVE)
     @JoinColumn(name = "user_web_id")
     private UserWeb userWeb;
 

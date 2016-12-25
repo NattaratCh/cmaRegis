@@ -216,11 +216,11 @@ privileged aspect Student_Roo_JavaBean {
         this.institutionEn = institutionEn;
     }
     
-    public Boolean Student.getRetireFlag() {
+    public boolean Student.isRetireFlag() {
         return this.retireFlag;
     }
     
-    public void Student.setRetireFlag(Boolean retireFlag) {
+    public void Student.setRetireFlag(boolean retireFlag) {
         this.retireFlag = retireFlag;
     }
     
@@ -1422,6 +1422,14 @@ privileged aspect Student_Roo_JavaBean {
     
     public void Student.setGroupName(String groupName) {
         this.groupName = groupName;
+    }
+    
+    public String Student.getPhotoFileName() {
+        return this.photoFileName;
+    }
+    
+    public void Student.setPhotoFileName(String photoFileName) {
+        this.photoFileName = photoFileName;
     }
     
     public UserWeb Student.getUserWeb() {

@@ -75,6 +75,9 @@ public class Std_profile_part4 {
     @Column(length=4)
     private String lastdriverTel;
 
+    private String collboratorTitle;
+    private String collboratorPosition;
+
     public Long getId() {
         return id;
     }
@@ -233,5 +236,21 @@ public class Std_profile_part4 {
 
     public void setLastdriverTel(String lastdriverTel) {
         this.lastdriverTel = lastdriverTel;
+    }
+
+    public String getCollboratorTitle() {
+        return collboratorTitle;
+    }
+
+    public void setCollboratorTitle(String collboratorTitle) {
+        this.collboratorTitle = collboratorTitle;
+    }
+
+    public String getCollboratorPosition() {
+        return collboratorPosition;
+    }
+
+    public void setCollboratorPosition(String collboratorPosition) {
+        this.collboratorPosition = collboratorPosition;
     }
 }

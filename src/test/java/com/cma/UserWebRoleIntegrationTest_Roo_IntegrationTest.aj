@@ -3,7 +3,6 @@
 
 package com.cma;
 
-import com.cma.UserWeb;
 import com.cma.UserWebRole;
 import com.cma.UserWebRoleDataOnDemand;
 import com.cma.UserWebRoleIntegrationTest;
@@ -41,11 +40,11 @@ privileged aspect UserWebRoleIntegrationTest_Roo_IntegrationTest {
     public void UserWebRoleIntegrationTest.testFindUserWebRole() {
         UserWebRole obj = dod.getRandomUserWebRole();
         Assert.assertNotNull("Data on demand for 'UserWebRole' failed to initialize correctly", obj);
-        UserWeb id = obj.getUserWeb();
+        Long id = obj.getId();
         Assert.assertNotNull("Data on demand for 'UserWebRole' failed to provide an identifier", id);
         obj = UserWebRole.findUserWebRole(id);
         Assert.assertNotNull("Find method for 'UserWebRole' illegally returned null for id '" + id + "'", obj);
-        Assert.assertEquals("Find method for 'UserWebRole' returned the incorrect identifier", id, obj.getUserWeb());
+        Assert.assertEquals("Find method for 'UserWebRole' returned the incorrect identifier", id, obj.getId());
     }
     
     @Test
@@ -75,7 +74,7 @@ privileged aspect UserWebRoleIntegrationTest_Roo_IntegrationTest {
         Assert.assertNotNull("Data on demand for 'UserWebRole' failed to initialize correctly", dod.getRandomUserWebRole());
         UserWebRole obj = dod.getNewTransientUserWebRole(Integer.MAX_VALUE);
         Assert.assertNotNull("Data on demand for 'UserWebRole' failed to provide a new transient entity", obj);
-        Assert.assertNull("Expected 'UserWebRole' identifier to be null", obj.getUserWeb());
+        Assert.assertNull("Expected 'UserWebRole' identifier to be null", obj.getId());
         try {
             obj.persist();
         } catch (final ConstraintViolationException e) {
@@ -87,14 +86,14 @@ privileged aspect UserWebRoleIntegrationTest_Roo_IntegrationTest {
             throw new IllegalStateException(msg.toString(), e);
         }
         obj.flush();
-        Assert.assertNotNull("Expected 'UserWebRole' identifier to no longer be null", obj.getUserWeb());
+        Assert.assertNotNull("Expected 'UserWebRole' identifier to no longer be null", obj.getId());
     }
     
     @Test
     public void UserWebRoleIntegrationTest.testRemove() {
         UserWebRole obj = dod.getRandomUserWebRole();
         Assert.assertNotNull("Data on demand for 'UserWebRole' failed to initialize correctly", obj);
-        UserWeb id = obj.getUserWeb();
+        Long id = obj.getId();
         Assert.assertNotNull("Data on demand for 'UserWebRole' failed to provide an identifier", id);
         obj = UserWebRole.findUserWebRole(id);
         obj.remove();

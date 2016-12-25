@@ -3,10 +3,14 @@
      xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:util="urn:jsptagdir:/WEB-INF/tags/util"
      xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:form2="http://www.springframework.org/tags/form" xmlns:spring="http://www.springframework.org/tags" version="2.0"
      xmlns:sec="http://www.springframework.org/security/tags">
+    <style>
+        .ui-helper-hidden-accessible {
+            clip: initial !important;
+        }
+    </style>
     <script>
-        var jq=jQuery.noConflict();
-        jq(function() {
-            jq("#_bdateString_id").datepicker({
+        $(function() {
+            $("#_bdateString_id").datepicker({
                 changeMonth: true,
                 changeYear: true,
                 dateFormat: 'dd M yy',
@@ -73,62 +77,72 @@
         <field:input field="idcardNo" id="c_com_cma_Student_idcardNo" required="true" z="GmDniyZOQw07IMXPBdXkCwJBssk="/>
         <field:input field="passportNo" id="c_com_cma_Student_passportNo" required="false" z="Jr8v3WDTuMsKxuDrU4guzqWXEXE="/>
         <field:input field="ropNo" id="c_com_cma_Student_ropNo" required="false" z="ImhbVp0/dSQ7lDNIK1iqbvFUvao="/>
-        <field:input field="positionTh" id="c_com_cma_Student_positionTh" required="true" z="MzMnAO6qUvOgrBKb+qK66W7Um5o="/>
-        <field:input field="positionEn" id="c_com_cma_Student_positionEn" required="true" z="ISgs7pgR4R4+CwsrMpWmXVU9iGw="/>
-        <field:input field="institutionTh" id="c_com_cma_Student_institutionTh" required="true" z="9IFxTz8jNCnqTT2sWW78nL7+UtM="/>
-        <field:input field="institutionEn" id="c_com_cma_Student_institutionEn" required="true" z="RhHaqqzYLMiXQUCSMKmsayzIXMg="/>
-        <!--<input type="radio" name="enrollType" value="Listed"> Listed</input>
-        <input type="radio" name="enrollType" value="Non-Listed"> Non-Listed</input>
-        <br/>-->
-        <field:select render="false" required="true" id="c_com_cma_Student_enrollType" field="enrollType" items="${enrollTypeItems}"/>
-<!--        <field:input field="enrollType" id="c_com_cma_Student_enrollType" required="true" z="HfwV2JE7TJNm7oBMijo+j7sFv4w="/>-->
-        <!--<field:textarea field="institutionAddress" id="c_com_cma_Student_institutionAddress" required="true" z="/20KKiqRPkZIYjuUcQFxTIGHl6I="/>-->
-        <br/>
-        <spring:message code="label_com_cma_std_profile_print_header2" var="header2"/>
-        <div id="fieldHeader">
-            ${header2}
-        </div>
-        <field:input field="institutionNo" id="c_com_cma_Student_institutionNo" required="true" z="user-managed"/>
-        <field:input field="institutionMooNo" id="c_com_cma_Student_institutionMooNo" z="user-managed"/>
-        <field:input field="institutionBuilding" id="c_com_cma_Student_institutionBuilding" z="user-managed"/>
-        <field:input field="institutionFloor" id="c_com_cma_Student_institutionFloor" z="user-managed"/>
-        <field:input field="institutionSoi" id="c_com_cma_Student_institutionSoi" z="user-managed"/>
-        <field:input field="institutionStreet" id="c_com_cma_Student_institutionStreet" required="true" z="user-managed"/>
-        <field:input field="institutionSubdistrict" id="c_com_cma_Student_institutionSubdistrict" required="true" z="user-managed"/>
-        <field:input field="institutionDistrict" id="c_com_cma_Student_institutionDistrict" required="true" z="user-managed"/>
-        <field:input field="institutionProvince" id="c_com_cma_Student_institutionProvince" required="true" z="50YgOwoSAD/wVAFV96XuCgDX9/4="/>
-        <field:input field="institutionPostalCode" id="c_com_cma_Student_institutionPostalCode" validationMessageCode="field_invalid_postcode" required="true" z="MwVNk2zduoM+itCLoP7rTRBWnZY="/>
-        <field:inputTel field="worktel1" type="phone" required="false"/>
-        <field:inputTel field="worktel2" type="phone" required="false"/>
-        <field:inputTel field="workfax" type="other" required="false"/>
+
+        <field:input field="email" id="c_com_cma_Student_email" required="true" validationMessageCode="field_invalid_email" z="IKsXqm+vjhvdV6F0O2pi7qaSadA="/>
         <field:inputTel field="mobile1" type="mobile" required="true"/>
         <field:inputTel field="mobile2" type="mobile" required="false"/>
-        <!--<field:input field="mobile1" id="c_com_cma_Student_mobile1" required="true" z="H78fFun9WrI0YshARpk1fjRlCeI="/>
-        <field:input field="mobile2" id="c_com_cma_Student_mobile2" z="PVw7YE1WJqZ5lnKFr0XV25UTnTA="/>-->
-        <field:input field="email" id="c_com_cma_Student_email" required="true" validationMessageCode="field_invalid_email" z="IKsXqm+vjhvdV6F0O2pi7qaSadA="/>
         <field:input field="lineId" id="c_com_cma_Student_lineId" required="true" z="user-managed"/>
+        <field:input field="facebook" id="c_com_cma_Student_facebook" required="true" z="user-managed"/>
+        <field:input field="groupName" id="c_com_cma_Student_groupname" z="user-managed"/>
         <field:input render="false" field="email2" id="c_com_cma_Student_email2" validationMessageCode="field_invalid_email2" z="user-managed"/>
-        <!--<field:textarea field="address" id="c_com_cma_Student_address" required="true" z="NvKZ/dHuCcqGnmf/ZjQbELt3EFM="/>-->
-        <br/>
-        <spring:message code="label_com_cma_std_profile_print_header3" var="header3"/>
-        <div id="fieldHeader">
-            ${header3}
-        </div>
-        <field:input field="homeNo" id="c_com_cma_Student_homeNo" required="true" z="user-managed"/>
-        <field:input field="mooNo" id="c_com_cma_Student_mooNo" z="user-managed"/>
-        <field:input field="building" id="c_com_cma_Student_building" z="user-managed"/>
-        <field:input field="village" id="c_com_cma_Student_village" z="user-managed"/>
-        <field:input field="floor" id="c_com_cma_Student_floor" z="user-managed"/>
-        <field:input field="soi" id="c_com_cma_Student_soi" z="user-managed"/>
-        <field:input field="street" id="c_com_cma_Student_street" required="true" z="user-managed"/>
-        <field:input field="subdistrict" id="c_com_cma_Student_subdistrict" required="true" z="user-managed"/>
-        <field:input field="district" id="c_com_cma_Student_district" required="true" z="user-managed"/>
-        <field:input field="province" id="c_com_cma_Student_province" required="true" z="oHa1l7qaCmg6ZJXM4WmPOC1Fdj8="/>
-        <field:input field="postalCode" id="c_com_cma_Student_postalCode" validationMessageCode="field_invalid_postcode" required="true" z="HgUcuoA7liuS+mWmXsdSoFvVecY="/>
-        <field:inputTel field="hometel1" type="phone" required="false"/>
-        <field:inputTel field="hometel2" type="phone" required="false"/>
-        <field:inputTel field="homefax" type="other" required="false"/>
 
+        <!-- home address -->
+         <br/>
+         <spring:message code="label_com_cma_std_profile_print_header3" var="header3"/>
+         <div id="fieldHeader">
+             ${header3}
+         </div>
+         <field:input field="homeNo" id="c_com_cma_Student_homeNo" required="true" z="user-managed"/>
+         <field:input field="mooNo" id="c_com_cma_Student_mooNo" z="user-managed"/>
+         <field:input field="building" id="c_com_cma_Student_building" z="user-managed"/>
+         <field:input field="village" id="c_com_cma_Student_village" z="user-managed"/>
+         <field:input field="floor" id="c_com_cma_Student_floor" z="user-managed"/>
+         <field:input field="soi" id="c_com_cma_Student_soi" z="user-managed"/>
+         <field:input field="street" id="c_com_cma_Student_street" required="true" z="user-managed"/>
+         <field:input field="subdistrict" id="c_com_cma_Student_subdistrict" required="true" z="user-managed"/>
+         <field:input field="district" id="c_com_cma_Student_district" required="true" z="user-managed"/>
+         <field:input field="province" id="c_com_cma_Student_province" required="true" z="oHa1l7qaCmg6ZJXM4WmPOC1Fdj8="/>
+         <field:input field="postalCode" id="c_com_cma_Student_postalCode" validationMessageCode="field_invalid_postcode" required="true" z="HgUcuoA7liuS+mWmXsdSoFvVecY="/>
+         <sec:authorize ifAllGranted="ROLE_ADMIN">
+             <field:textarea field="homeFullAddress" id="c_com_cma_Student_homeFullAddress" z="user-managed"/>
+         </sec:authorize>
+         <field:inputTel field="hometel1" type="phone" required="false"/>
+         <field:inputTel field="hometel2" type="phone" required="false"/>
+         <field:inputTel field="homefax" type="other" required="false"/>
+
+         <field:select render="false" required="true" id="c_com_cma_Student_enrollType" field="enrollType" items="${enrollTypeItems}"/>
+        <br/>
+         <spring:message code="label_com_cma_std_profile_workprofile" var="workprofile"/>
+         <div id="fieldHeader">
+             ${workprofile}
+         </div>
+        <field:input field="institutionTh" id="c_com_cma_Student_institutionTh" required="true" z="9IFxTz8jNCnqTT2sWW78nL7+UtM="/>
+        <field:input field="institutionEn" id="c_com_cma_Student_institutionEn" required="true" z="RhHaqqzYLMiXQUCSMKmsayzIXMg="/>
+
+        <spring:message code="label_com_cma_std_profile_print_header2" var="header2"/>
+         <field:checkbox id="c_com_cma_Student_retireFlag" field="retireFlag" z="user-managed"/>
+        <field:input field="positionTh" id="c_com_cma_Student_positionTh" required="true" z="MzMnAO6qUvOgrBKb+qK66W7Um5o="/>
+        <field:input field="positionEn" id="c_com_cma_Student_positionEn" required="true" z="ISgs7pgR4R4+CwsrMpWmXVU9iGw="/>
+         <div id="fieldHeader">
+             ${header2}
+         </div>
+         <field:input field="institutionNo" id="c_com_cma_Student_institutionNo" required="true" z="user-managed"/>
+         <field:input field="institutionMooNo" id="c_com_cma_Student_institutionMooNo" z="user-managed"/>
+         <field:input field="institutionBuilding" id="c_com_cma_Student_institutionBuilding" z="user-managed"/>
+         <field:input field="institutionFloor" id="c_com_cma_Student_institutionFloor" z="user-managed"/>
+         <field:input field="institutionSoi" id="c_com_cma_Student_institutionSoi" z="user-managed"/>
+         <field:input field="institutionStreet" id="c_com_cma_Student_institutionStreet" required="true" z="user-managed"/>
+         <field:input field="institutionSubdistrict" id="c_com_cma_Student_institutionSubdistrict" required="true" z="user-managed"/>
+         <field:input field="institutionDistrict" id="c_com_cma_Student_institutionDistrict" required="true" z="user-managed"/>
+         <field:input field="institutionProvince" id="c_com_cma_Student_institutionProvince" required="true" z="50YgOwoSAD/wVAFV96XuCgDX9/4="/>
+         <field:input field="institutionPostalCode" id="c_com_cma_Student_institutionPostalCode" validationMessageCode="field_invalid_postcode" required="true" z="MwVNk2zduoM+itCLoP7rTRBWnZY="/>
+         <sec:authorize ifAllGranted="ROLE_ADMIN">
+             <field:textarea field="workFullAddress" id="c_com_cma_Student_workFullAddress" z="user-managed"/>
+         </sec:authorize>
+         <field:inputTel field="worktel1" type="phone" required="false"/>
+         <field:inputTel field="worktel2" type="phone" required="false"/>
+         <field:inputTel field="workfax" type="other" required="false"/>
+         <field:input field="workEmail" id="c_com_cma_Student_workEmail" validationMessageCode="field_invalid_workEmail" z="IKsXqm+vjhvdV6F0O2pi7qaSadA="/>
         <!--<field:input field="sendingAddress" id="c_com_cma_Student_sendingAddress" required="true" z="5a9J88L0nTyeNnf1jWZ7rCqDBL4="/>-->
         <field:select id="c_com_cma_Student_sendingAddress" field="sendingAddress" items="${sendAddressItems}"/>
     </form:update_cma>

@@ -157,6 +157,7 @@ privileged aspect StudentDataOnDemand_Roo_DataOnDemand {
         setPhdField(obj, index);
         setPhdUniversity(obj, index);
         setPhdYear(obj, index);
+        setPhotoFileName(obj, index);
         setPlayGolf(obj, index);
         setPoloSize(obj, index);
         setPositionEn(obj, index);
@@ -841,6 +842,11 @@ privileged aspect StudentDataOnDemand_Roo_DataOnDemand {
         obj.setPhdYear(phdYear);
     }
     
+    public void StudentDataOnDemand.setPhotoFileName(Student obj, int index) {
+        String photoFileName = "photoFileName_" + index;
+        obj.setPhotoFileName(photoFileName);
+    }
+    
     public void StudentDataOnDemand.setPlayGolf(Student obj, int index) {
         String playGolf = "playGolf_" + index;
         obj.setPlayGolf(playGolf);
@@ -882,7 +888,7 @@ privileged aspect StudentDataOnDemand_Roo_DataOnDemand {
     }
     
     public void StudentDataOnDemand.setRetireFlag(Student obj, int index) {
-        Boolean retireFlag = Boolean.TRUE;
+        Boolean retireFlag = true;
         obj.setRetireFlag(retireFlag);
     }
     

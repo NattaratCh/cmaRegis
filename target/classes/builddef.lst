@@ -29,6 +29,7 @@ D:\workspace\cmaRegis\src\main\java\com\cma\UserRegisRole_Roo_ToString.aj
 D:\workspace\cmaRegis\src\main\java\com\cma\web\UserloginController.java
 D:\workspace\cmaRegis\src\main\java\com\cma\Education_profile_Roo_Jpa_Entity.aj
 D:\workspace\cmaRegis\src\main\java\com\cma\MapStudent_Roo_Jpa_ActiveRecord.aj
+D:\workspace\cmaRegis\src\main\java\com\cma\web\EducationProfileList.java
 D:\workspace\cmaRegis\src\main\java\com\cma\common\Sexdropdown.java
 D:\workspace\cmaRegis\src\main\java\com\cma\Course_Roo_Jpa_Entity.aj
 D:\workspace\cmaRegis\src\main\java\com\cma\Course_Roo_Configurable.aj
@@ -40,6 +41,7 @@ D:\workspace\cmaRegis\src\main\java\com\cma\web\UserroleController.java
 D:\workspace\cmaRegis\src\main\java\com\cma\Children_profile_Roo_Jpa_ActiveRecord.aj
 D:\workspace\cmaRegis\src\main\java\com\cma\UserRegisRole.java
 D:\workspace\cmaRegis\src\main\java\com\cma\Children_profile.java
+D:\workspace\cmaRegis\src\main\java\com\cma\web\StudentUtils.java
 D:\workspace\cmaRegis\src\main\java\com\cma\MediaUpload_Roo_Jpa_ActiveRecord.aj
 D:\workspace\cmaRegis\src\main\java\com\cma\MapStudent_Roo_JavaBean.aj
 D:\workspace\cmaRegis\src\main\java\com\cma\Student_Roo_JavaBean.aj

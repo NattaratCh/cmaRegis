@@ -5,7 +5,7 @@ package com.cma;
 
 import com.cma.MapStudent;
 import com.cma.MapStudentDataOnDemand;
-import com.cma.StudentDataOnDemand;
+import com.cma.Student;
 import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -13,7 +13,6 @@ import java.util.List;
 import java.util.Random;
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 privileged aspect MapStudentDataOnDemand_Roo_DataOnDemand {
@@ -24,12 +23,27 @@ privileged aspect MapStudentDataOnDemand_Roo_DataOnDemand {
     
     private List<MapStudent> MapStudentDataOnDemand.data;
     
-    @Autowired
-    StudentDataOnDemand MapStudentDataOnDemand.studentDataOnDemand;
-    
     public MapStudent MapStudentDataOnDemand.getNewTransientMapStudent(int index) {
         MapStudent obj = new MapStudent();
+        setInitStudent(obj, index);
+        setRevisedStudent(obj, index);
+        setUpToDateStudent(obj, index);
         return obj;
+    }
+    
+    public void MapStudentDataOnDemand.setInitStudent(MapStudent obj, int index) {
+        Student initStudent = null;
+        obj.setInitStudent(initStudent);
+    }
+    
+    public void MapStudentDataOnDemand.setRevisedStudent(MapStudent obj, int index) {
+        Student revisedStudent = null;
+        obj.setRevisedStudent(revisedStudent);
+    }
+    
+    public void MapStudentDataOnDemand.setUpToDateStudent(MapStudent obj, int index) {
+        Student upToDateStudent = null;
+        obj.setUpToDateStudent(upToDateStudent);
     }
     
     public MapStudent MapStudentDataOnDemand.getSpecificMapStudent(int index) {

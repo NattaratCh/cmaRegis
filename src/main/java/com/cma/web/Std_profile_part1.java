@@ -624,6 +624,55 @@ public class Std_profile_part1 {
         this.village = village;
     }
 
+    public String getHomeFullAddress() {
+        return homeFullAddress;
+    }
+
+    public void setHomeFullAddress(String homeFullAddress) {
+        this.homeFullAddress = homeFullAddress;
+    }
+
+    public String getFacebook() {
+        return facebook;
+    }
+
+    public void setFacebook(String facebook) {
+        this.facebook = facebook;
+    }
+
+    public boolean getRetireFlag() {
+        return retireFlag;
+    }
+
+    public void setRetireFlag(boolean retireFlag) {
+        this.retireFlag = retireFlag;
+    }
+
+    public String getWorkFullAddress() {
+        return workFullAddress;
+    }
+
+    public void setWorkFullAddress(String workFullAddress) {
+        this.workFullAddress = workFullAddress;
+    }
+
+    public String getWorkEmail() {
+        return workEmail;
+    }
+
+    public void setWorkEmail(String workEmail) {
+        this.workEmail = workEmail;
+    }
+
+    public String getGroupName() {
+        return groupName;
+    }
+
+    public void setGroupName(String groupName) {
+        this.groupName = groupName;
+    }
+
+
     @NotNull
     private Long id;
 
@@ -849,6 +898,19 @@ public class Std_profile_part1 {
 
     @NotNull
     private String sendingAddress;
+
+    private String homeFullAddress;
+
+    private String facebook;
+
+    private boolean retireFlag;
+
+    private String workFullAddress;
+
+    @Email(message = "รูปแบบEmailไม่ถูกต้อง")
+    private String workEmail;
+
+    private String groupName;
 
 
 }

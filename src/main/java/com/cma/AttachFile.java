@@ -89,15 +89,20 @@ public class AttachFile {
     private Student stdProfile;
 
     public static AttachFile getAttachFile(Student student){
-        EntityManager entityManager = MapStudent.entityManager();
-        String sql = "";
-        Query query = null;
-        if(student != null){
-            query = entityManager.createQuery("select e from AttachFile e where e.stdProfile= :student");
-            query.setParameter("student", student);
+        try{
+            EntityManager entityManager = MapStudent.entityManager();
+            String sql = "";
+            Query query = null;
+            if(student != null){
+                query = entityManager.createQuery("select e from AttachFile e where e.stdProfile= :student");
+                query.setParameter("student", student);
+            }
+
+            AttachFile attachFile = (AttachFile) query.getSingleResult();
+            return attachFile;
+        }catch(Exception e){
+            return null;
         }
 
-        AttachFile attachFile = (AttachFile) query.getSingleResult();
-        return attachFile;
     }
 }

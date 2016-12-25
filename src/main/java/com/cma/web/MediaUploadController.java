@@ -580,6 +580,7 @@ public class MediaUploadController {
     public String create(@Valid MediaUpload mediaUpload, BindingResult bindingResult, Model uiModel, @RequestParam("content") CommonsMultipartFile content, HttpServletRequest httpServletRequest) {
 
         boolean result = false;
+        String message =null;
         String dataState = httpServletRequest.getParameter("dataState");
         try {
             Long class_id = Long.parseLong(httpServletRequest.getParameter("cmaClass"));
@@ -623,9 +624,10 @@ public class MediaUploadController {
                     log.info("create() | result : "+result);
 
                 }
-
-
             }
+
+            message = "Import รายชื่อนักเรียนเรียบร้อยแล้ว";
+
         } catch (IOException e) {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
         }                         //------------------------
@@ -634,7 +636,7 @@ public class MediaUploadController {
         List classList = Batch.findAllBatches();
         uiModel.addAttribute("dataState",dataState);
         uiModel.addAttribute("classList",classList);
-        uiModel.addAttribute("message","Import รายชื่อนักเรียนเรียบร้อยแล้ว");
+        uiModel.addAttribute("message",message);
         return "mediauploads/create";
     }
 
@@ -713,9 +715,9 @@ public class MediaUploadController {
                     Student student = Student.findStudent(studentId);
 
                     log.info("createRevisedData() | batch : "+batch.getId());
-                    log.info("createRevisedData() | batch id : "+student.getStudentClass().getId());
 
                     if(student != null && student.getStudentClass().equals(batch)){
+                        log.info("createRevisedData() | batch id : "+student.getStudentClass().getId());
                         log.info("createRevisedData() | student id : "+student.getId()+" | dataState : "+student.getDataState());
                         if(student.getDataState().equals(StudentDataState.INIT)){
                             MapStudent mapStudent = MapStudent.findMapStudent(student,null,null);
@@ -847,7 +849,7 @@ public class MediaUploadController {
                 password = passwordFormat.format(uptodateStudent.getBirthdate());
             }
 
-            userWeb.setUsername(username);
+            userWeb.setUsername(generateUsername(uptodateStudent,batch));
             userWeb.setPassword(bCryptEncode(password));
             userWeb.persist();
 
@@ -920,6 +922,30 @@ public class MediaUploadController {
             result = false;
         }
         return result;
+    }
+
+    private String generateUsername(Student student, Batch batch){
+        if(student == null || batch == null){
+            return null;
+        }else{
+            String username = batch.getCourse().getCode()+(batch.getNumber() != null ? batch.getNumber() : "") +"_"+student.getFirstnameEn().toLowerCase();
+            String uniqueUsername = generateUniqueUsername(batch, username.toLowerCase(), student, 1);
+            log.info("generateUsername() | uniqueUsername : "+uniqueUsername);
+            return uniqueUsername;
+        }
+    }
+
+    private String generateUniqueUsername(Batch batch, String username, Student student, int i){ // i =start with 1
+        UserWeb userWeb = UserWeb.getUserWeb(username);
+        if(userWeb != null){
+            String lastname = student.getLastnameEn().substring(0,i);
+            username = batch.getCourse().getCode()+(batch.getNumber() != null ? batch.getNumber() : "") +"_"+student.getFirstnameEn().toLowerCase()+lastname;
+            username = username.toLowerCase();
+            log.info("generateUniqueUsername() | username : "+username+" | i :"+i);
+            return generateUniqueUsername(batch, username, student, i+1);
+        }else{
+            return username;
+        }
     }
 
     private Student setStudent(ArrayList<String> studentData, Student student) throws ParseException {

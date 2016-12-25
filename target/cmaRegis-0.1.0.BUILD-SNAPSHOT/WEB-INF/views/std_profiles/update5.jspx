@@ -215,6 +215,67 @@
         <div>
             <input id="_cmaRegis2_id" name="_educationGuarantee6_id" type="checkbox" /> ${submit6}
         </div>
+
+        <br/>
+        <spring:message code="label_com_cma_student_permission" var="permission_header"/>
+        <div id="fieldHeader">
+            ${permission_header}
+        </div>
+
+        <spring:message code="label_com_cma_student_permission.0" var="permission0"/>
+        <spring:message code="label_com_cma_student_permission.1" var="permission1"/>
+        <spring:message code="label_com_cma_student_permission.2" var="permission2"/>
+        <spring:message code="label_com_cma_student_permission.3" var="permission3"/>
+        <spring:message code="label_com_cma_student_permission.4" var="permission4"/>
+        <spring:message code="label_com_cma_student_permission.5" var="permission5"/>
+        <c:choose>
+            <c:when test="${std_profile.permission == null || std_profile.permission == 0}">
+                <input type="radio" name="permission" value="0" checked="checked"/><c:out value="${permission0}"/><br/>
+            </c:when>
+            <c:otherwise>
+                <input type="radio" name="permission" value="0"/><c:out value="${permission0}"/><br/>
+            </c:otherwise>
+        </c:choose>
+        <c:choose>
+            <c:when test="${std_profile.permission == 1}">
+                <input type="radio" name="permission" value="1" checked="checked"/><c:out value="${permission1}"/><br/>
+            </c:when>
+            <c:otherwise>
+                <input type="radio" name="permission" value="1"/><c:out value="${permission1}"/><br/>
+            </c:otherwise>
+        </c:choose>
+        <c:choose>
+            <c:when test="${ std_profile.permission == 2}">
+                <input type="radio" name="permission" value="2" checked="checked"/><c:out value="${permission2}"/><br/>
+            </c:when>
+            <c:otherwise>
+                <input type="radio" name="permission" value="2"/><c:out value="${permission2}"/><br/>
+            </c:otherwise>
+        </c:choose>
+        <c:choose>
+            <c:when test="${ std_profile.permission == 3}">
+                <input type="radio" name="permission" value="3" checked="checked"/><c:out value="${permission3}"/><br/>
+            </c:when>
+            <c:otherwise>
+                <input type="radio" name="permission" value="3"/><c:out value="${permission3}"/><br/>
+            </c:otherwise>
+        </c:choose>
+        <c:choose>
+            <c:when test="${ std_profile.permission == 4}">
+                <input type="radio" name="permission" value="4" checked="checked"/><c:out value="${permission4}"/><br/>
+            </c:when>
+            <c:otherwise>
+                <input type="radio" name="permission" value="4"/><c:out value="${permission4}"/><br/>
+            </c:otherwise>
+        </c:choose>
+        <c:choose>
+            <c:when test="${ std_profile.permission == 5}">
+                <input type="radio" name="permission" value="5" checked="checked"/><c:out value="${permission5}"/><br/>
+            </c:when>
+            <c:otherwise>
+                <input type="radio" name="permission" value="5"/><c:out value="${permission5}"/><br/>
+            </c:otherwise>
+        </c:choose>
         <br/>
         <p>
             <u>ข้อสงวนสิทธิ์</u> สถาบัน วตท. ขอสงวนสิทธิ์ในการเปลี่ยนแปลงเงื่อนไขการสมัคร รวมถึงค่าธรรมเนียมต่างๆ ที่เรียกเก็บได้ตามความเหมาะสม โดยไม่ต้องแจ้งให้ทราบล่วงหน้าและไม่ต้อง

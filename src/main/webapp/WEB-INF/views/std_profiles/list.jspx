@@ -73,7 +73,7 @@
                         </th>
                         <th width="2%"/>
                         <th width="2%"/>
-                        <c:if test="${dataState != 'uptodate' or dataState != 'UPTODATE'}">
+                        <c:if test="${dataState != 'uptodate' and dataState != 'UPTODATE'}">
                             <th width="2%"/>
                         </c:if>
 
@@ -102,7 +102,7 @@
                                 <img alt="Update std_profile" class="image" src="./resources/images/update.png" title="Update std_profile"/>
                             </a>
                         </td>
-                        <c:if test="${dataState != 'uptodate' or dataState != 'UPTODATE'}">
+                        <c:if test="${dataState != 'uptodate' and dataState != 'UPTODATE'}">
                             <td class="utilbox">
                                 <c:set var="delete_confirm_msg">
                                     <spring:escapeBody javaScriptEscape="true">

@@ -2,12 +2,10 @@
 // You may push code into the target .java compilation unit if you wish to edit any member(s).
 
 package com.cma;
-
-import com.cma.UserWebRole;
 import javax.persistence.Entity;
 
 privileged aspect UserWebRole_Roo_Jpa_Entity {
     
     declare @type: UserWebRole: @Entity;
-    
+
 }

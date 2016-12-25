@@ -3,22 +3,20 @@ import org.springframework.roo.addon.javabean.RooJavaBean;
 import org.springframework.roo.addon.jpa.activerecord.RooJpaActiveRecord;
 import org.springframework.roo.addon.tostring.RooToString;
 
-import javax.persistence.EntityManager;
-import javax.persistence.OneToOne;
-import javax.persistence.Query;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @RooJavaBean
 @RooToString
 @RooJpaActiveRecord
 public class MapStudent {
-    @OneToOne
+    @OneToOne(cascade= {CascadeType.PERSIST, CascadeType.REMOVE}, fetch= FetchType.EAGER)
     private Student initStudent;
 
-    @OneToOne
+    @OneToOne(cascade= {CascadeType.PERSIST, CascadeType.REMOVE}, fetch=FetchType.EAGER)
     private Student revisedStudent;
 
-    @OneToOne
+    @OneToOne(cascade= {CascadeType.PERSIST, CascadeType.REMOVE}, fetch=FetchType.EAGER)
     private Student upToDateStudent;
 
 

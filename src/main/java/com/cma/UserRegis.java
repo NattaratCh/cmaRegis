@@ -50,7 +50,6 @@ public class UserRegis {
 
     public static UserRegis getUserRegis(Student student){
         EntityManager entityManager = MapStudent.entityManager();
-        String sql = "";
         Query query = null;
         if(student != null){
             query = entityManager.createQuery("select e from UserRegis e where e.studentProfile= :student");

@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form"
      xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags"
-     xmlns:c="http://java.sun.com/jsp/jstl/core" version="2.0">
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:sec="http://www.springframework.org/security/tags" version="2.0">
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
+    <style>
+        .ui-helper-hidden-accessible {
+            clip: initial !important;
+        }
+    </style>
     <script>
+        <![CDATA[
         var currentTab = 0;
         $(function () {
             $("#tabs").tabs({
@@ -14,36 +21,24 @@
             });
         });
 
-        var runningEducationId = 0;
-        function addEducationRow(x){
-            var html = "<tr>"+
-                    "    <td>"+
-                    "        <select name="education_profile[].degree">"+
-            "            <c:forEach items="${educationDegree}" var="item">"+
-            "                <option value="${item.value}"><c:out value="${item.label}"/></option>"+
-            "            </c:forEach>"+
-            "        </select>"+
-            "    </td>"+
-            "    <td><input type="text" name="education_profile[].field" value=""/></td>"+
-            "    <td><input type="text" name="education_profile[].university" value=""/></td>"+
-            "    <td><input type="text" name="education_profile[].graduation_year" value=""/></td>"+
-            "    <td><button type="button" id="delete-ducation" onclick="removeEducationRow(this);">-</button></td>"+
-            "</tr>";
-            alert(html);
-            /*var runningId = "education_profile["+runningEducationId+"]";
-            html = html.replace(/education_profile[]/g,runningId);
-            alert(html);
-            $("#educationTable tr:last').after(html);
-            runningEducationId = runningEducationId+1;*/
-        }
-
-        function removeEducationRow(x){
-            var row_index = x.parentNode.parentNode.rowIndex;
-            alert(row_index);
-            $('#educationTable > thead > tr').eq(row_index).remove();
-        }
+        $(function() {
+            $("#_bdateString_id").datepicker({
+                changeMonth: true,
+                changeYear: true,
+                dateFormat: 'dd M yy',
+                yearRange: "${minyear}}:${maxyear}",
+                isBuddhist: true,
+                dayNames: ['อาทิตย์','จันทร์','อังคาร','พุธ','พฤหัสบดี','ศุกร์','เสาร์'],
+                dayNamesMin: ['อา.','จ.','อ.','พ.','พฤ.','ศ.','ส.'],
+                monthNames: ['มกราคม','กุมภาพันธ์','มีนาคม','เมษายน','พฤษภาคม','มิถุนายน','กรกฎาคม','สิงหาคม','กันยายน','ตุลาคม','พฤศจิกายน','ธันวาคม'],
+                monthNamesShort: ['ม.ค.','ก.พ.','มี.ค.','เม.ย.','พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.','พ.ย.','ธ.ค.'],
+                defaultDate: "-20y"
+            });
+        });
+        ]]>
     </script>
-    <form:create id="fc_com_cma_Student" modelAttribute="student" path="/std_profiles" render="${empty dependencies}" z="oBNWepuDeVgTD5q2sC95qKleONE=">
+    <form:create id="fc_com_cma_Student" modelAttribute="student" path="/std_profiles" render="${empty dependencies}" z="user-managed">
+        <input type="hidden" name="dataState" value="${dataState}"/>
         <div id="tabs">
             <ul>
                 <li><a href="#tabs-1">ข้อมูลส่วนตัวและครอบครัว</a></li>
@@ -51,12 +46,33 @@
                 <li><a href="#tabs-3">ข้อมูลเพิ่มเติม</a></li>
             </ul>
             <div id="tabs-1">
-                <field:input field="titleTh" id="c_com_cma_Student_titleTh" z="DApysTjkj5dtsudbER7PtTz2BOc="/>
-                <field:input field="firstnameTh" id="c_com_cma_Student_firstnameTh" z="T+VuJWdCha56YERu+1fA2lZtEHY="/>
-                <field:input field="lastnameTh" id="c_com_cma_Student_lastnameTh" z="UHGbhez2L9CuNMFJ0w5a/s1KK+c="/>
-                <field:input field="titleEn" id="c_com_cma_Student_titleEn" z="mGxkBViZd/R6Dc1rjr19f+rcepc="/>
-                <field:input field="firstnameEn" id="c_com_cma_Student_firstnameEn" z="R2AbTqVlTZGOHugPgdu6hG9LWrw="/>
-                <field:input field="lastnameEn" id="c_com_cma_Student_lastnameEn" z="lvzHtOXQna/38iaP+ySFQQYOgo8="/>
+                <div>
+                    <spring:message code="label_com_cma_std_profile_print_training3" var="batch_label"/>
+                    <div><label for="batchId"><c:out value="${batch_label}"/> : </label></div>
+                    <select id="batchId" name="batchId">
+                        <c:forEach items="${batchList}" var="item">
+                            <c:choose>
+                                <c:when test="${item.id==class_id}">
+                                    <option value="${item.id}" selected="true">
+                                        ${item.nameTh}/${item.nameEn}
+                                    </option>
+                                </c:when>
+                                <c:otherwise>
+                                    <option value="${item.id}">
+                                        ${item.nameTh}/${item.nameEn}
+                                    </option>
+                                </c:otherwise>
+                            </c:choose>
+                        </c:forEach>
+                    </select>
+                </div>
+                <br/>
+                <field:input field="titleTh" id="c_com_cma_Student_titleTh" required="true" z="DApysTjkj5dtsudbER7PtTz2BOc="/>
+                <field:input field="firstnameTh" id="c_com_cma_Student_firstnameTh" required="true" z="T+VuJWdCha56YERu+1fA2lZtEHY="/>
+                <field:input field="lastnameTh" id="c_com_cma_Student_lastnameTh" required="true" z="UHGbhez2L9CuNMFJ0w5a/s1KK+c="/>
+                <field:input field="titleEn" id="c_com_cma_Student_titleEn" required="true" z="mGxkBViZd/R6Dc1rjr19f+rcepc="/>
+                <field:input field="firstnameEn" id="c_com_cma_Student_firstnameEn" required="true" z="R2AbTqVlTZGOHugPgdu6hG9LWrw="/>
+                <field:input field="lastnameEn" id="c_com_cma_Student_lastnameEn" required="true" z="lvzHtOXQna/38iaP+ySFQQYOgo8="/>
                 <field:input field="nickname" id="c_com_cma_Student_nickname" z="avRvE4q5bhTsYjwA1npts/3gQpA="/>
                 <field:select required="true" id="c_com_cma_Student_sex" field="sex" itemLabel="sexLabel" itemValue="sexValue" items="${sexList}"/>
                 <field:inputNonDec field="bdateString" id="c_com_cma_Student_bdateString" readonly="true" required="true" z="user-managed"/>
@@ -85,34 +101,13 @@
                 <field:input field="district" id="c_com_cma_Student_district" required="true" z="user-managed"/>
                 <field:input field="province" id="c_com_cma_Student_province" required="true" z="oHa1l7qaCmg6ZJXM4WmPOC1Fdj8="/>
                 <field:input field="postalCode" id="c_com_cma_Student_postalCode" validationMessageCode="field_invalid_postcode" required="true" z="HgUcuoA7liuS+mWmXsdSoFvVecY="/>
+                <sec:authorize ifAllGranted="ROLE_ADMIN">
+                    <field:textarea field="homeFullAddress" id="c_com_cma_Student_homeFullAddress" z="user-managed"/>
+                </sec:authorize>
                 <field:inputTel field="hometel1" type="phone" required="false"/>
                 <field:inputTel field="hometel2" type="phone" required="false"/>
                 <field:inputTel field="homefax" type="other" required="false"/>
 
-                <!-- education -->
-                <spring:message code="label_com_cma_std_profile_print_header6" var="header6"/>
-                <div id="fieldHeader">
-                    ${header6}
-                </div>
-                <spring:message code="label_com_cma_std_profile_print_educationLevel" var="educationLevel"/>
-                <spring:message code="label_com_cma_std_profile_print_education1" var="education1"/>
-                <spring:message code="label_com_cma_std_profile_print_education2" var="education2"/>
-                <spring:message code="label_com_cma_std_profile_print_education3" var="education3"/>
-                <table id="educationTable">
-                    <thead>
-                    <tr>
-                        <th>${educationLevel}</th>
-                        <th>${education1}</th>
-                        <th>${education2}</th>
-                        <th>${education3}</th>
-                        <th></th>
-                    </tr>
-                    </thead>
-                </table>
-                <div>
-                    <button type="button" class="btn btn-success" onclick="addEducationRow(this);">Add</button>
-                </div>
-                <br/>
             </div>
             <div id="tabs-2">
                 <field:input field="positionTh" id="c_com_cma_Student_positionTh" required="true" z="MzMnAO6qUvOgrBKb+qK66W7Um5o="/>
@@ -135,11 +130,16 @@
                 <field:input field="institutionDistrict" id="c_com_cma_Student_institutionDistrict" required="true" z="user-managed"/>
                 <field:input field="institutionProvince" id="c_com_cma_Student_institutionProvince" required="true" z="50YgOwoSAD/wVAFV96XuCgDX9/4="/>
                 <field:input field="institutionPostalCode" id="c_com_cma_Student_institutionPostalCode" validationMessageCode="field_invalid_postcode" required="true" z="MwVNk2zduoM+itCLoP7rTRBWnZY="/>
+                <sec:authorize ifAllGranted="ROLE_ADMIN">
+                    <field:textarea field="workFullAddress" id="c_com_cma_Student_workFullAddress" z="user-managed"/>
+                </sec:authorize>
                 <field:inputTel field="worktel1" type="phone" required="false"/>
                 <field:inputTel field="worktel2" type="phone" required="false"/>
                 <field:inputTel field="workfax" type="other" required="false"/>
+                <field:input field="collboratorTitle" id="c_com_cma_Student_collboratorTitle" z="user-managed"/>
                 <field:input field="collboratorFirstName" id="c_com_cma_Student_collboratorFirstName" z="jcyBuE0TRKt+qiHMtpjcT5Hz+r8="/>
                 <field:input field="collboratorLastName" id="c_com_cma_Student_collboratorLastName" z="mXmSAZqg0+OnDoWFWnxxRwzqN80="/>
+                <field:input field="collboratorPosition" id="c_com_cma_Student_collboratorPosition" z="user-managed"/>
                 <field:inputTel field="collboratorMobile" type="mobile" required="false"/>
                 <field:inputTel field="collboratorTel" type="phone" required="false"/>
                 <field:inputTel field="collboratorFax" type="other" required="false"/>
@@ -180,6 +180,68 @@
                     <field:input required="false" field="taxId" id="c_com_cma_student_taxId" z="user-managed"/>
                     <field:textarea required="false" field="receiptDetailAddress" id="c_com_cma_student_receiptDetailAddress" z="/N7m+kAHltAZuzZFyOaED6Q6X/A="/>
                 </div>
+                <br/>
+                <spring:message code="label_com_cma_student_permission" var="permission_header"/>
+                <div id="fieldHeader">
+                    ${permission_header}
+                </div>
+
+                <spring:message code="label_com_cma_student_permission.0" var="permission0"/>
+                <spring:message code="label_com_cma_student_permission.1" var="permission1"/>
+                <spring:message code="label_com_cma_student_permission.2" var="permission2"/>
+                <spring:message code="label_com_cma_student_permission.3" var="permission3"/>
+                <spring:message code="label_com_cma_student_permission.4" var="permission4"/>
+                <spring:message code="label_com_cma_student_permission.5" var="permission5"/>
+                <c:choose>
+                    <c:when test="${std_profile.permission == null || std_profile.permission == 0}">
+                        <input type="radio" name="permission" value="0" checked="checked"/><c:out value="${permission0}"/><br/>
+                    </c:when>
+                    <c:otherwise>
+                        <input type="radio" name="permission" value="0"/><c:out value="${permission0}"/><br/>
+                    </c:otherwise>
+                </c:choose>
+                <c:choose>
+                    <c:when test="${std_profile.permission == 1}">
+                        <input type="radio" name="permission" value="1" checked="checked"/><c:out value="${permission1}"/><br/>
+                    </c:when>
+                    <c:otherwise>
+                        <input type="radio" name="permission" value="1"/><c:out value="${permission1}"/><br/>
+                    </c:otherwise>
+                </c:choose>
+                <c:choose>
+                    <c:when test="${ std_profile.permission == 2}">
+                        <input type="radio" name="permission" value="2" checked="checked"/><c:out value="${permission2}"/><br/>
+                    </c:when>
+                    <c:otherwise>
+                        <input type="radio" name="permission" value="2"/><c:out value="${permission2}"/><br/>
+                    </c:otherwise>
+                </c:choose>
+                <c:choose>
+                    <c:when test="${ std_profile.permission == 3}">
+                        <input type="radio" name="permission" value="3" checked="checked"/><c:out value="${permission3}"/><br/>
+                    </c:when>
+                    <c:otherwise>
+                        <input type="radio" name="permission" value="3"/><c:out value="${permission3}"/><br/>
+                    </c:otherwise>
+                </c:choose>
+                <c:choose>
+                    <c:when test="${ std_profile.permission == 4}">
+                        <input type="radio" name="permission" value="4" checked="checked"/><c:out value="${permission4}"/><br/>
+                    </c:when>
+                    <c:otherwise>
+                        <input type="radio" name="permission" value="4"/><c:out value="${permission4}"/><br/>
+                    </c:otherwise>
+                </c:choose>
+                <c:choose>
+                    <c:when test="${ std_profile.permission == 5}">
+                        <input type="radio" name="permission" value="5" checked="checked"/><c:out value="${permission5}"/><br/>
+                    </c:when>
+                    <c:otherwise>
+                        <input type="radio" name="permission" value="5"/><c:out value="${permission5}"/><br/>
+                    </c:otherwise>
+                </c:choose>
+                <br/>
+
             </div>
         </div>
     </form:create>

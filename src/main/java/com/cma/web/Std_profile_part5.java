@@ -171,6 +171,14 @@ public class Std_profile_part5 {
         this.taxId = taxId;
     }
 
+    public Integer getPermission() {
+        return permission;
+    }
+
+    public void setPermission(Integer permission) {
+        this.permission = permission;
+    }
+
     @NotNull
     private Long id;
 
@@ -221,5 +229,7 @@ public class Std_profile_part5 {
     private String receiptDetailAddress;
 
     private String taxId;
+
+    private Integer permission;
 
 }
