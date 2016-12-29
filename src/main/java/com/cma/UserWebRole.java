@@ -9,12 +9,13 @@ import java.util.List;
 
 @RooJavaBean
 @RooToString
-@RooJpaActiveRecord(versionField = "")
+@RooJpaActiveRecord(versionField = "", identifierField = "user_id")
 public class UserWebRole implements Serializable {
 
     @Id
     @OneToOne
     @JoinColumn(name = "user_id")
+    @GeneratedValue
     private UserWeb userWeb;
 
     @OneToOne

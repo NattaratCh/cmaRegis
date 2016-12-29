@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page"
-     xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:c="http://java.sun.com/jsp/jstl/core" version="2.0">
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <page:show id="ps_com_cma_Batch" object="${batch}" path="/std_classes" z="fX+eCCyDAroAxfHWNlE9BvodpzU=">
@@ -11,13 +10,13 @@
             </div>
         </div>
         <br/>
-        <field:display field="course" id="s_com_cma_Batch_course" render="false" object="${batch}" z="NGzgmt/fujI0LOOMY6Khs2mRHbA="/>
+        <field:display field="course" id="s_com_cma_Batch_course" object="${batch}" render="false" z="user-managed"/>
         <field:display field="nameTh" id="s_com_cma_Batch_nameTh" object="${batch}" z="U5xKhSzsqK7RYdo2ax0TrT96YHA="/>
         <field:display field="nameEn" id="s_com_cma_Batch_nameEn" object="${batch}" z="/nLyxYiRffxQ8vEF6VKCCt6Edbs="/>
         <field:display field="number" id="s_com_cma_Batch_number" object="${batch}" z="k6pMEVUPMRTvzn2cI25eXkOfZMg="/>
         <field:display date="true" dateTimePattern="${batch_start_date_date_format}" field="start_date" id="s_com_cma_Batch_start_date" object="${batch}" z="nDgrVeLyLb2+g9OkrOnDHrSLl6A="/>
         <field:display date="true" dateTimePattern="${batch_end_date_date_format}" field="end_date" id="s_com_cma_Batch_end_date" object="${batch}" z="putGnIi4hNtzj28IRs+wIoLf9AM="/>
-        <field:display field="std_profileSet" id="s_com_cma_Batch_std_profileSet" render="false" object="${batch}" z="user-managed"/>
+        <field:display field="std_profileSet" id="s_com_cma_Batch_std_profileSet" object="${batch}" render="false" z="user-managed"/>
         <field:display field="file1" id="s_com_cma_Batch_file1" object="${batch}" z="USNLdpFZSBuYjzuq+f8zrPxcgzU="/>
         <field:display field="file2" id="s_com_cma_Batch_file2" object="${batch}" z="NDZ7zYE2+Q4cDTuZdb7GsleJgpk="/>
         <field:display field="file3" id="s_com_cma_Batch_file3" object="${batch}" z="060oOCyXQYC9qASiSssmHFtE6Z0="/>
@@ -37,5 +36,7 @@
         <field:display field="uploadfile5" id="s_com_cma_Batch_uploadfile5" object="${batch}" render="false" z="user-managed"/>
         <field:display field="remark" id="s_com_cma_Batch_remark" object="${batch}" z="TZf754I0MSRQ02qRjsVi+zycz+I="/>
         <field:display field="type" id="s_com_cma_Batch_type" object="${batch}" z="XuEg8TNOAEO9Mlg8E8vj+OCsiaM="/>
+        <field:display field="activityCalendarFile" id="s_com_cma_Batch_activityCalendarFile" object="${batch}" z="NnJgNn5Keujct63sX3Y/GQZv2yE="/>
+        <field:display field="directoryFile" id="s_com_cma_Batch_directoryFile" object="${batch}" z="K6mhcdgKB9jS25XD04thh6gMmfk="/>
     </page:show>
 </div>

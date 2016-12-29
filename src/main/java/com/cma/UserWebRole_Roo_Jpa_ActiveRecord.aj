@@ -41,9 +41,9 @@ privileged aspect UserWebRole_Roo_Jpa_ActiveRecord {
         return entityManager().createQuery(jpaQuery, UserWebRole.class).getResultList();
     }
     
-    public static UserWebRole UserWebRole.findUserWebRole(UserWeb userWeb) {
-        if (userWeb == null) return null;
-        return entityManager().find(UserWebRole.class, userWeb);
+    public static UserWebRole UserWebRole.findUserWebRole(Long user_id) {
+        if (user_id == null) return null;
+        return entityManager().find(UserWebRole.class, user_id);
     }
     
     public static List<UserWebRole> UserWebRole.findUserWebRoleEntries(int firstResult, int maxResults) {
@@ -66,14 +66,14 @@ privileged aspect UserWebRole_Roo_Jpa_ActiveRecord {
         if (this.entityManager == null) this.entityManager = entityManager();
         this.entityManager.persist(this);
     }
-
+    
     @Transactional
     public void UserWebRole.remove() {
         if (this.entityManager == null) this.entityManager = entityManager();
         if (this.entityManager.contains(this)) {
             this.entityManager.remove(this);
         } else {
-            UserWebRole attached = UserWebRole.findUserWebRole(this.userWeb);
+            UserWebRole attached = UserWebRole.findUserWebRole(this.user_id);
             this.entityManager.remove(attached);
         }
     }

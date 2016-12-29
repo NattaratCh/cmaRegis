@@ -26,7 +26,7 @@
                 changeMonth: true,
                 changeYear: true,
                 dateFormat: 'dd M yy',
-                yearRange: "${minyear}}:${maxyear}",
+                yearRange: "${minyear}:${maxyear}",
                 isBuddhist: true,
                 dayNames: ['อาทิตย์','จันทร์','อังคาร','พุธ','พฤหัสบดี','ศุกร์','เสาร์'],
                 dayNamesMin: ['อา.','จ.','อ.','พ.','พฤ.','ศ.','ส.'],

@@ -10,8 +10,8 @@
 <definition extends="default" name="std_profiles/create">
         <put-attribute name="body" value="/WEB-INF/views/std_profiles/create.jspx"/>
     </definition>
-<definition extends="default" name="std_profiles/createEducation">
-        <put-attribute name="body" value="/WEB-INF/views/std_profiles/createEducation.jspx"/>
+<definition extends="default" name="std_profiles/createExtraProfile">
+        <put-attribute name="body" value="/WEB-INF/views/std_profiles/createExtraProfile.jspx"/>
     </definition>
 
 <definition extends="default" name="std_profiles/update">

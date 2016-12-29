@@ -24,12 +24,12 @@
     <context:spring-configured/>
     <!--
         This declaration will cause Spring to locate every @Component,
-        @Repository and @Service in your application. In practical terms this
+        @Repository and @utils in your application. In practical terms this
         allows you to write a POJO and then simply annotate the new POJO as an
-        @Service and Spring will automatically detect, instantiate and
-        dependency inject your service at startup time. Importantly, you can
-        then also have your new service injected into any other class that
-        requires it simply by declaring a field for your service inside the
+        @utils and Spring will automatically detect, instantiate and
+        dependency inject your utils at startup time. Importantly, you can
+        then also have your new utils injected into any other class that
+        requires it simply by declaring a field for your utils inside the
         relying class and Spring will inject it. Note that two exclude filters
         are declared. The first ensures that Spring doesn't spend time
         introspecting Roo-specific ITD aspects. The second ensures Roo doesn't

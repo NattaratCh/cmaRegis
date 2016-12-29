@@ -4,6 +4,7 @@ import com.cma.*;
 import com.cma.common.EducationDegree;
 import com.cma.common.MailManager;
 import com.cma.common.Sexdropdown;
+import com.cma.utils.StudentUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.joda.time.format.DateTimeFormat;
@@ -12,7 +13,6 @@ import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.roo.addon.web.mvc.controller.scaffold.RooWebScaffold;
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.interceptor.TransactionAspectSupport;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
@@ -1065,44 +1065,13 @@ public class Std_profileController {
                 student.setHometel1(student.getFronthometel1() + student.getMiddlehometel1() + student.getLasthometel1());
                 student.setHometel2(student.getFronthometel2() + student.getMiddlehometel2() + student.getLasthometel2());
                 student.setHomefax(student.getFronthomefax() + student.getMiddlehomefax() + student.getLasthomefax());
-                student.setDataState(dataState);
+                student.setDataState(dataState.toUpperCase());
                 student.setStudentClass(batch);
                 student.setPermission(permission);
 
                 uiModel.asMap().clear();
-                student.persist();
+                Student initStudent = StudentUtils.createStudent(student, StudentDataState.INIT, batch);
 
-                log.info("create() | add userRegis");
-                int maxUserId=getLastRecord(batch.getId());
-                maxUserId ++;
-
-                UserRegis userRegis = new UserRegis();
-                userRegis.setEnabled(true);
-                userRegis.setUsername(batch.getNameEn() + "_" + (String.format("%03d", maxUserId)));
-                String password = genPassword(8);
-                userRegis.setPassword(sha256(password));
-                userRegis.setStudentProfile(student);
-
-                AttachFile attachFile = new AttachFile();
-                attachFile.setUploadSlip2(false);
-                attachFile.setUploadSlip1(false);
-                attachFile.setUploadPf(false);
-                attachFile.setUploadPassport(false);
-                attachFile.setUploadPhoto(false);
-                attachFile.setUploadApec(false);
-                attachFile.setUploadNamecard(false);
-                attachFile.setUploadIdcard(false);
-                attachFile.setStdProfile(student);
-                attachFile.persist();
-
-                UserRegisRole role_unchange = UserRegisRole.findUserRegisRoleByRoleName("ROLE_USER_UNCHANGE");
-                userRegis.setUserRole(role_unchange);
-                userRegis.persist();
-
-                log.info("create() | create map student");
-                MapStudent mapStudent = new MapStudent();
-                mapStudent.setInitStudent(student);
-                mapStudent.persist();
             }catch (Exception e){
                 log.info("create() | error");
                 e.printStackTrace();
@@ -1119,58 +1088,11 @@ public class Std_profileController {
                 student.setHometel1(student.getFronthometel1() + student.getMiddlehometel1() + student.getLasthometel1());
                 student.setHometel2(student.getFronthometel2() + student.getMiddlehometel2() + student.getLasthometel2());
                 student.setHomefax(student.getFronthomefax() + student.getMiddlehomefax() + student.getLasthomefax());
-                student.setDataState(dataState);
+                student.setDataState(dataState.toUpperCase());
                 student.setStudentClass(batch);
                 student.setPermission(permission);
 
-                uiModel.asMap().clear();
-                student.persist();
-
-                log.info("add uptodate student");
-                Student uptodateStudent = StudentUtils.copyStudent(student);
-                uptodateStudent.persist();
-
-                AttachFile attachFile = new AttachFile();
-                attachFile.setUploadSlip2(false);
-                attachFile.setUploadSlip1(false);
-                attachFile.setUploadPf(false);
-                attachFile.setUploadPassport(false);
-                attachFile.setUploadPhoto(false);
-                attachFile.setUploadApec(false);
-                attachFile.setUploadNamecard(false);
-                attachFile.setUploadIdcard(false);
-                attachFile.setStdProfile(student);
-                attachFile.persist();
-
-                log.info("create() | create userweb");
-                UserWeb userWeb = new UserWeb();
-                String username = batch.getCourse().getCode()+(batch.getNumber() != null ? batch.getNumber() : "") +"_"+student.getFirstnameEn().toLowerCase();
-                String password = batch.getCourse().getCode()+batch.getNumber();
-                if(student.getBirthdate() != null){
-                    password = passwordFormat.format(student.getBirthdate());
-                }
-
-                userWeb.setUsername(StudentUtils.generateUsername(student, batch));
-                userWeb.setPassword(StudentUtils.bCryptEncode(password));
-                userWeb.persist();
-
-                uptodateStudent.setUserWeb(userWeb);
-
-                WebRole webRole = WebRole.getWebRole("ROLE_USER");
-                if(webRole != null){
-                    // map user_web with role
-                    log.info("create() | create userWebRole");
-                    UserWebRole userWebRole = new UserWebRole();
-                    userWebRole.setUserWeb(userWeb);
-                    userWebRole.setWebRole(webRole);
-                    userWebRole.persist();
-                }
-
-                log.info("create() | create map student");
-                MapStudent mapStudent = new MapStudent();
-                mapStudent.setRevisedStudent(student);
-                mapStudent.setUpToDateStudent(uptodateStudent);
-                mapStudent.persist();
+                Student revisedStudent = StudentUtils.createStudent(student, StudentDataState.REVISED, batch);
 
             }catch (Exception e){
                 e.printStackTrace();
@@ -1180,7 +1102,7 @@ public class Std_profileController {
         }
 
        // return "redirect:/std_profiles/" + encodeUrlPathSegment(student.getId().toString(), httpServletRequest);
-        return "redirect:/std_profiles/"+student.getId()+"?createEducationForm";
+        return "redirect:/std_profiles/"+student.getId()+"?createExtraProfileForm";
     }
 
 
@@ -1209,19 +1131,133 @@ public class Std_profileController {
         return "std_profiles/create";
     }
 
-    @RequestMapping(method = RequestMethod.POST, params = "createEducationForm", produces = "text/html")
-    public String createEducation(@Valid EducationProfileList educationProfileList, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest){
-        return null;
+    @RequestMapping(method = RequestMethod.POST, value = "createExtraProfile", produces = "text/html")
+    public String createExtraProfile(@Valid ExtraProfileList extraProfileList, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest){
+        Long studentId = Long.valueOf(httpServletRequest.getParameter("studentId"));
+        Student student = Student.findStudent(studentId);
+        if (bindingResult.hasErrors()) {
+            uiModel.addAttribute("extraProfileList", extraProfileList);
+            uiModel.addAttribute("student", student);
+            addSelectedItem2(uiModel);
+            return "std_profiles/createExtraProfile";
+        }
+
+        student.setMarriedStatus(extraProfileList.getMarriedStatus());
+        log.info("createExtraProfile() | create spouse for student id : "+studentId);
+        student.setSpouseFirstName(extraProfileList.getSpouseFirstName());
+        student.setSpouseLastName(extraProfileList.getSpouseLastName());
+        student.setSpouseCareer(extraProfileList.getSpouseCareer());
+        student.setSpouseInstitution(extraProfileList.getSpouseInstitution());
+        student.setSpouseBdateString(extraProfileList.getSpouseBdateString());
+        Date bday = null;
+        try {
+            bday = df.parse(extraProfileList.getSpouseBdateString());
+        } catch (ParseException e) {
+        }
+        student.setSpouseBirthDay(bday);
+        student.setSpouseNationality(extraProfileList.getSpouseNationality());
+        student.setSpouseRace(extraProfileList.getSpouseRace());
+        student.setSpouseReligion(extraProfileList.getSpouseReligion());
+
+        //children
+        if(extraProfileList.getChildren_profiles() != null && extraProfileList.getChildren_profiles().size() > 0){
+            log.info("createExtraProfile() | create children for student id : "+studentId);
+            List<Children_profile> childrenProfileList = extraProfileList.getChildren_profiles();
+            for(Children_profile childrenProfile : childrenProfileList){
+                if(childrenProfile != null &&
+                        childrenProfile.getFirstName() != null && childrenProfile.getLastName() != null &&
+                        !childrenProfile.getFirstName().equals("") && !childrenProfile.getLastName().equals("")){
+                    try{
+                        Children_profile child = new Children_profile();
+                        child.setFirstName(childrenProfile.getFirstName());
+                        child.setLastName(childrenProfile.getLastName());
+                        child.setCareer(childrenProfile.getCareer());
+                        child.setChildrenBdateString(childrenProfile.getChildrenBdateString());
+                        try {
+                            bday = df.parse(childrenProfile.getChildrenBdateString());
+                        } catch (ParseException e) {
+                        }
+                        child.setBirthday(bday);
+                        child.setNationality(childrenProfile.getNationality());
+                        child.setRace(childrenProfile.getRace());
+                        child.setReligion(childrenProfile.getReligion());
+                        child.setStudentProfile(student);
+                        child.persist();
+                    }catch (Exception e){
+                        log.info("createExtraProfile() | error : "+e.getMessage());
+                        e.printStackTrace();
+                    }
+
+                }
+            }
+        }
+
+        //education
+        if(extraProfileList.getEducation_profiles() != null && extraProfileList.getEducation_profiles().size() > 0){
+            log.info("createExtraProfile() | create education for student id : "+studentId);
+            List<Education_profile> educationProfileList = extraProfileList.getEducation_profiles();
+            for(Education_profile educationProfile : educationProfileList){
+                if(educationProfile != null &&
+                        educationProfile.getField() != null && !educationProfile.getField().equals("") &&
+                        educationProfile.getGraduateYear() != null && !educationProfile.getGraduateYear().equals("") &&
+                        educationProfile.getUniversity() != null && !educationProfile.getUniversity().equals("")){
+                    try{
+                        Education_profile education = new Education_profile();
+                        education.setStudentProfile(student);
+                        education.setDegree(educationProfile.getDegree());
+                        education.setField(educationProfile.getField());
+                        education.setGraduateYear(educationProfile.getGraduateYear());
+                        education.setUniversity(educationProfile.getUniversity());
+                        education.persist();
+                    }catch (Exception e){
+                        log.info("createExtraProfile() | error : "+e.getMessage());
+                        e.printStackTrace();
+                    }
+
+                }
+            }
+
+        }
+
+        //training
+        if(extraProfileList.getTraining_profiles() != null && extraProfileList.getTraining_profiles().size() > 0){
+            log.info("createExtraProfile() | create training for student id : "+studentId);
+            List<Training_profile> trainingProfileList = extraProfileList.getTraining_profiles();
+            for(Training_profile trainingProfile : trainingProfileList){
+                if(trainingProfile != null &&
+                        trainingProfile.getTrainingClass() != null && !trainingProfile.getTrainingClass().equals("") &&
+                        trainingProfile.getTrainingInstitute() != null && !trainingProfile.getTrainingInstitute().equals("") &&
+                        trainingProfile.getTrainingName() != null && !trainingProfile.getTrainingName().equals("") &&
+                        trainingProfile.getTrainingYear() != null && !trainingProfile.getTrainingYear().equals("")){
+                    try{
+                        Training_profile training_profile = new Training_profile();
+                        training_profile.setStudentProfile(student);
+                        training_profile.setTrainingClass(trainingProfile.getTrainingClass());
+                        training_profile.setTrainingInstitute(trainingProfile.getTrainingInstitute());
+                        training_profile.setTrainingName(trainingProfile.getTrainingName());
+                        training_profile.setTrainingYear(trainingProfile.getTrainingYear());
+                        training_profile.persist();
+                    } catch (Exception e){
+                        log.info("createExtraProfile() | error : "+e.getMessage());
+                        e.printStackTrace();
+                    }
+
+                }
+            }
+        }
+        uiModel.asMap().clear();
+        return "redirect:/std_profiles/" + encodeUrlPathSegment(student.getId().toString(), httpServletRequest);
     }
 
-    @RequestMapping(value = "/{id}", params = "createEducationForm", produces = "text/html")
-    public String createEducationForm(@PathVariable("id") Long id, Model uiModel, HttpServletRequest httpServletRequest){
-        EducationProfileList educationProfileList = new EducationProfileList();
+    @RequestMapping(value = "/{id}", params = "createExtraProfileForm", produces = "text/html")
+    public String createExtraProfileForm(@PathVariable("id") Long id, Model uiModel, HttpServletRequest httpServletRequest){
+        ExtraProfileList extraProfileList = new ExtraProfileList();
         Student student = Student.findStudent(id);
 
-        uiModel.addAttribute("educationProfileList", educationProfileList);
+        uiModel.addAttribute("extraProfileList", extraProfileList);
         uiModel.addAttribute("student", student);
-        return "std_profiles/createEducation";
+        addSelectedItem2(uiModel);
+        return "std_profiles/createExtraProfile";
     }
 
     @RequestMapping(value = "/{id}", params = "print" , produces = "text/html")

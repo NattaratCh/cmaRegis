@@ -10,7 +10,7 @@
                 changeMonth: true,
                 changeYear: true,
                 dateFormat: 'dd M yy',
-                yearRange: "${minyearSpouse}}:${maxyearSpouse}",
+                yearRange: "${minyearSpouse}:${maxyearSpouse}",
                 isBuddhist: true,
                 dayNames: ['อาทิตย์','จันทร์','อังคาร','พุธ','พฤหัสบดี','ศุกร์','เสาร์'],
                 dayNamesMin: ['อา.','จ.','อ.','พ.','พฤ.','ศ.','ส.'],

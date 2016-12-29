@@ -8,6 +8,7 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -15,7 +16,7 @@ import java.util.Set;
 @RooJavaBean
 @RooToString
 @RooJpaActiveRecord
-public class Batch {
+public class Batch implements Serializable {
 
     @NotNull
     @Column(unique = true)

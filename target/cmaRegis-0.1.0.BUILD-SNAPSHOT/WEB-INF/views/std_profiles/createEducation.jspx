@@ -21,16 +21,16 @@
     function addEducationRow(x){
       var html = '<tr>';
       html += '    <td>';
-      html +=         '        <select name="educationDegree['+runningEducationId+']">';
+      html +=         '        <select name="education_profiles['+runningEducationId+'].degree">';
       html +=         '           <option value="Bachelor">ปริญญาตรี</option>';
       html +=         '           <option value="Master">ปริญญาโท</option>';
       html +=         '           <option value="PhD">ปริญญาเอก</option>';
       html +=         '        </select>';
       html +=         '    </td>';
-      html +=         '    <td><input type="text" name="educationField['+runningEducationId+']" value=""/></td>';
-      html +=         '    <td><input type="text" name="educationUniversity['+runningEducationId+']" value=""/></td>';
-      html +=        '    <td><input type="text" name="universityGraduationYear['+runningEducationId+']" value=""/></td>';
-      html +=        '    <td><button type="button" id="delete-ducation" onclick="removeEducationRow(this);">-</button></td>';
+      html +=         '    <td><input type="text" name="education_profiles['+runningEducationId+'].field" value=""/></td>';
+      html +=         '    <td><input type="text" name="education_profiles['+runningEducationId+'].university" value=""/></td>';
+      html +=        '    <td><input type="text" name="education_profiles['+runningEducationId+'].graduationYear" value=""/></td>';
+      html +=        '    <td><button type="button" id="delete-education" onclick="removeEducationRow(this);">-</button></td>';
       html +=        '</tr>';
       runningEducationId = runningEducationId +1;
       $('#educationTable tr:last').after(html);
@@ -40,11 +40,89 @@
       var row_index = x.parentNode.parentNode.rowIndex;
       $('#educationTable > thead > tr').eq(row_index).remove();
     }
+
+    var runningChildrenId = 0;
+    function addChildrenRow(x){
+        var html = '<tr>';
+        html +=         '    <td><input type="text" name="children_profiles['+runningEducationId+'].firstName" value=""/></td>';
+        html +=         '    <td><input type="text" name="children_profiles['+runningEducationId+'].lastName" value=""/></td>';
+        html +=        '    <td><input type="text" name="children_profiles['+runningEducationId+'].career" value=""/></td>';
+        html +=        '    <td><input type="text" name="children_profiles['+runningEducationId+'].childrenBdateString" value=""/></td>';
+        html +=        '    <td><input type="text" name="children_profiles['+runningEducationId+'].race" value=""/></td>';
+        html +=        '    <td><input type="text" name="children_profiles['+runningEducationId+'].nationality" value=""/></td>';
+        html +=        '    <td><input type="text" name="children_profiles['+runningEducationId+'].religion" value=""/></td>';
+        html +=        '    <td><button type="button" id="delete-children" onclick="removeChildrenRow(this);">-</button></td>';
+        html +=        '</tr>';
+        runningChildrenId = runningChildrenId +1;
+        $('#childrenTable tr:last').after(html);
+    }
+
+    function removeChildrenRow(x){
+        var row_index = x.parentNode.parentNode.rowIndex;
+        $('#childrenTable > thead > tr').eq(row_index).remove();
+    }
+
+    $("#_marriedStatus_id").change(function () {
+        var marriedStatus = $("#_marriedStatus_id option:selected").val();
+        if(marriedStatus == 'สมรส'){
+            $("#spouseDetail").show();
+        }else{
+            $("#spouseDetail").hide();
+        }
+    });
     ]]>
   </script>
 
-  <!-- education -->
-  <form:create id="fc_com_cma_Student" modelAttribute="educationProfileList" path="/std_profiles" render="${empty dependencies}" z="user-managed">
+
+  <form:create id="fc_com_cma_Student" modelAttribute="extraProfileList" path="/std_profiles/createEducation" render="${empty dependencies}" z="user-managed">
+    <div id="familyHeader">
+      ข้อมูลครอบครัว
+    </div>
+    <spring:message code="label_com_cma_std_profile_update_compare" var="compare"/>
+    <field:select id="c_com_cma_Student_marriedStatus" field="marriedStatus" items="${marriagedStatusItems}"/>
+    <div id="spouseDetail" style="display:none;">
+      <field:input field="spouseFirstName" id="c_com_cma_Student_spouseFirstName" z="MC3esAcjOnMn7t9RoPpPqe00KZY="/>
+      <field:input field="spouseLastName" id="c_com_cma_Student_spouseLastName" z="Uu5Af3Gh2WE+RpFWY5EdJjKQHtE="/>
+      <field:input field="spouseCareer" id="c_com_cma_Student_spouseCareer" z="5JMboyOdsD4effdDqdsTq69gv5Q="/>
+      <field:input field="spouseInstitution" id="c_com_cma_Student_spouseInstitution" z="user-managed"/>
+      <field:inputNonDec field="spouseBdateString" readonly="true" id="c_com_cma_Student_spousebdateString" required="false" z="user-managed"/>
+      <field:input field="spouseRace" id="c_com_cma_Student_spouseRace" z="x64b5ij4A6+CGU5Sba7u/P38tlE="/>
+      <field:input field="spouseNationality" id="c_com_cma_Student_spouseNationality" z="wpNUdkxNgUolfZ5oS1/ipKP3xLQ="/>
+      <field:input field="spouseReligion" id="c_com_cma_Student_spouseReligion" z="qzDqTXny1pmjSaVRYXStPqeH/LE="/>
+    </div>
+
+    <!-- children -->
+    <spring:message code="label_com_cma_std_profile_print_header5" var="header5"/>
+    <div id="fieldHeader">
+      ${header5}
+    </div>
+    <spring:message code="label_com_cma_std_profile_print_column1" var="column1"/>
+    <spring:message code="label_com_cma_std_profile_print_column2" var="column2"/>
+    <spring:message code="label_com_cma_std_profile_print_column3" var="column3"/>
+    <spring:message code="label_com_cma_std_profile_print_column4" var="column4"/>
+    <spring:message code="label_com_cma_std_profile_print_column5" var="column5"/>
+    <spring:message code="label_com_cma_std_profile_print_column6" var="column6"/>
+    <spring:message code="label_com_cma_std_profile_print_column7" var="column7"/>
+    <table id="childrenTable">
+    <thead>
+    <tr>
+      <th>${column1}</th>
+      <th>${column2}</th>
+      <th>${column3}</th>
+      <th>${column4}</th>
+      <th>${column5}</th>
+      <th>${column6}</th>
+      <th>${column7}</th>
+      <th></th>
+    </tr>
+    </thead>
+    </table>
+    <div>
+      <button type="button" class="btn btn-success" onclick="addChildrenRow(this);">Add</button>
+    </div>
+    <br/>
+
+    <!-- education-->
     <spring:message code="label_com_cma_std_profile_print_header6" var="header6"/>
     <div id="fieldHeader">
       ${header6}
@@ -68,6 +146,9 @@
       <button type="button" class="btn btn-success" onclick="addEducationRow(this);">Add</button>
     </div>
     <br/>
+
+    <!-- training -->
+
   </form:create>
 </div>
 

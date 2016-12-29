@@ -6,12 +6,13 @@ import org.springframework.roo.addon.tostring.RooToString;
 import javax.persistence.Column;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
+import java.io.Serializable;
 import java.util.Date;
 
 @RooJavaBean
 @RooToString
 @RooJpaActiveRecord
-public class UserWeb {
+public class UserWeb implements Serializable {
     public UserWeb() {
         super();
         this.lastLogin = null;

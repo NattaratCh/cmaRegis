@@ -5,8 +5,8 @@
 <aspect name="com.cma.Education_profileDataOnDemand_Roo_DataOnDemand"/>
 <aspect name="com.cma.Education_profileIntegrationTest_Roo_IntegrationTest"/>
 <aspect name="com.cma.StudentIntegrationTest_Roo_Configurable"/>
-<aspect name="com.cma.WebRoleIntegrationTest_Roo_IntegrationTest"/>
 <aspect name="com.cma.UserRegisIntegrationTest_Roo_Configurable"/>
+<aspect name="com.cma.WebRoleIntegrationTest_Roo_IntegrationTest"/>
 <aspect name="com.cma.UserRegisDataOnDemand_Roo_DataOnDemand"/>
 <aspect name="com.cma.Children_profileDataOnDemand_Roo_Configurable"/>
 <aspect name="com.cma.UserRegisRoleIntegrationTest_Roo_Configurable"/>
@@ -38,12 +38,12 @@
 <aspect name="com.cma.MapStudentDataOnDemand_Roo_Configurable"/>
 <aspect name="com.cma.UserWebRoleDataOnDemand_Roo_Configurable"/>
 <aspect name="com.cma.StudentDataOnDemand_Roo_DataOnDemand"/>
-<aspect name="com.cma.BatchIntegrationTest_Roo_Configurable"/>
 <aspect name="com.cma.Training_profileDataOnDemand_Roo_Configurable"/>
+<aspect name="com.cma.BatchIntegrationTest_Roo_Configurable"/>
 <aspect name="com.cma.Training_profileDataOnDemand_Roo_DataOnDemand"/>
 <aspect name="com.cma.AttachFileDataOnDemand_Roo_DataOnDemand"/>
-<aspect name="com.cma.CourseDataOnDemand_Roo_DataOnDemand"/>
 <aspect name="com.cma.UserWebIntegrationTest_Roo_IntegrationTest"/>
+<aspect name="com.cma.CourseDataOnDemand_Roo_DataOnDemand"/>
 <aspect name="com.cma.UserRegisDataOnDemand_Roo_Configurable"/>
 <aspect name="com.cma.AttachFileIntegrationTest_Roo_IntegrationTest"/>
 <aspect name="com.cma.MapStudentIntegrationTest_Roo_Configurable"/>

@@ -50,14 +50,14 @@ privileged aspect UserWebRoleDataOnDemand_Roo_DataOnDemand {
             index = data.size() - 1;
         }
         UserWebRole obj = data.get(index);
-        Long id = obj.getId();
+        Long id = obj.getUser_id();
         return UserWebRole.findUserWebRole(id);
     }
     
     public UserWebRole UserWebRoleDataOnDemand.getRandomUserWebRole() {
         init();
         UserWebRole obj = data.get(rnd.nextInt(data.size()));
-        Long id = obj.getId();
+        Long id = obj.getUser_id();
         return UserWebRole.findUserWebRole(id);
     }
     

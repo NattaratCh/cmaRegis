@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form"
+     xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:sec="http://www.springframework.org/security/tags" version="2.0">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <jsp:output omit-xml-declaration="yes"/>
+  <style>
+    #childrenTable input{
+      width: 100px;
+    }
+  </style>
+
+    <script>
+    <![CDATA[
+    var currentTab = 0;
+    $(function () {
+      $("#tabs").tabs({
+        select: function (e, i) {
+          currentTab = i.index;
+        }
+      });
+    });
+
+    $(function() {
+        $("#_spouseBdateString_id").datepicker({
+            changeMonth: true,
+            changeYear: true,
+            dateFormat: 'dd M yy',
+            yearRange: "${minyearSpouse}:${maxyearSpouse}",
+            isBuddhist: true,
+            dayNames: ['อาทิตย์','จันทร์','อังคาร','พุธ','พฤหัสบดี','ศุกร์','เสาร์'],
+            dayNamesMin: ['อา.','จ.','อ.','พ.','พฤ.','ศ.','ส.'],
+            monthNames: ['มกราคม','กุมภาพันธ์','มีนาคม','เมษายน','พฤษภาคม','มิถุนายน','กรกฎาคม','สิงหาคม','กันยายน','ตุลาคม','พฤศจิกายน','ธันวาคม'],
+            monthNamesShort: ['ม.ค.','ก.พ.','มี.ค.','เม.ย.','พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.','พ.ย.','ธ.ค.'],
+            defaultDate: "-20y"
+        });
+    });
+
+    var runningEducationId = 0;
+    function addEducationRow(x){
+      var html = '<tr>';
+      html += '    <td>';
+      html +=         '        <select name="education_profiles['+runningEducationId+'].degree">';
+      html +=         '           <option value="Bachelor">ปริญญาตรี</option>';
+      html +=         '           <option value="Master">ปริญญาโท</option>';
+      html +=         '           <option value="PhD">ปริญญาเอก</option>';
+      html +=         '        </select>';
+      html +=         '    </td>';
+      html +=         '    <td><input type="text" name="education_profiles['+runningEducationId+'].field" value=""/></td>';
+      html +=         '    <td><input type="text" name="education_profiles['+runningEducationId+'].university" value=""/></td>';
+      html +=        '    <td><input type="text" name="education_profiles['+runningEducationId+'].graduateYear" value=""/></td>';
+      html +=        '    <td><button type="button" id="delete-education" onclick="removeEducationRow(this);">-</button></td>';
+      html +=        '</tr>';
+      runningEducationId = runningEducationId +1;
+      $('#educationTable tr:last').after(html);
+    }
+
+    function removeEducationRow(x){
+      var row_index = x.parentNode.parentNode.rowIndex;
+      $('#educationTable > thead > tr').eq(row_index).remove();
+    }
+
+    var runningChildrenId = 0;
+    function addChildrenRow(x){
+        var html = '<tr>';
+        html +=         '    <td><input type="text" name="children_profiles['+runningChildrenId+'].firstName" value=""/></td>';
+        html +=         '    <td><input type="text" name="children_profiles['+runningChildrenId+'].lastName" value=""/></td>';
+        html +=        '    <td><input type="text" name="children_profiles['+runningChildrenId+'].career" value=""/></td>';
+        html +=        '    <td><input type="text" name="children_profiles['+runningChildrenId+'].childrenBdateString" value=""/></td>';
+        html +=        '    <td><input type="text" name="children_profiles['+runningChildrenId+'].race" value=""/></td>';
+        html +=        '    <td><input type="text" name="children_profiles['+runningChildrenId+'].nationality" value=""/></td>';
+        html +=        '    <td><input type="text" name="children_profiles['+runningChildrenId+'].religion" value=""/></td>';
+        html +=        '    <td><button type="button" id="delete-children" onclick="removeChildrenRow(this);">-</button></td>';
+        html +=        '</tr>';
+        runningChildrenId = runningChildrenId +1;
+        $('#childrenTable tr:last').after(html);
+    }
+
+    function removeChildrenRow(x){
+        var row_index = x.parentNode.parentNode.rowIndex;
+        $('#childrenTable > thead > tr').eq(row_index).remove();
+    }
+
+    var runningTrainingId = 0;
+    function addTrainingRow(x){
+        var html = '<tr>';
+        html +=         '    <td><input type="text" name="training_profiles['+runningTrainingId+'].trainingName" value=""/></td>';
+        html +=         '    <td><input type="text" name="training_profiles['+runningTrainingId+'].trainingInstitute" value=""/></td>';
+        html +=        '    <td><input type="text" name="training_profiles['+runningTrainingId+'].trainingClass" value=""/></td>';
+        html +=        '    <td><input type="text" name="training_profiles['+runningTrainingId+'].trainingYear" value=""/></td>'
+        html +=        '    <td><button type="button" id="delete-training" onclick="removeTrainingRow(this);">-</button></td>';
+        html +=        '</tr>';
+        runningTrainingId = runningTrainingId +1;
+        $('#trainingTable tr:last').after(html);
+    }
+
+    function removeTrainingRow(x){
+        var row_index = x.parentNode.parentNode.rowIndex;
+        $('#trainingTable > thead > tr').eq(row_index).remove();
+    }
+
+    dojo.addOnLoad(function() {
+        dojo.connect(dijit.byId("_marriedStatus_id"), "onChange", function(){
+            var _tmp = dijit.byId("_marriedStatus_id").attr('value');
+            if(_tmp=='สมรส') {
+                document.getElementById("spouseDetail").style.display = '';
+
+            }
+            else {
+                document.getElementById("spouseDetail").style.display = 'none';
+            }
+        });
+    });
+
+
+    ]]>
+  </script>
+
+
+  <form:create id="fc_com_cma_Student" modelAttribute="extraProfileList" path="/std_profiles/createExtraProfile" render="${empty dependencies}" z="user-managed">
+    <input type="hidden" name="studentId" value="${student.id}"/>
+    <div id="fieldHeader">
+      ข้อมูลครอบครัว
+    </div>
+    <spring:message code="label_com_cma_std_profile_update_compare" var="compare"/>
+    <field:select id="c_com_cma_Student_marriedStatus" field="marriedStatus" items="${marriagedStatusItems}"/>
+    <div id="spouseDetail" style="display:none;">
+      <field:input field="spouseFirstName" id="c_com_cma_Student_spouseFirstName" z="MC3esAcjOnMn7t9RoPpPqe00KZY="/>
+      <field:input field="spouseLastName" id="c_com_cma_Student_spouseLastName" z="Uu5Af3Gh2WE+RpFWY5EdJjKQHtE="/>
+      <field:input field="spouseCareer" id="c_com_cma_Student_spouseCareer" z="5JMboyOdsD4effdDqdsTq69gv5Q="/>
+      <field:input field="spouseInstitution" id="c_com_cma_Student_spouseInstitution" z="user-managed"/>
+      <field:inputNonDec field="spouseBdateString" readonly="true" id="c_com_cma_Student_spousebdateString" required="false" z="user-managed"/>
+      <field:input field="spouseRace" id="c_com_cma_Student_spouseRace" z="x64b5ij4A6+CGU5Sba7u/P38tlE="/>
+      <field:input field="spouseNationality" id="c_com_cma_Student_spouseNationality" z="wpNUdkxNgUolfZ5oS1/ipKP3xLQ="/>
+      <field:input field="spouseReligion" id="c_com_cma_Student_spouseReligion" z="qzDqTXny1pmjSaVRYXStPqeH/LE="/>
+    </div>
+
+    <!-- children -->
+    <spring:message code="label_com_cma_std_profile_print_header5" var="header5"/>
+    <div id="fieldHeader">
+      ${header5}
+    </div>
+    <spring:message code="label_com_cma_std_profile_print_column1" var="column1"/>
+    <spring:message code="label_com_cma_std_profile_print_column2" var="column2"/>
+    <spring:message code="label_com_cma_std_profile_print_column3" var="column3"/>
+    <spring:message code="label_com_cma_std_profile_print_column4" var="column4"/>
+    <spring:message code="label_com_cma_std_profile_print_column5" var="column5"/>
+    <spring:message code="label_com_cma_std_profile_print_column6" var="column6"/>
+    <spring:message code="label_com_cma_std_profile_print_column7" var="column7"/>
+    <table id="childrenTable">
+    <thead>
+    <tr>
+      <th width="15%">${column1}</th>
+      <th width="15%">${column2}</th>
+      <th width="15%">${column3}</th>
+      <th width="15%">${column4}</th>
+      <th width="15%">${column5}</th>
+      <th width="15%">${column6}</th>
+      <th width="5%">${column7}</th>
+      <th width="5%"></th>
+    </tr>
+    </thead>
+    </table>
+    <div>
+      <button type="button" class="btn btn-success" onclick="addChildrenRow(this);">Add</button>
+    </div>
+    <br/>
+
+    <!-- education-->
+    <spring:message code="label_com_cma_std_profile_print_header6" var="header6"/>
+    <div id="fieldHeader">
+      ${header6}
+    </div>
+    <spring:message code="label_com_cma_std_profile_print_educationLevel" var="educationLevel"/>
+    <spring:message code="label_com_cma_std_profile_print_education1" var="education1"/>
+    <spring:message code="label_com_cma_std_profile_print_education2" var="education2"/>
+    <spring:message code="label_com_cma_std_profile_print_education3" var="education3"/>
+    <table id="educationTable">
+      <thead>
+      <tr>
+        <th>${educationLevel}</th>
+        <th>${education1}</th>
+        <th>${education2}</th>
+        <th>${education3}</th>
+        <th></th>
+      </tr>
+      </thead>
+    </table>
+    <div>
+      <button type="button" class="btn btn-success" onclick="addEducationRow(this);">Add</button>
+    </div>
+    <br/>
+
+    <!-- training -->
+    <spring:message code="label_com_cma_std_profile_print_header10" var="header10"/>
+    <div id="fieldHeader">
+      ${header10}
+    </div>
+    <spring:message code="label_com_cma_std_profile_print_training1" var="training1"/>
+    <spring:message code="label_com_cma_std_profile_print_training2" var="training2"/>
+    <spring:message code="label_com_cma_std_profile_print_training3" var="training3"/>
+    <spring:message code="label_com_cma_std_profile_print_training4" var="training4"/>
+    <table id="trainingTable">
+    <thead>
+    <tr>
+      <th>${training1}</th>
+      <th>${training2}</th>
+      <th>${training3}</th>
+      <th>${training4}</th>
+      <th></th>
+    </tr>
+    </thead>
+    </table>
+    <div>
+      <button type="button" class="btn btn-success" onclick="addTrainingRow(this);">Add</button>
+    </div>
+    <br/>
+
+  </form:create>
+</div>
+
