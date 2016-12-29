@@ -4,8 +4,10 @@ import com.cma.*;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 import java.io.*;
 import java.text.DateFormat;
@@ -20,6 +22,7 @@ import static com.cma.common.authenManager.sha256;
 /**
  * Created by NATTARAT on 2016-12-22.
  */
+@Transactional
 public class StudentUtils {
     private static Log log = LogFactory.getLog(StudentUtils.class);
 
@@ -210,6 +213,7 @@ public class StudentUtils {
         }
         else return 1;
     }
+
 
     public static Student createStudent(Student student, String dataState, Batch batch){
         if(student != null){

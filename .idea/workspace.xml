@@ -2,395 +2,73 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="66aa1af9-fd34-47eb-b1f4-cc56fab5261e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/com/cma/utils/StudentUtils.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/com/cma/web/ExtraProfileList.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/utils/StudentUtils.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/web/ExtraProfileList.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/cmaRegis_war.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/cmaRegis_war_exploded.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__antlr_antlr_2_7_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__aopalliance_aopalliance_1_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__cglib_cglib_nodep_2_2_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_beanutils_commons_beanutils_1_8_3.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_5.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_collections_commons_collections_3_2_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_dbcp_commons_dbcp_1_3.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_digester_commons_digester_2_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_fileupload_commons_fileupload_1_2_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_io_commons_io_2_4.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_pool_commons_pool_1_5_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__dom4j_dom4j_1_6_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javassist_javassist_3_12_0_GA.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_activation_activation_1_1_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_el_el_api_1_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_mail_mail_1_4_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_jsp_jsp_api_2_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_jsp_jstl_jstl_api_1_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_servlet_api_2_5.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_transaction_jta_1_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_validation_validation_api_1_0_0_GA.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__joda_time_joda_time_1_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_10.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__log4j_log4j_1_2_17.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_5_1_18.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_sf_flexjson_flexjson_2_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_collections4_4_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_3_15.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tiles_tiles_api_2_2_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tiles_tiles_core_2_2_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tiles_tiles_jsp_2_2_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tiles_tiles_servlet_2_2_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tiles_tiles_template_2_2_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_aspectj_aspectjrt_1_7_0_RC1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_aspectj_aspectjweaver_1_7_0_RC1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_glassfish_web_jstl_impl_1_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_commons_annotations_3_2_0_Final.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_core_3_6_9_Final.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_entitymanager_3_6_9_Final.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_validator_4_2_0_Final.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_javax_persistence_hibernate_jpa_2_0_api_1_0_1_Final.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_jcl_over_slf4j_1_6_4.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_6_4.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_log4j12_1_6_4.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_roo_org_springframework_roo_annotations_1_3_2_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_acl_3_1_0_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_config_3_1_0_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_core_3_1_0_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_crypto_3_1_0_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_taglibs_3_1_0_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_web_3_1_0_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_3_1_1_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_asm_3_1_1_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aspects_3_1_1_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_3_1_1_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_3_1_1_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_support_3_1_1_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_3_1_1_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_3_1_1_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jdbc_3_1_1_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_orm_3_1_1_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_test_3_1_1_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_tx_3_1_1_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_3_1_1_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_3_1_1_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_webflow_spring_js_resources_2_2_1_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/log.roo" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/cma/utils/StudentUtils.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/cma/web/ExtraProfileList.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/std_profiles/createExtraProfile.jspx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/views/std_profiles/createExtraProfile.jspx" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/cma/web/EducationProfileList.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/cma/web/StudentUtils.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/std_profiles/createEducation.jspx" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/AttachFile.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/AttachFile.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/AttachFile_Roo_Configurable.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/AttachFile_Roo_Configurable.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/AttachFile_Roo_JavaBean.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/AttachFile_Roo_JavaBean.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/AttachFile_Roo_Jpa_ActiveRecord.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/AttachFile_Roo_Jpa_ActiveRecord.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/AttachFile_Roo_Jpa_Entity.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/AttachFile_Roo_Jpa_Entity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/AttachFile_Roo_ToString.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/AttachFile_Roo_ToString.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/Batch.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/Batch.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/Batch_Roo_Configurable.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/Batch_Roo_Configurable.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/Batch_Roo_JavaBean.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/Batch_Roo_JavaBean.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/Batch_Roo_Jpa_ActiveRecord.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/Batch_Roo_Jpa_ActiveRecord.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/Batch_Roo_Jpa_Entity.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/Batch_Roo_Jpa_Entity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/Batch_Roo_ToString.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/Batch_Roo_ToString.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/Children_profile.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/Children_profile.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/Children_profile_Roo_Configurable.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/Children_profile_Roo_Configurable.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/Children_profile_Roo_JavaBean.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/Children_profile_Roo_JavaBean.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/Children_profile_Roo_Jpa_ActiveRecord.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/Children_profile_Roo_Jpa_ActiveRecord.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/Children_profile_Roo_Jpa_Entity.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/Children_profile_Roo_Jpa_Entity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/Children_profile_Roo_ToString.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/Children_profile_Roo_ToString.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/Course.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/Course.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/Course_Roo_Configurable.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/Course_Roo_Configurable.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/Course_Roo_JavaBean.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/Course_Roo_JavaBean.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/Course_Roo_Jpa_ActiveRecord.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/Course_Roo_Jpa_ActiveRecord.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/Course_Roo_Jpa_Entity.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/Course_Roo_Jpa_Entity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/Course_Roo_ToString.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/Course_Roo_ToString.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/Education_profile.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/Education_profile.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/Education_profile_Roo_Configurable.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/Education_profile_Roo_Configurable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/Education_profile_Roo_JavaBean.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/Education_profile_Roo_JavaBean.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/Education_profile_Roo_Jpa_ActiveRecord.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/Education_profile_Roo_Jpa_ActiveRecord.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/Education_profile_Roo_Jpa_Entity.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/Education_profile_Roo_Jpa_Entity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/Education_profile_Roo_ToString.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/Education_profile_Roo_ToString.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/MapStudent.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/MapStudent.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/MapStudent_Roo_Configurable.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/MapStudent_Roo_Configurable.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/MapStudent_Roo_JavaBean.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/MapStudent_Roo_JavaBean.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/MapStudent_Roo_Jpa_ActiveRecord.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/MapStudent_Roo_Jpa_ActiveRecord.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/MapStudent_Roo_Jpa_Entity.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/MapStudent_Roo_Jpa_Entity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/MapStudent_Roo_ToString.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/MapStudent_Roo_ToString.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/MediaUpload.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/MediaUpload.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/MediaUpload_Roo_Configurable.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/MediaUpload_Roo_Configurable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/MediaUpload_Roo_JavaBean.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/MediaUpload_Roo_JavaBean.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/MediaUpload_Roo_Jpa_ActiveRecord.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/MediaUpload_Roo_Jpa_ActiveRecord.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/MediaUpload_Roo_Jpa_Entity.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/MediaUpload_Roo_Jpa_Entity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/MediaUpload_Roo_ToString.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/MediaUpload_Roo_ToString.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/Student.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/Student.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/Student_Roo_Configurable.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/Student_Roo_Configurable.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/Student_Roo_JavaBean.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/Student_Roo_JavaBean.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/Student_Roo_Jpa_ActiveRecord.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/Student_Roo_Jpa_ActiveRecord.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/Student_Roo_Jpa_Entity.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/Student_Roo_Jpa_Entity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/Student_Roo_ToString.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/Student_Roo_ToString.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/Training_profile.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/Training_profile.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/Training_profile_Roo_Configurable.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/Training_profile_Roo_Configurable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/Training_profile_Roo_JavaBean.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/Training_profile_Roo_JavaBean.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/Training_profile_Roo_Jpa_ActiveRecord.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/Training_profile_Roo_Jpa_ActiveRecord.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/Training_profile_Roo_Jpa_Entity.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/Training_profile_Roo_Jpa_Entity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/Training_profile_Roo_ToString.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/Training_profile_Roo_ToString.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/UserRegis.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/UserRegis.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/UserRegisRole.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/UserRegisRole.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/UserRegisRole_Roo_Configurable.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/UserRegisRole_Roo_Configurable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/UserRegisRole_Roo_JavaBean.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/UserRegisRole_Roo_JavaBean.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/UserRegisRole_Roo_Jpa_ActiveRecord.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/UserRegisRole_Roo_Jpa_ActiveRecord.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/UserRegisRole_Roo_Jpa_Entity.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/UserRegisRole_Roo_Jpa_Entity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/UserRegisRole_Roo_ToString.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/UserRegisRole_Roo_ToString.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/UserRegis_Roo_Configurable.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/UserRegis_Roo_Configurable.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/UserRegis_Roo_JavaBean.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/UserRegis_Roo_JavaBean.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/UserRegis_Roo_Jpa_ActiveRecord.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/UserRegis_Roo_Jpa_ActiveRecord.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/UserRegis_Roo_Jpa_Entity.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/UserRegis_Roo_Jpa_Entity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/UserRegis_Roo_ToString.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/UserRegis_Roo_ToString.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/UserWeb.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/UserWeb.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/UserWebRole.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/UserWebRole.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/UserWebRole_Roo_Configurable.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/UserWebRole_Roo_Configurable.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/UserWebRole_Roo_JavaBean.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/UserWebRole_Roo_JavaBean.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/UserWebRole_Roo_Jpa_ActiveRecord.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/UserWebRole_Roo_Jpa_ActiveRecord.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/UserWebRole_Roo_Jpa_Entity.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/UserWebRole_Roo_Jpa_Entity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/UserWebRole_Roo_ToString.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/UserWebRole_Roo_ToString.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/UserWeb_Roo_Configurable.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/UserWeb_Roo_Configurable.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/UserWeb_Roo_JavaBean.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/UserWeb_Roo_JavaBean.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/UserWeb_Roo_Jpa_ActiveRecord.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/UserWeb_Roo_Jpa_ActiveRecord.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/UserWeb_Roo_Jpa_Entity.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/UserWeb_Roo_Jpa_Entity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/UserWeb_Roo_ToString.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/UserWeb_Roo_ToString.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/WebRole.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/WebRole.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/WebRole_Roo_Configurable.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/WebRole_Roo_Configurable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/WebRole_Roo_JavaBean.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/WebRole_Roo_JavaBean.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/WebRole_Roo_Jpa_ActiveRecord.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/WebRole_Roo_Jpa_ActiveRecord.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/WebRole_Roo_Jpa_Entity.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/WebRole_Roo_Jpa_Entity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/WebRole_Roo_ToString.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/WebRole_Roo_ToString.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/web/ApplicationConversionServiceFactoryBean.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/web/ApplicationConversionServiceFactoryBean.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/web/ApplicationConversionServiceFactoryBean_Roo_ConversionService.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/web/ApplicationConversionServiceFactoryBean_Roo_ConversionService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/web/Constant.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/web/Constant.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/web/MediaUploadController.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/web/MediaUploadController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/web/Std_profileController.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/web/Std_profileController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/web/UserroleController.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/web/UserroleController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/web/UserroleController_Roo_Controller.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/web/UserroleController_Roo_Controller.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cma/utils/StudentUtils.class" afterPath="$PROJECT_DIR$/target/classes/com/cma/utils/StudentUtils.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT.war" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT.war" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/AttachFile.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/AttachFile.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/AttachFile_Roo_Configurable.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/AttachFile_Roo_Configurable.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/AttachFile_Roo_JavaBean.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/AttachFile_Roo_JavaBean.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/AttachFile_Roo_Jpa_ActiveRecord.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/AttachFile_Roo_Jpa_ActiveRecord.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/AttachFile_Roo_Jpa_Entity.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/AttachFile_Roo_Jpa_Entity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/AttachFile_Roo_ToString.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/AttachFile_Roo_ToString.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/Batch.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/Batch.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/Batch_Roo_Configurable.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/Batch_Roo_Configurable.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/Batch_Roo_JavaBean.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/Batch_Roo_JavaBean.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/Batch_Roo_Jpa_ActiveRecord.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/Batch_Roo_Jpa_ActiveRecord.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/Batch_Roo_Jpa_Entity.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/Batch_Roo_Jpa_Entity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/Batch_Roo_ToString.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/Batch_Roo_ToString.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/Children_profile.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/Children_profile.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/Children_profile_Roo_Configurable.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/Children_profile_Roo_Configurable.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/Children_profile_Roo_JavaBean.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/Children_profile_Roo_JavaBean.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/Children_profile_Roo_Jpa_ActiveRecord.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/Children_profile_Roo_Jpa_ActiveRecord.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/Children_profile_Roo_Jpa_Entity.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/Children_profile_Roo_Jpa_Entity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/Children_profile_Roo_ToString.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/Children_profile_Roo_ToString.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/Course.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/Course.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/Course_Roo_Configurable.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/Course_Roo_Configurable.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/Course_Roo_JavaBean.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/Course_Roo_JavaBean.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/Course_Roo_Jpa_ActiveRecord.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/Course_Roo_Jpa_ActiveRecord.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/Course_Roo_Jpa_Entity.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/Course_Roo_Jpa_Entity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/Course_Roo_ToString.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/Course_Roo_ToString.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/Education_profile.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/Education_profile.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/Education_profile_Roo_Configurable.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/Education_profile_Roo_Configurable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/Education_profile_Roo_JavaBean.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/Education_profile_Roo_JavaBean.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/Education_profile_Roo_Jpa_ActiveRecord.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/Education_profile_Roo_Jpa_ActiveRecord.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/Education_profile_Roo_Jpa_Entity.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/Education_profile_Roo_Jpa_Entity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/Education_profile_Roo_ToString.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/Education_profile_Roo_ToString.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/MapStudent.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/MapStudent.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/MapStudent_Roo_Configurable.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/MapStudent_Roo_Configurable.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/MapStudent_Roo_JavaBean.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/MapStudent_Roo_JavaBean.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/MapStudent_Roo_Jpa_ActiveRecord.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/MapStudent_Roo_Jpa_ActiveRecord.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/MapStudent_Roo_Jpa_Entity.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/MapStudent_Roo_Jpa_Entity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/MapStudent_Roo_ToString.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/MapStudent_Roo_ToString.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/MediaUpload.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/MediaUpload.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/MediaUpload_Roo_Configurable.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/MediaUpload_Roo_Configurable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/MediaUpload_Roo_JavaBean.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/MediaUpload_Roo_JavaBean.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/MediaUpload_Roo_Jpa_ActiveRecord.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/MediaUpload_Roo_Jpa_ActiveRecord.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/MediaUpload_Roo_Jpa_Entity.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/MediaUpload_Roo_Jpa_Entity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/MediaUpload_Roo_ToString.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/MediaUpload_Roo_ToString.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/Student.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/Student.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/Student_Roo_Configurable.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/Student_Roo_Configurable.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/Student_Roo_JavaBean.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/Student_Roo_JavaBean.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/Student_Roo_Jpa_ActiveRecord.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/Student_Roo_Jpa_ActiveRecord.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/Student_Roo_Jpa_Entity.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/Student_Roo_Jpa_Entity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/Student_Roo_ToString.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/Student_Roo_ToString.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/Training_profile.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/Training_profile.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/Training_profile_Roo_Configurable.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/Training_profile_Roo_Configurable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/Training_profile_Roo_JavaBean.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/Training_profile_Roo_JavaBean.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/Training_profile_Roo_Jpa_ActiveRecord.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/Training_profile_Roo_Jpa_ActiveRecord.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/Training_profile_Roo_Jpa_Entity.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/Training_profile_Roo_Jpa_Entity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/Training_profile_Roo_ToString.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/Training_profile_Roo_ToString.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/UserRegis.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/UserRegis.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/UserRegisRole.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/UserRegisRole.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/UserRegisRole_Roo_Configurable.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/UserRegisRole_Roo_Configurable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/UserRegisRole_Roo_JavaBean.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/UserRegisRole_Roo_JavaBean.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/UserRegisRole_Roo_Jpa_ActiveRecord.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/UserRegisRole_Roo_Jpa_ActiveRecord.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/UserRegisRole_Roo_Jpa_Entity.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/UserRegisRole_Roo_Jpa_Entity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/UserRegisRole_Roo_ToString.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/UserRegisRole_Roo_ToString.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/UserRegis_Roo_Configurable.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/UserRegis_Roo_Configurable.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/UserRegis_Roo_JavaBean.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/UserRegis_Roo_JavaBean.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/UserRegis_Roo_Jpa_ActiveRecord.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/UserRegis_Roo_Jpa_ActiveRecord.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/UserRegis_Roo_Jpa_Entity.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/UserRegis_Roo_Jpa_Entity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/UserRegis_Roo_ToString.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/UserRegis_Roo_ToString.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/UserWeb.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/UserWeb.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/UserWebRole.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/UserWebRole.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/UserWebRole_Roo_Configurable.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/UserWebRole_Roo_Configurable.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/UserWebRole_Roo_JavaBean.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/UserWebRole_Roo_JavaBean.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/UserWebRole_Roo_Jpa_ActiveRecord.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/UserWebRole_Roo_Jpa_ActiveRecord.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/UserWebRole_Roo_Jpa_Entity.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/UserWebRole_Roo_Jpa_Entity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/UserWebRole_Roo_ToString.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/UserWebRole_Roo_ToString.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/UserWeb_Roo_Configurable.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/UserWeb_Roo_Configurable.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/UserWeb_Roo_JavaBean.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/UserWeb_Roo_JavaBean.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/UserWeb_Roo_Jpa_ActiveRecord.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/UserWeb_Roo_Jpa_ActiveRecord.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/UserWeb_Roo_Jpa_Entity.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/UserWeb_Roo_Jpa_Entity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/UserWeb_Roo_ToString.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/UserWeb_Roo_ToString.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/WebRole.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/WebRole.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/WebRole_Roo_Configurable.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/WebRole_Roo_Configurable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/WebRole_Roo_JavaBean.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/WebRole_Roo_JavaBean.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/WebRole_Roo_Jpa_ActiveRecord.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/WebRole_Roo_Jpa_ActiveRecord.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/WebRole_Roo_Jpa_Entity.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/WebRole_Roo_Jpa_Entity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/WebRole_Roo_ToString.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/WebRole_Roo_ToString.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/web/ApplicationConversionServiceFactoryBean.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/web/ApplicationConversionServiceFactoryBean.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/web/ApplicationConversionServiceFactoryBean_Roo_ConversionService.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/web/ApplicationConversionServiceFactoryBean_Roo_ConversionService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/web/Constant.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/web/Constant.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/web/MediaUploadController.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/web/MediaUploadController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/web/Std_profileController.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/web/Std_profileController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/web/UserroleController.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/web/UserroleController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/web/UserroleController_Roo_Controller.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/web/UserroleController_Roo_Controller.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/lib/jta-1.1.jar" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/lib/jta-1.1.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/cma/AttachFileDataOnDemand.class" afterPath="$PROJECT_DIR$/target/test-classes/com/cma/AttachFileDataOnDemand.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/cma/AttachFileDataOnDemand_Roo_Configurable.class" afterPath="$PROJECT_DIR$/target/test-classes/com/cma/AttachFileDataOnDemand_Roo_Configurable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/cma/AttachFileDataOnDemand_Roo_DataOnDemand.class" afterPath="$PROJECT_DIR$/target/test-classes/com/cma/AttachFileDataOnDemand_Roo_DataOnDemand.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/cma/AttachFileIntegrationTest.class" afterPath="$PROJECT_DIR$/target/test-classes/com/cma/AttachFileIntegrationTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/cma/AttachFileIntegrationTest_Roo_Configurable.class" afterPath="$PROJECT_DIR$/target/test-classes/com/cma/AttachFileIntegrationTest_Roo_Configurable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/cma/AttachFileIntegrationTest_Roo_IntegrationTest.class" afterPath="$PROJECT_DIR$/target/test-classes/com/cma/AttachFileIntegrationTest_Roo_IntegrationTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/cma/BatchDataOnDemand.class" afterPath="$PROJECT_DIR$/target/test-classes/com/cma/BatchDataOnDemand.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/cma/BatchDataOnDemand_Roo_Configurable.class" afterPath="$PROJECT_DIR$/target/test-classes/com/cma/BatchDataOnDemand_Roo_Configurable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/cma/BatchDataOnDemand_Roo_DataOnDemand.class" afterPath="$PROJECT_DIR$/target/test-classes/com/cma/BatchDataOnDemand_Roo_DataOnDemand.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/cma/BatchIntegrationTest.class" afterPath="$PROJECT_DIR$/target/test-classes/com/cma/BatchIntegrationTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/cma/BatchIntegrationTest_Roo_Configurable.class" afterPath="$PROJECT_DIR$/target/test-classes/com/cma/BatchIntegrationTest_Roo_Configurable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/cma/BatchIntegrationTest_Roo_IntegrationTest.class" afterPath="$PROJECT_DIR$/target/test-classes/com/cma/BatchIntegrationTest_Roo_IntegrationTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/cma/Children_profileDataOnDemand.class" afterPath="$PROJECT_DIR$/target/test-classes/com/cma/Children_profileDataOnDemand.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/cma/Children_profileDataOnDemand_Roo_Configurable.class" afterPath="$PROJECT_DIR$/target/test-classes/com/cma/Children_profileDataOnDemand_Roo_Configurable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/cma/Children_profileDataOnDemand_Roo_DataOnDemand.class" afterPath="$PROJECT_DIR$/target/test-classes/com/cma/Children_profileDataOnDemand_Roo_DataOnDemand.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/cma/Children_profileIntegrationTest.class" afterPath="$PROJECT_DIR$/target/test-classes/com/cma/Children_profileIntegrationTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/cma/Children_profileIntegrationTest_Roo_Configurable.class" afterPath="$PROJECT_DIR$/target/test-classes/com/cma/Children_profileIntegrationTest_Roo_Configurable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/cma/Children_profileIntegrationTest_Roo_IntegrationTest.class" afterPath="$PROJECT_DIR$/target/test-classes/com/cma/Children_profileIntegrationTest_Roo_IntegrationTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/cma/CourseDataOnDemand.class" afterPath="$PROJECT_DIR$/target/test-classes/com/cma/CourseDataOnDemand.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/cma/CourseDataOnDemand_Roo_Configurable.class" afterPath="$PROJECT_DIR$/target/test-classes/com/cma/CourseDataOnDemand_Roo_Configurable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/cma/CourseDataOnDemand_Roo_DataOnDemand.class" afterPath="$PROJECT_DIR$/target/test-classes/com/cma/CourseDataOnDemand_Roo_DataOnDemand.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/cma/CourseIntegrationTest.class" afterPath="$PROJECT_DIR$/target/test-classes/com/cma/CourseIntegrationTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/cma/CourseIntegrationTest_Roo_Configurable.class" afterPath="$PROJECT_DIR$/target/test-classes/com/cma/CourseIntegrationTest_Roo_Configurable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/cma/CourseIntegrationTest_Roo_IntegrationTest.class" afterPath="$PROJECT_DIR$/target/test-classes/com/cma/CourseIntegrationTest_Roo_IntegrationTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/cma/Education_profileDataOnDemand.class" afterPath="$PROJECT_DIR$/target/test-classes/com/cma/Education_profileDataOnDemand.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/cma/Education_profileDataOnDemand_Roo_Configurable.class" afterPath="$PROJECT_DIR$/target/test-classes/com/cma/Education_profileDataOnDemand_Roo_Configurable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/cma/Education_profileDataOnDemand_Roo_DataOnDemand.class" afterPath="$PROJECT_DIR$/target/test-classes/com/cma/Education_profileDataOnDemand_Roo_DataOnDemand.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/cma/Education_profileIntegrationTest.class" afterPath="$PROJECT_DIR$/target/test-classes/com/cma/Education_profileIntegrationTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/cma/Education_profileIntegrationTest_Roo_Configurable.class" afterPath="$PROJECT_DIR$/target/test-classes/com/cma/Education_profileIntegrationTest_Roo_Configurable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/cma/Education_profileIntegrationTest_Roo_IntegrationTest.class" afterPath="$PROJECT_DIR$/target/test-classes/com/cma/Education_profileIntegrationTest_Roo_IntegrationTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/cma/MapStudentDataOnDemand.class" afterPath="$PROJECT_DIR$/target/test-classes/com/cma/MapStudentDataOnDemand.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/cma/MapStudentDataOnDemand_Roo_Configurable.class" afterPath="$PROJECT_DIR$/target/test-classes/com/cma/MapStudentDataOnDemand_Roo_Configurable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/cma/MapStudentDataOnDemand_Roo_DataOnDemand.class" afterPath="$PROJECT_DIR$/target/test-classes/com/cma/MapStudentDataOnDemand_Roo_DataOnDemand.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/cma/MapStudentIntegrationTest.class" afterPath="$PROJECT_DIR$/target/test-classes/com/cma/MapStudentIntegrationTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/cma/MapStudentIntegrationTest_Roo_Configurable.class" afterPath="$PROJECT_DIR$/target/test-classes/com/cma/MapStudentIntegrationTest_Roo_Configurable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/cma/MapStudentIntegrationTest_Roo_IntegrationTest.class" afterPath="$PROJECT_DIR$/target/test-classes/com/cma/MapStudentIntegrationTest_Roo_IntegrationTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/cma/StudentDataOnDemand.class" afterPath="$PROJECT_DIR$/target/test-classes/com/cma/StudentDataOnDemand.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/cma/StudentDataOnDemand_Roo_Configurable.class" afterPath="$PROJECT_DIR$/target/test-classes/com/cma/StudentDataOnDemand_Roo_Configurable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/cma/StudentDataOnDemand_Roo_DataOnDemand.class" afterPath="$PROJECT_DIR$/target/test-classes/com/cma/StudentDataOnDemand_Roo_DataOnDemand.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/cma/StudentIntegrationTest.class" afterPath="$PROJECT_DIR$/target/test-classes/com/cma/StudentIntegrationTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/cma/StudentIntegrationTest_Roo_Configurable.class" afterPath="$PROJECT_DIR$/target/test-classes/com/cma/StudentIntegrationTest_Roo_Configurable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/cma/StudentIntegrationTest_Roo_IntegrationTest.class" afterPath="$PROJECT_DIR$/target/test-classes/com/cma/StudentIntegrationTest_Roo_IntegrationTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/cma/Training_profileDataOnDemand.class" afterPath="$PROJECT_DIR$/target/test-classes/com/cma/Training_profileDataOnDemand.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/cma/Training_profileDataOnDemand_Roo_Configurable.class" afterPath="$PROJECT_DIR$/target/test-classes/com/cma/Training_profileDataOnDemand_Roo_Configurable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/cma/Training_profileDataOnDemand_Roo_DataOnDemand.class" afterPath="$PROJECT_DIR$/target/test-classes/com/cma/Training_profileDataOnDemand_Roo_DataOnDemand.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/cma/Training_profileIntegrationTest.class" afterPath="$PROJECT_DIR$/target/test-classes/com/cma/Training_profileIntegrationTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/cma/Training_profileIntegrationTest_Roo_Configurable.class" afterPath="$PROJECT_DIR$/target/test-classes/com/cma/Training_profileIntegrationTest_Roo_Configurable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/cma/Training_profileIntegrationTest_Roo_IntegrationTest.class" afterPath="$PROJECT_DIR$/target/test-classes/com/cma/Training_profileIntegrationTest_Roo_IntegrationTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/cma/UserRegisDataOnDemand.class" afterPath="$PROJECT_DIR$/target/test-classes/com/cma/UserRegisDataOnDemand.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/cma/UserRegisDataOnDemand_Roo_Configurable.class" afterPath="$PROJECT_DIR$/target/test-classes/com/cma/UserRegisDataOnDemand_Roo_Configurable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/cma/UserRegisDataOnDemand_Roo_DataOnDemand.class" afterPath="$PROJECT_DIR$/target/test-classes/com/cma/UserRegisDataOnDemand_Roo_DataOnDemand.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/cma/UserRegisIntegrationTest.class" afterPath="$PROJECT_DIR$/target/test-classes/com/cma/UserRegisIntegrationTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/cma/UserRegisIntegrationTest_Roo_Configurable.class" afterPath="$PROJECT_DIR$/target/test-classes/com/cma/UserRegisIntegrationTest_Roo_Configurable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/cma/UserRegisIntegrationTest_Roo_IntegrationTest.class" afterPath="$PROJECT_DIR$/target/test-classes/com/cma/UserRegisIntegrationTest_Roo_IntegrationTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/cma/UserRegisRoleDataOnDemand.class" afterPath="$PROJECT_DIR$/target/test-classes/com/cma/UserRegisRoleDataOnDemand.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/cma/UserRegisRoleDataOnDemand_Roo_Configurable.class" afterPath="$PROJECT_DIR$/target/test-classes/com/cma/UserRegisRoleDataOnDemand_Roo_Configurable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/cma/UserRegisRoleDataOnDemand_Roo_DataOnDemand.class" afterPath="$PROJECT_DIR$/target/test-classes/com/cma/UserRegisRoleDataOnDemand_Roo_DataOnDemand.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/cma/UserRegisRoleIntegrationTest.class" afterPath="$PROJECT_DIR$/target/test-classes/com/cma/UserRegisRoleIntegrationTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/cma/UserRegisRoleIntegrationTest_Roo_Configurable.class" afterPath="$PROJECT_DIR$/target/test-classes/com/cma/UserRegisRoleIntegrationTest_Roo_Configurable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/cma/UserRegisRoleIntegrationTest_Roo_IntegrationTest.class" afterPath="$PROJECT_DIR$/target/test-classes/com/cma/UserRegisRoleIntegrationTest_Roo_IntegrationTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/cma/UserWebDataOnDemand.class" afterPath="$PROJECT_DIR$/target/test-classes/com/cma/UserWebDataOnDemand.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/cma/UserWebDataOnDemand_Roo_Configurable.class" afterPath="$PROJECT_DIR$/target/test-classes/com/cma/UserWebDataOnDemand_Roo_Configurable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/cma/UserWebDataOnDemand_Roo_DataOnDemand.class" afterPath="$PROJECT_DIR$/target/test-classes/com/cma/UserWebDataOnDemand_Roo_DataOnDemand.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/cma/UserWebIntegrationTest.class" afterPath="$PROJECT_DIR$/target/test-classes/com/cma/UserWebIntegrationTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/cma/UserWebIntegrationTest_Roo_Configurable.class" afterPath="$PROJECT_DIR$/target/test-classes/com/cma/UserWebIntegrationTest_Roo_Configurable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/cma/UserWebIntegrationTest_Roo_IntegrationTest.class" afterPath="$PROJECT_DIR$/target/test-classes/com/cma/UserWebIntegrationTest_Roo_IntegrationTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/cma/UserWebRoleDataOnDemand.class" afterPath="$PROJECT_DIR$/target/test-classes/com/cma/UserWebRoleDataOnDemand.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/cma/UserWebRoleDataOnDemand_Roo_Configurable.class" afterPath="$PROJECT_DIR$/target/test-classes/com/cma/UserWebRoleDataOnDemand_Roo_Configurable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/cma/UserWebRoleDataOnDemand_Roo_DataOnDemand.class" afterPath="$PROJECT_DIR$/target/test-classes/com/cma/UserWebRoleDataOnDemand_Roo_DataOnDemand.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/cma/UserWebRoleIntegrationTest.class" afterPath="$PROJECT_DIR$/target/test-classes/com/cma/UserWebRoleIntegrationTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/cma/UserWebRoleIntegrationTest_Roo_Configurable.class" afterPath="$PROJECT_DIR$/target/test-classes/com/cma/UserWebRoleIntegrationTest_Roo_Configurable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/cma/UserWebRoleIntegrationTest_Roo_IntegrationTest.class" afterPath="$PROJECT_DIR$/target/test-classes/com/cma/UserWebRoleIntegrationTest_Roo_IntegrationTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/cma/WebRoleDataOnDemand.class" afterPath="$PROJECT_DIR$/target/test-classes/com/cma/WebRoleDataOnDemand.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/cma/WebRoleDataOnDemand_Roo_Configurable.class" afterPath="$PROJECT_DIR$/target/test-classes/com/cma/WebRoleDataOnDemand_Roo_Configurable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/cma/WebRoleDataOnDemand_Roo_DataOnDemand.class" afterPath="$PROJECT_DIR$/target/test-classes/com/cma/WebRoleDataOnDemand_Roo_DataOnDemand.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/cma/WebRoleIntegrationTest.class" afterPath="$PROJECT_DIR$/target/test-classes/com/cma/WebRoleIntegrationTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/cma/WebRoleIntegrationTest_Roo_Configurable.class" afterPath="$PROJECT_DIR$/target/test-classes/com/cma/WebRoleIntegrationTest_Roo_Configurable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/cma/WebRoleIntegrationTest_Roo_IntegrationTest.class" afterPath="$PROJECT_DIR$/target/test-classes/com/cma/WebRoleIntegrationTest_Roo_IntegrationTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/utils/StudentUtils.class" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/com/cma/utils/StudentUtils.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmaRegis.iml" afterPath="$PROJECT_DIR$/cmaRegis.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/cma/AttachFile.java" afterPath="$PROJECT_DIR$/src/main/java/com/cma/AttachFile.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/cma/Batch.java" afterPath="$PROJECT_DIR$/src/main/java/com/cma/Batch.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/cma/Course.java" afterPath="$PROJECT_DIR$/src/main/java/com/cma/Course.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/cma/Student.java" afterPath="$PROJECT_DIR$/src/main/java/com/cma/Student.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/cma/UserWeb.java" afterPath="$PROJECT_DIR$/src/main/java/com/cma/UserWeb.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/cma/UserWebRole.java" afterPath="$PROJECT_DIR$/src/main/java/com/cma/UserWebRole.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/cma/UserWebRole_Roo_Jpa_ActiveRecord.aj" afterPath="$PROJECT_DIR$/src/main/java/com/cma/UserWebRole_Roo_Jpa_ActiveRecord.aj" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/cma/UserWebRole_Roo_Jpa_Entity.aj" afterPath="$PROJECT_DIR$/src/main/java/com/cma/UserWebRole_Roo_Jpa_Entity.aj" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/cma/web/Std_profileController.java" afterPath="$PROJECT_DIR$/src/main/java/com/cma/web/Std_profileController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/main.iml" afterPath="$PROJECT_DIR$/src/main/main.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/META-INF/spring/applicationContext-security.xml" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/spring/applicationContext-security.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/META-INF/spring/applicationContext.xml" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/spring/applicationContext.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/META-INF/spring/database.properties" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/spring/database.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/std_classes/show.jspx" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/std_classes/show.jspx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/std_profiles/create.jspx" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/std_profiles/create.jspx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/std_profiles/update2.jspx" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/std_profiles/update2.jspx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/std_profiles/views.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/std_profiles/views.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/cma/utils/StudentUtils.java" afterPath="$PROJECT_DIR$/src/main/java/com/cma/utils/StudentUtils.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/cma/UserWebRoleDataOnDemand_Roo_DataOnDemand.aj" afterPath="$PROJECT_DIR$/src/test/java/com/cma/UserWebRoleDataOnDemand_Roo_DataOnDemand.aj" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/cma/UserWebRoleIntegrationTest_Roo_IntegrationTest.aj" afterPath="$PROJECT_DIR$/src/test/java/com/cma/UserWebRoleIntegrationTest_Roo_IntegrationTest.aj" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/META-INF/aop-ajc.xml" afterPath="$PROJECT_DIR$/target/classes/META-INF/aop-ajc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/META-INF/spring/applicationContext-security.xml" afterPath="$PROJECT_DIR$/target/classes/META-INF/spring/applicationContext-security.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/META-INF/spring/applicationContext.xml" afterPath="$PROJECT_DIR$/target/classes/META-INF/spring/applicationContext.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/META-INF/spring/database.properties" afterPath="$PROJECT_DIR$/target/classes/META-INF/spring/database.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/builddef.lst" afterPath="$PROJECT_DIR$/target/classes/builddef.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/META-INF/aop-ajc.xml" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/META-INF/aop-ajc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/META-INF/spring/applicationContext-security.xml" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/META-INF/spring/applicationContext-security.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/META-INF/spring/applicationContext.xml" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/META-INF/spring/applicationContext.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/META-INF/spring/database.properties" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/META-INF/spring/database.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/builddef.lst" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes/builddef.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/views/std_classes/show.jspx" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/views/std_classes/show.jspx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/views/std_profiles/create.jspx" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/views/std_profiles/create.jspx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/views/std_profiles/createEducation.jspx" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/views/std_profiles/createEducation.jspx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/views/std_profiles/update2.jspx" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/views/std_profiles/update2.jspx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/views/std_profiles/views.xml" afterPath="$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/views/std_profiles/views.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/META-INF/aop-ajc.xml" afterPath="$PROJECT_DIR$/target/test-classes/META-INF/aop-ajc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/builddef.lst" afterPath="$PROJECT_DIR$/target/test-classes/builddef.lst" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -407,11 +85,34 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="StudentUtils.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/cma/utils/StudentUtils.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="159">
+              <caret line="296" column="24" lean-forward="false" selection-start-line="296" selection-start-column="24" selection-end-line="296" selection-end-column="24" />
+              <folding>
+                <element signature="method#generateUniqueUsername#0;class#StudentUtils#0" expanded="false" />
+                <element signature="method#bCryptEncode#0;class#StudentUtils#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="create.jspx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/std_profiles/create.jspx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="176">
+              <caret line="77" column="47" lean-forward="false" selection-start-line="77" selection-start-column="42" selection-end-line="77" selection-end-column="47" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="Std_profileController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/cma/web/Std_profileController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3067">
-              <caret line="1230" column="103" lean-forward="false" selection-start-line="1230" selection-start-column="103" selection-end-line="1230" selection-end-column="103" />
+            <state relative-caret-position="176">
+              <caret line="324" column="34" lean-forward="false" selection-start-line="324" selection-start-column="29" selection-end-line="324" selection-end-column="34" />
               <folding>
                 <element signature="method#attachfileListForm#0;class#Std_profileController#0" expanded="false" />
                 <element signature="method#deleteChildren#0;class#Std_profileController#0" expanded="false" />
@@ -425,71 +126,35 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StudentUtils.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/cma/utils/StudentUtils.java">
+      <file leaf-file-name="MediaUploadController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/cma/web/MediaUploadController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="294" column="60" lean-forward="false" selection-start-line="294" selection-start-column="60" selection-end-line="294" selection-end-column="60" />
+            <state relative-caret-position="176">
+              <caret line="860" column="86" lean-forward="false" selection-start-line="860" selection-start-column="76" selection-end-line="860" selection-end-column="86" />
               <folding>
-                <element signature="method#generateUniqueUsername#0;class#StudentUtils#0" expanded="false" />
-                <element signature="method#bCryptEncode#0;class#StudentUtils#0" expanded="false" />
+                <element signature="method#createInitData#0;class#MediaUploadController#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Student.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/cma/Student.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="26" column="17" lean-forward="false" selection-start-line="26" selection-start-column="17" selection-end-line="26" selection-end-column="17" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Batch.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/cma/Batch.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AttachFile.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/cma/AttachFile.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-836">
-              <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserWebRole.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="UserWebRole.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/cma/UserWebRole.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="187">
-              <caret line="17" column="19" lean-forward="false" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
+              <caret line="17" column="33" lean-forward="false" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserWebRole_Roo_Jpa_Entity.aj" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/cma/UserWebRole_Roo_Jpa_Entity.aj">
+      <file leaf-file-name="UserWebRolePK.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/cma/UserWebRolePK.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="18" column="19" lean-forward="false" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
+            <state relative-caret-position="442">
+              <caret line="34" column="20" lean-forward="false" selection-start-line="34" selection-start-column="20" selection-end-line="34" selection-end-column="20" />
               <folding>
-                <element signature="e#0#795#0" expanded="true" />
-                <element signature="e#663#664#0" expanded="true" />
-                <element signature="e#698#699#0" expanded="true" />
-                <marker date="1483013615050" expanded="false" signature="781:787" ph=" }" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -515,6 +180,22 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="UserWebRole_Roo_Jpa_Entity.aj" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/cma/UserWebRole_Roo_Jpa_Entity.aj">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="18" column="19" lean-forward="false" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
+              <folding>
+                <element signature="e#0#765#0" expanded="true" />
+                <element signature="e#648#649#0" expanded="true" />
+                <element signature="e#678#679#0" expanded="true" />
+                <element signature="e#728#729#0" expanded="true" />
+                <element signature="e#756#757#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -526,12 +207,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>createed</find>
-      <find>compare</find>
-      <find>_bdateString_id</find>
-      <find>bdateString</find>
-      <find>minyear</find>
-      <find>addSelectedItem2</find>
       <find>createEducation</find>
       <find>spouseBdateString</find>
       <find>update2</find>
@@ -542,7 +217,6 @@
       <find>getLastRecord</find>
       <find>createre</find>
       <find>uptodateStudent</find>
-      <find>string create</find>
       <find>copyStudent</find>
       <find>course</find>
       <find>student</find>
@@ -556,11 +230,18 @@
       <find>UserWebRole</find>
       <find>copyst</find>
       <find>createExtraProfile</find>
+      <find>pers</find>
+      <find>query</find>
+      <find>string create</find>
+      <find>getBdateString</find>
+      <find>userweb</find>
+      <find>bdate</find>
+      <find>userwebrol</find>
     </findStrings>
     <replaceStrings>
       <replace>returnStudent</replace>
-      <replace>student</replace>
       <replace>createExtraProfile</replace>
+      <replace>student</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -587,13 +268,14 @@
         <option value="$PROJECT_DIR$/src/main/java/com/cma/Course.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/cma/Student.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/cma/AttachFile.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/cma/utils/StudentUtils.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/cma/UserWebRoleId.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/cma/UserWeb.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/cma/WebRole.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/cma/UserWebRole_Roo_JavaBean.aj" />
-        <option value="$PROJECT_DIR$/src/main/java/com/cma/UserWebRole.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/cma/UserWebRole_Roo_Jpa_Entity.aj" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cma/UserWebRole.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cma/UserWebRolePK.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cma/utils/StudentUtils.java" />
       </list>
     </option>
   </component>
@@ -1190,51 +872,86 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1482815298903</updated>
-      <workItem from="1482815305654" duration="25186000" />
+      <workItem from="1482815305654" duration="30773000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25186000" />
+    <option name="totallyTimeSpent" value="30773000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19818456" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4680851" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19818456" sideWeight="0.5" order="8" side_tool="false" content_ui="combo" />
+      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4680851" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="10" side_tool="false" content_ui="combo" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="10" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19818456" sideWeight="0.5" order="8" side_tool="false" content_ui="combo" />
+      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4680851" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="processedProjectFiles" value="true" />
@@ -1333,14 +1050,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="24" column="25" lean-forward="false" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/std_profiles/create.jspx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="39" column="16" lean-forward="false" selection-start-line="39" selection-start-column="10" selection-end-line="39" selection-end-column="16" />
           <folding />
         </state>
       </provider>
@@ -1464,42 +1173,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cma/web/MediaUploadController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="44" column="4" lean-forward="false" selection-start-line="44" selection-start-column="4" selection-end-line="45" selection-end-column="94" />
-          <folding>
-            <element signature="method#createInitData#0;class#MediaUploadController#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cma/web/Std_profileController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3067">
-          <caret line="1230" column="103" lean-forward="false" selection-start-line="1230" selection-start-column="103" selection-end-line="1230" selection-end-column="103" />
-          <folding>
-            <element signature="method#attachfileListForm#0;class#Std_profileController#0" expanded="false" />
-            <element signature="method#deleteChildren#0;class#Std_profileController#0" expanded="false" />
-            <element signature="method#deleteTraining#0;class#Std_profileController#0" expanded="false" />
-            <element signature="method#deleteEducation#0;class#Std_profileController#0" expanded="false" />
-            <element signature="method#findTrainingProfileList#0;class#Std_profileController#0" expanded="false" />
-            <element signature="method#findChildrenProfileList#0;class#Std_profileController#0" expanded="false" />
-            <element signature="method#actionChangeClass#0;class#Std_profileController#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cma/UserWebRole_Roo_Jpa_ActiveRecord.aj">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="46" column="5" lean-forward="false" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#4285#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/lib/javax.persistence.jar!/javax/persistence/EmbeddedId.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -1558,31 +1231,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cma/utils/StudentUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="294" column="60" lean-forward="false" selection-start-line="294" selection-start-column="60" selection-end-line="294" selection-end-column="60" />
-          <folding>
-            <element signature="method#generateUniqueUsername#0;class#StudentUtils#0" expanded="false" />
-            <element signature="method#bCryptEncode#0;class#StudentUtils#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/cma/UserWebRole_Roo_JavaBean.aj">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="115">
           <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#356#357#0" expanded="true" />
-            <element signature="e#391#392#0" expanded="true" />
-            <element signature="e#454#455#0" expanded="true" />
-            <element signature="e#492#493#0" expanded="true" />
-            <element signature="e#543#544#0" expanded="true" />
-            <element signature="e#578#579#0" expanded="true" />
-            <element signature="e#641#642#0" expanded="true" />
-            <element signature="e#679#680#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#356#357#0" expanded="false" />
+            <element signature="e#391#392#0" expanded="false" />
+            <element signature="e#454#455#0" expanded="false" />
+            <element signature="e#492#493#0" expanded="false" />
+            <element signature="e#543#544#0" expanded="false" />
+            <element signature="e#578#579#0" expanded="false" />
+            <element signature="e#641#642#0" expanded="false" />
+            <element signature="e#679#680#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1595,15 +1257,96 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cma/UserWebRole_Roo_Jpa_ActiveRecord.aj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="66" column="31" lean-forward="false" selection-start-line="66" selection-start-column="31" selection-end-line="66" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#4265#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/target/cmaRegis-0.1.0.BUILD-SNAPSHOT/WEB-INF/lib/hibernate-entitymanager-3.6.9.Final.jar!/org/hibernate/ejb/AbstractEntityManagerImpl.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="145" column="18" lean-forward="false" selection-start-line="145" selection-start-column="18" selection-end-line="145" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/javax.persistence.jar!/javax/persistence/EntityManager.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="65" column="10" lean-forward="false" selection-start-line="65" selection-start-column="10" selection-end-line="65" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cma/web/MediaUploadController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="860" column="86" lean-forward="false" selection-start-line="860" selection-start-column="76" selection-end-line="860" selection-end-column="86" />
+          <folding>
+            <element signature="method#createInitData#0;class#MediaUploadController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/std_profiles/create.jspx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="77" column="47" lean-forward="false" selection-start-line="77" selection-start-column="42" selection-end-line="77" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cma/web/Std_profileController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="324" column="34" lean-forward="false" selection-start-line="324" selection-start-column="29" selection-end-line="324" selection-end-column="34" />
+          <folding>
+            <element signature="method#attachfileListForm#0;class#Std_profileController#0" expanded="false" />
+            <element signature="method#deleteChildren#0;class#Std_profileController#0" expanded="false" />
+            <element signature="method#deleteTraining#0;class#Std_profileController#0" expanded="false" />
+            <element signature="method#deleteEducation#0;class#Std_profileController#0" expanded="false" />
+            <element signature="method#findTrainingProfileList#0;class#Std_profileController#0" expanded="false" />
+            <element signature="method#findChildrenProfileList#0;class#Std_profileController#0" expanded="false" />
+            <element signature="method#actionChangeClass#0;class#Std_profileController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cma/UserWeb_Roo_Jpa_Entity.aj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#1039#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/cma/UserWebRole_Roo_Jpa_Entity.aj">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="18" column="19" lean-forward="false" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
           <folding>
-            <element signature="e#0#795#0" expanded="true" />
-            <element signature="e#663#664#0" expanded="true" />
-            <element signature="e#698#699#0" expanded="true" />
-            <marker date="1483013615050" expanded="false" signature="781:787" ph=" }" />
+            <element signature="e#0#765#0" expanded="true" />
+            <element signature="e#648#649#0" expanded="true" />
+            <element signature="e#678#679#0" expanded="true" />
+            <element signature="e#728#729#0" expanded="true" />
+            <element signature="e#756#757#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cma/UserWebRolePK.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="34" column="20" lean-forward="false" selection-start-line="34" selection-start-column="20" selection-end-line="34" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1611,8 +1354,19 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/cma/UserWebRole.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
-          <caret line="17" column="19" lean-forward="false" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
+          <caret line="17" column="33" lean-forward="false" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cma/utils/StudentUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="296" column="24" lean-forward="false" selection-start-line="296" selection-start-column="24" selection-end-line="296" selection-end-column="24" />
+          <folding>
+            <element signature="method#generateUniqueUsername#0;class#StudentUtils#0" expanded="false" />
+            <element signature="method#bCryptEncode#0;class#StudentUtils#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

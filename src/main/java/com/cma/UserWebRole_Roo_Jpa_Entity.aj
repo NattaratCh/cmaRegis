@@ -16,15 +16,15 @@ privileged aspect UserWebRole_Roo_Jpa_Entity {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "user_id")
-    private Long UserWebRole.user_id;
+    @Column(name = "id")
+    private Long UserWebRole.id;
     
-    public Long UserWebRole.getUser_id() {
-        return this.user_id;
+    public Long UserWebRole.getId() {
+        return this.id;
     }
     
-    public void UserWebRole.setUser_id(Long id) {
-        this.user_id = id;
+    public void UserWebRole.setId(Long id) {
+        this.id = id;
     }
     
 }
